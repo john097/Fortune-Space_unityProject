@@ -159,9 +159,7 @@ public class Actor : MonoBehaviour
         {
             if (!isTakingTool)
             {
-                //Move();
-                
-                Look();
+                Move();
 
                 Skill(skillArrNum);
 
@@ -182,7 +180,7 @@ public class Actor : MonoBehaviour
         {
             if (!isTakingTool)
             {
-                Move();
+                Look();
             }
         }
     }
@@ -284,9 +282,10 @@ public class Actor : MonoBehaviour
             //播放动画
             NowMoveState(moveDirection);
 
-            moveDirection.y = thisRigidbody.velocity.y; 
+            moveDirection.y = thisRigidbody.velocity.y;
 
             thisRigidbody.velocity = moveDirection;
+           
         }
 
     }
