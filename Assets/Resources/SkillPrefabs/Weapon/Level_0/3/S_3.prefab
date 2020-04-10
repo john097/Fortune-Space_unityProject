@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8221818410721560377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8394335988958288428}
+  - component: {fileID: 7468497074292987846}
+  m_Layer: 0
+  m_Name: S_InitialShotgun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8394335988958288428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8221818410721560377}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7468497074292987846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8221818410721560377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84646d5a1a5f904db136a585982853b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: "\u521D\u59CB\u9730\u5F39\u67AA"
+  skillExplain: 
+  thisWeaponType: 3
+  thisSkillAnimState: 0
+  thisSkillAnimSpeed: 0
+  thisSkillSpeedNum: 0
+  thisSkillAnimTime: 0
+  castActionTime_Tag: 0
+  Main_Tag: 0
+  castActionTime: 0.5
+  castTime: 1.5
+  cantCancelAfterCastAction: 0
+  cantCancelACATime: 0
+  cantTurnInCastTime: 0
+  cantTurnStartTime: 0
+  cantTurnTime: 0
+  ammoNumLimit: 6
+  ammoNum: 6
+  reloadTime: 2
+  reloadKey: 114
+  coolDownTime: 1.5
+  mustCancel: 0
+  cantCancel: 0
+  isStepSkill: 0
+  stepSpeed: 0
+  bulletPrefabs:
+  - {fileID: 5387840854337074684, guid: 050f4764a6aca934094d6c1100959eab, type: 3}
+  - {fileID: 5387840854337074684, guid: 050f4764a6aca934094d6c1100959eab, type: 3}
+  - {fileID: 5387840854337074684, guid: 050f4764a6aca934094d6c1100959eab, type: 3}
+  - {fileID: 5387840854337074684, guid: 050f4764a6aca934094d6c1100959eab, type: 3}
+  bulletOffsets:
+  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 1}
+  bulletRotationOffsets:
+  - {x: 0, y: 15, z: 0}
+  - {x: 0, y: 5, z: 0}
+  - {x: 0, y: -5, z: 0}
+  - {x: 0, y: -15, z: 0}
+  attackWarningPrefabs: []
+  attackWarningOffsets: []
+  attackWarningRotationOffsets: []
+  attackWarningDestoryTime: 0
+  skillVariant: {fileID: 0}
+  comboTime: 0
+  comboNum: 0
+  comboSkills: []
+  buffPrefabsInCastActionTime: []
+  buffPrefabs:
+  - {fileID: 6170946277397749143, guid: 5405ac87d1b8fcb49b49a89d788f581c, type: 3}
+  skillVariantEvent: 0
+  actor: {fileID: 0}

@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5270904759628804547
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5270904759628804546}
+  - component: {fileID: 5270904759628804549}
+  m_Layer: 0
+  m_Name: S_PinDown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5270904759628804546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5270904759628804547}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.44, z: 3.41}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5270904759628804549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5270904759628804547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84646d5a1a5f904db136a585982853b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: "\u7275\u5236"
+  castActionTime_Tag: 0
+  Main_Tag: 0
+  castActionTime: 0.5
+  castTime: 1
+  cantTurnInCastTime: 1
+  cantTurnStartTime: 0
+  cantTurnTime: 1
+  ammoNumLimit: 0
+  ammoNum: 0
+  reloadTime: 0
+  reloadKey: 0
+  coolDownTime: 2
+  mustCancel: 0
+  cantCancel: 0
+  isStepSkill: 0
+  stepSpeed: 0
+  bulletPrefabs:
+  - {fileID: 2276013698502478179, guid: a653266c712a95b419ba832ce8cfc5f2, type: 3}
+  bulletOffsets:
+  - {x: 0, y: 0, z: 0}
+  bulletRotationOffsets:
+  - {x: 0, y: 0, z: 0}
+  skillVariant: {fileID: 0}
+  comboTime: 0
+  comboNum: 0
+  comboSkills: []
+  buffPrefabsInCastActionTime:
+  - {fileID: 0}
+  buffPrefabs:
+  - {fileID: 2196822621788617863, guid: 260e7df8c6a50984c86bb9771c81d374, type: 3}
+  skillVariantEvent: 0

@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1459136577918355600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1459136577918355615}
+  - component: {fileID: 1459136577918355614}
+  m_Layer: 0
+  m_Name: S_Revenge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1459136577918355615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459136577918355600}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1459136579077776360}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1459136577918355614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459136577918355600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84646d5a1a5f904db136a585982853b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: "\u590D\u4EC7"
+  castActionTime_Tag: 0
+  Main_Tag: 0
+  castActionTime: 0.1
+  castTime: 1.5
+  cantTurnInCastTime: 1
+  cantTurnStartTime: 0
+  cantTurnTime: 1.5
+  ammoNumLimit: 0
+  ammoNum: 0
+  reloadTime: 0
+  reloadKey: 0
+  coolDownTime: 2
+  mustCancel: 1
+  cantCancel: 0
+  isStepSkill: 0
+  stepSpeed: 0
+  bulletPrefabs:
+  - {fileID: 4537102702703356570, guid: fe8ba789a95c7774f97bd5d42a702f25, type: 3}
+  bulletOffsets:
+  - {x: 0, y: 0, z: 1.5}
+  bulletRotationOffsets:
+  - {x: 0, y: 0, z: 0}
+  skillVariant: {fileID: 1459136579077776343}
+  comboTime: 0
+  comboNum: 0
+  comboSkills: []
+  buffPrefabsInCastActionTime:
+  - {fileID: 5497257284127662012, guid: 843558bdbdb994449bbc0496a94a7e11, type: 3}
+  buffPrefabs: []
+  skillVariantEvent: 0
+--- !u!1 &1459136579077776361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1459136579077776360}
+  - component: {fileID: 1459136579077776343}
+  m_Layer: 0
+  m_Name: S_Revenge_Variant_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1459136579077776360
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459136579077776361}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1459136577918355615}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1459136579077776343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459136579077776361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84646d5a1a5f904db136a585982853b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: "\u590D\u4EC7"
+  castActionTime_Tag: 0
+  Main_Tag: 0
+  castActionTime: 0.1
+  castTime: 0.5
+  cantTurnInCastTime: 1
+  cantTurnStartTime: 0
+  cantTurnTime: 0.5
+  ammoNumLimit: 0
+  ammoNum: 0
+  reloadTime: 0
+  reloadKey: 0
+  coolDownTime: 0
+  mustCancel: 1
+  cantCancel: 1
+  isStepSkill: 0
+  stepSpeed: 0
+  bulletPrefabs:
+  - {fileID: 4688727010566055277, guid: d2b552d3d30943a4a84371484da63929, type: 3}
+  bulletOffsets:
+  - {x: 0, y: 0, z: 0}
+  bulletRotationOffsets:
+  - {x: 0, y: 0, z: 0}
+  skillVariant: {fileID: 0}
+  comboTime: 0
+  comboNum: 0
+  comboSkills: []
+  buffPrefabsInCastActionTime:
+  - {fileID: 5448528744795969956, guid: 5c71eda666ec51442a17b1e5127eac03, type: 3}
+  buffPrefabs: []
+  skillVariantEvent: 0
