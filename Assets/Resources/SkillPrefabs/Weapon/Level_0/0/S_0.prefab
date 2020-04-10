@@ -46,7 +46,8 @@ MonoBehaviour:
   skillName: "\u8D77\u59CB\u592A\u5200"
   skillExplain: 
   thisWeaponType: 5
-  thisSkillAnimState: 1
+  weaponModelNum: 0
+  thisSkillAnimState: 102
   thisSkillAnimSpeed: 1.2
   thisSkillSpeedNum: 1
   thisSkillAnimTime: 0.6
@@ -133,7 +134,8 @@ MonoBehaviour:
   skillName: "\u8D77\u59CB\u592A\u5200"
   skillExplain: 
   thisWeaponType: 5
-  thisSkillAnimState: 1
+  weaponModelNum: 0
+  thisSkillAnimState: 103
   thisSkillAnimSpeed: 1
   thisSkillSpeedNum: 0
   thisSkillAnimTime: 1.6
@@ -185,7 +187,7 @@ GameObject:
   - component: {fileID: 7700267545219929596}
   - component: {fileID: 7700267545219929599}
   m_Layer: 9
-  m_Name: S_InitialKatana
+  m_Name: S_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,7 +224,8 @@ MonoBehaviour:
   skillName: "\u8D77\u59CB\u592A\u5200"
   skillExplain: 
   thisWeaponType: 5
-  thisSkillAnimState: 1
+  weaponModelNum: 0
+  thisSkillAnimState: 101
   thisSkillAnimSpeed: 1.2
   thisSkillSpeedNum: 0
   thisSkillAnimTime: 1
@@ -258,8 +261,8 @@ MonoBehaviour:
   comboTime: 1.2
   comboNum: 0
   comboSkills:
-  - {fileID: 7700267543829780611}
-  - {fileID: 7700267544115785158}
+  - {fileID: 0}
+  - {fileID: 0}
   buffPrefabsInCastActionTime: []
   buffPrefabs:
   - {fileID: 5696292650377325008, guid: 723ece8812537f2469f365bd3b874b69, type: 3}
