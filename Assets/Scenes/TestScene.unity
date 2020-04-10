@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -670,9 +670,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!1001 &87994995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2450,7 +2450,7 @@ GameObject:
   - component: {fileID: 258158919}
   - component: {fileID: 258158918}
   - component: {fileID: 258158917}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13501,7 +13501,7 @@ GameObject:
   - component: {fileID: 1380149342}
   - component: {fileID: 1380149341}
   - component: {fileID: 1380149340}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14252,7 +14252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470590764}
   m_LocalRotation: {x: 0.25508443, y: -0, z: -0, w: 0.96691877}
-  m_LocalPosition: {x: -6.9, y: 5.2, z: -0.94}
+  m_LocalPosition: {x: -6.9, y: 7.9, z: -6.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -14271,7 +14271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Player: {fileID: 81979952}
-  smooth: 2
+  smooth: 5
 --- !u!114 &1470590769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15730,7 +15730,7 @@ GameObject:
   - component: {fileID: 1678797043}
   - component: {fileID: 1678797042}
   - component: {fileID: 1678797041}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17898,7 +17898,7 @@ GameObject:
   - component: {fileID: 1953539405}
   - component: {fileID: 1953539404}
   - component: {fileID: 1953539403}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
