@@ -18,7 +18,7 @@ public class Cam : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         //摄像机的位置
         transform.position = Vector3.Lerp(transform.position, m_Player.transform.position - Dir, Time.deltaTime * smooth);
