@@ -159,7 +159,7 @@ public class Actor : MonoBehaviour
         {
             if (!isTakingTool)
             {
-                Move();
+                //Move();
                 
                 Look();
 
@@ -174,6 +174,17 @@ public class Actor : MonoBehaviour
         }
 
         
+    }
+
+    private void FixedUpdate()
+    {
+        if (isAlive && isPlayer)
+        {
+            if (!isTakingTool)
+            {
+                Move();
+            }
+        }
     }
 
     private void Look()
@@ -236,7 +247,7 @@ public class Actor : MonoBehaviour
 
                 if (selectIndex != -1)
                 {
-                    Tools[selectIndex].GetComponent<Tool>().UseFunc();
+                    Tools[selectIndex].GetComponent<Stage>().UseFunc();
                 }
             }
         }

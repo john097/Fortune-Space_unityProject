@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class SelectUIScript : MonoBehaviour
 {
     [HideInInspector]
-        public Tool tool;
-    public Tool.toolType thisType;
+        public Stage tool;
+    public Stage.toolType thisType;
 
     private GameObject[] messages;
     private int selectingTool;
@@ -21,7 +21,7 @@ public class SelectUIScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (thisType == Tool.toolType.商店)
+        if (thisType == Stage.toolType.商店)
         {
             InformationUpdata();
         }

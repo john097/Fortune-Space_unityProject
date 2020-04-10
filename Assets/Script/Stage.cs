@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tool : MonoBehaviour
+public class Stage : MonoBehaviour
 {
     [HideInInspector]
     public Skill toolSkill;
@@ -121,7 +121,7 @@ public class Tool : MonoBehaviour
         else
         {
             GameObject a = Instantiate(storeUI, GameObject.Find("Canvas").transform);
-            a.GetComponent<SelectUIScript>().tool = gameObject.GetComponent<Tool>();
+            a.GetComponent<SelectUIScript>().tool = gameObject.GetComponent<Stage>();
             a.GetComponent<SelectUIScript>().SetInformation();
         }
     }
@@ -135,7 +135,7 @@ public class Tool : MonoBehaviour
         else
         {
             GameObject a = Instantiate(interactiveUI, GameObject.Find("Canvas").transform);
-            a.GetComponent<SelectUIScript>().tool = gameObject.GetComponent<Tool>();
+            a.GetComponent<SelectUIScript>().tool = gameObject.GetComponent<Stage>();
         }
     }
 
@@ -202,7 +202,7 @@ public class Tool : MonoBehaviour
         
         actor.isTakingTool = false;
 
-        if (thisToolType == Tool.toolType.道具)
+        if (thisToolType == Stage.toolType.道具)
         {
             Destroy(gameObject);
         }
