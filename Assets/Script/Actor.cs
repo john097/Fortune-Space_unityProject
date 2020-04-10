@@ -159,9 +159,7 @@ public class Actor : MonoBehaviour
         {
             if (!isTakingTool)
             {
-                //Move();
-                
-                Look();
+                Move();
 
                 Skill(skillArrNum);
 
@@ -182,7 +180,7 @@ public class Actor : MonoBehaviour
         {
             if (!isTakingTool)
             {
-                Move();
+                Look();
             }
         }
     }
@@ -266,7 +264,7 @@ public class Actor : MonoBehaviour
             }
 
             //是否憨憨玩家没有按方向键
-            if (steping && Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
+            if (steping && Input.GetAxis("Horizontal") < 0.01 && Input.GetAxis("Vertical") < 0.01)
             {
                 moveDirection = thisTimeForward;
             }
@@ -280,10 +278,14 @@ public class Actor : MonoBehaviour
                 moveDirection *= speed;
             }
 
+
             //播放动画
             NowMoveState(moveDirection);
 
+            moveDirection.y = thisRigidbody.velocity.y;
+
             thisRigidbody.velocity = moveDirection;
+           
         }
 
     }

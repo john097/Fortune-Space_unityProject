@@ -245,7 +245,7 @@ public class Bullet : MonoBehaviour
             a.TakeDamege(d);
 
             //击退
-            if (repel != 0)
+            if (!a.superArmorBuff && repel != 0)
             {
                 Vector3 dir;
                 if (repelRelativeSelf)
