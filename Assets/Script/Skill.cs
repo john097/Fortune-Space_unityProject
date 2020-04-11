@@ -127,7 +127,7 @@ public  class Skill : MonoBehaviour
         public bool skillVariantEvent;
 
     private float timer;//计时用的变量
-    private float coolDownTimer;//冷却计时用的变量
+    public  float coolDownTimer;//冷却计时用的变量
     private float reloadTimer;//换弹计时用的变量
     private float comboTimer;//计算Combo的变量
     private float thisSkillAnimTimer;
@@ -368,6 +368,7 @@ public  class Skill : MonoBehaviour
             if (timer==0)
             {
                 coolDownFlag = true;
+                coolDownTimer = 0;
                 CastActionFunc();
 
                 actor.SetLookAtTag(true);
@@ -458,7 +459,7 @@ public  class Skill : MonoBehaviour
         {
             if (coolDownTimer >= coolDownTime)
             {
-                coolDownTimer = 0;
+                //coolDownTimer = 0;
                 coolDownFlag = false;
                 useSkillOnce = true;
                 //Debug.Log(skillName + "  技能冷却完毕");

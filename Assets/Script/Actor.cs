@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Actor : MonoBehaviour
 {
@@ -86,12 +87,12 @@ public class Actor : MonoBehaviour
     [Tooltip("特殊交互键")]
         public KeyCode specialInteractiveKey;
 
-    public GameObject[] Tools;
+    private GameObject[] Tools;
 
-    //[HideInInspector]
+    [HideInInspector]
         public Skill UsingSkill;//正在释放的技能
 
-    //[HideInInspector]
+    [HideInInspector]
         public GameObject aWarning;
 
     private bool steping;//是否处于闪避状态
@@ -116,7 +117,7 @@ public class Actor : MonoBehaviour
     [HideInInspector]
         public Rigidbody thisRigidbody;
 
-    //[HideInInspector]
+    [HideInInspector]
         public Animator thisAnimator;
 
     [HideInInspector]
@@ -131,10 +132,17 @@ public class Actor : MonoBehaviour
     [HideInInspector]
         public int nowThisTakeWeaponNum;
 
-    public float recoverTimeScaleTimer;
+    private float recoverTimeScaleTimer;
 
-    //[HideInInspector]
+    [HideInInspector]
         public float hitChangeTimeScaleTime;
+
+    public Slider healSlider;
+    public Text ammoText;
+    public Slider skill_0_Slider;
+    public Slider skill_1_Slider;
+    public Slider skill_2_Slider;
+    public Slider skill_3_Slider;
 
     private Vector3 cForward;
     private Vector3 cRight;
@@ -189,6 +197,8 @@ public class Actor : MonoBehaviour
                 SpecialInteractive();
             }
 
+            UIUpdate();
+
             RecoverTimeScale();
 
             changeWeaponModel();
@@ -209,6 +219,71 @@ public class Actor : MonoBehaviour
 
             }
         }
+    }
+
+    private void UIUpdate()
+    {
+        if (healSlider)
+        {
+            UEScript.UpdateSilder(heal,0,maxHeal,healSlider);
+        }
+
+        if (ammoText)
+        {
+            if (skillArrNum == 0)
+            {
+                UEScript.UpdateText(Skills_0[0].ammoNum + "/" + Skills_0[0].ammoNumLimit, ammoText);
+            }
+            else if (skillArrNum == 1)
+            {
+                UEScript.UpdateText(Skills_1[0].ammoNum + "/" + Skills_1[0].ammoNumLimit, ammoText);
+            }
+        }
+
+        if (skillArrNum == 0)
+        {
+            if (skill_0_Slider)
+            {
+                UEScript.UpdateSilder(Skills_0[1].coolDownTimer,0, Skills_0[1].coolDownTime,skill_0_Slider);
+            }
+
+            if (skill_1_Slider)
+            {
+                UEScript.UpdateSilder(Skills_0[2].coolDownTimer, 0, Skills_0[2].coolDownTime, skill_1_Slider);
+            }
+
+            if (skill_2_Slider)
+            {
+                UEScript.UpdateSilder(Skills_0[3].coolDownTimer, 0, Skills_0[3].coolDownTime, skill_2_Slider);
+            }
+
+            if (skill_3_Slider)
+            {
+                UEScript.UpdateSilder(Skills_0[4].coolDownTimer, 0, Skills_0[4].coolDownTime, skill_3_Slider);
+            }
+        }else if (skillArrNum == 1)
+        {
+            if (skill_0_Slider)
+            {
+                UEScript.UpdateSilder(Skills_1[1].coolDownTimer, 0, Skills_1[1].coolDownTime, skill_0_Slider);
+            }
+
+            if (skill_1_Slider)
+            {
+                UEScript.UpdateSilder(Skills_1[2].coolDownTimer, 0, Skills_1[2].coolDownTime, skill_1_Slider);
+            }
+
+            if (skill_2_Slider)
+            {
+                UEScript.UpdateSilder(Skills_1[3].coolDownTimer, 0, Skills_1[3].coolDownTime, skill_2_Slider);
+            }
+
+            if (skill_3_Slider)
+            {
+                UEScript.UpdateSilder(Skills_1[4].coolDownTimer, 0, Skills_1[4].coolDownTime, skill_3_Slider);
+            }
+        }
+
     }
 
     private void Look()

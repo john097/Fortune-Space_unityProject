@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UE : MonoBehaviour
+public class UEScript : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -18,29 +18,29 @@ public class UE : MonoBehaviour
         
     }
 
-    private void ChangeScene(int i)
+    public static void ChangeScene(int i)
     {
         SceneManager.LoadScene(i);
     }
 
-    private void CreateUE(GameObject u)
+    public static void CreateUE(GameObject u)
     {
         GameObject uE = Instantiate(u, GameObject.Find("Canvas").transform);
     }
 
-    public void UpdateSilder(float i,float minValue,float maxValue,Slider s)
+    public static void UpdateSilder(float value,float minValue,float maxValue,Slider s)
     {
-        s.value = i;
+        s.value = value;
         s.minValue = minValue;
         s.maxValue = maxValue;
     }
 
-    public void UpdateSilder(float i,Slider s)
+    public static void UpdateSilder(float value, Slider s)
     {
-        s.value = i;
+        s.value = value;
     }
 
-    public void UpdateText(string s,Text t)
+    public static void UpdateText(string s,Text t)
     {
         t.text = s;
     }
