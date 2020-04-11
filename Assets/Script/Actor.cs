@@ -332,6 +332,7 @@ public class Actor : MonoBehaviour
             if (Vector3.Angle(Vector3.right, transform.forward) < 45 && transform.forward.x > 0)
             {
                 d.z = -d.z;
+                d.x = -d.x;
             }
 
             thisAnimator.SetFloat("HSpeed", d.x);
