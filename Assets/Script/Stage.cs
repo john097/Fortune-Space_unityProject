@@ -10,10 +10,13 @@ public class Stage : MonoBehaviour
     public Skill[] storeSkills;
     private Actor actor;
 
+    public float heal;
+
     public enum toolType
     {
         道具,
-        商店
+        商店,
+        特殊交互点
     }
 
     public enum createType
@@ -33,13 +36,16 @@ public class Stage : MonoBehaviour
     {
         actor = GameObject.Find("Actor").GetComponent<Actor>();
 
-        if (thisCreateType == createType.固定)
+        if (thisToolType != toolType.特殊交互点)
         {
-            RefrashToolList();
-        }
-        else
-        {
-            RandomTools(0);
+            if (thisCreateType == createType.固定)
+            {
+                RefrashToolList();
+            }
+            else
+            {
+                RandomTools(0);
+            }
         }
     }
 
@@ -55,8 +61,8 @@ public class Stage : MonoBehaviour
         {
             toolSkill = gameObject.transform.GetComponentInChildren<Skill>();
         }
-        else
-        { 
+        else if (thisToolType == toolType.商店)
+        {
             storeSkills = new Skill[gameObject.transform.childCount];
             for (int i = 0; i < gameObject.transform.childCount; i++)
             {
@@ -81,7 +87,7 @@ public class Stage : MonoBehaviour
                 sPrefabs = Resources.Load("SkillPrefabs/Weapon/Level_" + j + "/" + h + "/S_" + h) as GameObject;
                 s = Instantiate(sPrefabs, gameObject.transform);
             }
-            else
+            else 
             {
                 int j = Random.Range(0, k + 1);
                 int h = Random.Range(0, 4);
@@ -89,7 +95,7 @@ public class Stage : MonoBehaviour
                 s = Instantiate(sPrefabs, gameObject.transform);
             }
         }
-        else
+        else if (thisToolType == toolType.商店)
         {
             for (int i = 0; i < 4; i++)
             {
@@ -118,11 +124,15 @@ public class Stage : MonoBehaviour
         {
             GetTool();
         }
-        else
+        else if(thisToolType == toolType.商店)
         {
             GameObject a = Instantiate(storeUI, GameObject.Find("Canvas").transform);
             a.GetComponent<SelectUIScript>().tool = gameObject.GetComponent<Stage>();
             a.GetComponent<SelectUIScript>().SetInformation();
+        }
+        else if (thisToolType == toolType.特殊交互点)
+        {
+
         }
     }
 
@@ -227,6 +237,16 @@ public class Stage : MonoBehaviour
 
         t.transform.position = actor.transform.position;
         t.GetComponent<Rigidbody>().AddForce(Vector3.up * 0.01f, ForceMode.Impulse);
+    }
+
+    public void TakeDamege(float i)
+    {
+        heal -= i;
+
+        if (heal <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

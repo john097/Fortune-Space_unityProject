@@ -331,26 +331,40 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Actor a = other.gameObject.GetComponent<Actor>();
-        if (a)
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy") || other.gameObject.layer == LayerMask.NameToLayer("Actor"))
         {
-            HitTargetFunc(a);
-        }
+            Actor a = other.gameObject.GetComponent<Actor>();
+            if (a)
+            {
+                HitTargetFunc(a);
+            }
 
-        if (hitEffect)
-        {
-            CreateEffect(hitEffect);
-        }
+            if (hitEffect)
+            {
+                CreateEffect(hitEffect);
+            }
 
-        if (skillVariantEvent)
-        {
-            skillParent.UseSkillVariant();
-        }
+            if (skillVariantEvent)
+            {
+                skillParent.UseSkillVariant();
+            }
 
-        if (destoryTarget)
-        {
-            Destroy(other.gameObject);
+            if (destoryTarget)
+            {
+                Destroy(other.gameObject);
+            }
+
+            if (a && destoryAfterCollisionWithActor && a.gameObject == actor.gameObject)
+            {
+                DestroyBullet();
+            }
         }
+        else if (other.gameObject.layer == LayerMask.NameToLayer("Tool"))
+        {
+            Stage s = other.gameObject.GetComponent<Stage>();
+            s.TakeDamege(damage);
+        }
+        
 
         //碰撞后是否销毁自身
         if (destoryAfterCollision)
@@ -358,10 +372,7 @@ public class Bullet : MonoBehaviour
             DestroyBullet();
         }
 
-        if (a && destoryAfterCollisionWithActor && a.gameObject == actor.gameObject)
-        {
-            DestroyBullet();
-        }
+        
     }
 
     private void OnTriggerStay(Collider other)
