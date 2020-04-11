@@ -95,7 +95,9 @@ public class Bullet : MonoBehaviour
         public Skill skillParent;
 
     Rigidbody thisRigidbody;
-    
+
+    public float BUFF_CD;//***DISON.VER***
+    public float buff_timer;//***DISON.VER***
 
     // Start is called before the first frame update
     void Start()
@@ -377,19 +379,35 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (isSustained)
-        {
-            Actor a = other.gameObject.GetComponent<Actor>();
-            if (a)
-            {
-                HitTargetFunc(a);
-            }
+        //if (isSustained)
+        //{
+        //    Actor a = other.gameObject.GetComponent<Actor>();
+        //    if (a)
+        //    {
+        //        HitTargetFunc(a);
+        //    }
 
-            if (skillVariantEvent)
-            {
-                skillParent.UseSkillVariant();
-            }
+        //    if (skillVariantEvent)
+        //    {
+        //        skillParent.UseSkillVariant();
+        //    }
+        //}
+
+        Actor a = other.gameObject.GetComponent<Actor>();
+        buff_timer += Time.deltaTime;
+
+        if (a && isSustained && buff_timer >= BUFF_CD)
+        {
+
+            HitTargetFunc(a);
+            buff_timer = 0;
         }
+        if (skillVariantEvent && isSustained && buff_timer >= BUFF_CD)
+        {
+            skillParent.UseSkillVariant();
+            buff_timer = 0;
+        }
+
     }
 
     private void DestroyBullet()

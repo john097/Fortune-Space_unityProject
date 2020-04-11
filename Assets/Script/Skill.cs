@@ -133,7 +133,7 @@ public  class Skill : MonoBehaviour
     private float thisSkillAnimTimer;
 
     private bool useSkillOnce;//卡Update用的flag
-    private bool coolDownFlag;//字面意思
+    public bool coolDownFlag;//字面意思
     private bool reloadFlag;//字面意思
 
     public Actor actor;//角色对象
