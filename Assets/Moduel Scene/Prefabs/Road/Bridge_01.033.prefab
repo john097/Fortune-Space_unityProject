@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6333474866235070153}
   - component: {fileID: 6277157031477385850}
   - component: {fileID: 7807325727224855791}
-  m_Layer: 0
+  - component: {fileID: 881799522860163765}
+  m_Layer: 31
   m_Name: Bridge_01+Stair_01.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2180696125016552179, guid: ac512171371ef414386864abeea1fc17, type: 3}
+  - {fileID: 2100000, guid: 5260f8bc681df1c4db1e1e9bcd47f249, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,6 +78,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &881799522860163765
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389745432503791906}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 6888399978957505171, guid: ac512171371ef414386864abeea1fc17, type: 3}
 --- !u!1 &1256956808459537485
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +103,8 @@ GameObject:
   - component: {fileID: 1853861134857404206}
   - component: {fileID: 4948246147081790527}
   - component: {fileID: 2572772004300680855}
-  m_Layer: 0
+  - component: {fileID: 7841153160850423141}
+  m_Layer: 31
   m_Name: Bridge_01.032
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +150,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2180696125016552179, guid: ac512171371ef414386864abeea1fc17, type: 3}
+  - {fileID: 2100000, guid: 5260f8bc681df1c4db1e1e9bcd47f249, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -154,6 +170,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7841153160850423141
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256956808459537485}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 6237737008105023267, guid: ac512171371ef414386864abeea1fc17, type: 3}
 --- !u!1 &1459796658973547047
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +195,7 @@ GameObject:
   - component: {fileID: 4766461798216639851}
   - component: {fileID: 6780920604032328985}
   - component: {fileID: 1472935162615848128}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: cr_frence3.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +273,7 @@ GameObject:
   - component: {fileID: 1483927826834080318}
   - component: {fileID: 7009422444648734174}
   - component: {fileID: 4817629187558447986}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: cr_frence3.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +350,7 @@ GameObject:
   - component: {fileID: 9156963037779236703}
   - component: {fileID: 6135443786274088406}
   - component: {fileID: 2392751993193188957}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: cr_frence3.017
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +427,7 @@ GameObject:
   - component: {fileID: 913362565802234341}
   - component: {fileID: 7040512479013238596}
   - component: {fileID: 8561019557047434411}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: cr_frence3.019
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +504,8 @@ GameObject:
   - component: {fileID: 1645875216813113691}
   - component: {fileID: 6222764911656058977}
   - component: {fileID: 2013757951622919493}
-  m_Layer: 0
+  - component: {fileID: 7341236124636724383}
+  m_Layer: 31
   m_Name: Bridge_01+Stair_02.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,7 +551,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2180696125016552179, guid: ac512171371ef414386864abeea1fc17, type: 3}
+  - {fileID: 2100000, guid: 5260f8bc681df1c4db1e1e9bcd47f249, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -540,6 +571,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7341236124636724383
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2495229576132206817}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -6089007998644937429, guid: ac512171371ef414386864abeea1fc17, type: 3}
 --- !u!1 &2843787565398470596
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,7 +596,8 @@ GameObject:
   - component: {fileID: 706134911492101826}
   - component: {fileID: 4058493445694412992}
   - component: {fileID: 8627940665223166010}
-  m_Layer: 0
+  - component: {fileID: 2467429984953468613}
+  m_Layer: 31
   m_Name: Bridge_01.031
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -597,7 +643,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2180696125016552179, guid: ac512171371ef414386864abeea1fc17, type: 3}
+  - {fileID: 2100000, guid: 5260f8bc681df1c4db1e1e9bcd47f249, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -617,6 +663,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2467429984953468613
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2843787565398470596}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 514883370265110296, guid: ac512171371ef414386864abeea1fc17, type: 3}
 --- !u!1 &3281347235237703957
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,7 +688,7 @@ GameObject:
   - component: {fileID: 4735322114008322650}
   - component: {fileID: 1694000087968240731}
   - component: {fileID: 2593540167744123129}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: cr_frence3.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -705,7 +765,7 @@ GameObject:
   - component: {fileID: 831607017013364803}
   - component: {fileID: 5656097090024394505}
   - component: {fileID: 9111241439343344197}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: cr_frence3.018
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -782,7 +842,7 @@ GameObject:
   - component: {fileID: 7972008824310168254}
   - component: {fileID: 159830840422574974}
   - component: {fileID: 4608976251912525369}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: cr_frence3.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -860,7 +920,8 @@ GameObject:
   - component: {fileID: 3785524184733495661}
   - component: {fileID: 7981697065889789945}
   - component: {fileID: 5300521130217423356}
-  m_Layer: 0
+  - component: {fileID: 3116790185649011316}
+  m_Layer: 31
   m_Name: Bridge_01+Stair_02.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -906,7 +967,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2180696125016552179, guid: ac512171371ef414386864abeea1fc17, type: 3}
+  - {fileID: 2100000, guid: 5260f8bc681df1c4db1e1e9bcd47f249, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -926,6 +987,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3116790185649011316
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4214697409853555502}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -229502613057506604, guid: ac512171371ef414386864abeea1fc17, type: 3}
 --- !u!1 &4367613615082116938
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,7 +1012,8 @@ GameObject:
   - component: {fileID: 8993103198198865776}
   - component: {fileID: 6061599526270430865}
   - component: {fileID: 3683158028399343031}
-  m_Layer: 0
+  - component: {fileID: 2106588989738489082}
+  m_Layer: 31
   m_Name: Bridge_01.030
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -983,7 +1059,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2180696125016552179, guid: ac512171371ef414386864abeea1fc17, type: 3}
+  - {fileID: 2100000, guid: 5260f8bc681df1c4db1e1e9bcd47f249, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1003,6 +1079,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2106588989738489082
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4367613615082116938}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -9155515082838058973, guid: ac512171371ef414386864abeea1fc17, type: 3}
 --- !u!1 &4457306944481887152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,7 +1104,7 @@ GameObject:
   - component: {fileID: 8358893218842229877}
   - component: {fileID: 985515741359916671}
   - component: {fileID: 6375534327588227694}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: cr_frence3.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1091,7 +1181,8 @@ GameObject:
   - component: {fileID: 3213189332504362013}
   - component: {fileID: 8740694826399986083}
   - component: {fileID: 9068656576396322555}
-  m_Layer: 0
+  - component: {fileID: 1264272167131105043}
+  m_Layer: 31
   m_Name: Bridge_01.033
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1159,7 +1250,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2180696125016552179, guid: ac512171371ef414386864abeea1fc17, type: 3}
+  - {fileID: 2100000, guid: 5260f8bc681df1c4db1e1e9bcd47f249, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1179,6 +1270,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &1264272167131105043
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4495588162683244355}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4985930572746840714, guid: ac512171371ef414386864abeea1fc17, type: 3}
 --- !u!1 &4561866005894037902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,7 +1295,7 @@ GameObject:
   - component: {fileID: 6329668039199558070}
   - component: {fileID: 6348450792167677533}
   - component: {fileID: 8214808570151319826}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: cr_frence3.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1267,7 +1372,7 @@ GameObject:
   - component: {fileID: 9181712595182341012}
   - component: {fileID: 8160847522552639333}
   - component: {fileID: 1307076525662766435}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: cr_frence3.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1345,7 +1450,7 @@ GameObject:
   - component: {fileID: 2295771513503197546}
   - component: {fileID: 806834502684170253}
   - component: {fileID: 2983352259451840965}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: cr_frence3.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1422,7 +1527,7 @@ GameObject:
   - component: {fileID: 851574508541817316}
   - component: {fileID: 2468893077394038486}
   - component: {fileID: 4645907491501288477}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: cr_frence3.015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1499,7 +1604,7 @@ GameObject:
   - component: {fileID: 466202503212945982}
   - component: {fileID: 7495231291715694399}
   - component: {fileID: 3416970004796268556}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: cr_frence3.016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1576,7 +1681,8 @@ GameObject:
   - component: {fileID: 4610172383182429102}
   - component: {fileID: 4939976778933103526}
   - component: {fileID: 7795027031999389763}
-  m_Layer: 0
+  - component: {fileID: 4530382946561433916}
+  m_Layer: 31
   m_Name: Bridge_01.029
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1622,7 +1728,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2180696125016552179, guid: ac512171371ef414386864abeea1fc17, type: 3}
+  - {fileID: 2100000, guid: 5260f8bc681df1c4db1e1e9bcd47f249, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1642,6 +1748,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &4530382946561433916
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7465424576031029084}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 7789335083302167986, guid: ac512171371ef414386864abeea1fc17, type: 3}
 --- !u!1 &7725450241813490906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,7 +1773,8 @@ GameObject:
   - component: {fileID: 4353582565051935531}
   - component: {fileID: 5465856185335235579}
   - component: {fileID: 8554983379320820041}
-  m_Layer: 0
+  - component: {fileID: 8305883076248779319}
+  m_Layer: 31
   m_Name: Bridge_01+Stair_01.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1699,7 +1820,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2180696125016552179, guid: ac512171371ef414386864abeea1fc17, type: 3}
+  - {fileID: 2100000, guid: 5260f8bc681df1c4db1e1e9bcd47f249, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1719,6 +1840,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8305883076248779319
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7725450241813490906}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -3167176904487288147, guid: ac512171371ef414386864abeea1fc17, type: 3}
 --- !u!1 &8595078167637881911
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,7 +1865,7 @@ GameObject:
   - component: {fileID: 733647104388969166}
   - component: {fileID: 4439002502484262723}
   - component: {fileID: 6133419641556238442}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: cr_frence3.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
