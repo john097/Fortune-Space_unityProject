@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Actor : MonoBehaviour
 {
+    public Camera FollowCamera;
+
     public enum specialType
     {
         无,
@@ -134,10 +136,27 @@ public class Actor : MonoBehaviour
     //[HideInInspector]
         public float hitChangeTimeScaleTime;
 
+    private Vector3 cForward;
+    private Vector3 cRight;
+
     private const string weaponPrefabsPaths = "Prefabs/Weapons/";
 
     void Start()
     {
+        Vector3 i = FollowCamera.transform.position;
+        Vector3 k = FollowCamera.transform.GetChild(0).transform.position;
+        i.y = 0;
+        k.y = 0;
+
+        cForward = k - i;
+        cForward = cForward.normalized;
+
+        i = FollowCamera.transform.position;
+        k = FollowCamera.transform.GetChild(1).transform.position;
+
+        cRight = k - i;
+        cRight = cRight.normalized;
+
         nowThisTakeWeapon = weaponType.非武器;
         heal = maxHeal;
         lookAtTag = true;
@@ -258,7 +277,9 @@ public class Actor : MonoBehaviour
     {
         if (!imprisonmentBuff && isAlive && isPlayer)//是否存在禁锢Buff
         {
-            moveDirection = Vector3.forward * Input.GetAxis("Vertical") + Vector3.right * Input.GetAxis("Horizontal");
+            //moveDirection = Vector3.forward * Input.GetAxis("Vertical") + Vector3.right * Input.GetAxis("Horizontal");
+
+            moveDirection = cForward * Input.GetAxis("Vertical") + cRight * Input.GetAxis("Horizontal");
 
             if (steping)
             {
@@ -300,9 +321,9 @@ public class Actor : MonoBehaviour
         if (isPlayer)
         {
             Vector3 d = dir;
-            d = Quaternion.AngleAxis(Vector3.Angle(Vector3.forward, transform.forward), Vector3.up) * d;
+            d = Quaternion.AngleAxis(Vector3.Angle(cForward, transform.forward), Vector3.up) * d;
 
-            if (Vector3.Angle(Vector3.right, transform.forward) < 45 && transform.forward.x > 0)
+            if (Vector3.Angle(cRight, transform.forward) < 45 && transform.forward.x > 0)
             {
                 d.z = -d.z;
             }
