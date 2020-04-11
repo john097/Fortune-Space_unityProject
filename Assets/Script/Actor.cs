@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Actor : MonoBehaviour
 {
-    public Camera FollowCamera;
+    public GameObject FollowCamera;
 
     public enum specialType
     {
@@ -86,7 +86,7 @@ public class Actor : MonoBehaviour
     [Tooltip("特殊交互键")]
         public KeyCode specialInteractiveKey;
 
-    private GameObject[] Tools;
+    public GameObject[] Tools;
 
     //[HideInInspector]
         public Skill UsingSkill;//正在释放的技能
@@ -116,7 +116,7 @@ public class Actor : MonoBehaviour
     [HideInInspector]
         public Rigidbody thisRigidbody;
 
-    [HideInInspector]
+    //[HideInInspector]
         public Animator thisAnimator;
 
     [HideInInspector]
@@ -136,33 +136,36 @@ public class Actor : MonoBehaviour
     //[HideInInspector]
         public float hitChangeTimeScaleTime;
 
-    private Vector3 cForward;
+    public Vector3 cForward;
     private Vector3 cRight;
 
     private const string weaponPrefabsPaths = "Prefabs/Weapons/";
 
     void Start()
     {
-        Vector3 i = FollowCamera.transform.position;
-        Vector3 k = FollowCamera.transform.GetChild(0).transform.position;
-        i.y = 0;
-        k.y = 0;
-
-        cForward = k - i;
-        cForward = cForward.normalized;
-
-        i = FollowCamera.transform.position;
-        k = FollowCamera.transform.GetChild(1).transform.position;
-
-        cRight = k - i;
-        cRight = cRight.normalized;
-
         nowThisTakeWeapon = weaponType.非武器;
         heal = maxHeal;
         lookAtTag = true;
         if (isPlayer)
         {
             thisAnimator = gameObject.transform.Find("ActorModel").GetComponent<Animator>();
+
+            Vector3 i = FollowCamera.transform.position;
+            Vector3 k = FollowCamera.transform.GetChild(0).transform.position;
+            i.y = 0;
+            k.y = 0;
+
+            cForward = k - i;
+            cForward = cForward.normalized;
+
+            i = FollowCamera.transform.position;
+            k = FollowCamera.transform.GetChild(1).transform.position;
+
+            i.y = 0;
+            k.y = 0;
+
+            cRight = k - i;
+            cRight = cRight.normalized;
         }
         thisRigidbody = GetComponent<Rigidbody>();
         moveDirection = Vector3.zero;
@@ -178,6 +181,7 @@ public class Actor : MonoBehaviour
         {
             if (!isTakingTool)
             {
+                //Move();
 
                 Skill(skillArrNum);
 
@@ -199,6 +203,7 @@ public class Actor : MonoBehaviour
             if (!isTakingTool)
             {
                 Look();
+                //transform.LookAt(new Vector3(cForward.x, transform.position.y, cForward.z));
 
                 Move();
 
@@ -291,7 +296,6 @@ public class Actor : MonoBehaviour
             if (steping && Input.GetAxis("Horizontal") <= 0.01f && Input.GetAxis("Vertical") <= 0.01f)
 
             if (steping && Input.GetAxis("Horizontal") < 0.01 && Input.GetAxis("Vertical") < 0.01)
-
             {
                 moveDirection = thisTimeForward;
             }
@@ -307,7 +311,9 @@ public class Actor : MonoBehaviour
 
 
             //播放动画
-            NowMoveState(moveDirection);
+            NowMoveState(moveDirection.normalized);
+
+            moveDirection.y = thisRigidbody.velocity.y;
 
             thisRigidbody.velocity = moveDirection;
            
@@ -817,12 +823,25 @@ public class Actor : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Tool"))
         {
+            bool a = true;
             for (int i = 0; i < Tools.Length; i++)
             {
-                if (!Tools[i])
+                if (Tools[i] == other.gameObject)
                 {
-                    Tools[i] = other.gameObject;
-                    break;
+                    a = false;
+                }
+                
+            }
+
+            if (a)
+            {
+                for (int i = 0; i < Tools.Length; i++)
+                {
+                    if (!Tools[i])
+                    {
+                        Tools[i] = other.gameObject;
+                        break;
+                    }
                 }
             }
         }

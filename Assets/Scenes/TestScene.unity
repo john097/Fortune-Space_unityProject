@@ -567,6 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73aab81ac60f9224f97c524e02954ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FollowCamera: {fileID: 1470590764}
   isPlayer: 1
   thisSpType: 0
   maxHeal: 100
@@ -590,6 +591,7 @@ MonoBehaviour:
   - {fileID: 402873769}
   - {fileID: 131778639}
   specialInteractiveKey: 101
+  Tools: []
   UsingSkill: {fileID: 0}
   aWarning: {fileID: 0}
   imprisonmentBuff: {fileID: 0}
@@ -610,6 +612,7 @@ MonoBehaviour:
   nowThisTakeWeaponNum: 0
   recoverTimeScaleTimer: 0
   hitChangeTimeScaleTime: 0
+  cForward: {x: 0, y: 0, z: 0}
 --- !u!54 &81979959
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -739,6 +742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toolSkill: {fileID: 0}
   storeSkills: []
+  heal: 0
   thisToolType: 0
   thisCreateType: 0
   interactiveUI: {fileID: 4284588454714518158, guid: 3fe9ce471372d194890dfb777a9bb434,
@@ -8465,6 +8469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73aab81ac60f9224f97c524e02954ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FollowCamera: {fileID: 0}
   isPlayer: 0
   thisSpType: 0
   maxHeal: 9999
@@ -8478,6 +8483,7 @@ MonoBehaviour:
   Skills_0: []
   Skills_1: []
   specialInteractiveKey: 0
+  Tools: []
   UsingSkill: {fileID: 0}
   aWarning: {fileID: 0}
   imprisonmentBuff: {fileID: 0}
@@ -8498,6 +8504,7 @@ MonoBehaviour:
   nowThisTakeWeaponNum: 0
   recoverTimeScaleTimer: 0
   hitChangeTimeScaleTime: 0
+  cForward: {x: 0, y: 0, z: 0}
 --- !u!54 &797361170
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13708,6 +13715,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a519bf12df81ba24ba35c4fb5b1e8016, type: 3}
+--- !u!1 &1410356047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1410356048}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1410356048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410356047}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1470590767}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1416328766 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7700267545219929596, guid: 8b7c9ceade12f5848b4db1d66da52094,
@@ -14212,7 +14249,9 @@ Transform:
   m_LocalRotation: {x: 0.25508443, y: -0, z: -0, w: 0.96691877}
   m_LocalPosition: {x: -6.9, y: 7.9, z: -6.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1558013679}
+  - {fileID: 1410356048}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 29.557001, y: 0, z: 0}
@@ -14562,16 +14601,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7700267545219929599, guid: 8b7c9ceade12f5848b4db1d66da52094,
-        type: 3}
-      propertyPath: thisSkillAnimState
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7700267545219929599, guid: 8b7c9ceade12f5848b4db1d66da52094,
-        type: 3}
-      propertyPath: thisSkillSpeedNum
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7700267543829780611, guid: 8b7c9ceade12f5848b4db1d66da52094,
         type: 3}
       propertyPath: thisSkillAnimState
@@ -14581,6 +14610,16 @@ PrefabInstance:
         type: 3}
       propertyPath: thisSkillAnimState
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700267545219929599, guid: 8b7c9ceade12f5848b4db1d66da52094,
+        type: 3}
+      propertyPath: thisSkillAnimState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700267545219929599, guid: 8b7c9ceade12f5848b4db1d66da52094,
+        type: 3}
+      propertyPath: thisSkillSpeedNum
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b7c9ceade12f5848b4db1d66da52094, type: 3}
@@ -14898,6 +14937,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a519bf12df81ba24ba35c4fb5b1e8016, type: 3}
+--- !u!1 &1558013678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1558013679}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1558013679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558013678}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1470590767}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1567786993 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5077431050957729442, guid: 41b0fbd74c1945c4882b7a8886b489c8,
@@ -18080,6 +18149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toolSkill: {fileID: 0}
   storeSkills: []
+  heal: 0
   thisToolType: 1
   thisCreateType: 1
   interactiveUI: {fileID: 4284588454714518158, guid: 3fe9ce471372d194890dfb777a9bb434,
