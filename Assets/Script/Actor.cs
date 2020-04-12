@@ -159,12 +159,12 @@ public class Actor : MonoBehaviour
     public bool isTalking;//**DISON.ver**对话时不让玩家移动
 
     private GameObject actor_tp;
-    private GameObject camera;
+ 
 
     void Start()
     {
         DontDestroyOnLoad(actor_tp);
-        DontDestroyOnLoad(camera);
+
 
 
         nowThisTakeWeapon = weaponType.非武器;
