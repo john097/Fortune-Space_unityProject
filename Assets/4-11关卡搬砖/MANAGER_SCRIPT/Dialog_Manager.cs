@@ -8,45 +8,57 @@ public class Dialog_Manager : MonoBehaviour
 {
     private Flowchart flowchart;
     private BattleManager DM_MANAGER;
+    private Actor actor;
 
     // Start is called before the first frame update
     void Start()
     {
-        flowchart = GameObject.Find("Flowchart1").GetComponent<Flowchart>();
-        DM_MANAGER = GameObject.Find("BattleManager").GetComponent<BattleManager>();
 
-
+        flowchart = GameObject.Find("Flowchart1").GetComponent<Flowchart>();        
+        actor = GameObject.Find("Actor").GetComponent<Actor>();
+        DM_MANAGER = GetComponent<BattleManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        State_Start_Talks();
+
+        Talking_Remove();
+
+
+    }
+
+    public void State_Start_Talks()
+    {
         if (DM_MANAGER.In_New_State)//第一关开场对话
         {
-            if (DM_MANAGER.Current_State == 1)
+            if (PlayerPrefs.GetInt("Current_State") == 1)
             {
                 flowchart.SendFungusMessage("State_1_Start");
+               
                 DM_MANAGER.In_New_State = false;
             }
 
-            if (DM_MANAGER.Current_State == 2)//第二关开场对话
+            if (PlayerPrefs.GetInt("Current_State") == 2)//第二关开场对话
             {
 
                 flowchart.SendFungusMessage("State_2_Start");
+               
                 DM_MANAGER.In_New_State = false;
             }
 
-            if (DM_MANAGER.Current_State == 3)
+            if (PlayerPrefs.GetInt("Current_State") == 3)//第三关开场对话
             {
                 flowchart.SendFungusMessage("State_3_Start");
+               
                 DM_MANAGER.In_New_State = false;
             }
 
 
 
         }
-
-        
     }
 
     public void ProtectPoint_Enter_Talk()//据点房入场对话
@@ -69,5 +81,35 @@ public class Dialog_Manager : MonoBehaviour
         flowchart.SendFungusMessage("BossBattle_Start");
     }
 
+    public void TP_Talk()//传送对话
+    {
+        if (PlayerPrefs.GetInt("Current_State") == 1)
+        {
+            flowchart.SendFungusMessage("State_1_Talk_TP");
+        }
+
+        if (PlayerPrefs.GetInt("Current_State") == 2)
+        {
+            flowchart.SendFungusMessage("State_2_Talk_TP");
+        }
+
+        if (PlayerPrefs.GetInt("Current_State") == 3)
+        {
+            flowchart.SendFungusMessage("State_3_Ending_Talk");
+        }
+    }
+
+
+    public void Talking_Remove()
+    {
+        if (flowchart.GetBooleanVariable("IS_TALKING"))
+        {
+            actor.isTalking = true;
+        }
+        else
+        {
+            actor.isTalking = false;
+        }
+    }
 
 }

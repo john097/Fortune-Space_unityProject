@@ -14518,6 +14518,7 @@ MonoBehaviour:
   skill_3_Slider: {fileID: 0}
   isDead: 0
   BeAttacked: 0
+  isTalking: 0
 --- !u!1001 &631299932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39654,6 +39655,7 @@ MonoBehaviour:
   skill_3_Slider: {fileID: 0}
   isDead: 0
   BeAttacked: 0
+  isTalking: 0
 --- !u!4 &1605112773
 Transform:
   m_ObjectHideFlags: 0
@@ -50618,8 +50620,6 @@ MonoBehaviour:
   interactiveUI: {fileID: 9071620318470035920, guid: 231d9c1e175535e43ab5d1a980054e65,
     type: 3}
   storeUI: {fileID: 0}
-  Crack_Progress: 0
-  StartCrack: 0
 --- !u!65 &2052035616
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52903,6 +52903,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293630642147629932, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: nodeRect.y
+      value: 138.2697
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293630642147629929, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: nodeRect.x
+      value: -307.70178
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293630642147629987, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: nodeRect.y
+      value: 49.121277
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ada0cca816dfde4a8344abc30515f40, type: 3}
