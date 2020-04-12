@@ -55,15 +55,7 @@ public class BattleManager : MonoBehaviour
 
     private Transform player_tf;
     private Transform BornRoom_tf;
-    public void Awake()
-    {
-        PlayerPrefs.DeleteKey("Current_State");
-        if (!PlayerPrefs.HasKey("Current_State"))
-        {
-            PlayerPrefs.SetInt("Current_State", 1);
-        }
-
-    }
+   
 
     // Start is called before the first frame update
     void Start()
@@ -77,15 +69,15 @@ public class BattleManager : MonoBehaviour
         {
             case 1:
                 BornRoom_tf = GameObject.Find("S1-Born_Zoom").transform;
-                player_tf.transform.position = new Vector3(BornRoom_tf.position.x, player_tf.position.y, BornRoom_tf.position.z);
+                player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
             case 2:
                 BornRoom_tf = GameObject.Find("S2-Born_Zoom").transform;
-                player_tf.transform.position = new Vector3(BornRoom_tf.position.x, player_tf.position.y, BornRoom_tf.position.z);
+                player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
             case 3:
                 BornRoom_tf = GameObject.Find("S3-Born_Zoom").transform;
-                player_tf.transform.position = new Vector3(BornRoom_tf.position.x, player_tf.position.y, BornRoom_tf.position.z);
+                player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
         }
         
@@ -103,7 +95,7 @@ public class BattleManager : MonoBehaviour
         Player_Choose = new int[3];
 
 
-        if (PlayerPrefs.GetInt("Current_State") == 3)//生成随机数组，用于定义房间类型
+        if (PlayerPrefs.GetInt("Current_State") == 2)//生成随机数组，用于定义房间类型
         {
             for (int j = 0; j < num.Length; j++)//最后一关
             {
@@ -165,19 +157,19 @@ public class BattleManager : MonoBehaviour
 
         switch (PlayerPrefs.GetInt("Current_State"))//定义房间类型
         {
-            case 1:
+            case 0:
                 for (int i = 0; i < S1_ROOM.Length; i++)
                 {
                     S1_ROOM[i].SET_ROOM_TYPE(num[i]);
                 }
                 break;
-            case 2:
+            case 1:
                 for (int i = 0; i < S2_ROOM.Length; i++)
                 {
                     S2_ROOM[i].SET_ROOM_TYPE(num[i]);
                 }
                 break;
-            case 3:
+            case 2:
                 for (int i = 0; i < S3_ROOM.Length; i++)
                 {
                     S3_ROOM[i].SET_ROOM_TYPE(num_2[i]);
@@ -297,7 +289,7 @@ public class BattleManager : MonoBehaviour
         switch (PlayerPrefs.GetInt("Current_State"))
         {
             case 1:
-                PlayerPrefs.SetInt("Current_State", 2);
+                PlayerPrefs.SetInt("Current_State", 0);
                 
                 flowchart.SetBooleanVariable("SceneChange", false);
 
@@ -305,9 +297,11 @@ public class BattleManager : MonoBehaviour
                 break;
 
             case 2:
-                PlayerPrefs.SetInt("Current_State", 3);
+                PlayerPrefs.SetInt("Current_State", 1);
                 
                 flowchart.SetBooleanVariable("SceneChange", false);
+
+                SceneManager.LoadScene("Level 3");
                 break;
 
         }
@@ -339,7 +333,7 @@ public class BattleManager : MonoBehaviour
     {
         
 
-        if (PlayerPrefs.GetInt("Current_State") == 1)//守护据点
+        if (PlayerPrefs.GetInt("Current_State") == 0)//守护据点
         {
             
             
@@ -349,13 +343,13 @@ public class BattleManager : MonoBehaviour
             
         }
 
-        if (PlayerPrefs.GetInt("Current_State") == 2)//死斗
+        if (PlayerPrefs.GetInt("Current_State") == 1)//死斗
         {
             Dead_Room_Battle_Start();
             START_SPAWN();
         }
 
-        if (PlayerPrefs.GetInt("Current_State") == 3)//BOSS战
+        if (PlayerPrefs.GetInt("Current_State") == 2)//BOSS战
         {
             Boss_Battle_Start();
             START_SPAWN();

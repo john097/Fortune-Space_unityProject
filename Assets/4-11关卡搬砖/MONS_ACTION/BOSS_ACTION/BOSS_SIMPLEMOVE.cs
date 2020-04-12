@@ -69,7 +69,7 @@ public class BOSS_SIMPLEMOVE : Action
 	public override TaskStatus OnUpdate()
 	{
         
-        PLAYER = GameObject.FindGameObjectWithTag("ACTOR").transform.position;//获取玩家位置
+        PLAYER = GameObject.Find("Actor").transform.position;//获取玩家位置
        
         follow_timer += Time.deltaTime;
 

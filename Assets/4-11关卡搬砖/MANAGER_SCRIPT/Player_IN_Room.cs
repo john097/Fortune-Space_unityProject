@@ -111,14 +111,14 @@ public class Player_IN_Room : MonoBehaviour
             inroom_started = true;
             B_Manager.RoomClear = false;
 
-            if(PlayerPrefs.GetInt("Current_State") == 1)
+            if(PlayerPrefs.GetInt("Current_State") == 0)
             {
                 dialog_manager.ProtectPoint_Enter_Talk();
             }
 
             
 
-            if (PlayerPrefs.GetInt("Current_State") == 3)//Boss房战斗
+            if (PlayerPrefs.GetInt("Current_State") == 2)//Boss房战斗
             {
                 dialog_manager.BossBattle_Start_Talk();
                 B_Manager.Special_Battle_Start();
@@ -131,7 +131,7 @@ public class Player_IN_Room : MonoBehaviour
 
         }
 
-        //if (other.gameObject == player_collider && inroom_started == false && this_room_type == 3&&B_Manager.Current_State==3)//Boss房战斗
+        //if (other.gameObject == player_collider && inroom_started == false && this_room_type == 3&&B_Manager.Current_State==2)//Boss房战斗
         //{
         //    PlayerInRoom = true;
         //    inroom_started = true;  
