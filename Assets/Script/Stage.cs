@@ -47,7 +47,6 @@ public class Stage : MonoBehaviour
     {
         actor = GameObject.Find("Actor").GetComponent<Actor>();
 
-
         if (thisToolType != toolType.特殊交互点)
         {
             if (thisCreateType == createType.固定)
@@ -61,13 +60,8 @@ public class Stage : MonoBehaviour
         }
         else
         {
-
-
             pp_BattleManager = GameObject.Find("BattleManager").GetComponent<BattleManager>();//DISON.VER
             pp_DialogManager = GameObject.Find("BattleManager").GetComponent<Dialog_Manager>();//DISON.VER
-
-
-
         }
     }
 

@@ -10,6 +10,9 @@ public  class Skill : MonoBehaviour
     [Tooltip("技能描述")]
         public string skillExplain;
 
+    [Tooltip("价格")]
+        public int credit;
+
     [Tooltip("武器动画类型(只有武器需要配这个)")]
         public Actor.weaponType thisWeaponType;
 

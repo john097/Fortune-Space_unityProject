@@ -178,22 +178,22 @@ public class Actor : MonoBehaviour
         {
             thisAnimator = gameObject.transform.Find("ActorModel").GetComponent<Animator>();
 
-            //Vector3 i = FollowCamera.transform.position;
-            //Vector3 k = FollowCamera.transform.GetChild(0).transform.position;
-            //i.y = 0;
-            //k.y = 0;
+            Vector3 i = FollowCamera.transform.position;
+            Vector3 k = FollowCamera.transform.GetChild(0).transform.position;
+            i.y = 0;
+            k.y = 0;
 
-            //cForward = k - i;
-            //cForward = cForward.normalized;
+            cForward = k - i;
+            cForward = cForward.normalized;
 
-            //i = FollowCamera.transform.position;
-            //k = FollowCamera.transform.GetChild(1).transform.position;
+            i = FollowCamera.transform.position;
+            k = FollowCamera.transform.GetChild(1).transform.position;
 
-            //i.y = 0;
-            //k.y = 0;
+            i.y = 0;
+            k.y = 0;
 
-            //cRight = k - i;
-            //cRight = cRight.normalized;
+            cRight = k - i;
+            cRight = cRight.normalized;
         }
         thisRigidbody = GetComponent<Rigidbody>();
         moveDirection = Vector3.zero;
@@ -234,6 +234,7 @@ public class Actor : MonoBehaviour
             UIUpdate();
 
             RecoverTimeScale();
+
 
     }
 
@@ -390,9 +391,9 @@ public class Actor : MonoBehaviour
     {
         if (!imprisonmentBuff && isAlive && isPlayer)//是否存在禁锢Buff
         {
-            moveDirection = Vector3.forward * Input.GetAxis("Vertical") + Vector3.right * Input.GetAxis("Horizontal");
+            //moveDirection = Vector3.forward * Input.GetAxis("Vertical") + Vector3.right * Input.GetAxis("Horizontal");
 
-            //moveDirection = cForward * Input.GetAxis("Vertical") + cRight * Input.GetAxis("Horizontal");
+            moveDirection = cForward * Input.GetAxis("Vertical") + cRight * Input.GetAxis("Horizontal");
 
             if (steping)
             {
@@ -434,17 +435,23 @@ public class Actor : MonoBehaviour
     {
         if (isPlayer)
         {
-            Vector3 d = dir;
-            d = Quaternion.AngleAxis(Vector3.Angle(Vector3.forward, transform.forward), Vector3.up) * d;
+            float v, h;
+            v = Vector3.Distance(transform.position, transform.position + Vector3.Project(dir, transform.forward));
+            h = Vector3.Distance(transform.position, transform.position + Vector3.Project(dir, transform.right));
 
-            if (Vector3.Angle(Vector3.right, transform.forward) < 45 && transform.forward.x > 0)
+            if (Vector3.Angle(dir, transform.forward) > 90)
             {
-                d.z = -d.z;
-                d.x = -d.x;
+                v = -v;
             }
 
-            thisAnimator.SetFloat("HSpeed", d.x);
-            thisAnimator.SetFloat("VSpeed", d.z);
+            if (Vector3.Angle(dir, transform.right) > 90)
+            {
+                h = -h;
+            }
+
+            thisAnimator.SetFloat("VSpeed", v);
+            thisAnimator.SetFloat("HSpeed", h);
+
 
             if (skillArrNum == 0)
             {
