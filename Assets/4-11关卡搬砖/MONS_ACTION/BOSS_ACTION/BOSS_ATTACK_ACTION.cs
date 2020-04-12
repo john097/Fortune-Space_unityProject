@@ -9,7 +9,7 @@ public class BOSS_ATTACK_ACTION : Action
 {
     private Actor mons_actor;
 
-    public bool isdead;//判断是否死亡
+
 
     public bool s;//打断判断变量
 
@@ -64,7 +64,7 @@ public class BOSS_ATTACK_ACTION : Action
 
 	public override TaskStatus OnUpdate()
 	{
-        isdead = mons_actor.isDead;
+       
         Action_Timer.Value += Time.deltaTime;
 
         if (s)
@@ -73,7 +73,7 @@ public class BOSS_ATTACK_ACTION : Action
             return TaskStatus.Success;
         }
 
-        if (!isdead && !usingskill_Attack.Value && dash_Attack.Value)//若boss是以LV3的速度冲向玩家，则必定使用一次冲锋上挑
+        if (mons_actor.isAlive && !usingskill_Attack.Value && dash_Attack.Value)//若boss是以LV3的速度冲向玩家，则必定使用一次冲锋上挑
         {
             mons_actor.Skills_0[3].UseSkill();
             dash_Attack.Value = false;
@@ -84,14 +84,14 @@ public class BOSS_ATTACK_ACTION : Action
             return TaskStatus.Running;
         }
 
-        if (!isdead && !usingskill_Attack.Value && !Num_Borning.Value)//生成行为随机数
+        if (mons_actor.isAlive && !usingskill_Attack.Value && !Num_Borning.Value)//生成行为随机数
         {
             Action_Num.Value = Random.Range(0, 2);//随机行为数
             Action_Time.Value = Random.Range(2f, 5f);//随机行动公共CD
             Num_Borning.Value = true;
         }
 
-        if (!isdead && !usingskill_Attack.Value && lv2_Attack.Value)//若boss是以LV2的速度冲向玩家，玩家进入攻击范围后立刻进行一次攻击（平A或突刺）
+        if (mons_actor.isAlive && !usingskill_Attack.Value && lv2_Attack.Value)//若boss是以LV2的速度冲向玩家，玩家进入攻击范围后立刻进行一次攻击（平A或突刺）
         {
             Action_Timer.Value = Action_Time.Value;
             lv2_Attack.Value = false;
@@ -99,14 +99,14 @@ public class BOSS_ATTACK_ACTION : Action
 
         
 
-        if(!isdead&& !usingskill_Attack.Value&& Action_Num.Value == 0 && Action_Timer.Value >= Action_Time.Value)//随机数为0时使用普通攻击
+        if(mons_actor.isAlive && !usingskill_Attack.Value&& Action_Num.Value == 0 && Action_Timer.Value >= Action_Time.Value)//随机数为0时使用普通攻击
         {
             NormalAttack();
            
             return TaskStatus.Running;
         }
 
-        if (!isdead && !usingskill_Attack.Value && Action_Num.Value == 1 && Action_Timer.Value >= Action_Time.Value)//随机数为1时使用突刺
+        if (mons_actor.isAlive && !usingskill_Attack.Value && Action_Num.Value == 1 && Action_Timer.Value >= Action_Time.Value)//随机数为1时使用突刺
         {
             Thrust();
            

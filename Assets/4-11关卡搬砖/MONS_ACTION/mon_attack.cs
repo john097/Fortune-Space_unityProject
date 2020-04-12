@@ -12,7 +12,7 @@ public class mon_attack : Action
     
     private BattleManager mf_manager;
 
-    public bool isdead;//判断是否死亡
+
     public SharedBool attack_finished;//判断是否攻击完毕
     public float Atk_C_A;//攻击硬值时间（攻击期间无法移动）
     public float Atk_cd;//攻击间隔
@@ -46,12 +46,9 @@ public class mon_attack : Action
 
 	public override TaskStatus OnUpdate()
 	{
-        
-        isdead = mons_actor.isDead;
-        
-        
+   
 
-        if (isdead == false && attack_finished.Value == true)
+        if (mons_actor.isAlive && attack_finished.Value == true)
         {
             
             mons_actor.Skills_0[0].UseSkill();

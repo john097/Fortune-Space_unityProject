@@ -152,19 +152,28 @@ public class Actor : MonoBehaviour
     private Vector3 cUp;
 
     private const string weaponPrefabsPaths = "Prefabs/Weapons/";
+    
 
 
-    public bool isDead;//**DISON.ver**判断是否死亡
     public bool BeAttacked;//**DISON.ver**用于怪物巡逻判断（若被攻击，则终止巡逻）
-    public bool isTalking;
-    private BattleManager AC_manager;//**DISON.ver**
-  
+    public bool isTalking;//**DISON.ver**对话时不让玩家移动
+
+    private GameObject actor_tp;
+    private GameObject camera;
 
     void Start()
     {
+        DontDestroyOnLoad(actor_tp);
+        DontDestroyOnLoad(camera);
+
+
         nowThisTakeWeapon = weaponType.非武器;
         heal = maxHeal;
         lookAtTag = true;
+
+        actor_tp = gameObject;
+        camera = GameObject.Find("Main Camera");
+
         if (isPlayer)
         {
             thisAnimator = gameObject.transform.Find("ActorModel").GetComponent<Animator>();
@@ -193,18 +202,21 @@ public class Actor : MonoBehaviour
         Tools = new GameObject[10];
         isTakingTool = false;
 
-        isDead = false;//**DISON.ver**
+       
         BeAttacked = false;//**DISON.ver**
         isTalking = false;//**DISON.ver**
 
         //AC_manager = GameObject.Find("BattleManager").GetComponent<BattleManager>();//**DISON.ver**
 
+
     }
 
     void Update()
     {
+
         
-            if (isAlive && isPlayer&& !isTalking)//**DISON.ver**
+
+        if (isAlive && isPlayer&& !isTalking)//**DISON.ver**
         {
                 if (!isTakingTool)
                 {
@@ -224,14 +236,6 @@ public class Actor : MonoBehaviour
             UIUpdate();
 
             RecoverTimeScale();
-
-        //if (AC_manager.Dead_Room_Battle)//**DISON.ver**用于死斗房间结束时所有怪物自毁
-        //{
-        //    if (AC_manager.Dead_Fight_Timer > AC_manager.Dead_Fight_MaxTime && gameObject.layer == 10)
-        //    {
-        //        GoDie();
-        //    }
-        //}
 
 
     }
@@ -921,7 +925,7 @@ public class Actor : MonoBehaviour
 
     public void GoDie()
     {
-        isDead = true;//**DISON.ver**   
+       
 
         if (gameObject.layer == 10)
         {
