@@ -158,12 +158,12 @@ public class Actor : MonoBehaviour
     public bool BeAttacked;//**DISON.ver**用于怪物巡逻判断（若被攻击，则终止巡逻）
     public bool isTalking;//**DISON.ver**对话时不让玩家移动
 
-    private GameObject actor_tp;
+   
  
 
     void Start()
     {
-        DontDestroyOnLoad(actor_tp);
+        DontDestroyOnLoad(gameObject);
 
 
 
@@ -171,8 +171,8 @@ public class Actor : MonoBehaviour
         heal = maxHeal;
         lookAtTag = true;
 
-        actor_tp = gameObject;
-        camera = GameObject.Find("Main Camera");
+        
+
 
         if (isPlayer)
         {
@@ -206,7 +206,7 @@ public class Actor : MonoBehaviour
         BeAttacked = false;//**DISON.ver**
         isTalking = false;//**DISON.ver**
 
-        //AC_manager = GameObject.Find("BattleManager").GetComponent<BattleManager>();//**DISON.ver**
+
 
 
     }
