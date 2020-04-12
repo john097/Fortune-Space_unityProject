@@ -180,25 +180,11 @@ public class Actor : MonoBehaviour
             i = FollowCamera.transform.position;
             k = FollowCamera.transform.GetChild(1).transform.position;
 
+            i.y = 0;
+            k.y = 0;
+
             cRight = k - i;
             cRight = cRight.normalized;
-
-            //Vector3 i = FollowCamera.transform.position;
-            //Vector3 k = FollowCamera.transform.GetChild(0).transform.position;
-            //i.y = 0;
-            //k.y = 0;
-
-            //cForward = k - i;
-            //cForward = cForward.normalized;
-
-            //i = FollowCamera.transform.position;
-            //k = FollowCamera.transform.GetChild(1).transform.position;
-
-            //i.y = 0;
-            //k.y = 0;
-
-            //cRight = k - i;
-            //cRight = cRight.normalized;
         }
         thisRigidbody = GetComponent<Rigidbody>();
         moveDirection = Vector3.zero;
@@ -446,24 +432,23 @@ public class Actor : MonoBehaviour
     {
         if (isPlayer)
         {
-            Vector3 d = dir;
-            d = Quaternion.AngleAxis(Vector3.Angle(Vector3.forward, transform.forward), Vector3.up) * d;
+            float v, h;
+            v = Vector3.Distance(transform.position, transform.position + Vector3.Project(dir, transform.forward));
+            h = Vector3.Distance(transform.position, transform.position + Vector3.Project(dir, transform.right));
 
-            //d = Quaternion.AngleAxis(Vector3.Angle(cForward, transform.forward), Vector3.up) * d;
-
-            if (Vector3.Angle(Vector3.right, transform.forward) < 45 && transform.forward.x > 0)
+            if (Vector3.Angle(dir, transform.forward) > 90)
             {
-                d.z = -d.z;
-                d.x = -d.x;
+                v = -v;
             }
 
-            //if (Vector3.Angle(cRight, transform.forward) < 45 && transform.forward.x > 0)
-            //{
-            //    d.z = -d.z;
-            //}
+            if (Vector3.Angle(dir, transform.right) > 90)
+            {
+                h = -h;
+            }
 
-            thisAnimator.SetFloat("HSpeed", d.x);
-            thisAnimator.SetFloat("VSpeed", d.z);
+            thisAnimator.SetFloat("VSpeed", v);
+            thisAnimator.SetFloat("HSpeed", h);
+
 
             if (skillArrNum == 0)
             {
