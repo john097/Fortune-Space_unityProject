@@ -196,6 +196,7 @@ public class Actor : MonoBehaviour
         isDead = false;//**DISON.ver**
         BeAttacked = false;//**DISON.ver**
         isTalking = false;//**DISON.ver**
+
         //AC_manager = GameObject.Find("BattleManager").GetComponent<BattleManager>();//**DISON.ver**
 
     }

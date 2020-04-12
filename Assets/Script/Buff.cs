@@ -24,8 +24,7 @@ public class Buff : MonoBehaviour
         冷却缩减,
         霸体,
         斩杀20,
-        装备切换,
-        
+        装备切换
     }
 
     [Tooltip("当前Buff的类型")]
