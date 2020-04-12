@@ -15,15 +15,17 @@ public class BattleManager : MonoBehaviour
     Stage PP;
 
     private int checknum_a;
-    private int checknum_b;
     private int sum;
 
-    public int Current_State;//**DISON.ver**当前处于第几关卡
+    
     private bool TP;
 
     public bool Normal_Room_Battle;//普通怪物房战斗
 
     public bool Protect_Room_Battle;//守护据点战斗
+    public float PP_Heal;//据点生命值
+    public float Crack_Progress;//破译进度
+
 
     public bool Dead_Room_Battle;//死斗房战斗
     public float Dead_Fight_Timer;//死斗房计时器
@@ -45,79 +47,101 @@ public class BattleManager : MonoBehaviour
     public bool BattleFinish;
 
     public bool In_New_State;//进入到新的关卡
+    public bool isTalking;
     private Flowchart flowchart;
-    
+
+    public int currentstate;
+
+    public void Awake()
+    {
+        PlayerPrefs.SetInt("Current_State",1);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         Player= GameObject.Find("Actor").GetComponent<Actor>();
         flowchart = GameObject.Find("Flowchart1").GetComponent<Flowchart>();
-        Current_State = 1;//**DISON.ver**玩家当前处在第几关卡
 
+
+        
+
+        Crack_Progress = 0f;
         Dead_Fight_Timer = 0f;
         Dead_Fight_MaxTime = 10f;
 
        checknum_a = 1;
-        checknum_b = 1;
+       
 
         int[] num = new int[5];
         int[] num_2 = new int[5];
 
         Player_Choose = new int[3];
 
-        for (int j = 0; j < num.Length; j++)//前2关随机房间逻辑
+
+        if (PlayerPrefs.GetInt("Current_State") == 3)//随机房间逻辑
         {
-            if (checknum_a >= 4)
+            for (int j = 0; j < num.Length; j++)//最后一关
             {
-                checknum_a = 4;
+                if (checknum_a >= 3)
+                {
+                    checknum_a = 3;
+                }
+
+                num_2[j] = Random.Range(1, checknum_a);
+
+                checknum_a += 1;
+
+                if (j == 3 && sum < 4)
+                {
+                    num_2[j] = 2;
+                    num_2[j + 1] = 3;
+                    break;
+                }
+                if (j == 4)
+                {
+                    num_2[j] = 3;
+
+                    break;
+                }
+
+                sum += num_2[j];
             }
-
-            num[j] = Random.Range(1, checknum_a);
-
-            checknum_a += 1;
-
-            if (j == 3 && sum < 4)
+  
+        }
+        else
+        {
+            for (int j = 0; j < num.Length; j++)//前2关随机房间逻辑
             {
-                num[j] = 2;
-                num[j + 1] = 3;
-                break;
-            }
-            if (j == 3 && sum >= 4)
-            {
-                num[j] = 3;
-                num[j + 1] = Random.Range(1, 3);
-                break;
-            }
+                if (checknum_a >= 4)
+                {
+                    checknum_a = 4;
+                }
 
-            sum += num[j];
+                num[j] = Random.Range(1, checknum_a);
+
+                checknum_a += 1;
+
+                if (j == 3 && sum < 4)
+                {
+                    num[j] = 2;
+                    num[j + 1] = 3;
+                    break;
+                }
+                if (j == 3 && sum >= 4)
+                {
+                    num[j] = 3;
+                    num[j + 1] = Random.Range(1, 3);
+                    break;
+                }
+
+                sum += num[j];
+            }
         }
 
-        for (int j = 0; j < num.Length; j++)//最后一关随机房间逻辑
-        {
-            if (checknum_b >= 3)
-            {
-                checknum_b = 3;
-            }
+        
 
-            num_2[j] = Random.Range(1, checknum_b);
-
-            checknum_b += 1;
-
-            if (j == 3 && sum < 4)
-            {
-                num_2[j] = 2;
-                num_2[j + 1] = 3;
-                break;
-            }
-            if (j == 4)
-            {
-                num_2[j] = 3;
-                
-                break;
-            }
-
-            sum += num_2[j];
-        }
+        
 
         for (int i = 0; i < S1_ROOM.Length; i++)
         {
@@ -144,19 +168,23 @@ public class BattleManager : MonoBehaviour
 
         TP = false;
         In_New_State = true;
+        isTalking = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-    
-        if (MON_NUMS == 0&& IsLastWave==false)
+
+        currentstate = PlayerPrefs.GetInt("Current_State");
+
+        if (MON_NUMS == 0&& IsLastWave==false)//非最后一波怪时刷新下一波怪
         {
             startspawn = true;
             finishspawn = false;
         }
 
-        if(MON_NUMS == 0 && IsLastWave == true && finishspawn == true&&BattleFinish==false)
+        if(MON_NUMS == 0 && IsLastWave == true && finishspawn == true&&BattleFinish==false)//最后一波怪时不再刷新下一波怪
         {
             RoomClear = true;
             BattleFinish = true;
@@ -172,14 +200,23 @@ public class BattleManager : MonoBehaviour
             //DOORS.SetActive(false);
         }
 
-        if (TP)//传送到下一关卡，当前关卡数+1
+
+        if (Protect_Room_Battle && !isTalking)
         {
-            Current_State += 1;
-            In_New_State = true;
-            TP = false;
+            if (Crack_Progress >= 30f)
+            {
+                IS_LAST_WAVE();
+                FINISH_SPAWN();
+                Protect_Room_Battle_Finish();
+            }
+            else
+            {
+                Crack_Progress += Time.deltaTime;
+            }
         }
 
-        if (Dead_Room_Battle&&!flowchart.GetBooleanVariable("IS_TALKING"))//死斗房计时
+
+        if (Dead_Room_Battle&&!isTalking)//死斗房计时
         {
 
             if (Dead_Fight_Timer <= Dead_Fight_MaxTime)
@@ -192,21 +229,47 @@ public class BattleManager : MonoBehaviour
             {
                 IS_LAST_WAVE();
                 FINISH_SPAWN();
-                Dead_Room_Battle = false;
                 MON_NUMS = 0;
+                Dead_Room_Battle = false;
+                GameObject[] enemys = GameObject.FindGameObjectsWithTag("ENEMY");
+                for(int i = 0; i < enemys.Length; i++)
+                {
+                    enemys[i].GetComponent<Actor>().GoDie();
+                }
+                
+               
 
             }
         }
-        
+
+        State_Up();//传送到下一关卡，当前关卡数+1
+
+
 
     }
 
-    public void State_Up()
+    public void State_Up() //场景切换
     {
+       
 
-        TP = true;
+        if (flowchart.GetBooleanVariable("SceneChange"))
+        {
+            if(PlayerPrefs.GetInt("Current_State")==1)
+            {
+                PlayerPrefs.SetInt("Current_State", 2);
+                In_New_State = true;
+                flowchart.SetBooleanVariable("SceneChange", false);
+            }
 
-        Debug.Log("UP!");
+            if (PlayerPrefs.GetInt("Current_State") == 2)
+            {
+                PlayerPrefs.SetInt("Current_State", 3);
+                In_New_State = true;
+                flowchart.SetBooleanVariable("SceneChange", false);
+            }
+            
+        }
+
 
     }
 
@@ -230,29 +293,27 @@ public class BattleManager : MonoBehaviour
         Monster_Waves = 1;
     }
 
-    public void Special_Battle_Start()//特殊房战斗
+    public void Special_Battle_Start()//特殊房战斗类型判断
     {
         
 
-        if (Current_State == 1)//守护据点
+        if (PlayerPrefs.GetInt("Current_State") == 1)//守护据点
         {
-            PP = GameObject.Find("ProtectPoint").GetComponent<Stage>();
-
-            if (PP.StartCrack)
-            {
+            
+            
                 Protect_Room_Battle_Start();
                 START_SPAWN();
-            }
+            
             
         }
 
-        if (Current_State == 2)//死斗
+        if (PlayerPrefs.GetInt("Current_State") == 2)//死斗
         {
             Dead_Room_Battle_Start();
             START_SPAWN();
         }
 
-        if (Current_State == 3)//BOSS战
+        if (PlayerPrefs.GetInt("Current_State") == 3)//BOSS战
         {
             Boss_Battle_Start();
             START_SPAWN();

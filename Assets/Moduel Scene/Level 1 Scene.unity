@@ -14491,7 +14491,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   specialInteractiveKey: 101
-  Tools: []
   UsingSkill: {fileID: 0}
   aWarning: {fileID: 0}
   imprisonmentBuff: {fileID: 0}
@@ -14510,11 +14509,16 @@ MonoBehaviour:
   isTakingTool: 0
   nowThisTakeWeapon: 0
   nowThisTakeWeaponNum: 0
-  recoverTimeScaleTimer: 0
   hitChangeTimeScaleTime: 0
+  healSlider: {fileID: 0}
+  ammoText: {fileID: 0}
+  skill_0_Slider: {fileID: 0}
+  skill_1_Slider: {fileID: 0}
+  skill_2_Slider: {fileID: 0}
+  skill_3_Slider: {fileID: 0}
   isDead: 0
   BeAttacked: 0
-  flowchart: {fileID: 0}
+  isTalking: 0
 --- !u!1001 &631299932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34537,6 +34541,7 @@ MonoBehaviour:
   buffPrefabs:
   - {fileID: 5870055950133461682, guid: 65dd38ed7720f274e9d8f3906e704aa4, type: 3}
   skillVariantEvent: 0
+  coolDownTimer: 0
   coolDownFlag: 0
   actor: {fileID: 0}
 --- !u!4 &1413966221
@@ -36101,6 +36106,7 @@ MonoBehaviour:
   buffPrefabs:
   - {fileID: 1107046987645392613, guid: a9789a35184d2694fac14fd9a6e9a0e1, type: 3}
   skillVariantEvent: 0
+  coolDownTimer: 0
   coolDownFlag: 0
   actor: {fileID: 0}
 --- !u!1001 &1463377988
@@ -39622,7 +39628,6 @@ MonoBehaviour:
   - {fileID: 1875146485}
   - {fileID: 1413966220}
   specialInteractiveKey: 101
-  Tools: []
   UsingSkill: {fileID: 0}
   aWarning: {fileID: 0}
   imprisonmentBuff: {fileID: 0}
@@ -39641,11 +39646,16 @@ MonoBehaviour:
   isTakingTool: 0
   nowThisTakeWeapon: 0
   nowThisTakeWeaponNum: 0
-  recoverTimeScaleTimer: 0
   hitChangeTimeScaleTime: 0
+  healSlider: {fileID: 0}
+  ammoText: {fileID: 0}
+  skill_0_Slider: {fileID: 0}
+  skill_1_Slider: {fileID: 0}
+  skill_2_Slider: {fileID: 0}
+  skill_3_Slider: {fileID: 0}
   isDead: 0
   BeAttacked: 0
-  flowchart: {fileID: 0}
+  isTalking: 0
 --- !u!4 &1605112773
 Transform:
   m_ObjectHideFlags: 0
@@ -50610,8 +50620,6 @@ MonoBehaviour:
   interactiveUI: {fileID: 9071620318470035920, guid: 231d9c1e175535e43ab5d1a980054e65,
     type: 3}
   storeUI: {fileID: 0}
-  Crack_Progress: 0
-  StartCrack: 0
 --- !u!65 &2052035616
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52895,6 +52903,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293630642147629932, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: nodeRect.y
+      value: 138.2697
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293630642147629929, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: nodeRect.x
+      value: -307.70178
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293630642147629987, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: nodeRect.y
+      value: 49.121277
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ada0cca816dfde4a8344abc30515f40, type: 3}

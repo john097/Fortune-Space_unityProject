@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< HEAD
+
 using UnityEngine.UI;
-=======
-using Fungus;
->>>>>>> 0f97aac609444d8e1724aa2b11ad5c6dce77c7dc
+
+
 
 public class Actor : MonoBehaviour
 {
@@ -157,8 +156,9 @@ public class Actor : MonoBehaviour
 
     public bool isDead;//**DISON.ver**判断是否死亡
     public bool BeAttacked;//**DISON.ver**用于怪物巡逻判断（若被攻击，则终止巡逻）
+    public bool isTalking;
     private BattleManager AC_manager;//**DISON.ver**
-    public Flowchart flowchart;//**DISON.ver**
+  
 
     void Start()
     {
@@ -195,16 +195,16 @@ public class Actor : MonoBehaviour
 
         isDead = false;//**DISON.ver**
         BeAttacked = false;//**DISON.ver**
-        AC_manager = GameObject.Find("BattleManager").GetComponent<BattleManager>();//**DISON.ver**
-        flowchart = GameObject.Find("Flowchart1").GetComponent<Flowchart>();//**DISON.ver**
+        isTalking = false;//**DISON.ver**
+        //AC_manager = GameObject.Find("BattleManager").GetComponent<BattleManager>();//**DISON.ver**
+
     }
 
     void Update()
     {
-        if (!flowchart.GetBooleanVariable("IS_TALKING"))//**DISON.ver**对话时禁止玩家移动、攻击
+        
+            if (isAlive && isPlayer&& !isTalking)//**DISON.ver**
         {
-            if (isAlive && isPlayer)
-            {
                 if (!isTakingTool)
                 {
                     //Move();
@@ -219,32 +219,31 @@ public class Actor : MonoBehaviour
                 changeWeaponModel();
             }
 
-<<<<<<< HEAD
+
             UIUpdate();
 
             RecoverTimeScale();
-=======
->>>>>>> 0f97aac609444d8e1724aa2b11ad5c6dce77c7dc
 
-        }
 
-        if (AC_manager.Dead_Room_Battle)//**DISON.ver**用于死斗房间结束时所有怪物自毁
-        {
-            if (AC_manager.Dead_Fight_Timer > AC_manager.Dead_Fight_MaxTime && gameObject.layer == 10)
-            {
-                GoDie();
-            }
-        }
+
+        
+
+        //if (AC_manager.Dead_Room_Battle)//**DISON.ver**用于死斗房间结束时所有怪物自毁
+        //{
+        //    if (AC_manager.Dead_Fight_Timer > AC_manager.Dead_Fight_MaxTime && gameObject.layer == 10)
+        //    {
+        //        GoDie();
+        //    }
+        //}
 
 
     }
 
     private void FixedUpdate()
     {
-        if (!flowchart.GetBooleanVariable("IS_TALKING"))//**DISON.ver**对话时禁止玩家移动、攻击
+       
+            if (isAlive && isPlayer && !isTalking)//**DISON.ver**
         {
-            if (isAlive && isPlayer)
-            {
                 if (!isTakingTool)
                 {
                     Look();
@@ -253,7 +252,7 @@ public class Actor : MonoBehaviour
 
                 }
             }
-        }
+        
             
     }
 

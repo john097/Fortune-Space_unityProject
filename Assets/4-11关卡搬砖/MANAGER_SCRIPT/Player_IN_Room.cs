@@ -111,14 +111,14 @@ public class Player_IN_Room : MonoBehaviour
             inroom_started = true;
             B_Manager.RoomClear = false;
 
-            if(B_Manager.Current_State == 1)
+            if(PlayerPrefs.GetInt("Current_State") == 1)
             {
                 dialog_manager.ProtectPoint_Enter_Talk();
             }
 
             
 
-            if (B_Manager.Current_State == 3)//Boss房战斗
+            if (PlayerPrefs.GetInt("Current_State") == 3)//Boss房战斗
             {
                 dialog_manager.BossBattle_Start_Talk();
                 B_Manager.Special_Battle_Start();
