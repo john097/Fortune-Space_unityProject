@@ -152,39 +152,48 @@ public class Actor : MonoBehaviour
     private Vector3 cUp;
 
     private const string weaponPrefabsPaths = "Prefabs/Weapons/";
+    
 
 
-    public bool isDead;//**DISON.ver**判断是否死亡
     public bool BeAttacked;//**DISON.ver**用于怪物巡逻判断（若被攻击，则终止巡逻）
-    public bool isTalking;
-    private BattleManager AC_manager;//**DISON.ver**
-  
+    public bool isTalking;//**DISON.ver**对话时不让玩家移动
+
+    private GameObject actor_tp;
+ 
 
     void Start()
     {
+        DontDestroyOnLoad(actor_tp);
+
+
+
         nowThisTakeWeapon = weaponType.非武器;
         heal = maxHeal;
         lookAtTag = true;
+
+        actor_tp = gameObject;
+        camera = GameObject.Find("Main Camera");
+
         if (isPlayer)
         {
             thisAnimator = gameObject.transform.Find("ActorModel").GetComponent<Animator>();
 
-            //Vector3 i = FollowCamera.transform.position;
-            //Vector3 k = FollowCamera.transform.GetChild(0).transform.position;
-            //i.y = 0;
-            //k.y = 0;
+            Vector3 i = FollowCamera.transform.position;
+            Vector3 k = FollowCamera.transform.GetChild(0).transform.position;
+            i.y = 0;
+            k.y = 0;
 
-            //cForward = k - i;
-            //cForward = cForward.normalized;
+            cForward = k - i;
+            cForward = cForward.normalized;
 
-            //i = FollowCamera.transform.position;
-            //k = FollowCamera.transform.GetChild(1).transform.position;
+            i = FollowCamera.transform.position;
+            k = FollowCamera.transform.GetChild(1).transform.position;
 
-            //i.y = 0;
-            //k.y = 0;
+            i.y = 0;
+            k.y = 0;
 
-            //cRight = k - i;
-            //cRight = cRight.normalized;
+            cRight = k - i;
+            cRight = cRight.normalized;
         }
         thisRigidbody = GetComponent<Rigidbody>();
         moveDirection = Vector3.zero;
@@ -193,17 +202,21 @@ public class Actor : MonoBehaviour
         Tools = new GameObject[10];
         isTakingTool = false;
 
-        isDead = false;//**DISON.ver**
+       
         BeAttacked = false;//**DISON.ver**
         isTalking = false;//**DISON.ver**
+
         //AC_manager = GameObject.Find("BattleManager").GetComponent<BattleManager>();//**DISON.ver**
+
 
     }
 
     void Update()
     {
+
         
-            if (isAlive && isPlayer&& !isTalking)//**DISON.ver**
+
+        if (isAlive && isPlayer&& !isTalking)//**DISON.ver**
         {
                 if (!isTakingTool)
                 {
@@ -223,18 +236,6 @@ public class Actor : MonoBehaviour
             UIUpdate();
 
             RecoverTimeScale();
-
-
-
-        
-
-        //if (AC_manager.Dead_Room_Battle)//**DISON.ver**用于死斗房间结束时所有怪物自毁
-        //{
-        //    if (AC_manager.Dead_Fight_Timer > AC_manager.Dead_Fight_MaxTime && gameObject.layer == 10)
-        //    {
-        //        GoDie();
-        //    }
-        //}
 
 
     }
@@ -392,9 +393,9 @@ public class Actor : MonoBehaviour
     {
         if (!imprisonmentBuff && isAlive && isPlayer)//是否存在禁锢Buff
         {
-            moveDirection = Vector3.forward * Input.GetAxis("Vertical") + Vector3.right * Input.GetAxis("Horizontal");
+            //moveDirection = Vector3.forward * Input.GetAxis("Vertical") + Vector3.right * Input.GetAxis("Horizontal");
 
-            //moveDirection = cForward * Input.GetAxis("Vertical") + cRight * Input.GetAxis("Horizontal");
+            moveDirection = cForward * Input.GetAxis("Vertical") + cRight * Input.GetAxis("Horizontal");
 
             if (steping)
             {
@@ -436,17 +437,23 @@ public class Actor : MonoBehaviour
     {
         if (isPlayer)
         {
-            Vector3 d = dir;
-            d = Quaternion.AngleAxis(Vector3.Angle(Vector3.forward, transform.forward), Vector3.up) * d;
+            float v, h;
+            v = Vector3.Distance(transform.position, transform.position + Vector3.Project(dir, transform.forward));
+            h = Vector3.Distance(transform.position, transform.position + Vector3.Project(dir, transform.right));
 
-            if (Vector3.Angle(Vector3.right, transform.forward) < 45 && transform.forward.x > 0)
+            if (Vector3.Angle(dir, transform.forward) > 90)
             {
-                d.z = -d.z;
-                d.x = -d.x;
+                v = -v;
             }
 
-            thisAnimator.SetFloat("HSpeed", d.x);
-            thisAnimator.SetFloat("VSpeed", d.z);
+            if (Vector3.Angle(dir, transform.right) > 90)
+            {
+                h = -h;
+            }
+
+            thisAnimator.SetFloat("VSpeed", v);
+            thisAnimator.SetFloat("HSpeed", h);
+
 
             if (skillArrNum == 0)
             {
@@ -918,7 +925,7 @@ public class Actor : MonoBehaviour
 
     public void GoDie()
     {
-        isDead = true;//**DISON.ver**   
+       
 
         if (gameObject.layer == 10)
         {

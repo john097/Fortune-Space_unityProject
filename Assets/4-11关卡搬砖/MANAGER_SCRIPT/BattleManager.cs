@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
+using UnityEngine.SceneManagement;
 
 public class BattleManager : MonoBehaviour
 {
@@ -52,18 +53,41 @@ public class BattleManager : MonoBehaviour
 
     public int currentstate;
 
+    private Transform player_tf;
+    private Transform BornRoom_tf;
     public void Awake()
     {
-        PlayerPrefs.SetInt("Current_State",1);
+        PlayerPrefs.DeleteKey("Current_State");
+        if (!PlayerPrefs.HasKey("Current_State"))
+        {
+            PlayerPrefs.SetInt("Current_State", 1);
+        }
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        
         Player= GameObject.Find("Actor").GetComponent<Actor>();
+        player_tf = GameObject.Find("Actor").transform;
         flowchart = GameObject.Find("Flowchart1").GetComponent<Flowchart>();
 
-
+        switch(PlayerPrefs.GetInt("Current_State"))//关卡开始传送到出生房
+        {
+            case 1:
+                BornRoom_tf = GameObject.Find("S1-Born_Zoom").transform;
+                player_tf.transform.position = new Vector3(BornRoom_tf.position.x, player_tf.position.y, BornRoom_tf.position.z);
+                break;
+            case 2:
+                BornRoom_tf = GameObject.Find("S2-Born_Zoom").transform;
+                player_tf.transform.position = new Vector3(BornRoom_tf.position.x, player_tf.position.y, BornRoom_tf.position.z);
+                break;
+            case 3:
+                BornRoom_tf = GameObject.Find("S3-Born_Zoom").transform;
+                player_tf.transform.position = new Vector3(BornRoom_tf.position.x, player_tf.position.y, BornRoom_tf.position.z);
+                break;
+        }
         
 
         Crack_Progress = 0f;
@@ -79,7 +103,7 @@ public class BattleManager : MonoBehaviour
         Player_Choose = new int[3];
 
 
-        if (PlayerPrefs.GetInt("Current_State") == 3)//随机房间逻辑
+        if (PlayerPrefs.GetInt("Current_State") == 3)//生成随机数组，用于定义房间类型
         {
             for (int j = 0; j < num.Length; j++)//最后一关
             {
@@ -139,18 +163,34 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-        
-
-        
-
-        for (int i = 0; i < S1_ROOM.Length; i++)
+        switch (PlayerPrefs.GetInt("Current_State"))//定义房间类型
         {
-            S1_ROOM[i].SET_ROOM_TYPE(num[i]);//随机定义房间的类型
-            //S2_ROOM[i].SET_ROOM_TYPE(num[i]);
-            //S3_ROOM[i].SET_ROOM_TYPE(num_2[i]);
+            case 1:
+                for (int i = 0; i < S1_ROOM.Length; i++)
+                {
+                    S1_ROOM[i].SET_ROOM_TYPE(num[i]);
+                }
+                break;
+            case 2:
+                for (int i = 0; i < S2_ROOM.Length; i++)
+                {
+                    S2_ROOM[i].SET_ROOM_TYPE(num[i]);
+                }
+                break;
+            case 3:
+                for (int i = 0; i < S3_ROOM.Length; i++)
+                {
+                    S3_ROOM[i].SET_ROOM_TYPE(num_2[i]);
+                }
+                break;
+
         }
 
-        
+
+        //Debug.Log("GO");
+
+
+
         MON_NUMS = MAX_MON_NUMS;
         Monster_Waves = 0;
 
@@ -241,8 +281,11 @@ public class BattleManager : MonoBehaviour
 
             }
         }
-
-        State_Up();//传送到下一关卡，当前关卡数+1
+        if (flowchart.GetBooleanVariable("SceneChange"))//传送到下一关卡，当前关卡数+1
+        {
+            State_Up();
+        }
+            
 
 
 
@@ -250,24 +293,23 @@ public class BattleManager : MonoBehaviour
 
     public void State_Up() //场景切换
     {
-       
 
-        if (flowchart.GetBooleanVariable("SceneChange"))
+        switch (PlayerPrefs.GetInt("Current_State"))
         {
-            if(PlayerPrefs.GetInt("Current_State")==1)
-            {
+            case 1:
                 PlayerPrefs.SetInt("Current_State", 2);
-                In_New_State = true;
+                
                 flowchart.SetBooleanVariable("SceneChange", false);
-            }
 
-            if (PlayerPrefs.GetInt("Current_State") == 2)
-            {
+                SceneManager.LoadScene("Level 2  Scene 1");
+                break;
+
+            case 2:
                 PlayerPrefs.SetInt("Current_State", 3);
-                In_New_State = true;
+                
                 flowchart.SetBooleanVariable("SceneChange", false);
-            }
-            
+                break;
+
         }
 
 

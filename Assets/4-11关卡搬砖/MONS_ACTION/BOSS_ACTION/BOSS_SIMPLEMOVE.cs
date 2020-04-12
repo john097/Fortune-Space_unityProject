@@ -10,7 +10,7 @@ public class BOSS_SIMPLEMOVE : Action
     private NavMeshAgent navMeshAgent;
     Vector3 PLAYER;
     float player_distance;
-    public bool isdead;
+
     public float follow_timer;
     public BehaviorTree behaviortree;
     public SharedInt Action_Num;
@@ -70,20 +70,20 @@ public class BOSS_SIMPLEMOVE : Action
 	{
         
         PLAYER = GameObject.FindGameObjectWithTag("ACTOR").transform.position;//获取玩家位置
-        isdead = mons_actor.isDead;
+       
         follow_timer += Time.deltaTime;
 
 
 
 
-        if (!isdead && follow_timer <= 5 && !usingskill.Value)//追击TIME未达到MAX时以LV1的速度追击玩家
+        if (mons_actor.isAlive && follow_timer <= 5 && !usingskill.Value)//追击TIME未达到MAX时以LV1的速度追击玩家
         {
             navMeshAgent.enabled = true;
             navMeshAgent.SetDestination(PLAYER);
 
 
         }
-        if (isdead == false && follow_timer > 5 && !Num_Borning.Value)//追击TIME达到MAX时，生成随机行动数A
+        if (mons_actor.isAlive && follow_timer > 5 && !Num_Borning.Value)//追击TIME达到MAX时，生成随机行动数A
         {
             navMeshAgent.enabled = true;
            

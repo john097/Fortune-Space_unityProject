@@ -11,7 +11,7 @@ public class mon_skill : Action
 
     GameObject player;
 
-    public bool isdead;//判断是否死亡
+
     public SharedBool skill_finished;//判断是否攻击完毕
     
     public float Atk_C_A;//攻击硬值时间（攻击期间无法移动）
@@ -39,10 +39,10 @@ public class mon_skill : Action
 	public override TaskStatus OnUpdate()
 	{
 
-        isdead = mons_actor.isDead;
+        
 
 
-        if (isdead == false && skill_finished.Value == false)
+        if (mons_actor.isAlive && skill_finished.Value == false)
         {
             mons_actor.Skills_0[1].UseSkill();
             s = false;

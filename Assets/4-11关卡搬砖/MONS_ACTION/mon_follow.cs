@@ -13,7 +13,7 @@ public class mon_follow : Action
     Vector3 PLAYER;
     Vector3 ProtectPoint;
     float player_distance;
-    public bool isdead;
+
     public bool doing_sth;
 
     public override void OnStart()
@@ -34,10 +34,9 @@ public class mon_follow : Action
         PLAYER = GameObject.Find("Actor").transform.position;//获取玩家位置
         
         
+        
 
-        isdead = mons_actor.isDead;
-
-        if (isdead == false)
+        if (mons_actor.isAlive)
         {
             navMeshAgent.enabled = true;
             if (mf_manager.Protect_Room_Battle)

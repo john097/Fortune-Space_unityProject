@@ -501,6 +501,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 81979956}
+  - component: {fileID: 81979954}
   - component: {fileID: 81979958}
   - component: {fileID: 81979953}
   - component: {fileID: 81979957}
@@ -526,6 +527,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &81979954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81979952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee220f35db39b04480a3ed78268d253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCredit: 0
 --- !u!4 &81979956
 Transform:
   m_ObjectHideFlags: 0
@@ -567,7 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73aab81ac60f9224f97c524e02954ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FollowCamera: {fileID: 0}
+  FollowCamera: {fileID: 1470590764}
   isPlayer: 1
   thisSpType: 0
   maxHeal: 100
@@ -616,6 +630,9 @@ MonoBehaviour:
   skill_1_Slider: {fileID: 1866643470}
   skill_2_Slider: {fileID: 870872564}
   skill_3_Slider: {fileID: 1486208610}
+  isDead: 0
+  BeAttacked: 0
+  isTalking: 0
 --- !u!54 &81979959
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -966,6 +983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u88C5\u5907\u5207\u6362_0"
   skillExplain: 
+  credit: 0
   thisWeaponType: 0
   weaponModelNum: 0
   thisSkillAnimState: 0
@@ -1006,6 +1024,7 @@ MonoBehaviour:
   - {fileID: 5870055950133461682, guid: 65dd38ed7720f274e9d8f3906e704aa4, type: 3}
   skillVariantEvent: 0
   coolDownTimer: 0
+  coolDownFlag: 0
   actor: {fileID: 0}
 --- !u!1 &140807674
 GameObject:
@@ -7972,6 +7991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u88C5\u5907\u5207\u6362_0"
   skillExplain: 
+  credit: 0
   thisWeaponType: 0
   weaponModelNum: 0
   thisSkillAnimState: 0
@@ -8012,6 +8032,7 @@ MonoBehaviour:
   - {fileID: 1107046987645392613, guid: a9789a35184d2694fac14fd9a6e9a0e1, type: 3}
   skillVariantEvent: 0
   coolDownTimer: 0
+  coolDownFlag: 0
   actor: {fileID: 0}
 --- !u!4 &769922747 stripped
 Transform:
@@ -8532,6 +8553,9 @@ MonoBehaviour:
   skill_1_Slider: {fileID: 0}
   skill_2_Slider: {fileID: 0}
   skill_3_Slider: {fileID: 0}
+  isDead: 0
+  BeAttacked: 0
+  isTalking: 0
 --- !u!54 &797361170
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10645,6 +10669,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FightingUI
       objectReference: {fileID: 0}
+    - target: {fileID: 4846834892594889674, guid: a9ccd89484c21524aa484d7086aa1216,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4846834892594889675, guid: a9ccd89484c21524aa484d7086aa1216,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10799,6 +10828,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846834892458649836, guid: a9ccd89484c21524aa484d7086aa1216,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846834892458649836, guid: a9ccd89484c21524aa484d7086aa1216,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846834892458649836, guid: a9ccd89484c21524aa484d7086aa1216,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846834893236912710, guid: a9ccd89484c21524aa484d7086aa1216,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846834893236912710, guid: a9ccd89484c21524aa484d7086aa1216,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846834893236912710, guid: a9ccd89484c21524aa484d7086aa1216,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846834891947979324, guid: a9ccd89484c21524aa484d7086aa1216,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846834891947979324, guid: a9ccd89484c21524aa484d7086aa1216,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846834891947979324, guid: a9ccd89484c21524aa484d7086aa1216,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9ccd89484c21524aa484d7086aa1216, type: 3}
@@ -14466,8 +14540,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470590764}
-  m_LocalRotation: {x: 0.2649811, y: -0, z: -0, w: 0.96425366}
-  m_LocalPosition: {x: -6.93, y: 7.46, z: -4.5}
+  m_LocalRotation: {x: 0.24829186, y: -0.3367958, z: 0.09255291, w: 0.90352297}
+  m_LocalPosition: {x: -1.84, y: 7.46, z: -1.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1558013679}
@@ -14475,7 +14549,7 @@ Transform:
   - {fileID: 1771824792}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 30.732002, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30.732002, y: -40.887, z: 0}
 --- !u!114 &1470590768
 MonoBehaviour:
   m_ObjectHideFlags: 0
