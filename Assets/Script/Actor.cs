@@ -1,6 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
+using UnityEngine.UI;
+=======
+using Fungus;
+>>>>>>> 0f97aac609444d8e1724aa2b11ad5c6dce77c7dc
 
 public class Actor : MonoBehaviour
 {
@@ -86,12 +91,12 @@ public class Actor : MonoBehaviour
     [Tooltip("特殊交互键")]
         public KeyCode specialInteractiveKey;
 
-    public GameObject[] Tools;
+    private GameObject[] Tools;
 
-    //[HideInInspector]
+    [HideInInspector]
         public Skill UsingSkill;//正在释放的技能
 
-    //[HideInInspector]
+    [HideInInspector]
         public GameObject aWarning;
 
     private bool steping;//是否处于闪避状态
@@ -116,7 +121,7 @@ public class Actor : MonoBehaviour
     [HideInInspector]
         public Rigidbody thisRigidbody;
 
-    //[HideInInspector]
+    [HideInInspector]
         public Animator thisAnimator;
 
     [HideInInspector]
@@ -131,15 +136,29 @@ public class Actor : MonoBehaviour
     [HideInInspector]
         public int nowThisTakeWeaponNum;
 
-    public float recoverTimeScaleTimer;
+    private float recoverTimeScaleTimer;
 
-    //[HideInInspector]
+    [HideInInspector]
         public float hitChangeTimeScaleTime;
 
-    public Vector3 cForward;
+    public Slider healSlider;
+    public Text ammoText;
+    public Slider skill_0_Slider;
+    public Slider skill_1_Slider;
+    public Slider skill_2_Slider;
+    public Slider skill_3_Slider;
+
+    private Vector3 cForward;
     private Vector3 cRight;
+    private Vector3 cUp;
 
     private const string weaponPrefabsPaths = "Prefabs/Weapons/";
+
+
+    public bool isDead;//**DISON.ver**判断是否死亡
+    public bool BeAttacked;//**DISON.ver**用于怪物巡逻判断（若被攻击，则终止巡逻）
+    private BattleManager AC_manager;//**DISON.ver**
+    public Flowchart flowchart;//**DISON.ver**
 
     void Start()
     {
@@ -150,22 +169,22 @@ public class Actor : MonoBehaviour
         {
             thisAnimator = gameObject.transform.Find("ActorModel").GetComponent<Animator>();
 
-            Vector3 i = FollowCamera.transform.position;
-            Vector3 k = FollowCamera.transform.GetChild(0).transform.position;
-            i.y = 0;
-            k.y = 0;
+            //Vector3 i = FollowCamera.transform.position;
+            //Vector3 k = FollowCamera.transform.GetChild(0).transform.position;
+            //i.y = 0;
+            //k.y = 0;
 
-            cForward = k - i;
-            cForward = cForward.normalized;
+            //cForward = k - i;
+            //cForward = cForward.normalized;
 
-            i = FollowCamera.transform.position;
-            k = FollowCamera.transform.GetChild(1).transform.position;
+            //i = FollowCamera.transform.position;
+            //k = FollowCamera.transform.GetChild(1).transform.position;
 
-            i.y = 0;
-            k.y = 0;
+            //i.y = 0;
+            //k.y = 0;
 
-            cRight = k - i;
-            cRight = cRight.normalized;
+            //cRight = k - i;
+            //cRight = cRight.normalized;
         }
         thisRigidbody = GetComponent<Rigidbody>();
         moveDirection = Vector3.zero;
@@ -173,42 +192,134 @@ public class Actor : MonoBehaviour
         skillArrNum = 0;
         Tools = new GameObject[10];
         isTakingTool = false;
+
+        isDead = false;//**DISON.ver**
+        BeAttacked = false;//**DISON.ver**
+        AC_manager = GameObject.Find("BattleManager").GetComponent<BattleManager>();//**DISON.ver**
+        flowchart = GameObject.Find("Flowchart1").GetComponent<Flowchart>();//**DISON.ver**
     }
 
     void Update()
     {
-        if (isAlive && isPlayer)
+        if (!flowchart.GetBooleanVariable("IS_TALKING"))//**DISON.ver**对话时禁止玩家移动、攻击
         {
-            if (!isTakingTool)
+            if (isAlive && isPlayer)
             {
-                //Move();
+                if (!isTakingTool)
+                {
+                    //Move();
 
-                Skill(skillArrNum);
+                    Skill(skillArrNum);
 
-                SpecialInteractive();
+                    SpecialInteractive();
+                }
+
+                RecoverTimeScale();
+
+                changeWeaponModel();
             }
 
-            RecoverTimeScale();
+<<<<<<< HEAD
+            UIUpdate();
 
-            changeWeaponModel();
+            RecoverTimeScale();
+=======
+>>>>>>> 0f97aac609444d8e1724aa2b11ad5c6dce77c7dc
+
         }
 
-        
+        if (AC_manager.Dead_Room_Battle)//**DISON.ver**用于死斗房间结束时所有怪物自毁
+        {
+            if (AC_manager.Dead_Fight_Timer > AC_manager.Dead_Fight_MaxTime && gameObject.layer == 10)
+            {
+                GoDie();
+            }
+        }
+
+
     }
 
     private void FixedUpdate()
     {
-        if (isAlive && isPlayer)
+        if (!flowchart.GetBooleanVariable("IS_TALKING"))//**DISON.ver**对话时禁止玩家移动、攻击
         {
-            if (!isTakingTool)
+            if (isAlive && isPlayer)
             {
-                Look();
-                //transform.LookAt(new Vector3(cForward.x, transform.position.y, cForward.z));
+                if (!isTakingTool)
+                {
+                    Look();
 
-                Move();
+                    Move();
 
+                }
             }
         }
+            
+    }
+
+    private void UIUpdate()
+    {
+        if (healSlider)
+        {
+            UEScript.UpdateSilder(heal,0,maxHeal,healSlider);
+        }
+
+        if (ammoText)
+        {
+            if (skillArrNum == 0)
+            {
+                UEScript.UpdateText(Skills_0[0].ammoNum + "/" + Skills_0[0].ammoNumLimit, ammoText);
+            }
+            else if (skillArrNum == 1)
+            {
+                UEScript.UpdateText(Skills_1[0].ammoNum + "/" + Skills_1[0].ammoNumLimit, ammoText);
+            }
+        }
+
+        if (skillArrNum == 0)
+        {
+            if (skill_0_Slider)
+            {
+                UEScript.UpdateSilder(Skills_0[1].coolDownTimer,0, Skills_0[1].coolDownTime,skill_0_Slider);
+            }
+
+            if (skill_1_Slider)
+            {
+                UEScript.UpdateSilder(Skills_0[2].coolDownTimer, 0, Skills_0[2].coolDownTime, skill_1_Slider);
+            }
+
+            if (skill_2_Slider)
+            {
+                UEScript.UpdateSilder(Skills_0[3].coolDownTimer, 0, Skills_0[3].coolDownTime, skill_2_Slider);
+            }
+
+            if (skill_3_Slider)
+            {
+                UEScript.UpdateSilder(Skills_0[4].coolDownTimer, 0, Skills_0[4].coolDownTime, skill_3_Slider);
+            }
+        }else if (skillArrNum == 1)
+        {
+            if (skill_0_Slider)
+            {
+                UEScript.UpdateSilder(Skills_1[1].coolDownTimer, 0, Skills_1[1].coolDownTime, skill_0_Slider);
+            }
+
+            if (skill_1_Slider)
+            {
+                UEScript.UpdateSilder(Skills_1[2].coolDownTimer, 0, Skills_1[2].coolDownTime, skill_1_Slider);
+            }
+
+            if (skill_2_Slider)
+            {
+                UEScript.UpdateSilder(Skills_1[3].coolDownTimer, 0, Skills_1[3].coolDownTime, skill_2_Slider);
+            }
+
+            if (skill_3_Slider)
+            {
+                UEScript.UpdateSilder(Skills_1[4].coolDownTimer, 0, Skills_1[4].coolDownTime, skill_3_Slider);
+            }
+        }
+
     }
 
     private void Look()
@@ -282,9 +393,9 @@ public class Actor : MonoBehaviour
     {
         if (!imprisonmentBuff && isAlive && isPlayer)//是否存在禁锢Buff
         {
-            //moveDirection = Vector3.forward * Input.GetAxis("Vertical") + Vector3.right * Input.GetAxis("Horizontal");
+            moveDirection = Vector3.forward * Input.GetAxis("Vertical") + Vector3.right * Input.GetAxis("Horizontal");
 
-            moveDirection = cForward * Input.GetAxis("Vertical") + cRight * Input.GetAxis("Horizontal");
+            //moveDirection = cForward * Input.GetAxis("Vertical") + cRight * Input.GetAxis("Horizontal");
 
             if (steping)
             {
@@ -327,11 +438,12 @@ public class Actor : MonoBehaviour
         if (isPlayer)
         {
             Vector3 d = dir;
-            d = Quaternion.AngleAxis(Vector3.Angle(cForward, transform.forward), Vector3.up) * d;
+            d = Quaternion.AngleAxis(Vector3.Angle(Vector3.forward, transform.forward), Vector3.up) * d;
 
-            if (Vector3.Angle(cRight, transform.forward) < 45 && transform.forward.x > 0)
+            if (Vector3.Angle(Vector3.right, transform.forward) < 45 && transform.forward.x > 0)
             {
                 d.z = -d.z;
+                d.x = -d.x;
             }
 
             thisAnimator.SetFloat("HSpeed", d.x);
@@ -364,35 +476,39 @@ public class Actor : MonoBehaviour
     //技能、攻击动画触发
     public void StartAnim(int aS,float skillAnimPlaySpeed,int k)
     {
-        if (aS == 0)
+        if (isPlayer)//DISON.VER
         {
-            thisAnimator.SetBool("NormalAttack",true);
-        }
-        else if (aS == -1)
-        {
-            thisAnimator.SetBool("NormalAttack", false);
-            thisAnimator.SetTrigger("Reload");
-        }
-        else if (aS == 1)
-        {
-            thisAnimator.SetTrigger("cNormalAttack");
-            thisAnimator.SetBool("NormalAttack", false);
-        }
-        else
-        {
-            thisAnimator.SetBool("NormalAttack", false);
-        }
+            if (aS == 0)
+            {
+                thisAnimator.SetBool("NormalAttack", true);
+            }
+            else if (aS == -1)
+            {
+                thisAnimator.SetBool("NormalAttack", false);
+                thisAnimator.SetTrigger("Reload");
+            }
+            else if (aS == 1)
+            {
+                thisAnimator.SetTrigger("cNormalAttack");
+                thisAnimator.SetBool("NormalAttack", false);
+            }
+            else
+            {
+                thisAnimator.SetBool("NormalAttack", false);
+            }
 
-        if (k==0)
-        {
-            thisAnimator.SetFloat("SkillAnimSpeed", skillAnimPlaySpeed);
+            if (k == 0)
+            {
+                thisAnimator.SetFloat("SkillAnimSpeed", skillAnimPlaySpeed);
+            }
+            else
+            {
+                thisAnimator.SetFloat("SkillAnimSpeed_1", skillAnimPlaySpeed);
+            }
+
+            thisAnimator.SetInteger("Skill", aS);
         }
-        else
-        {
-            thisAnimator.SetFloat("SkillAnimSpeed_1", skillAnimPlaySpeed);
-        }
-        
-        thisAnimator.SetInteger("Skill", aS);
+            
 
         
     }
@@ -400,9 +516,14 @@ public class Actor : MonoBehaviour
     //技能、攻击动画停止
     public void StopAnim()
     {
-        thisAnimator.SetBool("NormalAttack", false);
+        if (isPlayer)//DISON.VER{
+        {
+            thisAnimator.SetBool("NormalAttack", false);
 
-        thisAnimator.SetInteger("Skill", 0);
+            thisAnimator.SetInteger("Skill", 0);
+        }
+
+           
     }
 
     //实时更换武器模型
@@ -798,6 +919,14 @@ public class Actor : MonoBehaviour
 
     public void GoDie()
     {
+        isDead = true;//**DISON.ver**   
+
+        if (gameObject.layer == 10)
+        {
+            GameObject.Find("BattleManager").GetComponent<BattleManager>().Mon_Dead();//**DISON.ver**用于怪物刷新系统的击杀怪物数量计算
+            Destroy(gameObject);//***DISON.ver***
+        }
+
         SetAlive(false);
     }
 
