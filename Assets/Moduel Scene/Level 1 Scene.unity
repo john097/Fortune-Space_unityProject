@@ -106,21 +106,21 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 2
     agentHeight: 2
     agentSlope: 45
-    agentClimb: 0.4
+    agentClimb: 1
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.6666667
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: f8bcf673b995ad341b0679a20e3be57d, type: 2}
 --- !u!1001 &1417824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7316,7 +7316,7 @@ PrefabInstance:
     - target: {fileID: 5200199341896944901, guid: 34843544dcb1bc34591d4044e4e8900c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5200199341896944921, guid: 34843544dcb1bc34591d4044e4e8900c,
         type: 3}
@@ -36108,6 +36108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u88C5\u5907\u5207\u6362_0"
   skillExplain: 
+  credit: 0
   thisWeaponType: 0
   weaponModelNum: 0
   thisSkillAnimState: 0
@@ -37764,6 +37765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u88C5\u5907\u5207\u6362_0"
   skillExplain: 
+  credit: 0
   thisWeaponType: 0
   weaponModelNum: 0
   thisSkillAnimState: 0
@@ -41465,7 +41467,7 @@ PrefabInstance:
     - target: {fileID: 5011614754709581228, guid: 8856d2ed6a3487340ab4a8c37e217611,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5011614754709581224, guid: 8856d2ed6a3487340ab4a8c37e217611,
         type: 3}
