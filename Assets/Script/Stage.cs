@@ -52,8 +52,8 @@ public class Stage : MonoBehaviour
     {
         actor = GameObject.Find("Actor").GetComponent<Actor>();
 
-        Player = GameObject.Find("Actor");//DISON.VER
-        flowchart_1 = GameObject.Find("Flowchart1").GetComponent<Flowchart>();//DISON.VER
+        //Player = GameObject.Find("Actor");//DISON.VER
+        //flowchart_1 = GameObject.Find("Flowchart1").GetComponent<Flowchart>();//DISON.VER
 
         //S2 = GameObject.Find("S2-Born_Zoom").transform;//DISON.VER
         //S3 = GameObject.Find("S3-Born_Zoom").transform;//DISON.VER
@@ -74,60 +74,60 @@ public class Stage : MonoBehaviour
         }
         else
         {
-            Crack_Progress = 0;//DISON.VER
+            //Crack_Progress = 0;//DISON.VER
 
-            pp_BattleManager = GameObject.Find("BattleManager").GetComponent<BattleManager>();//DISON.VER
-            pp_DialogManager = GameObject.Find("BattleManager").GetComponent<Dialog_Manager>();//DISON.VER
+            //pp_BattleManager = GameObject.Find("BattleManager").GetComponent<BattleManager>();//DISON.VER
+            //pp_DialogManager = GameObject.Find("BattleManager").GetComponent<Dialog_Manager>();//DISON.VER
 
-            StartCrack = false;//DISON.VER
+            //StartCrack = false;//DISON.VER
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (flowchart_1.GetBooleanVariable("SceneChange"))//DISON.VER
-        {
-            if (pp_BattleManager.Current_State == 1 && gameObject.tag == "TP_GATE")
-            {
-                Player.transform.position = new Vector3(S2.position.x, Player.transform.position.y, S2.position.z);
-                pp_BattleManager.State_Up();
-                //pp_BattleManager.In_New_State = true;
-                flowchart_1.SetBooleanVariable("SceneChange", false);
+        //if (flowchart_1.GetBooleanVariable("SceneChange"))//DISON.VER
+        //{
+        //    if (pp_BattleManager.Current_State == 1 && gameObject.tag == "TP_GATE")
+        //    {
+        //        Player.transform.position = new Vector3(S2.position.x, Player.transform.position.y, S2.position.z);
+        //        pp_BattleManager.State_Up();
+        //        //pp_BattleManager.In_New_State = true;
+        //        flowchart_1.SetBooleanVariable("SceneChange", false);
 
-                Destroy(gameObject);
+        //        Destroy(gameObject);
 
-            }
+        //    }
 
-            if (pp_BattleManager.Current_State == 2 && gameObject.tag == "TP_GATE")
-            {
-                Player.transform.position = new Vector3(S3.position.x, Player.transform.position.y, S3.position.z);
-                pp_BattleManager.State_Up();
-                //pp_BattleManager.In_New_State = true;
-                flowchart_1.SetBooleanVariable("SceneChange", false);
+        //    if (pp_BattleManager.Current_State == 2 && gameObject.tag == "TP_GATE")
+        //    {
+        //        Player.transform.position = new Vector3(S3.position.x, Player.transform.position.y, S3.position.z);
+        //        pp_BattleManager.State_Up();
+        //        //pp_BattleManager.In_New_State = true;
+        //        flowchart_1.SetBooleanVariable("SceneChange", false);
 
-                Destroy(gameObject);
-            }
+        //        Destroy(gameObject);
+        //    }
 
-        }
+        //}
 
-        if (StartCrack && !flowchart_1.GetBooleanVariable("IS_TALKING"))//DISON.VER
-        {
-            if (Crack_Progress >= 30f || heal <= 0)
-            {
-                pp_BattleManager.IS_LAST_WAVE();
-                pp_BattleManager.FINISH_SPAWN();
-                pp_BattleManager.Protect_Room_Battle_Finish();
-                StartCrack = false;
+        //if (StartCrack && !flowchart_1.GetBooleanVariable("IS_TALKING"))//DISON.VER
+        //{
+        //    if (Crack_Progress >= 30f || heal <= 0)
+        //    {
+        //        pp_BattleManager.IS_LAST_WAVE();
+        //        pp_BattleManager.FINISH_SPAWN();
+        //        pp_BattleManager.Protect_Room_Battle_Finish();
+        //        StartCrack = false;
 
-            }
-            else
-            {
-                Crack_Progress += Time.deltaTime;
-                //Debug.Log(Crack_Progress);
-            }
+        //    }
+        //    else
+        //    {
+        //        Crack_Progress += Time.deltaTime;
+        //        //Debug.Log(Crack_Progress);
+        //    }
 
-        }
+        //}
     }
 
     public void RefrashToolList()
@@ -194,63 +194,63 @@ public class Stage : MonoBehaviour
 
     public void UseFunc()
     {
-        
+        actor.isTakingTool = true;
         if (thisToolType == toolType.道具)
         {
             GetTool();
-            actor.isTakingTool = true;//DISON.VER
+           
         }
         else if(thisToolType == toolType.商店)
         {
             GameObject a = Instantiate(storeUI, GameObject.Find("Canvas").transform);
             a.GetComponent<SelectUIScript>().tool = gameObject.GetComponent<Stage>();
-            a.GetComponent<SelectUIScript>().SetInformation();//DISON.VER
-            actor.isTakingTool = true;
+            a.GetComponent<SelectUIScript>().SetInformation();
+            
         }
         else if (thisToolType == toolType.特殊交互点)
         {
-            if (gameObject.tag == "ProtectPoint")//保护据点触发器//DISON.VER
-            {
-                pp_DialogManager.ProtectPoint_Start_Talk();//触发对话//DISON.VER
+            //if (gameObject.tag == "ProtectPoint")//保护据点触发器//DISON.VER
+            //{
+            //    pp_DialogManager.ProtectPoint_Start_Talk();//触发对话//DISON.VER
 
-                StartCrack = true;
-                pp_BattleManager.Special_Battle_Start();
-            }
-
-
-            if (gameObject.tag == "DeadPoint" && !deadfight_start)//死斗触发器//DISON.VER
-            {
-                pp_DialogManager.DeadPoint_Start_Talk();//触发对话
-
-                pp_BattleManager.Special_Battle_Start();
-                deadfight_start = true;
-                //gameObject.SetActive(false);
-            }
-
-            if (gameObject.tag == "TP_GATE")//传送门//DISON.VER
-            {
-                if (pp_BattleManager.Current_State == 1)
-                {
-                    flowchart_1.SendFungusMessage("State_1_Talk_TP");
-                }
-
-                if (pp_BattleManager.Current_State == 2)
-                {
-                    flowchart_1.SendFungusMessage("State_2_Talk_TP");
-                }
-
-                if (pp_BattleManager.Current_State == 3)
-                {
-                    flowchart_1.SendFungusMessage("State_3_Ending_Talk");
-                }
+            //    StartCrack = true;
+            //    pp_BattleManager.Special_Battle_Start();
+            //}
 
 
-            }
+            //if (gameObject.tag == "DeadPoint" && !deadfight_start)//死斗触发器//DISON.VER
+            //{
+            //    pp_DialogManager.DeadPoint_Start_Talk();//触发对话
 
-            if (gameObject.tag == "Say_Dialog")//普通对话对象//DISON.VER
-            {
+            //    pp_BattleManager.Special_Battle_Start();
+            //    deadfight_start = true;
+            //    //gameObject.SetActive(false);
+            //}
 
-            }
+            //if (gameObject.tag == "TP_GATE")//传送门//DISON.VER
+            //{
+            //    if (pp_BattleManager.Current_State == 1)
+            //    {
+            //        flowchart_1.SendFungusMessage("State_1_Talk_TP");
+            //    }
+
+            //    if (pp_BattleManager.Current_State == 2)
+            //    {
+            //        flowchart_1.SendFungusMessage("State_2_Talk_TP");
+            //    }
+
+            //    if (pp_BattleManager.Current_State == 3)
+            //    {
+            //        flowchart_1.SendFungusMessage("State_3_Ending_Talk");
+            //    }
+
+
+            //}
+
+            //if (gameObject.tag == "Say_Dialog")//普通对话对象//DISON.VER
+            //{
+
+            //}
         }
     }
 
