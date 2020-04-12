@@ -83,17 +83,17 @@ public class Dialog_Manager : MonoBehaviour
 
     public void TP_Talk()//传送对话
     {
-        if (PlayerPrefs.GetInt("Current_State") == 1)
+        if (PlayerPrefs.GetInt("Current_State") == 0)
         {
             flowchart.SendFungusMessage("State_1_Talk_TP");
         }
 
-        if (PlayerPrefs.GetInt("Current_State") == 2)
+        if (PlayerPrefs.GetInt("Current_State") == 1)
         {
             flowchart.SendFungusMessage("State_2_Talk_TP");
         }
 
-        if (PlayerPrefs.GetInt("Current_State") == 3)
+        if (PlayerPrefs.GetInt("Current_State") == 2)
         {
             flowchart.SendFungusMessage("State_3_Ending_Talk");
         }

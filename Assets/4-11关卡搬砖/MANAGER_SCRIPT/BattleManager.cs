@@ -60,6 +60,8 @@ public class BattleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        //PlayerPrefs.DeleteKey("Current_State");
         
         Player= GameObject.Find("Actor").GetComponent<Actor>();
         player_tf = GameObject.Find("Actor").transform;
@@ -67,15 +69,15 @@ public class BattleManager : MonoBehaviour
 
         switch(PlayerPrefs.GetInt("Current_State"))//关卡开始传送到出生房
         {
-            case 1:
+            case 0:
                 BornRoom_tf = GameObject.Find("S1-Born_Zoom").transform;
                 player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
-            case 2:
+            case 1:
                 BornRoom_tf = GameObject.Find("S2-Born_Zoom").transform;
                 player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
-            case 3:
+            case 2:
                 BornRoom_tf = GameObject.Find("S3-Born_Zoom").transform;
                 player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
@@ -288,16 +290,16 @@ public class BattleManager : MonoBehaviour
 
         switch (PlayerPrefs.GetInt("Current_State"))
         {
-            case 1:
-                PlayerPrefs.SetInt("Current_State", 0);
+            case 0:
+                PlayerPrefs.SetInt("Current_State", 1);
                 
                 flowchart.SetBooleanVariable("SceneChange", false);
 
                 SceneManager.LoadScene("Level 2  Scene 1");
                 break;
 
-            case 2:
-                PlayerPrefs.SetInt("Current_State", 1);
+            case 1:
+                PlayerPrefs.SetInt("Current_State", 2);
                 
                 flowchart.SetBooleanVariable("SceneChange", false);
 
