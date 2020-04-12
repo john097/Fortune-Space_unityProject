@@ -96,7 +96,7 @@ public class Enemy_Manager : MonoBehaviour
 
             }
 
-            if (B_Manager.startspawn == true && Monster_CurrentWaves < B_Manager.Monster_Waves && ME.this_room_type == 3 && PlayerPrefs.GetInt("Current_State") == 1)//开始守护据点房刷怪模式（需要调整逻辑
+            if (B_Manager.startspawn == true && Monster_CurrentWaves < B_Manager.Monster_Waves && ME.this_room_type == 3 && PlayerPrefs.GetInt("Current_State") == 0)//开始守护据点房刷怪模式（需要调整逻辑
             {
 
                 B_Manager.START_WAVE();
@@ -107,7 +107,7 @@ public class Enemy_Manager : MonoBehaviour
 
             }
 
-            if (B_Manager.startspawn == true && ME.this_room_type == 3 && B_Manager.Dead_Room_Battle && PlayerPrefs.GetInt("Current_State") == 2)//开始死斗房刷怪模式（需要调整逻辑
+            if (B_Manager.startspawn == true && ME.this_room_type == 3 && B_Manager.Dead_Room_Battle && PlayerPrefs.GetInt("Current_State") == 1)//开始死斗房刷怪模式（需要调整逻辑
             {
 
                 B_Manager.START_WAVE();
@@ -119,7 +119,7 @@ public class Enemy_Manager : MonoBehaviour
 
             }
 
-            if (B_Manager.startspawn == true && ME.this_room_type == 3 && B_Manager.BOSS_Battle && PlayerPrefs.GetInt("Current_State") == 3)//开始BOSS房刷怪模式（需要调整逻辑
+            if (B_Manager.startspawn == true && ME.this_room_type == 3 && B_Manager.BOSS_Battle && PlayerPrefs.GetInt("Current_State") == 2)//开始BOSS房刷怪模式（需要调整逻辑
             {
                 B_Manager.START_WAVE();
                 B_Manager.IS_LAST_WAVE();

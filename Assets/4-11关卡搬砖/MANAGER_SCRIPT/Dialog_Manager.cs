@@ -34,14 +34,14 @@ public class Dialog_Manager : MonoBehaviour
     {
         if (DM_MANAGER.In_New_State)//第一关开场对话
         {
-            if (PlayerPrefs.GetInt("Current_State") == 1)
+            if (PlayerPrefs.GetInt("Current_State") == 0)
             {
                 flowchart.SendFungusMessage("State_1_Start");
                
                 DM_MANAGER.In_New_State = false;
             }
 
-            if (PlayerPrefs.GetInt("Current_State") == 2)//第二关开场对话
+            if (PlayerPrefs.GetInt("Current_State") == 1)//第二关开场对话
             {
 
                 flowchart.SendFungusMessage("State_2_Start");
@@ -49,7 +49,7 @@ public class Dialog_Manager : MonoBehaviour
                 DM_MANAGER.In_New_State = false;
             }
 
-            if (PlayerPrefs.GetInt("Current_State") == 3)//第三关开场对话
+            if (PlayerPrefs.GetInt("Current_State") == 2)//第三关开场对话
             {
                 flowchart.SendFungusMessage("State_3_Start");
                
