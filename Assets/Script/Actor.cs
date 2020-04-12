@@ -146,6 +146,7 @@ public class Actor : MonoBehaviour
     public Slider skill_1_Slider;
     public Slider skill_2_Slider;
     public Slider skill_3_Slider;
+    public GameObject uiTips_SpecialInteractive;
 
     private Vector3 cForward;
     private Vector3 cRight;
@@ -158,21 +159,14 @@ public class Actor : MonoBehaviour
     public bool BeAttacked;//**DISON.ver**用于怪物巡逻判断（若被攻击，则终止巡逻）
     public bool isTalking;//**DISON.ver**对话时不让玩家移动
 
-    private GameObject actor_tp;
-    private GameObject camera;
-
     void Start()
     {
-        DontDestroyOnLoad(actor_tp);
-        DontDestroyOnLoad(camera);
+        DontDestroyOnLoad(gameObject);
 
 
         nowThisTakeWeapon = weaponType.非武器;
         heal = maxHeal;
         lookAtTag = true;
-
-        actor_tp = gameObject;
-        camera = GameObject.Find("Main Camera");
 
         if (isPlayer)
         {
@@ -213,9 +207,6 @@ public class Actor : MonoBehaviour
 
     void Update()
     {
-
-        
-
         if (isAlive && isPlayer&& !isTalking)//**DISON.ver**
         {
                 if (!isTakingTool)
@@ -242,19 +233,15 @@ public class Actor : MonoBehaviour
 
     private void FixedUpdate()
     {
-       
-            if (isAlive && isPlayer && !isTalking)//**DISON.ver**
+        if (isAlive && isPlayer && !isTalking)//**DISON.ver**
         {
-                if (!isTakingTool)
-                {
-                    Look();
+            if (!isTakingTool)
+            {
+                Look();
 
-                    Move();
-
-                }
+                Move();
             }
-        
-            
+        }  
     }
 
     private void UIUpdate()
@@ -979,6 +966,11 @@ public class Actor : MonoBehaviour
                     }
                 }
             }
+
+            if (!uiTips_SpecialInteractive)
+            {
+                uiTips_SpecialInteractive = Instantiate(Resources.Load("UIPrefabs/Image_SpecialInteractive") as GameObject, GameObject.Find("Canvas").transform);
+            }
         }
     }
 
@@ -992,6 +984,19 @@ public class Actor : MonoBehaviour
                 {
                     Tools[i] = null;
                     break;
+                }
+            }
+
+            for (int i = 0; i < Tools.Length; i++)
+            {
+                if (Tools[i] != null)
+                {
+                    break;
+                }
+
+                if (i == Tools.Length - 1 && uiTips_SpecialInteractive)
+                {
+                    Destroy(uiTips_SpecialInteractive);
                 }
             }
         }
