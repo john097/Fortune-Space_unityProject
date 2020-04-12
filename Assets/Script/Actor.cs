@@ -169,6 +169,20 @@ public class Actor : MonoBehaviour
         {
             thisAnimator = gameObject.transform.Find("ActorModel").GetComponent<Animator>();
 
+            Vector3 i = FollowCamera.transform.position;
+            Vector3 k = FollowCamera.transform.GetChild(0).transform.position;
+            i.y = 0;
+            k.y = 0;
+
+            cForward = k - i;
+            cForward = cForward.normalized;
+
+            i = FollowCamera.transform.position;
+            k = FollowCamera.transform.GetChild(1).transform.position;
+
+            cRight = k - i;
+            cRight = cRight.normalized;
+
             //Vector3 i = FollowCamera.transform.position;
             //Vector3 k = FollowCamera.transform.GetChild(0).transform.position;
             //i.y = 0;
@@ -223,10 +237,6 @@ public class Actor : MonoBehaviour
             UIUpdate();
 
             RecoverTimeScale();
-
-
-
-        
 
         //if (AC_manager.Dead_Room_Battle)//**DISON.ver**用于死斗房间结束时所有怪物自毁
         //{
@@ -392,9 +402,9 @@ public class Actor : MonoBehaviour
     {
         if (!imprisonmentBuff && isAlive && isPlayer)//是否存在禁锢Buff
         {
-            moveDirection = Vector3.forward * Input.GetAxis("Vertical") + Vector3.right * Input.GetAxis("Horizontal");
+            //moveDirection = Vector3.forward * Input.GetAxis("Vertical") + Vector3.right * Input.GetAxis("Horizontal");
 
-            //moveDirection = cForward * Input.GetAxis("Vertical") + cRight * Input.GetAxis("Horizontal");
+            moveDirection = cForward * Input.GetAxis("Vertical") + cRight * Input.GetAxis("Horizontal");
 
             if (steping)
             {
@@ -439,11 +449,18 @@ public class Actor : MonoBehaviour
             Vector3 d = dir;
             d = Quaternion.AngleAxis(Vector3.Angle(Vector3.forward, transform.forward), Vector3.up) * d;
 
+            //d = Quaternion.AngleAxis(Vector3.Angle(cForward, transform.forward), Vector3.up) * d;
+
             if (Vector3.Angle(Vector3.right, transform.forward) < 45 && transform.forward.x > 0)
             {
                 d.z = -d.z;
                 d.x = -d.x;
             }
+
+            //if (Vector3.Angle(cRight, transform.forward) < 45 && transform.forward.x > 0)
+            //{
+            //    d.z = -d.z;
+            //}
 
             thisAnimator.SetFloat("HSpeed", d.x);
             thisAnimator.SetFloat("VSpeed", d.z);
