@@ -163,7 +163,6 @@ public class Actor : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
-
         nowThisTakeWeapon = weaponType.非武器;
         heal = maxHeal;
         lookAtTag = true;
@@ -200,7 +199,7 @@ public class Actor : MonoBehaviour
         BeAttacked = false;//**DISON.ver**
         isTalking = false;//**DISON.ver**
 
-        //AC_manager = GameObject.Find("BattleManager").GetComponent<BattleManager>();//**DISON.ver**
+
 
 
     }
