@@ -14491,7 +14491,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   specialInteractiveKey: 101
-  Tools: []
   UsingSkill: {fileID: 0}
   aWarning: {fileID: 0}
   imprisonmentBuff: {fileID: 0}
@@ -14510,11 +14509,15 @@ MonoBehaviour:
   isTakingTool: 0
   nowThisTakeWeapon: 0
   nowThisTakeWeaponNum: 0
-  recoverTimeScaleTimer: 0
   hitChangeTimeScaleTime: 0
+  healSlider: {fileID: 0}
+  ammoText: {fileID: 0}
+  skill_0_Slider: {fileID: 0}
+  skill_1_Slider: {fileID: 0}
+  skill_2_Slider: {fileID: 0}
+  skill_3_Slider: {fileID: 0}
   isDead: 0
   BeAttacked: 0
-  flowchart: {fileID: 0}
 --- !u!1001 &631299932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34537,6 +34540,7 @@ MonoBehaviour:
   buffPrefabs:
   - {fileID: 5870055950133461682, guid: 65dd38ed7720f274e9d8f3906e704aa4, type: 3}
   skillVariantEvent: 0
+  coolDownTimer: 0
   coolDownFlag: 0
   actor: {fileID: 0}
 --- !u!4 &1413966221
@@ -36101,6 +36105,7 @@ MonoBehaviour:
   buffPrefabs:
   - {fileID: 1107046987645392613, guid: a9789a35184d2694fac14fd9a6e9a0e1, type: 3}
   skillVariantEvent: 0
+  coolDownTimer: 0
   coolDownFlag: 0
   actor: {fileID: 0}
 --- !u!1001 &1463377988
@@ -39622,7 +39627,6 @@ MonoBehaviour:
   - {fileID: 1875146485}
   - {fileID: 1413966220}
   specialInteractiveKey: 101
-  Tools: []
   UsingSkill: {fileID: 0}
   aWarning: {fileID: 0}
   imprisonmentBuff: {fileID: 0}
@@ -39641,11 +39645,15 @@ MonoBehaviour:
   isTakingTool: 0
   nowThisTakeWeapon: 0
   nowThisTakeWeaponNum: 0
-  recoverTimeScaleTimer: 0
   hitChangeTimeScaleTime: 0
+  healSlider: {fileID: 0}
+  ammoText: {fileID: 0}
+  skill_0_Slider: {fileID: 0}
+  skill_1_Slider: {fileID: 0}
+  skill_2_Slider: {fileID: 0}
+  skill_3_Slider: {fileID: 0}
   isDead: 0
   BeAttacked: 0
-  flowchart: {fileID: 0}
 --- !u!4 &1605112773
 Transform:
   m_ObjectHideFlags: 0
