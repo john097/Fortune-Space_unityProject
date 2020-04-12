@@ -40,9 +40,18 @@ public class SelectUIScript : MonoBehaviour
 
     public void SeletTool(int i)
     {
-        tool.toolSkill = tool.storeSkills[i];
-        tool.GetTool();
-        Destroy(gameObject);
+        if (tool.storeSkills[i].credit <= GameObject.FindGameObjectWithTag("Player").GetComponent<Credit>().playerCredit)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Credit>().AddPlayerCredit(-tool.storeSkills[i].credit);
+            tool.toolSkill = tool.storeSkills[i];
+            tool.GetTool();
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("积分不足");
+        }
+        
     }
 
     public void SetInformation()

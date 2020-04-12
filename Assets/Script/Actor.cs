@@ -57,6 +57,9 @@ public class Actor : MonoBehaviour
     [Tooltip("角色类型")]
         public specialType thisSpType;
 
+    [Tooltip("角色积分")]
+        public int actorCredit;
+
     [Tooltip("最大生命值")]
         public float maxHeal;
 
@@ -161,14 +164,10 @@ public class Actor : MonoBehaviour
 
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
-
-        nowThisTakeWeapon = weaponType.非武器;
-        heal = maxHeal;
-        lookAtTag = true;
-
         if (isPlayer)
         {
+            DontDestroyOnLoad(gameObject);
+
             thisAnimator = gameObject.transform.Find("ActorModel").GetComponent<Animator>();
 
             Vector3 i = FollowCamera.transform.position;
@@ -188,6 +187,10 @@ public class Actor : MonoBehaviour
             cRight = k - i;
             cRight = cRight.normalized;
         }
+
+        nowThisTakeWeapon = weaponType.非武器;
+        heal = maxHeal;
+        lookAtTag = true;
         thisRigidbody = GetComponent<Rigidbody>();
         moveDirection = Vector3.zero;
         steping = false;
@@ -913,9 +916,19 @@ public class Actor : MonoBehaviour
     {
        
 
-        if (gameObject.layer == 10)
+        if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            GameObject.Find("BattleManager").GetComponent<BattleManager>().Mon_Dead();//**DISON.ver**用于怪物刷新系统的击杀怪物数量计算
+            if (GameObject.Find("BattleManager"))
+            {
+                GameObject.Find("BattleManager").GetComponent<BattleManager>().Mon_Dead();//**DISON.ver**用于怪物刷新系统的击杀怪物数量计算
+            }
+            
+
+            if (GameObject.FindGameObjectWithTag("Player"))
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Credit>().AddPlayerCredit(actorCredit);
+            }
+            
             Destroy(gameObject);//***DISON.ver***
         }
 

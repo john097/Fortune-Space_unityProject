@@ -149,9 +149,6 @@ public class Stage : MonoBehaviour
             GameObject a = Instantiate(storeUI, GameObject.Find("Canvas").transform);
             a.GetComponent<SelectUIScript>().tool = gameObject.GetComponent<Stage>();
             a.GetComponent<SelectUIScript>().SetInformation();
-
-           
-
         }
         else if (thisToolType == toolType.特殊交互点)
         {

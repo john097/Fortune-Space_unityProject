@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8394335988958288428}
   - component: {fileID: 7468497074292987846}
   m_Layer: 0
-  m_Name: S_InitialShotgun
+  m_Name: S_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u521D\u59CB\u9730\u5F39\u67AA"
   skillExplain: 
+  credit: 5
   thisWeaponType: 3
+  weaponModelNum: 0
   thisSkillAnimState: 0
   thisSkillAnimSpeed: 0
   thisSkillSpeedNum: 0
@@ -95,4 +97,6 @@ MonoBehaviour:
   buffPrefabs:
   - {fileID: 6170946277397749143, guid: 5405ac87d1b8fcb49b49a89d788f581c, type: 3}
   skillVariantEvent: 0
+  coolDownTimer: 0
+  coolDownFlag: 0
   actor: {fileID: 0}

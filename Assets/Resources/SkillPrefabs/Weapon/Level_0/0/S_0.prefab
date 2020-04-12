@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u8D77\u59CB\u592A\u5200"
   skillExplain: 
+  credit: 0
   thisWeaponType: 5
   weaponModelNum: 0
   thisSkillAnimState: 102
@@ -87,6 +88,8 @@ MonoBehaviour:
   buffPrefabs:
   - {fileID: 3320732869545515487, guid: 99b69b2e39ace1145b513373d12802a5, type: 3}
   skillVariantEvent: 0
+  coolDownTimer: 0
+  coolDownFlag: 0
   actor: {fileID: 0}
 --- !u!1 &7700267544115785152
 GameObject:
@@ -133,6 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u8D77\u59CB\u592A\u5200"
   skillExplain: 
+  credit: 0
   thisWeaponType: 5
   weaponModelNum: 0
   thisSkillAnimState: 103
@@ -175,6 +179,8 @@ MonoBehaviour:
   buffPrefabs:
   - {fileID: 3953366767545335957, guid: 4f5349647f259ff47bce04b7070e00d7, type: 3}
   skillVariantEvent: 0
+  coolDownTimer: 0
+  coolDownFlag: 0
   actor: {fileID: 0}
 --- !u!1 &7700267545219929598
 GameObject:
@@ -223,6 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u8D77\u59CB\u592A\u5200"
   skillExplain: 
+  credit: 10
   thisWeaponType: 5
   weaponModelNum: 0
   thisSkillAnimState: 101
@@ -267,4 +274,6 @@ MonoBehaviour:
   buffPrefabs:
   - {fileID: 5696292650377325008, guid: 723ece8812537f2469f365bd3b874b69, type: 3}
   skillVariantEvent: 0
+  coolDownTimer: 0
+  coolDownFlag: 0
   actor: {fileID: 0}
