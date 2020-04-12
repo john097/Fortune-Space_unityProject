@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 
 
-
 public class Actor : MonoBehaviour
 {
     public GameObject FollowCamera;
