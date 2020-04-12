@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< HEAD
+
 using UnityEngine.UI;
-=======
+
 using Fungus;
->>>>>>> 0f97aac609444d8e1724aa2b11ad5c6dce77c7dc
+
 
 public class Actor : MonoBehaviour
 {
@@ -219,13 +219,9 @@ public class Actor : MonoBehaviour
                 changeWeaponModel();
             }
 
-<<<<<<< HEAD
             UIUpdate();
 
             RecoverTimeScale();
-=======
->>>>>>> 0f97aac609444d8e1724aa2b11ad5c6dce77c7dc
-
         }
 
         if (AC_manager.Dead_Room_Battle)//**DISON.ver**用于死斗房间结束时所有怪物自毁
