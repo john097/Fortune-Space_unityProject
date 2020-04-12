@@ -156,6 +156,7 @@ public class Actor : MonoBehaviour
 
     public bool isDead;//**DISON.ver**判断是否死亡
     public bool BeAttacked;//**DISON.ver**用于怪物巡逻判断（若被攻击，则终止巡逻）
+    public bool isTalking;
     private BattleManager AC_manager;//**DISON.ver**
   
 
@@ -194,15 +195,16 @@ public class Actor : MonoBehaviour
 
         isDead = false;//**DISON.ver**
         BeAttacked = false;//**DISON.ver**
+        isTalking = false;//**DISON.ver**
         //AC_manager = GameObject.Find("BattleManager").GetComponent<BattleManager>();//**DISON.ver**
-   
+
     }
 
     void Update()
     {
         
-            if (isAlive && isPlayer)
-            {
+            if (isAlive && isPlayer&& !isTalking)//**DISON.ver**
+        {
                 if (!isTakingTool)
                 {
                     //Move();
@@ -240,8 +242,8 @@ public class Actor : MonoBehaviour
     private void FixedUpdate()
     {
        
-            if (isAlive && isPlayer)
-            {
+            if (isAlive && isPlayer && !isTalking)//**DISON.ver**
+        {
                 if (!isTakingTool)
                 {
                     Look();
