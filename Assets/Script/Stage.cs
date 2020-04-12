@@ -47,12 +47,6 @@ public class Stage : MonoBehaviour
     {
         actor = GameObject.Find("Actor").GetComponent<Actor>();
 
-     
-        
-
-
-        
-
 
         if (thisToolType != toolType.特殊交互点)
         {
