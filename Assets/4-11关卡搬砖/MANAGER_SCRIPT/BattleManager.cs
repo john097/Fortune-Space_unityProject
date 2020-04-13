@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class BattleManager : MonoBehaviour
 {
-    public GameObject DOORS;
+
 
     public Player_IN_Room[] S1_ROOM;//第一关房间列表
     public Player_IN_Room[] S2_ROOM;
     public Player_IN_Room[] S3_ROOM;
+    public Player_IN_Room BOSS_ROOM;
 
     Actor Player;
     Stage PP;
@@ -62,12 +63,14 @@ public class BattleManager : MonoBehaviour
     {
 
         //PlayerPrefs.DeleteKey("Current_State");
-        
-        Player= GameObject.Find("Actor").GetComponent<Actor>();
+        //PlayerPrefs.SetInt("Current_State", 2);
+
+
+        Player = GameObject.Find("Actor").GetComponent<Actor>();
         player_tf = GameObject.Find("Actor").transform;
         flowchart = GameObject.Find("Flowchart1").GetComponent<Flowchart>();
 
-        switch(PlayerPrefs.GetInt("Current_State"))//关卡开始传送到出生房
+        switch (PlayerPrefs.GetInt("Current_State"))//关卡开始传送到出生房
         {
             case 0:
                 BornRoom_tf = GameObject.Find("S1-Born_Zoom").transform;
@@ -81,46 +84,54 @@ public class BattleManager : MonoBehaviour
                 BornRoom_tf = GameObject.Find("S3-Born_Zoom").transform;
                 player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
+                
+            case 3:
+                BornRoom_tf = GameObject.Find("BossRoom_BornZoom").transform;
+                player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
+                break;
         }
-        
+
 
         Crack_Progress = 0f;
         Dead_Fight_Timer = 0f;
-        Dead_Fight_MaxTime = 10f;
+        Dead_Fight_MaxTime = 15f;
 
        checknum_a = 1;
        
 
         int[] num = new int[5];
-        int[] num_2 = new int[5];
+        int[] num_2 = new int[4];
 
         Player_Choose = new int[3];
 
 
         if (PlayerPrefs.GetInt("Current_State") == 2)//生成随机数组，用于定义房间类型
         {
-            for (int j = 0; j < num.Length; j++)//最后一关
+            for (int j = 0; j < num_2.Length; j++)//第三关随机房间逻辑
             {
                 if (checknum_a >= 3)
                 {
                     checknum_a = 3;
                 }
 
-                num_2[j] = Random.Range(1, checknum_a);
+                num_2[j] = Random.Range(1, checknum_a+1);
 
                 checknum_a += 1;
 
-                if (j == 3 && sum < 4)
+                if (j == 2 && sum < 3)
                 {
-                    num_2[j] = 2;
+                    
+                    num_2[j ] = 2;
                     num_2[j + 1] = 3;
                     break;
                 }
-                if (j == 4)
+                if (num_2[2] == 3)
+                {
+                    checknum_a -= 1;
+                }
+                if (j == 3 && sum < 5)
                 {
                     num_2[j] = 3;
-
-                    break;
                 }
 
                 sum += num_2[j];
@@ -177,6 +188,9 @@ public class BattleManager : MonoBehaviour
                     S3_ROOM[i].SET_ROOM_TYPE(num_2[i]);
                 }
                 break;
+            case 3:
+                BOSS_ROOM.SET_ROOM_TYPE(3);
+                break;
 
         }
 
@@ -202,13 +216,14 @@ public class BattleManager : MonoBehaviour
 
         TP = false;
         In_New_State = true;
-        isTalking = false;
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        isTalking = flowchart.GetBooleanVariable("IS_TALKING");
 
         currentstate = PlayerPrefs.GetInt("Current_State");
 
@@ -223,16 +238,24 @@ public class BattleManager : MonoBehaviour
             RoomClear = true;
             BattleFinish = true;
 
+            
+
         }
 
         if (BattleFinish)//打开房间门口
         {
-            //DOORS.SetActive(true);
+
+            if (GameObject.FindGameObjectWithTag("ENEMY"))
+            {
+                GameObject[] enemys = GameObject.FindGameObjectsWithTag("ENEMY");
+                for (int i = 0; i < enemys.Length; i++)
+                {
+                    enemys[i].GetComponent<Actor>().GoDie();
+                    Debug.Log("godie");
+                }
+            }
         }
-        else
-        {
-            //DOORS.SetActive(false);
-        }
+       
 
 
         if (Protect_Room_Battle && !isTalking)//保护据点房计时
@@ -250,6 +273,8 @@ public class BattleManager : MonoBehaviour
         }
 
 
+        
+
         if (Dead_Room_Battle&&!isTalking)//死斗房计时
         {
 
@@ -261,14 +286,16 @@ public class BattleManager : MonoBehaviour
             }
             else//死斗房时间结束，自动销毁所有怪物
             {
+                Dead_Room_Battle = false;
                 IS_LAST_WAVE();
                 FINISH_SPAWN();
                 MON_NUMS = 0;
-                Dead_Room_Battle = false;
+                
                 GameObject[] enemys = GameObject.FindGameObjectsWithTag("ENEMY");
                 for(int i = 0; i < enemys.Length; i++)
                 {
                     enemys[i].GetComponent<Actor>().GoDie();
+                    Debug.Log("godie");
                 }
                 
                
@@ -305,7 +332,13 @@ public class BattleManager : MonoBehaviour
 
                 SceneManager.LoadScene("Level 3");
                 break;
+            case 2:
+                PlayerPrefs.SetInt("Current_State", 3);
 
+                flowchart.SetBooleanVariable("SceneChange", false);
+
+                SceneManager.LoadScene("BossRoom");
+                break;
         }
 
 
@@ -351,7 +384,7 @@ public class BattleManager : MonoBehaviour
             START_SPAWN();
         }
 
-        if (PlayerPrefs.GetInt("Current_State") == 2)//BOSS战
+        if (PlayerPrefs.GetInt("Current_State") == 3)//BOSS战
         {
             Boss_Battle_Start();
             START_SPAWN();

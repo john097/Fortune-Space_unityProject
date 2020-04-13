@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u738B\u8005\u5E73A"
   skillExplain: 
+  credit: 0
   thisWeaponType: 0
   weaponModelNum: 0
   thisSkillAnimState: 0
@@ -87,6 +88,7 @@ MonoBehaviour:
   buffPrefabs:
   - {fileID: 5048601109345951997, guid: 6e2b71dd39a80b940b29a24564607394, type: 3}
   skillVariantEvent: 0
+  coolDownTimer: 0
   coolDownFlag: 0
   actor: {fileID: 0}
 --- !u!1 &8732763476932684148
@@ -188,7 +190,8 @@ MonoBehaviour:
   FollowCamera: {fileID: 0}
   isPlayer: 0
   thisSpType: 0
-  maxHeal: 100
+  actorCredit: 0
+  maxHeal: 300
   heal: 0
   isAlive: 1
   speed: 0
@@ -203,7 +206,6 @@ MonoBehaviour:
   - {fileID: 8732763477302713999}
   Skills_1: []
   specialInteractiveKey: 0
-  Tools: []
   UsingSkill: {fileID: 0}
   aWarning: {fileID: 0}
   imprisonmentBuff: {fileID: 0}
@@ -222,11 +224,16 @@ MonoBehaviour:
   isTakingTool: 0
   nowThisTakeWeapon: 0
   nowThisTakeWeaponNum: 0
-  recoverTimeScaleTimer: 0
   hitChangeTimeScaleTime: 0
-  isDead: 0
+  healSlider: {fileID: 0}
+  ammoText: {fileID: 0}
+  skill_0_Slider: {fileID: 0}
+  skill_1_Slider: {fileID: 0}
+  skill_2_Slider: {fileID: 0}
+  skill_3_Slider: {fileID: 0}
+  uiTips_SpecialInteractive: {fileID: 0}
   BeAttacked: 0
-  flowchart: {fileID: 0}
+  isTalking: 0
 --- !u!195 &8732763476932684158
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -403,6 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u51B2\u51FB\u4E0A\u6311"
   skillExplain: 
+  credit: 0
   thisWeaponType: 0
   weaponModelNum: 0
   thisSkillAnimState: 0
@@ -444,6 +452,7 @@ MonoBehaviour:
   buffPrefabsInCastActionTime: []
   buffPrefabs: []
   skillVariantEvent: 0
+  coolDownTimer: 0
   coolDownFlag: 0
   actor: {fileID: 0}
 --- !u!1 &8732763477751510142
@@ -491,6 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u956D\u5C04\u70AE"
   skillExplain: 
+  credit: 0
   thisWeaponType: 0
   weaponModelNum: 0
   thisSkillAnimState: 0
@@ -537,6 +547,7 @@ MonoBehaviour:
   buffPrefabs:
   - {fileID: 5048601109345951997, guid: 6e2b71dd39a80b940b29a24564607394, type: 3}
   skillVariantEvent: 0
+  coolDownTimer: 0
   coolDownFlag: 0
   actor: {fileID: 0}
 --- !u!1 &8732763478067852526
@@ -584,6 +595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u5F11\u541B\u7A81\u523A"
   skillExplain: 
+  credit: 0
   thisWeaponType: 0
   weaponModelNum: 0
   thisSkillAnimState: 0
@@ -628,6 +640,7 @@ MonoBehaviour:
   buffPrefabsInCastActionTime: []
   buffPrefabs: []
   skillVariantEvent: 0
+  coolDownTimer: 0
   coolDownFlag: 0
   actor: {fileID: 0}
 --- !u!1001 &8732763477068835831
@@ -637,6 +650,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8732763476932684144}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 4a5bf4eba3563074f9fa9a954114653b,
+        type: 3}
+      propertyPath: m_Name
+      value: m001_bomber
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 4a5bf4eba3563074f9fa9a954114653b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5133913965574556032, guid: 4a5bf4eba3563074f9fa9a954114653b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6046807560587765371, guid: 4a5bf4eba3563074f9fa9a954114653b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683804717500369585, guid: 4a5bf4eba3563074f9fa9a954114653b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 4a5bf4eba3563074f9fa9a954114653b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -706,31 +744,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 4a5bf4eba3563074f9fa9a954114653b,
-        type: 3}
-      propertyPath: m_Name
-      value: m001_bomber
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 4a5bf4eba3563074f9fa9a954114653b,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5133913965574556032, guid: 4a5bf4eba3563074f9fa9a954114653b,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: -6046807560587765371, guid: 4a5bf4eba3563074f9fa9a954114653b,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4683804717500369585, guid: 4a5bf4eba3563074f9fa9a954114653b,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 4a5bf4eba3563074f9fa9a954114653b,
         type: 3}
