@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisType: 1
-  lifeTime: 0.15
+  lifeTime: 0.3
   speed: 0
   timeToStop: 0
   damage: 50
@@ -62,7 +62,7 @@ MonoBehaviour:
   destoryAfterCollisionWithActor: 0
   destoryIfSkillBeCancel: 0
   destoryTarget: 0
-  hitChangeTimeScale: 0.05
+  hitChangeTimeScale: 0.1
   hitChangeTimeScaleTime: 1
   skillVariantEvent: 0
   buffPrefabs:
@@ -73,6 +73,8 @@ MonoBehaviour:
   destroyEffect: {fileID: 0}
   actor: {fileID: 0}
   skillParent: {fileID: 0}
+  BUFF_CD: 0
+  buff_timer: 0
 --- !u!33 &1788235340437060032
 MeshFilter:
   m_ObjectHideFlags: 0
