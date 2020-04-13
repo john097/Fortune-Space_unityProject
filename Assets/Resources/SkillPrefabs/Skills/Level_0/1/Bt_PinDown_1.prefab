@@ -201,9 +201,9 @@ MonoBehaviour:
   lifeTime: 99
   speed: 0
   timeToStop: 0
-  damage: 0
+  damage: 50
   isSustained: 0
-  vulnerabilityPercent: 0
+  vulnerabilityPercent: 1
   thisSpType: 0
   repelRelativeSelf: 1
   repel: 5
@@ -219,6 +219,7 @@ MonoBehaviour:
   buffPrefabs:
   - {fileID: 2196822621788617863, guid: dbc49e7ca716f5f4f90e92eb861ec17e, type: 3}
   - {fileID: 2196822621788617863, guid: 06dc7bb0aab175c44935ab3ec73b8090, type: 3}
+  - {fileID: 2196822621788617863, guid: f996e84ee987229478c7aa5378aa0410, type: 3}
   bulletSons: []
   createEffect: {fileID: 0}
   hitEffect: {fileID: 0}

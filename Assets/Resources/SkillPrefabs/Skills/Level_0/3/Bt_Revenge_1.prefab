@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4688727010566055277}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -51,24 +51,33 @@ MonoBehaviour:
   lifeTime: 0.2
   speed: 20
   timeToStop: 0
-  damage: 0
-  vulnerabilityPercent: 0
+  damage: 1000
+  isSustained: 0
+  vulnerabilityPercent: 1
   thisSpType: 0
   repelRelativeSelf: 0
-  repel: 10
+  repel: 1000
   lockOnTarget: {fileID: 0}
   isFollowActor: 0
   destoryAfterCollision: 0
   destoryAfterCollisionWithActor: 0
+  destoryIfSkillBeCancel: 0
   destoryTarget: 0
+  hitChangeTimeScale: 0
+  hitChangeTimeScaleTime: 0
   skillVariantEvent: 0
   buffPrefabs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5448528744795969956, guid: 49bc9bf0802aaaa45979218ad1b68ad4, type: 3}
+  - {fileID: 5448528744795969956, guid: fa6615bb7b9ea784ab5d68f8e230e1aa, type: 3}
+  - {fileID: 5448528744795969956, guid: 88ccced249638124692ac6d2c93217b5, type: 3}
   bulletSons: []
+  createEffect: {fileID: 0}
+  hitEffect: {fileID: 0}
+  destroyEffect: {fileID: 0}
   actor: {fileID: 0}
   skillParent: {fileID: 0}
+  BUFF_CD: 0
+  buff_timer: 0
 --- !u!33 &3131884278332476047
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -122,7 +131,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4688727010566055277}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

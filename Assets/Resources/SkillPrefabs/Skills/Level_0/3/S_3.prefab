@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1459136577918355615}
   - component: {fileID: 1459136577918355614}
   m_Layer: 0
-  m_Name: S_Revenge
+  m_Name: S_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,10 +45,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: "\u590D\u4EC7"
+  skillExplain: "\u683C\u6321\u5373\u5C06\u5230\u6765\u7684\u653B\u51FB\uFF0C\u683C\u6321\u6210\u529F\u5C06\u7ED9\u4E88\u5F3A\u529B\u53CD\u51FB\u3002\u4F24\u5BB3\uFF1A1000
+    \  \u6613\u4F24\uFF1A7\u79D2"
+  credit: 50
+  thisWeaponType: 0
+  weaponModelNum: 0
+  thisSkillAnimState: 6
+  thisSkillAnimSpeed: 1
+  thisSkillSpeedNum: 0
+  thisSkillAnimTime: 1.5
   castActionTime_Tag: 0
   Main_Tag: 0
   castActionTime: 0.1
   castTime: 1.5
+  cantCancelAfterCastAction: 0
+  cantCancelACATime: 0
   cantTurnInCastTime: 1
   cantTurnStartTime: 0
   cantTurnTime: 1.5
@@ -62,19 +73,26 @@ MonoBehaviour:
   isStepSkill: 0
   stepSpeed: 0
   bulletPrefabs:
-  - {fileID: 4537102702703356570, guid: fe8ba789a95c7774f97bd5d42a702f25, type: 3}
+  - {fileID: 4537102702703356570, guid: b4662c69828335b4cb483fa9b6448d63, type: 3}
   bulletOffsets:
   - {x: 0, y: 0, z: 1.5}
   bulletRotationOffsets:
   - {x: 0, y: 0, z: 0}
+  attackWarningPrefabs: []
+  attackWarningOffsets: []
+  attackWarningRotationOffsets: []
+  attackWarningDestoryTime: 0
   skillVariant: {fileID: 1459136579077776343}
   comboTime: 0
   comboNum: 0
   comboSkills: []
   buffPrefabsInCastActionTime:
-  - {fileID: 5497257284127662012, guid: 843558bdbdb994449bbc0496a94a7e11, type: 3}
+  - {fileID: 5497257284127662012, guid: 9038871b0ec69524eb8f1b0c0462c9c9, type: 3}
   buffPrefabs: []
   skillVariantEvent: 0
+  coolDownTimer: 0
+  coolDownFlag: 0
+  actor: {fileID: 0}
 --- !u!1 &1459136579077776361
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,13 +137,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: "\u590D\u4EC7"
+  skillExplain: 
+  credit: 0
+  thisWeaponType: 0
+  weaponModelNum: 0
+  thisSkillAnimState: 7
+  thisSkillAnimSpeed: 2
+  thisSkillSpeedNum: 0
+  thisSkillAnimTime: 0.2
   castActionTime_Tag: 0
   Main_Tag: 0
-  castActionTime: 0.1
-  castTime: 0.5
+  castActionTime: 0.65
+  castTime: 1
+  cantCancelAfterCastAction: 0
+  cantCancelACATime: 0
   cantTurnInCastTime: 1
   cantTurnStartTime: 0
-  cantTurnTime: 0.5
+  cantTurnTime: 1
   ammoNumLimit: 0
   ammoNum: 0
   reloadTime: 0
@@ -136,11 +164,15 @@ MonoBehaviour:
   isStepSkill: 0
   stepSpeed: 0
   bulletPrefabs:
-  - {fileID: 4688727010566055277, guid: d2b552d3d30943a4a84371484da63929, type: 3}
+  - {fileID: 4688727010566055277, guid: e68aa97c7c45bd94ea487f31149a394a, type: 3}
   bulletOffsets:
   - {x: 0, y: 0, z: 0}
   bulletRotationOffsets:
   - {x: 0, y: 0, z: 0}
+  attackWarningPrefabs: []
+  attackWarningOffsets: []
+  attackWarningRotationOffsets: []
+  attackWarningDestoryTime: 0
   skillVariant: {fileID: 0}
   comboTime: 0
   comboNum: 0
@@ -149,3 +181,6 @@ MonoBehaviour:
   - {fileID: 5448528744795969956, guid: 5c71eda666ec51442a17b1e5127eac03, type: 3}
   buffPrefabs: []
   skillVariantEvent: 0
+  coolDownTimer: 0
+  coolDownFlag: 0
+  actor: {fileID: 0}
