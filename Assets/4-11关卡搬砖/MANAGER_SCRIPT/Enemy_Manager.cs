@@ -167,7 +167,7 @@ public class Enemy_Manager : MonoBehaviour
     public void StoreBorn()//生成商店
     {
         Bound bound = getBound(gameObject.transform);
-        Vector3 pos = new Vector3(bound.center.x, bound.y, bound.center.z);
+        Vector3 pos = new Vector3(bound.center.x, bound.y+2, bound.center.z);
         GameObject Store;
 
         Store = Resources.Load(Prefabs + "Store") as GameObject;

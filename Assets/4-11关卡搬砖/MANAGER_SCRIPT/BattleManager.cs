@@ -235,7 +235,7 @@ public class BattleManager : MonoBehaviour
         }
 
 
-        if (Protect_Room_Battle && !isTalking)
+        if (Protect_Room_Battle && !isTalking)//保护据点房计时
         {
             if (Crack_Progress >= 30f)
             {

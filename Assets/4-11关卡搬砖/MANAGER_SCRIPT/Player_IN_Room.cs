@@ -19,8 +19,8 @@ public class Player_IN_Room : MonoBehaviour
 
     public bool PlayerInRoom;
     public bool inroom_started;
-    public bool a;
-
+    private bool a;
+    private bool b;
     public int this_room_type;//房间类型，=1时为怪物房间，=2时为道具/商店房间
     
     
@@ -40,7 +40,7 @@ public class Player_IN_Room : MonoBehaviour
         inroom_started = false;
         B_Manager = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattleManager>();
         a = false;
-
+        b = false;
         dialog_manager = GameObject.Find("BattleManager").GetComponent<Dialog_Manager>();
 
 
@@ -49,6 +49,17 @@ public class Player_IN_Room : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if ((B_Manager.Protect_Room_Battle || B_Manager.Dead_Room_Battle) && !B_Manager.isTalking && !b)
+        {
+            var A = gameObject.transform.GetChild(2).gameObject;
+            A.SetActive(true);
+
+            b = true;
+            
+        }
+
+
         if (this_room_type == 3 && gameObject.tag == ("S1-ROOM") && !a)//守护据点关卡触发器
         {
             var A = gameObject.transform.GetChild(0).gameObject;
@@ -71,7 +82,13 @@ public class Player_IN_Room : MonoBehaviour
 
             a = true;
         }
+
+
+
     }
+
+
+
 
     public void SET_ROOM_TYPE(int a)
     {
@@ -83,6 +100,9 @@ public class Player_IN_Room : MonoBehaviour
 
         if (other.gameObject == player_collider && inroom_started == false && this_room_type == 1)//开始普通房战斗
         {
+            var A = gameObject.transform.GetChild(2).gameObject;//生成围墙
+            A.SetActive(true);
+
             PlayerInRoom = true;
             inroom_started = true;
             GetComponent<Enemy_Manager>().enabled = true;
@@ -107,6 +127,7 @@ public class Player_IN_Room : MonoBehaviour
             if (other.gameObject == player_collider && inroom_started == false && this_room_type == 3)//特殊房战斗
         {
             
+
             PlayerInRoom = true;
             inroom_started = true;
             B_Manager.RoomClear = false;
@@ -125,7 +146,7 @@ public class Player_IN_Room : MonoBehaviour
             }
 
             GetComponent<Enemy_Manager>().enabled = true;
-            GetComponent<Player_IN_Room>().enabled = false;
+            //GetComponent<Player_IN_Room>().enabled = false;
             
             //B_Manager.Special_Battle_Start();
 
