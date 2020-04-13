@@ -29,12 +29,13 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
         public SharedTransform objectInSight;
 
         public mon_attack A;
-        public mon_skill B;
 
         private BattleManager MCS_manager;
 
         Transform ProtectPoint;
         Transform Player;
+
+        public SharedBool is_bomber;
 
 
         //BOSSÂß¼­ÅÐ¶¨±äÁ¿
@@ -50,7 +51,9 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
         public override void OnStart()
         {
             //A.attack_finished = true;
+            
             behaviortree = gameObject.GetComponent<BehaviorTree>();
+           
             MCS_manager = GameObject.Find("BattleManager").GetComponent<BattleManager>();
 
             usingskill = (SharedBool)behaviortree.GetVariable("USING_SKILL");
@@ -58,6 +61,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
             UsingLaser = (SharedBool)behaviortree.GetVariable("Laser_Using");
             lv2 = (SharedBool)behaviortree.GetVariable("LV2_SPEED_RUNNING");
             dash = (SharedBool)behaviortree.GetVariable("DASH_RUNNING");
+            is_bomber = (SharedBool)behaviortree.GetVariable("is_bomber");
+
 
             base.OnStart();
         }
@@ -137,13 +142,15 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
                 }
             }
 
-            if(gameObject.tag != "BOSS"&& !A.attack_finished.Value)
+            if (gameObject.tag != "BOSS" && !A.attack_finished.Value && !is_bomber.Value)
             {
-                return TaskStatus.Success;
+
+                    return TaskStatus.Success;
+    
             }
 
             // An object is not within sight so return failure
-            
+
             return TaskStatus.Failure;
         }
 
