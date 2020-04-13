@@ -95,7 +95,7 @@ public class Dialog_Manager : MonoBehaviour
 
         if (PlayerPrefs.GetInt("Current_State") == 2)
         {
-            flowchart.SendFungusMessage("State_3_Ending_Talk");
+            flowchart.SendFungusMessage("Goto_BossRoom_Talk");
         }
     }
 

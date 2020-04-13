@@ -96,6 +96,17 @@ public class Enemy_Manager : MonoBehaviour
 
             }
 
+            if (B_Manager.startspawn == true && Monster_CurrentWaves < B_Manager.Monster_Waves && ME.this_room_type == 3&& PlayerPrefs.GetInt("Current_State") == 2)//开始普通房刷怪模式
+            {
+
+
+                B_Manager.START_WAVE();
+                StartCoroutine(NormalRoomCreateEnemies(Spawn_Cd));
+                Monster_CurrentWaves += 1;
+
+            }
+
+
             if (B_Manager.startspawn == true && Monster_CurrentWaves < B_Manager.Monster_Waves && ME.this_room_type == 3 && PlayerPrefs.GetInt("Current_State") == 0)//开始守护据点房刷怪模式（需要调整逻辑
             {
 
@@ -114,12 +125,12 @@ public class Enemy_Manager : MonoBehaviour
                 StartCoroutine(DeadRoomCreateEnemies(Spawn_Cd));
 
 
-
-
-
             }
 
-            if (B_Manager.startspawn == true && ME.this_room_type == 3 && B_Manager.BOSS_Battle && PlayerPrefs.GetInt("Current_State") == 2)//开始BOSS房刷怪模式（需要调整逻辑
+
+           
+
+            if (B_Manager.startspawn == true && ME.this_room_type == 3 && B_Manager.BOSS_Battle && PlayerPrefs.GetInt("Current_State") == 3)//开始BOSS房刷怪模式（需要调整逻辑
             {
                 B_Manager.START_WAVE();
                 B_Manager.IS_LAST_WAVE();
@@ -276,12 +287,13 @@ public class Enemy_Manager : MonoBehaviour
             if (count < B_Manager.MAX_MON_NUMS)
             {
                 yield return new WaitForSeconds(duration);
-                
-                
-                Bound bound = getBound(gameObject.transform);
-                Vector3 pos = new Vector3(bound.center.x, bound.y, bound.center.z);
-                // 开始刷新怪物
-                Instantiate(This_Room_Boss[0], pos, Quaternion.identity);
+
+
+                //Transform BornRoom_tf;
+                //BornRoom_tf = GameObject.Find("Boss_BornZoom").transform;
+                //Vector3 pos = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
+                //// 开始刷新怪物
+                //Instantiate(This_Room_Boss[0], pos, Quaternion.identity);
                 count++;
             }
             else

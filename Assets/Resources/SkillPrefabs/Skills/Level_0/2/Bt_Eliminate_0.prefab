@@ -52,6 +52,7 @@ MonoBehaviour:
   speed: 10
   timeToStop: 0.4
   damage: 0
+  isSustained: 0
   vulnerabilityPercent: 0
   thisSpType: 0
   repelRelativeSelf: 0
@@ -60,14 +61,22 @@ MonoBehaviour:
   isFollowActor: 0
   destoryAfterCollision: 0
   destoryAfterCollisionWithActor: 0
+  destoryIfSkillBeCancel: 0
   destoryTarget: 0
+  hitChangeTimeScale: 0
+  hitChangeTimeScaleTime: 0
   skillVariantEvent: 0
   buffPrefabs:
-  - {fileID: 867891841638718350, guid: d8751f7f935d949429a0ffe53a67487d, type: 3}
+  - {fileID: 867891841638718350, guid: 89d65b372e90b634a9845ef25410ba2d, type: 3}
   bulletSons:
-  - {fileID: 3538076484758009964, guid: cb94768500b23944d92934de22f51294, type: 3}
+  - {fileID: 3538076484758009964, guid: 690f57225f9c380468f69046ccdff4e8, type: 3}
+  createEffect: {fileID: 0}
+  hitEffect: {fileID: 0}
+  destroyEffect: {fileID: 0}
   actor: {fileID: 0}
   skillParent: {fileID: 0}
+  BUFF_CD: 0
+  buff_timer: 0
 --- !u!33 &6187795037521804247
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -89,7 +89,7 @@ public class BOSS_SIMPLEMOVE : Action
            
 
             
-            Action_Num.Value = Random.Range(0,1);//取随机数
+            Action_Num.Value = Random.Range(0,3);//取随机数
             Num_Borning.Value = true;
         }
 
@@ -145,7 +145,7 @@ public class BOSS_SIMPLEMOVE : Action
 
     public void LV2_SPEED()
     {
-        navMeshAgent.velocity = navMeshAgent.desiredVelocity.normalized * 8;
+        navMeshAgent.velocity = navMeshAgent.desiredVelocity.normalized * 10;
         navMeshAgent.SetDestination(PLAYER);
         lv2.Value = true;
         Debug.Log("NOW IS LV2_SPEED!");
@@ -156,12 +156,12 @@ public class BOSS_SIMPLEMOVE : Action
     {
         if (!mons_actor.Skills_0[3].coolDownFlag)
         {
-            navMeshAgent.velocity = navMeshAgent.desiredVelocity.normalized * 12;
+            navMeshAgent.velocity = navMeshAgent.desiredVelocity.normalized * 14;
             navMeshAgent.SetDestination(PLAYER);
             dash.Value = true;
             //添加冲锋粒子特效
             Debug.Log("NOW IS LV3_SPEED!");
-            StartCoroutine(SpeedUpRemove());
+            StartCoroutine(SpeedUpRemove2());
         }
         else
         {
@@ -204,7 +204,7 @@ public class BOSS_SIMPLEMOVE : Action
 
     IEnumerator SpeedUpRemove()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         
         lv2.Value = false;
         dash.Value = false;
@@ -212,14 +212,28 @@ public class BOSS_SIMPLEMOVE : Action
         
         Action_Num.Value = -1;
         follow_timer = 0;
-        navMeshAgent.velocity = navMeshAgent.desiredVelocity.normalized * 1.5f;
+        navMeshAgent.velocity = navMeshAgent.desiredVelocity.normalized * 4f;
     }
+
+    IEnumerator SpeedUpRemove2()
+    {
+        yield return new WaitForSeconds(6);
+
+        lv2.Value = false;
+        dash.Value = false;
+        Num_Borning.Value = false;
+
+        Action_Num.Value = -1;
+        follow_timer = 0;
+        navMeshAgent.velocity = navMeshAgent.desiredVelocity.normalized * 4f;
+    }
+
 
     public void SpeedUpRemove_ATK_DIS()
     {
         Action_Num.Value = -1;
         follow_timer = 0;
-        navMeshAgent.velocity = navMeshAgent.desiredVelocity.normalized * 1.5f;
+        navMeshAgent.velocity = navMeshAgent.desiredVelocity.normalized * 4f;
         //follow_timer = 0;
     }
 

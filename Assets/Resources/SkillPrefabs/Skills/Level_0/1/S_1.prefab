@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5270904759628804546}
   - component: {fileID: 5270904759628804549}
   m_Layer: 0
-  m_Name: S_PinDown
+  m_Name: S_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,10 +44,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: "\u7275\u5236"
+  skillExplain: "\u7529\u51FA\u5E72\u6270\u88C5\u7F6E\u6CBF\u9014\u653B\u51FB\u654C\u4EBA\uFF0C\u6700\u540E\u56DE\u5230\u624B\u4E2D\u3002"
+  credit: 0
+  thisWeaponType: 0
+  weaponModelNum: 0
+  thisSkillAnimState: 4
+  thisSkillAnimSpeed: 2
+  thisSkillSpeedNum: 0
+  thisSkillAnimTime: 0.1
   castActionTime_Tag: 0
   Main_Tag: 0
   castActionTime: 0.5
   castTime: 1
+  cantCancelAfterCastAction: 0
+  cantCancelACATime: 0
   cantTurnInCastTime: 1
   cantTurnStartTime: 0
   cantTurnTime: 1
@@ -61,11 +71,15 @@ MonoBehaviour:
   isStepSkill: 0
   stepSpeed: 0
   bulletPrefabs:
-  - {fileID: 2276013698502478179, guid: a653266c712a95b419ba832ce8cfc5f2, type: 3}
+  - {fileID: 2276013698502478179, guid: dd36a7511fcf8384c98b703a35262b81, type: 3}
   bulletOffsets:
   - {x: 0, y: 0, z: 0}
   bulletRotationOffsets:
   - {x: 0, y: 0, z: 0}
+  attackWarningPrefabs: []
+  attackWarningOffsets: []
+  attackWarningRotationOffsets: []
+  attackWarningDestoryTime: 0
   skillVariant: {fileID: 0}
   comboTime: 0
   comboNum: 0
@@ -73,5 +87,8 @@ MonoBehaviour:
   buffPrefabsInCastActionTime:
   - {fileID: 0}
   buffPrefabs:
-  - {fileID: 2196822621788617863, guid: 260e7df8c6a50984c86bb9771c81d374, type: 3}
+  - {fileID: 2196822621788617863, guid: 8fcb7979188e74c4c8ace616931c03c7, type: 3}
   skillVariantEvent: 0
+  coolDownTimer: 0
+  coolDownFlag: 0
+  actor: {fileID: 0}
