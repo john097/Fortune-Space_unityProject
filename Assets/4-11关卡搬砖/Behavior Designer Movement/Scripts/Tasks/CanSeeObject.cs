@@ -98,6 +98,12 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
                 }
 #if !(UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2)
             }
+
+
+            if (MCS_manager.isTalking)
+            {
+                return TaskStatus.Running;
+            }
 #endif
             if (gameObject.tag == "BOSS")
             {

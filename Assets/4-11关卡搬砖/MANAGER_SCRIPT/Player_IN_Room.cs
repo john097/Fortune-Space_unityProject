@@ -40,7 +40,7 @@ public class Player_IN_Room : MonoBehaviour
         inroom_started = false;
         B_Manager = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattleManager>();
         a = false;
-        b = false;
+        b = true;
         dialog_manager = GameObject.Find("BattleManager").GetComponent<Dialog_Manager>();
 
 
@@ -135,14 +135,34 @@ public class Player_IN_Room : MonoBehaviour
             if(PlayerPrefs.GetInt("Current_State") == 0)
             {
                 dialog_manager.ProtectPoint_Enter_Talk();
+                b = false;
             }
 
-            
+            if (PlayerPrefs.GetInt("Current_State") == 1)
+            {
+                
+                b = false;
+            }
 
-            if (PlayerPrefs.GetInt("Current_State") == 2)//Boss房战斗
+            if (PlayerPrefs.GetInt("Current_State") == 2)
+            {
+                var A = gameObject.transform.GetChild(2).gameObject;//生成围墙
+                A.SetActive(true);
+
+                GetComponent<Enemy_Manager>().enabled = true;
+                GetComponent<Player_IN_Room>().enabled = false;
+                B_Manager.START_SPAWN();
+                B_Manager.Normal_BATTLE_START();
+
+                b = false;
+            }
+
+
+            if (PlayerPrefs.GetInt("Current_State") == 3)//Boss房战斗
             {
                 dialog_manager.BossBattle_Start_Talk();
                 B_Manager.Special_Battle_Start();
+                b = false;
             }
 
             GetComponent<Enemy_Manager>().enabled = true;

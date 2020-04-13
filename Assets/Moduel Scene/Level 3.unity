@@ -7826,7 +7826,7 @@ PrefabInstance:
     - target: {fileID: 691841457939105296, guid: 084c96617e8e85147a477db996892d83,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 691841457939105297, guid: 084c96617e8e85147a477db996892d83,
         type: 3}
@@ -7892,6 +7892,11 @@ PrefabInstance:
         type: 3}
       propertyPath: S2_ROOM.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 691841457939105326, guid: 084c96617e8e85147a477db996892d83,
+        type: 3}
+      propertyPath: S3_ROOM.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 691841457939105326, guid: 084c96617e8e85147a477db996892d83,
         type: 3}
@@ -19089,13 +19094,14 @@ GameObject:
   - component: {fileID: 1581825942}
   - component: {fileID: 1581825941}
   - component: {fileID: 1581825940}
+  - component: {fileID: 1581825945}
   m_Layer: 9
   m_Name: Actor
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &1581825940
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19155,7 +19161,7 @@ MonoBehaviour:
   isPlayer: 1
   thisSpType: 0
   actorCredit: 0
-  maxHeal: 100
+  maxHeal: 300
   heal: 100
   isAlive: 1
   speed: 8
@@ -19221,6 +19227,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1581825945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581825939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee220f35db39b04480a3ed78268d253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCredit: 0
+  image_Credit: {fileID: 0}
 --- !u!1001 &1595745888
 PrefabInstance:
   m_ObjectHideFlags: 0

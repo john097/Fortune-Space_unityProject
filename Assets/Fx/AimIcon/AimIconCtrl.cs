@@ -29,6 +29,7 @@ public class AimIconCtrl : MonoBehaviour
         cursorPosY = Input.mousePosition.y;
         norX = cursorPosX / screenMaxX;
         norY = cursorPosY / screenMaxY;
+        
         transform.localPosition = new Vector3(Mathf.Lerp(NmultX, multX, norX), Mathf.Lerp(NmultY, multY, norY), 5);
 
     }

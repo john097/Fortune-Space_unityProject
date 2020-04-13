@@ -1,11 +1,20 @@
 fileFormatVersion: 2
-guid: 4e41d182258aaec4e98d0de207381404
+guid: 074ae713451f3b048abbd82e0a0b673a
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Take 001
+    second: StepSlash_F
+  - first:
+      74: 4054529090241180506
+    second: StepSlash_B
+  - first:
+      74: 3958215622261429767
+    second: StepSlash_R
+  - first:
+      74: -6855942805357311182
+    second: StepSlash_L
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -21,11 +30,11 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
       copied configuration does not match position in animation file:\n\t'LeftUpLeg'
-      : position error = 8425.961914 mm\n\t'LeftLeg' : position error = 35626.054688
-      mm\n\t'LeftFoot' : position error = 35730.085938 mm\n\t'LeftToeBase' : position
-      error = 11069.286133 mm\n\t'RightUpLeg' : position error = 8425.871094 mm\n\t'RightLeg'
-      : position error = 35626.109375 mm\n\t'RightFoot' : position error = 35730.031250
-      mm\n\t'RightToeBase' : position error = 11067.952148 mm\n"
+      : position error = 42.100677 mm\n\t'LeftLeg' : position error = 69.039749 mm\n\t'LeftFoot'
+      : position error = 57.727165 mm\n\t'LeftToeBase' : position error = 37.409668
+      mm\n\t'RightUpLeg' : position error = 38.196896 mm\n\t'RightLeg' : position
+      error = 68.247284 mm\n\t'RightFoot' : position error = 57.675190 mm\n\t'RightToeBase'
+      : position error = 45.444157 mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -41,14 +50,14 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: StepSlash_F
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 0
       lastFrame: 42
       wrapMode: 0
       orientationOffsetY: 0
-      level: 0
+      level: 0.15
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
@@ -58,9 +67,96 @@ ModelImporter:
       loopBlendPositionY: 1
       loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
-      keepOriginalPositionY: 1
+      keepOriginalPositionY: 0
       keepOriginalPositionXZ: 0
-      heightFromFeet: 0
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: StepSlash_B
+      takeName: Take 001
+      internalID: 4054529090241180506
+      firstFrame: 0
+      lastFrame: 42
+      wrapMode: 0
+      orientationOffsetY: 180
+      level: 0.15
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: StepSlash_R
+      takeName: Take 001
+      internalID: 3958215622261429767
+      firstFrame: 0
+      lastFrame: 42
+      wrapMode: 0
+      orientationOffsetY: -90
+      level: 0.15
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: StepSlash_L
+      takeName: Take 001
+      internalID: -6855942805357311182
+      firstFrame: 0
+      lastFrame: 42
+      wrapMode: 0
+      orientationOffsetY: 90
+      level: 0.15
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []

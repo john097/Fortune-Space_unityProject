@@ -53,6 +53,7 @@ MonoBehaviour:
   speed: 10
   timeToStop: 0
   damage: 0
+  isSustained: 0
   vulnerabilityPercent: 0
   thisSpType: 0
   repelRelativeSelf: 0
@@ -61,12 +62,20 @@ MonoBehaviour:
   isFollowActor: 0
   destoryAfterCollision: 0
   destoryAfterCollisionWithActor: 1
+  destoryIfSkillBeCancel: 0
   destoryTarget: 0
+  hitChangeTimeScale: 0
+  hitChangeTimeScaleTime: 0
   skillVariantEvent: 0
   buffPrefabs: []
   bulletSons: []
+  createEffect: {fileID: 0}
+  hitEffect: {fileID: 0}
+  destroyEffect: {fileID: 0}
   actor: {fileID: 0}
   skillParent: {fileID: 0}
+  BUFF_CD: 0
+  buff_timer: 0
 --- !u!33 &2098393579085689563
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -192,23 +201,33 @@ MonoBehaviour:
   lifeTime: 99
   speed: 0
   timeToStop: 0
-  damage: 0
-  vulnerabilityPercent: 0
+  damage: 50
+  isSustained: 0
+  vulnerabilityPercent: 1
   thisSpType: 0
   repelRelativeSelf: 1
-  repel: 5
+  repel: 50
   lockOnTarget: {fileID: 0}
   isFollowActor: 0
   destoryAfterCollision: 0
   destoryAfterCollisionWithActor: 0
+  destoryIfSkillBeCancel: 0
   destoryTarget: 0
+  hitChangeTimeScale: 0
+  hitChangeTimeScaleTime: 0
   skillVariantEvent: 0
   buffPrefabs:
-  - {fileID: 2196822621788617863, guid: 7f2a8a09b0e70f443afbd31552f8612e, type: 3}
-  - {fileID: 2196822621788617863, guid: c01d0c5086e9fe743a13b593ba2b12f5, type: 3}
+  - {fileID: 2196822621788617863, guid: dbc49e7ca716f5f4f90e92eb861ec17e, type: 3}
+  - {fileID: 2196822621788617863, guid: 06dc7bb0aab175c44935ab3ec73b8090, type: 3}
+  - {fileID: 2196822621788617863, guid: f996e84ee987229478c7aa5378aa0410, type: 3}
   bulletSons: []
+  createEffect: {fileID: 0}
+  hitEffect: {fileID: 0}
+  destroyEffect: {fileID: 0}
   actor: {fileID: 0}
   skillParent: {fileID: 0}
+  BUFF_CD: 0
+  buff_timer: 0
 --- !u!33 &3983871902921292924
 MeshFilter:
   m_ObjectHideFlags: 0

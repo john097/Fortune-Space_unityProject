@@ -130,15 +130,18 @@ public  class Skill : MonoBehaviour
         public bool skillVariantEvent;
 
     private float timer;//计时用的变量
-    public  float coolDownTimer;//冷却计时用的变量
+    [HideInInspector]
+        public  float coolDownTimer;//冷却计时用的变量
     private float reloadTimer;//换弹计时用的变量
     private float comboTimer;//计算Combo的变量
     private float thisSkillAnimTimer;
 
     private bool useSkillOnce;//卡Update用的flag
-    public bool coolDownFlag;//字面意思
+    [HideInInspector]
+        public bool coolDownFlag;//字面意思
     private bool reloadFlag;//字面意思
 
+    [HideInInspector]
     public Actor actor;//角色对象
     private Skill thisSkillClass;//当前技能类
 

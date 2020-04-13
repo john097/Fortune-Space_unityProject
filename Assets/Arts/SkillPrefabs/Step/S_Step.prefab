@@ -45,28 +45,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u95EA\u907F"
   skillExplain: 
+  credit: 0
   thisWeaponType: 0
-  thisSkillAnimState: 4
-  thisSkillAnimSpeed: 0
+  weaponModelNum: 0
+  thisSkillAnimState: 2
+  thisSkillAnimSpeed: 1.3
   thisSkillSpeedNum: 0
-  thisSkillAnimTime: 0.1
+  thisSkillAnimTime: 0.4
   castActionTime_Tag: 0
   Main_Tag: 0
   castActionTime: 0
-  castTime: 0.1
-  cantCancelAfterCastAction: 0
-  cantTurnInCastTime: 0
+  castTime: 0.4
+  cantCancelAfterCastAction: 1
+  cantCancelACATime: 0.4
+  cantTurnInCastTime: 1
   cantTurnStartTime: 0
-  cantTurnTime: 0
+  cantTurnTime: 0.4
   ammoNumLimit: 0
   ammoNum: 0
   reloadTime: 0
   reloadKey: 0
-  coolDownTime: 2
+  coolDownTime: 1
   mustCancel: 1
   cantCancel: 1
   isStepSkill: 1
-  stepSpeed: 50
+  stepSpeed: 10
   bulletPrefabs:
   - {fileID: 2798150232900266433, guid: 8ef6a8a5984f72e46a18dc80c7736040, type: 3}
   bulletOffsets:
@@ -84,4 +87,6 @@ MonoBehaviour:
   buffPrefabsInCastActionTime: []
   buffPrefabs: []
   skillVariantEvent: 0
+  coolDownTimer: 0
+  coolDownFlag: 0
   actor: {fileID: 0}

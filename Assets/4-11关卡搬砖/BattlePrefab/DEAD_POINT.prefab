@@ -14,13 +14,14 @@ GameObject:
   - component: {fileID: 7946378473036304766}
   - component: {fileID: 7946378473036304644}
   - component: {fileID: 8655221066014414627}
+  - component: {fileID: 1273407233553692132}
   m_Layer: 30
   m_Name: DEAD_POINT
   m_TagString: DeadPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7946378473036304763
 Transform:
   m_ObjectHideFlags: 0
@@ -129,9 +130,19 @@ MonoBehaviour:
   thisCreateType: 0
   interactiveUI: {fileID: 0}
   storeUI: {fileID: 0}
-  choose_finish: 0
-  Crack_Progress: 0
-  StartCrack: 0
+--- !u!135 &1273407233553692132
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7946378473036304767}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7946378473055964207
 GameObject:
   m_ObjectHideFlags: 0
