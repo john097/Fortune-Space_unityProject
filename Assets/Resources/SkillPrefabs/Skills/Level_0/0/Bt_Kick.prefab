@@ -61,13 +61,21 @@ MonoBehaviour:
   isFollowActor: 0
   destoryAfterCollision: 0
   destoryAfterCollisionWithActor: 0
+  destoryIfSkillBeCancel: 0
   destoryTarget: 0
+  hitChangeTimeScale: 0
+  hitChangeTimeScaleTime: 0
   skillVariantEvent: 0
   buffPrefabs:
-  - {fileID: 3955029746003138601, guid: 813a76d2d4837494d9df2f2ea50857b2, type: 3}
+  - {fileID: 3955029746003138601, guid: 13cb379264b77ac46a51696f1fced6bd, type: 3}
   bulletSons: []
+  createEffect: {fileID: 0}
+  hitEffect: {fileID: 0}
+  destroyEffect: {fileID: 0}
   actor: {fileID: 0}
   skillParent: {fileID: 0}
+  BUFF_CD: 0
+  buff_timer: 0
 --- !u!33 &4889788805128967706
 MeshFilter:
   m_ObjectHideFlags: 0

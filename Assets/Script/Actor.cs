@@ -1,10 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using UnityEngine.UI;
-
-
 
 public class Actor : MonoBehaviour
 {
@@ -138,7 +135,8 @@ public class Actor : MonoBehaviour
     [HideInInspector]
         public int nowThisTakeWeaponNum;
 
-    private float recoverTimeScaleTimer;
+    [HideInInspector]
+        public float recoverTimeScaleTimer;
 
     [HideInInspector]
         public float hitChangeTimeScaleTime;
@@ -204,10 +202,6 @@ public class Actor : MonoBehaviour
        
         BeAttacked = false;//**DISON.ver**
         isTalking = false;//**DISON.ver**
-
-
-
-
     }
 
     void Update()
@@ -228,12 +222,7 @@ public class Actor : MonoBehaviour
                 changeWeaponModel();
             }
 
-
             UIUpdate();
-
-            RecoverTimeScale();
-
-
     }
 
     private void FixedUpdate()
@@ -385,8 +374,6 @@ public class Actor : MonoBehaviour
     {
         if (!imprisonmentBuff && isAlive && isPlayer)//是否存在禁锢Buff
         {
-            //moveDirection = Vector3.forward * Input.GetAxis("Vertical") + Vector3.right * Input.GetAxis("Horizontal");
-
             moveDirection = cForward * Input.GetAxis("Vertical") + cRight * Input.GetAxis("Horizontal");
 
             if (steping)
@@ -399,16 +386,20 @@ public class Actor : MonoBehaviour
             {
                 moveDirection = thisTimeForward;
             }
-            else if(steping)
+
+            if (steping && !lookAtTag)
             {
-                stepMoveDir = moveDirection;
+                if (stepMoveDir == Vector3.zero)
+                {
+                    stepMoveDir = moveDirection;
+                }
             }
-            else
+            else if (!steping)
             {
-                stepMoveDir = thisTimeForward;
+                stepMoveDir = Vector3.zero;
             }
 
-            if (steping && Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0 && !lookAtTag && stepMoveDir != Vector3.zero)
+            if (steping && Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0 && !lookAtTag)
             {
                 moveDirection = stepMoveDir;
             }

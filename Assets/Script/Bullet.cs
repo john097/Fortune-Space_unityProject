@@ -264,7 +264,6 @@ public class Bullet : MonoBehaviour
 
                 
                 a.thisRigidbody.AddForce(dir,ForceMode.Impulse);
-                //a.gameObject.GetComponent<CharacterController>().SimpleMove(dir);
             }
 
             //施加Buff
@@ -296,7 +295,9 @@ public class Bullet : MonoBehaviour
     {
         if (i > 0)
         {
-            actor.hitChangeTimeScaleTime += k;
+            Debug.Log("触发了");
+            actor.hitChangeTimeScaleTime = k;
+            actor.recoverTimeScaleTimer = 0;
             Time.timeScale = i;
         }
     }

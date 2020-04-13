@@ -597,7 +597,7 @@ MonoBehaviour:
   Skills_0:
   - {fileID: 561923924}
   - {fileID: 1960326664}
-  - {fileID: 1018658780}
+  - {fileID: 1946608193}
   - {fileID: 402873769}
   - {fileID: 760690462}
   Skills_1:
@@ -6875,6 +6875,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1424126877}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: thisSkillAnimState
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: thisSkillAnimSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: thisSkillAnimTime
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5270904759628804547, guid: 8a7af5d6e9059084e96a54706e5f06fd,
         type: 3}
       propertyPath: m_Name
@@ -6939,21 +6951,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5270904759628804549, guid: 8a7af5d6e9059084e96a54706e5f06fd,
-        type: 3}
-      propertyPath: thisSkillAnimState
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5270904759628804549, guid: 8a7af5d6e9059084e96a54706e5f06fd,
-        type: 3}
-      propertyPath: thisSkillAnimSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5270904759628804549, guid: 8a7af5d6e9059084e96a54706e5f06fd,
-        type: 3}
-      propertyPath: thisSkillAnimTime
-      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a7af5d6e9059084e96a54706e5f06fd, type: 3}
@@ -10416,18 +10413,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 644063777}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1018658780 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5270904759628804549, guid: 8a7af5d6e9059084e96a54706e5f06fd,
-    type: 3}
-  m_PrefabInstance: {fileID: 644063777}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b84646d5a1a5f904db136a585982853b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1021599228
 GameObject:
   m_ObjectHideFlags: 0
@@ -14620,7 +14605,13 @@ MonoBehaviour:
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
-  m_AfterStackBundles: []
+  m_AfterStackBundles:
+  - assemblyQualifiedName: DitzelGames.PostProcessingTextureOverlay.ColorEffect, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: DitzelGames.PostProcessingTextureOverlay.HardLight, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: DitzelGames.PostProcessingTextureOverlay.TextureOverlay,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1471418738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18242,6 +18233,18 @@ Transform:
   m_Father: {fileID: 1553268989}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1946608193 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5686592436043175824, guid: 8a7af5d6e9059084e96a54706e5f06fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 644063777}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84646d5a1a5f904db136a585982853b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1950158819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7269823861079410994, guid: a519bf12df81ba24ba35c4fb5b1e8016,
@@ -19235,7 +19238,7 @@ PrefabInstance:
     - target: {fileID: 3501730829961579099, guid: a2841b6f71dface4faec67d6e9871b05,
         type: 3}
       propertyPath: thisSkillAnimSpeed
-      value: 1
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 3501730829961579099, guid: a2841b6f71dface4faec67d6e9871b05,
         type: 3}
