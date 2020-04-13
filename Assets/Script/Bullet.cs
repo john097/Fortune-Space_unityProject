@@ -340,33 +340,33 @@ public class Bullet : MonoBehaviour
             {
                 HitTargetFunc(a);
             }
-
-            if (hitEffect)
-            {
-                CreateEffect(hitEffect);
-            }
-
-            if (skillVariantEvent)
-            {
-                skillParent.UseSkillVariant();
-            }
-
-            if (destoryTarget)
-            {
-                Destroy(other.gameObject);
-            }
-
-            if (a && destoryAfterCollisionWithActor && a.gameObject == actor.gameObject)
-            {
-                DestroyBullet();
-            }
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("Tool"))
         {
             Stage s = other.gameObject.GetComponent<Stage>();
             s.TakeDamege(damage);
         }
-        
+
+        if (hitEffect)
+        {
+            CreateEffect(hitEffect);
+        }
+
+        if (skillVariantEvent)
+        {
+            skillParent.UseSkillVariant();
+        }
+
+        if (destoryTarget)
+        {
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject && destoryAfterCollisionWithActor && other.gameObject == actor.gameObject)
+        {
+            DestroyBullet();
+        }
+
 
         //碰撞后是否销毁自身
         if (destoryAfterCollision)
@@ -398,7 +398,6 @@ public class Bullet : MonoBehaviour
 
         if (a && isSustained && buff_timer >= BUFF_CD)
         {
-
             HitTargetFunc(a);
             buff_timer = 0;
         }

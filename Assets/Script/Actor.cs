@@ -155,6 +155,8 @@ public class Actor : MonoBehaviour
     private Vector3 cRight;
     private Vector3 cUp;
 
+    private Vector3 stepMoveDir;
+
     private const string weaponPrefabsPaths = "Prefabs/Weapons/";
     
 
@@ -197,6 +199,7 @@ public class Actor : MonoBehaviour
         skillArrNum = 0;
         Tools = new GameObject[10];
         isTakingTool = false;
+
 
        
         BeAttacked = false;//**DISON.ver**
@@ -392,13 +395,25 @@ public class Actor : MonoBehaviour
             }
 
             //是否憨憨玩家没有按方向键
-
-            if (steping && Input.GetAxis("Horizontal") <= 0.01f && Input.GetAxis("Vertical") <= 0.01f)
-
-            if (steping && Input.GetAxis("Horizontal") < 0.01 && Input.GetAxis("Vertical") < 0.01)
+            if (steping && moveDirection == Vector3.zero)
             {
                 moveDirection = thisTimeForward;
             }
+            else if(steping)
+            {
+                stepMoveDir = moveDirection;
+            }
+            else
+            {
+                stepMoveDir = thisTimeForward;
+            }
+
+            if (steping && Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0 && !lookAtTag && stepMoveDir != Vector3.zero)
+            {
+                moveDirection = stepMoveDir;
+            }
+
+
 
             if (slowDownBuff && !steping)
             {
@@ -408,7 +423,6 @@ public class Actor : MonoBehaviour
             {
                 moveDirection *= speed;
             }
-
 
             //播放动画
             NowMoveState(moveDirection.normalized);
