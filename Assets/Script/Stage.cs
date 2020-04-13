@@ -141,8 +141,6 @@ public class Stage : MonoBehaviour
         if (thisToolType == toolType.道具)
         {
             GetTool();
-
-            
         }
         else if(thisToolType == toolType.商店)
         {

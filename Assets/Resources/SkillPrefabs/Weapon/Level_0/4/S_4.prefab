@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5243395813834463612}
   - component: {fileID: 7210690671822617775}
   m_Layer: 0
-  m_Name: S_InitialSniper
+  m_Name: S_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,18 +44,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: "\u521D\u59CB\u72D9\u51FB\u67AA"
-  skillExplain: 
+  skillExplain: "\u8FDC\u8DDD\u79BB\u72D9\u51FB\u67AA\uFF0C\u5BF9\u8FD1\u6218\u654C\u4EBA\u9020\u6210\u53CC\u500D\u4F24\u5BB3\uFF0C\u5B50\u5F39\u53EF\u7A7F\u900F\u654C\u4EBA\u3002"
+  credit: 0
   thisWeaponType: 4
+  weaponModelNum: 0
   thisSkillAnimState: 0
-  thisSkillAnimSpeed: 0
+  thisSkillAnimSpeed: 1
   thisSkillSpeedNum: 0
-  thisSkillAnimTime: 0
+  thisSkillAnimTime: 1
   castActionTime_Tag: 0
   Main_Tag: 0
   castActionTime: 0.1
-  castTime: 2
+  castTime: 1
   cantCancelAfterCastAction: 0
-  cantCancelACATime: 0
+  cantCancelACATime: 1
   cantTurnInCastTime: 0
   cantTurnStartTime: 0
   cantTurnTime: 0
@@ -63,13 +65,13 @@ MonoBehaviour:
   ammoNum: 10
   reloadTime: 1.5
   reloadKey: 114
-  coolDownTime: 2
+  coolDownTime: 0
   mustCancel: 0
   cantCancel: 0
   isStepSkill: 0
   stepSpeed: 0
   bulletPrefabs:
-  - {fileID: 1449930322765350759, guid: e5bb18ffbe9630d489ab1fb96e1755be, type: 3}
+  - {fileID: 1449930322765350759, guid: 160e123d98bf1c846a045af2f802aaae, type: 3}
   bulletOffsets:
   - {x: 0, y: 0, z: 1}
   bulletRotationOffsets:
@@ -84,6 +86,8 @@ MonoBehaviour:
   comboSkills: []
   buffPrefabsInCastActionTime: []
   buffPrefabs:
-  - {fileID: 6681092217828404245, guid: 6a23412c4c0b5aa41ba2ceb1d7fef140, type: 3}
+  - {fileID: 6681092217828404245, guid: 4ae7340663529684e88382a7ff8201bd, type: 3}
   skillVariantEvent: 0
+  coolDownTimer: 0
+  coolDownFlag: 0
   actor: {fileID: 0}

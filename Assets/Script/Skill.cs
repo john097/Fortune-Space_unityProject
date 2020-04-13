@@ -46,6 +46,7 @@ public  class Skill : MonoBehaviour
         public float castTime;//前摇+后摇时间
 
     [Tooltip("后摇时间无法被打断(优先级低于必须打断)")]
+    [HideInInspector]
         public bool cantCancelAfterCastAction;
 
     [Tooltip("后摇时间内多久无法被打断")]

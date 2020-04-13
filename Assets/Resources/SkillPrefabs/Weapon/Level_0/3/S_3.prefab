@@ -44,18 +44,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: "\u521D\u59CB\u9730\u5F39\u67AA"
-  skillExplain: 
+  skillExplain: "\u8FDC\u8DDD\u79BB\u9730\u5F39\u67AA\uFF0C\u5BF9\u8FD1\u6218\u654C\u4EBA\u9020\u6210\u53CC\u500D\u4F24\u5BB3\uFF0C\u51FB\u9000\u6548\u679C\u663E\u8457\u3002"
   credit: 5
   thisWeaponType: 3
   weaponModelNum: 0
   thisSkillAnimState: 0
-  thisSkillAnimSpeed: 0
+  thisSkillAnimSpeed: 1
   thisSkillSpeedNum: 0
-  thisSkillAnimTime: 0
+  thisSkillAnimTime: 0.1
   castActionTime_Tag: 0
   Main_Tag: 0
-  castActionTime: 0.5
-  castTime: 1.5
+  castActionTime: 0.1
+  castTime: 0.5
   cantCancelAfterCastAction: 0
   cantCancelACATime: 0
   cantTurnInCastTime: 0
@@ -65,16 +65,16 @@ MonoBehaviour:
   ammoNum: 6
   reloadTime: 2
   reloadKey: 114
-  coolDownTime: 1.5
+  coolDownTime: 0.9
   mustCancel: 0
   cantCancel: 0
   isStepSkill: 0
   stepSpeed: 0
   bulletPrefabs:
-  - {fileID: 5387840854337074684, guid: 050f4764a6aca934094d6c1100959eab, type: 3}
-  - {fileID: 5387840854337074684, guid: 050f4764a6aca934094d6c1100959eab, type: 3}
-  - {fileID: 5387840854337074684, guid: 050f4764a6aca934094d6c1100959eab, type: 3}
-  - {fileID: 5387840854337074684, guid: 050f4764a6aca934094d6c1100959eab, type: 3}
+  - {fileID: 5387840854337074684, guid: 731d2089e9004bd4bb37ffd657d35257, type: 3}
+  - {fileID: 5387840854337074684, guid: 731d2089e9004bd4bb37ffd657d35257, type: 3}
+  - {fileID: 5387840854337074684, guid: 731d2089e9004bd4bb37ffd657d35257, type: 3}
+  - {fileID: 5387840854337074684, guid: 731d2089e9004bd4bb37ffd657d35257, type: 3}
   bulletOffsets:
   - {x: 0, y: 0, z: 1}
   - {x: 0, y: 0, z: 1}
@@ -95,7 +95,7 @@ MonoBehaviour:
   comboSkills: []
   buffPrefabsInCastActionTime: []
   buffPrefabs:
-  - {fileID: 6170946277397749143, guid: 5405ac87d1b8fcb49b49a89d788f581c, type: 3}
+  - {fileID: 6170946277397749143, guid: 7b59b506e6696834cb76018ff27f0c04, type: 3}
   skillVariantEvent: 0
   coolDownTimer: 0
   coolDownFlag: 0
