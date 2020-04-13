@@ -135,6 +135,67 @@ public class Stage : MonoBehaviour
         RefrashToolList();
     }
 
+    //private void RandomSkillData(GameObject skill)
+    //{
+    //    float damage;
+    //    float vulnerabilityPercent;
+    //    float repel;
+    //    float lifeTime;
+    //    float coolDownTime;
+
+    //    Skill s = skill.GetComponent<Skill>();
+
+        
+
+    //    switch (s.thisWeaponType)
+    //    {
+    //        case Actor.weaponType.非武器:
+    //            if(s.bulletPrefabs.Length != 0)
+    //            {
+                    
+    //            }
+    //            break;
+    //        case Actor.weaponType.手枪:
+    //            break;
+    //        case Actor.weaponType.冲锋枪:
+    //            break;
+    //        case Actor.weaponType.霰弹枪:
+    //            break;
+    //        case Actor.weaponType.狙击枪:
+    //            break;
+    //        case Actor.weaponType.太刀:
+    //            break;
+    //        case Actor.weaponType.锤子:
+    //            break;
+    //        default:
+    //            break;
+    //    }
+    //}
+
+    private void SkillDataSeedFunc(Skill s)
+    {
+        switch (s.thisWeaponType)
+        {
+            case Actor.weaponType.非武器:
+
+                break;
+            case Actor.weaponType.手枪:
+                break;
+            case Actor.weaponType.冲锋枪:
+                break;
+            case Actor.weaponType.霰弹枪:
+                break;
+            case Actor.weaponType.狙击枪:
+                break;
+            case Actor.weaponType.太刀:
+                break;
+            case Actor.weaponType.锤子:
+                break;
+            default:
+                break;
+        }
+    }
+
     public void UseFunc()
     {
         actor.isTakingTool = true;
