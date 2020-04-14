@@ -2697,6 +2697,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u88C5\u5907\u5207\u6362_0"
   skillExplain: 
+  skillDamageExplain: 
+  skillVulnerabilityExplain: 
+  skillRepelExplain: 
+  skillSpecialExplain: 
+  skillIcon: {fileID: 0}
   credit: 0
   thisWeaponType: 0
   weaponModelNum: 0
@@ -2891,6 +2896,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u88C5\u5907\u5207\u6362_0"
   skillExplain: 
+  skillDamageExplain: 
+  skillVulnerabilityExplain: 
+  skillRepelExplain: 
+  skillSpecialExplain: 
+  skillIcon: {fileID: 0}
   credit: 0
   thisWeaponType: 0
   weaponModelNum: 0
@@ -4832,6 +4842,95 @@ Transform:
   m_Father: {fileID: 24469472}
   m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 180.00002}
+--- !u!1001 &1025877260
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 660c46ec657feb843b2cb62d5b50e1f5,
+        type: 3}
+      propertyPath: m_Name
+      value: CloudPlane
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 660c46ec657feb843b2cb62d5b50e1f5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 660c46ec657feb843b2cb62d5b50e1f5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.63
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 660c46ec657feb843b2cb62d5b50e1f5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 660c46ec657feb843b2cb62d5b50e1f5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 660c46ec657feb843b2cb62d5b50e1f5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 660c46ec657feb843b2cb62d5b50e1f5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 660c46ec657feb843b2cb62d5b50e1f5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 660c46ec657feb843b2cb62d5b50e1f5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 660c46ec657feb843b2cb62d5b50e1f5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 660c46ec657feb843b2cb62d5b50e1f5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 660c46ec657feb843b2cb62d5b50e1f5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 660c46ec657feb843b2cb62d5b50e1f5,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2864999
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 660c46ec657feb843b2cb62d5b50e1f5,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2864999
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 660c46ec657feb843b2cb62d5b50e1f5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2864999
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 660c46ec657feb843b2cb62d5b50e1f5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2f6350b9a68913e46aefd5cf7e0814f0, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 660c46ec657feb843b2cb62d5b50e1f5, type: 3}
 --- !u!4 &1033388063 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1739731203321243650, guid: 4776b1c302c463e4e8379c44b0e4fdac,
@@ -11566,6 +11665,7 @@ MonoBehaviour:
   specialInteractiveKey: 101
   UsingSkill: {fileID: 0}
   aWarning: {fileID: 0}
+  steping: 0
   imprisonmentBuff: {fileID: 0}
   silenceBuff: {fileID: 0}
   slowDownBuff: {fileID: 0}
@@ -12809,26 +12909,6 @@ PrefabInstance:
       propertyPath: selectedBlocks.Array.size
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1293630642147629960, guid: 7ada0cca816dfde4a8344abc30515f40,
-        type: 3}
-      propertyPath: nodeRect.x
-      value: 729.0616
-      objectReference: {fileID: 0}
-    - target: {fileID: 1293630642147629960, guid: 7ada0cca816dfde4a8344abc30515f40,
-        type: 3}
-      propertyPath: nodeRect.y
-      value: 111.25334
-      objectReference: {fileID: 0}
-    - target: {fileID: 1293630642147629948, guid: 7ada0cca816dfde4a8344abc30515f40,
-        type: 3}
-      propertyPath: nodeRect.width
-      value: 165.4098
-      objectReference: {fileID: 0}
-    - target: {fileID: 1293630642147629948, guid: 7ada0cca816dfde4a8344abc30515f40,
-        type: 3}
-      propertyPath: blockName
-      value: Goto_BossRoom_Talk
-      objectReference: {fileID: 0}
     - target: {fileID: 1293630643283702431, guid: 7ada0cca816dfde4a8344abc30515f40,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -13049,6 +13129,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1293630642147629948, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: nodeRect.width
+      value: 165.4098
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293630642147629948, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: blockName
+      value: Goto_BossRoom_Talk
+      objectReference: {fileID: 0}
     - target: {fileID: 1293630642147629939, guid: 7ada0cca816dfde4a8344abc30515f40,
         type: 3}
       propertyPath: storyText
@@ -13088,6 +13178,16 @@ PrefabInstance:
         type: 3}
       propertyPath: itemId
       value: 148
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293630642147629960, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: nodeRect.x
+      value: 729.0616
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293630642147629960, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: nodeRect.y
+      value: 111.25334
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1293630642147629963, guid: 7ada0cca816dfde4a8344abc30515f40, type: 3}
