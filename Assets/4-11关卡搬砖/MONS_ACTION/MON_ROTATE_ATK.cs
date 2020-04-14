@@ -15,9 +15,12 @@ public class MON_ROTATE_ATK : Action
 
     private BattleManager MRA_manager;
     public mon_attack C;
+    
 
     public BehaviorTree behaviortree;
     public SharedBool boss_usingskill;
+    
+    public SharedInt mons3_action;
 
     public override void OnStart()
     {
@@ -25,6 +28,8 @@ public class MON_ROTATE_ATK : Action
         behaviortree = gameObject.GetComponent<BehaviorTree>();
         MRA_manager = GameObject.Find("BattleManager").GetComponent<BattleManager>();
         
+        
+
         if (gameObject.tag == "BOSS")
         {
             boss_usingskill= (SharedBool)behaviortree.GetVariable("USING_SKILL");
@@ -33,7 +38,9 @@ public class MON_ROTATE_ATK : Action
         else
         {
             ProtectPoint = GameObject.Find("ProtectPoint");
-            C.attack_finished.Value = true;
+
+                C.attack_finished.Value = true;
+     
         }
 
     }
@@ -43,8 +50,10 @@ public class MON_ROTATE_ATK : Action
 
         if (gameObject.tag != "BOSS"&&!C.attack_finished.Value)
         {
+
             return TaskStatus.Success;
         }
+     
 
         if (gameObject.tag == "BOSS" && boss_usingskill.Value)
         {

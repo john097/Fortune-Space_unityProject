@@ -98,7 +98,7 @@ public class Actor : MonoBehaviour
     [HideInInspector]
         public GameObject aWarning;
 
-    private bool steping;//是否处于闪避状态
+    public bool steping;//是否处于闪避状态
 
     public Buff imprisonmentBuff;//禁锢Buff
     public Buff silenceBuff;//沉默Buff
@@ -376,35 +376,26 @@ public class Actor : MonoBehaviour
         {
             moveDirection = cForward * Input.GetAxis("Vertical") + cRight * Input.GetAxis("Horizontal");
 
-            if (steping)
-            {
-                moveDirection = moveDirection.normalized;
-            }
-
             //是否憨憨玩家没有按方向键
             if (steping && moveDirection == Vector3.zero)
             {
                 moveDirection = thisTimeForward;
             }
 
-            if (steping && !lookAtTag)
+            if (steping && stepMoveDir == Vector3.zero)
             {
-                if (stepMoveDir == Vector3.zero)
-                {
-                    stepMoveDir = moveDirection;
-                }
-            }
-            else if (!steping)
-            {
-                stepMoveDir = Vector3.zero;
+                stepMoveDir = moveDirection.normalized;
             }
 
-            if (steping && Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0 && !lookAtTag)
+            if (steping && !lookAtTag)
             {
                 moveDirection = stepMoveDir;
             }
 
-
+            if (!steping)
+            {
+                stepMoveDir = Vector3.zero;
+            }
 
             if (slowDownBuff && !steping)
             {

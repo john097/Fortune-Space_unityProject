@@ -61,14 +61,30 @@ public class BattleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         //PlayerPrefs.DeleteKey("Current_State");
-        //PlayerPrefs.SetInt("Current_State", 2);
-
-
         Player = GameObject.Find("Actor").GetComponent<Actor>();
         player_tf = GameObject.Find("Actor").transform;
         flowchart = GameObject.Find("Flowchart1").GetComponent<Flowchart>();
+
+        if (gameObject.scene.name== "Level 1 Scene")
+        {
+            PlayerPrefs.SetInt("Current_State", 0);
+        }
+        if (gameObject.scene.name == "Level 2  Scene 1")
+        {
+            PlayerPrefs.SetInt("Current_State", 1);
+        }
+        if (gameObject.scene.name == "Level 3")
+        {
+            PlayerPrefs.SetInt("Current_State", 2);
+        }
+        if (gameObject.scene.name == "BossRoom")
+        {
+            PlayerPrefs.SetInt("Current_State", 3);
+        }
+
+
+       
 
         switch (PlayerPrefs.GetInt("Current_State"))//关卡开始传送到出生房
         {
@@ -125,14 +141,19 @@ public class BattleManager : MonoBehaviour
                     num_2[j + 1] = 3;
                     break;
                 }
-                if (num_2[2] == 3)
+                
+                if (j == 3 )
                 {
-                    checknum_a -= 1;
+                    if(sum < 6)
+                    {
+                        num_2[j] = 3;
+                    }
+                    else
+                    {
+                        checknum_a -= 1;
+                    }
                 }
-                if (j == 3 && sum < 5)
-                {
-                    num_2[j] = 3;
-                }
+                
 
                 sum += num_2[j];
             }
