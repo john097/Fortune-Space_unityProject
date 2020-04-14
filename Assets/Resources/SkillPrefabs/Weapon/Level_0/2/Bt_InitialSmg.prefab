@@ -51,7 +51,7 @@ MonoBehaviour:
   lifeTime: 2
   speed: 100
   timeToStop: 0
-  damage: 8
+  damage: 20
   isSustained: 0
   vulnerabilityPercent: 1.5
   thisSpType: 1
@@ -61,12 +61,20 @@ MonoBehaviour:
   isFollowActor: 0
   destoryAfterCollision: 1
   destoryAfterCollisionWithActor: 0
+  destoryIfSkillBeCancel: 0
   destoryTarget: 0
+  hitChangeTimeScale: 0
+  hitChangeTimeScaleTime: 0
   skillVariantEvent: 0
   buffPrefabs: []
   bulletSons: []
+  createEffect: {fileID: 0}
+  hitEffect: {fileID: 0}
+  destroyEffect: {fileID: 0}
   actor: {fileID: 0}
   skillParent: {fileID: 0}
+  BUFF_CD: 0
+  buff_timer: 0
 --- !u!33 &7169508931069299696
 MeshFilter:
   m_ObjectHideFlags: 0

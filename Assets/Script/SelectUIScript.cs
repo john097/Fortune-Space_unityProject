@@ -68,6 +68,7 @@ public class SelectUIScript : MonoBehaviour
             if (tool.storeSkills[i])
             {
                 messages[i].GetComponentInChildren<Text>().text = tool.storeSkills[i].skillName;
+                messages[i].GetComponent<Image>().sprite = tool.storeSkills[i].skillIcon;
             }
             else
             {
@@ -82,11 +83,21 @@ public class SelectUIScript : MonoBehaviour
         {
             messages[messages.Length - 1].transform.GetChild(0).GetComponent<Text>().text = tool.storeSkills[selectingTool].skillName;
             messages[messages.Length - 1].transform.GetChild(1).GetComponent<Text>().text = tool.storeSkills[selectingTool].skillExplain;
+            messages[messages.Length - 1].transform.GetChild(2).GetComponent<Text>().text = "价格： " + tool.storeSkills[selectingTool].credit;
+            messages[messages.Length - 1].transform.GetChild(3).GetComponent<Text>().text = "伤害： " + tool.storeSkills[selectingTool].skillDamageExplain;
+            messages[messages.Length - 1].transform.GetChild(4).GetComponent<Text>().text = "对易伤敌人的伤害倍率： " + tool.storeSkills[selectingTool].skillVulnerabilityExplain + "%";
+            messages[messages.Length - 1].transform.GetChild(5).GetComponent<Text>().text = tool.storeSkills[selectingTool].skillRepelExplain;
+            messages[messages.Length - 1].transform.GetChild(6).GetComponent<Text>().text = tool.storeSkills[selectingTool].skillSpecialExplain;
         }
         else
         {
             messages[messages.Length - 1].transform.GetChild(0).GetComponent<Text>().text = " ";
             messages[messages.Length - 1].transform.GetChild(1).GetComponent<Text>().text = " ";
+            messages[messages.Length - 1].transform.GetChild(2).GetComponent<Text>().text = " ";
+            messages[messages.Length - 1].transform.GetChild(3).GetComponent<Text>().text = " ";
+            messages[messages.Length - 1].transform.GetChild(4).GetComponent<Text>().text = " ";
+            messages[messages.Length - 1].transform.GetChild(5).GetComponent<Text>().text = " ";
+            messages[messages.Length - 1].transform.GetChild(6).GetComponent<Text>().text = " ";
         }
     }
 }
