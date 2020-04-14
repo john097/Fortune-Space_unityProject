@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8422337443209884160}
   - component: {fileID: 7265523561405690596}
   m_Layer: 0
-  m_Name: Bu_InitialSniper
+  m_Name: Bu_32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  lifeTime: 1
+  lifeTime: 0.3
   interval: 0
   thisType: 2
-  percent: 0.3
+  percent: 4
+  lifeTimeTimer: 0

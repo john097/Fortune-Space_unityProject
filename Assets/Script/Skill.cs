@@ -511,7 +511,7 @@ public  class Skill : MonoBehaviour
                 if (!reloadFlag && ammoNumLimit != 0 && ammoNum < ammoNumLimit && !actor.UsingSkill && actor.skillArrNum == 0)
                 {
                     reloadFlag = true;
-                    actor.StartAnim(-1,3.3f/reloadTime,0);
+                    actor.StartAnim(-1,3f/reloadTime,0);
                 }
             }
         }
