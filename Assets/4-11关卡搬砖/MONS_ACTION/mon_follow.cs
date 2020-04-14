@@ -60,7 +60,7 @@ public class mon_follow : Action
     public override void OnEnd()
     {
         navMeshAgent.enabled = false;
-        
+
     }
 
 

@@ -980,7 +980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &473190841
 Light:
   m_ObjectHideFlags: 0
@@ -1272,7 +1272,7 @@ PrefabInstance:
     - target: {fileID: 1293630642147629917, guid: 7ada0cca816dfde4a8344abc30515f40,
         type: 3}
       propertyPath: selectedBlocks.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1293630642147629917, guid: 7ada0cca816dfde4a8344abc30515f40,
         type: 3}
@@ -2122,7 +2122,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1257.0778
     y: 19.263924
-    width: 173.99991
+    width: 159.3877
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2393,7 +2393,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1265.3383
     y: 77.959564
-    width: 177.99991
+    width: 162.65298
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2488,7 +2488,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1264.0885
     y: 136.04382
-    width: 183.99991
+    width: 165.9183
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2907,7 +2907,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1251.4258
     y: 206.2204
-    width: 143.99994
+    width: 131.6326
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3187,11 +3187,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1018.6204
     y: 64.7518
-    width: 157.99992
+    width: 143.06116
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
-  itemId: 0
+  itemId: 209
   blockName: State_0_Talk_TP
   description: 
   eventHandler: {fileID: 618849590}
@@ -3219,7 +3219,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 1
+    floatVal: 0.5
   durationOLD: 0
 --- !u!114 &618849585
 MonoBehaviour:
@@ -3422,7 +3422,7 @@ MonoBehaviour:
   message: State_0_Talk_TP
 --- !u!114 &618849591
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3436,11 +3436,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: -811.8408
     y: 140.34654
-    width: 199.9999
+    width: 185.51012
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
-  itemId: 11
+  itemId: 210
   blockName: State_0_TP_CHOOSE_B
   description: 
   eventHandler: {fileID: 0}
@@ -3448,7 +3448,7 @@ MonoBehaviour:
   - {fileID: 618849592}
 --- !u!114 &618849592
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3512,7 +3512,7 @@ MonoBehaviour:
     vector3Val: {x: 0, y: 0, z: 0}
 --- !u!114 &618849593
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3576,7 +3576,7 @@ MonoBehaviour:
     vector3Val: {x: 0, y: 0, z: 0}
 --- !u!114 &618849594
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3640,7 +3640,7 @@ MonoBehaviour:
     vector3Val: {x: 0, y: 0, z: 0}
 --- !u!114 &618849595
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3667,7 +3667,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &618849597
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3682,7 +3682,7 @@ MonoBehaviour:
   sayDialog: {fileID: 618849549}
 --- !u!114 &618849598
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3696,11 +3696,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: -793.9994
     y: 22.409103
-    width: 199.9999
+    width: 185.51012
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
-  itemId: 7
+  itemId: 211
   blockName: State_0_TP_CHOOSE_A
   description: 
   eventHandler: {fileID: 0}
@@ -3942,7 +3942,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 1
+    floatVal: 0.5
   durationOLD: 0
 --- !u!114 &618849709
 MonoBehaviour:
@@ -3960,7 +3960,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 1
+    floatVal: 0.5
   durationOLD: 0
 --- !u!114 &618849710
 MonoBehaviour:
@@ -3978,7 +3978,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 1
+    floatVal: 0.5
   durationOLD: 0
 --- !u!114 &618849711
 MonoBehaviour:
@@ -3996,7 +3996,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 1
+    floatVal: 0.5
   durationOLD: 0
 --- !u!1 &634500544
 GameObject:

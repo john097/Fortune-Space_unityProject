@@ -31,6 +31,11 @@ public class Enemy_Manager : MonoBehaviour
     private const string Prefabs = "Prefabs/";
     private int tutorial_mon_num = 0;
 
+    private int mons_1;
+    private int mons_2;
+    private int mons_3;
+    private int mons_4;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -213,19 +218,64 @@ public class Enemy_Manager : MonoBehaviour
     IEnumerator NormalRoomCreateEnemies(float duration)//普通房间刷新怪物
     {
         int count = 0;
-        
+        int This_Room_Enemys_Index = 0;
+        mons_1 = 0;
+        mons_2 = 0;
+        mons_3 = 0;
+        mons_4 = 0;
+
         while (true)
         {
             if (count < B_Manager.MAX_MON_NUMS)
             {
                 yield return new WaitForSeconds(duration);
-                
-                int This_Room_Enemys_Index = Random.Range(0, This_Room_Enemys.Length);
+
+                if (PlayerPrefs.GetInt("Current_State") != 1)//第二关开始普通房才会刷新爆破虫
+                {
+                    This_Room_Enemys_Index = Random.Range(0, This_Room_Enemys.Length);
+
+                }
+                else
+                {
+                    This_Room_Enemys_Index = Random.Range(0, (This_Room_Enemys.Length - 1));
+                }
+
+                if (mons_4 >= 2)//Rank2级别的怪物每波每种最多刷两只；
+                {
+                    This_Room_Enemys_Index = Random.Range(0, (This_Room_Enemys.Length - 1));
+
+                    if (mons_3 >= 2)
+                    {
+                        This_Room_Enemys_Index = Random.Range(0, (This_Room_Enemys.Length - 2));
+                    }
+                }
+
+                switch (This_Room_Enemys_Index)
+                {
+                    case 0:
+                        mons_1 += 1;
+                        break;
+                    case 1:
+                        mons_2 += 1;
+                        break;
+                    case 2:
+                        mons_3 += 1;
+                        break;
+                    case 3:
+                        mons_4 += 1;
+                        break;
+                }
+
+
+
+
+
                 Bound bound = getBound(gameObject.transform);
                 Vector3 pos = new Vector3(bound.getRandomX(), bound.y, bound.getRandomZ());
                 // 开始刷新怪物
                 Instantiate(This_Room_Enemys[This_Room_Enemys_Index], pos, Quaternion.identity);
                 count++;
+
             }
             else
             {
@@ -273,7 +323,11 @@ public class Enemy_Manager : MonoBehaviour
     IEnumerator ProtectRoomCreateEnemies(float duration)//守护据点房间刷新怪物
     {
         int count = 0;
-
+        mons_1 = 0;
+        mons_2 = 0;
+        mons_3 = 0;
+        mons_4 = 0;
+           
         while (true)
         {
             if (count < B_Manager.MAX_MON_NUMS)
@@ -282,8 +336,32 @@ public class Enemy_Manager : MonoBehaviour
                 
                 int This_Room_Enemys_Index = Random.Range(0, This_Room_Enemys.Length);
                 Bound bound = getBound(gameObject.transform);
-                
-                Vector3 pos = new Vector3(bound.getRandomX(), bound.y, bound.getRandomZ());
+
+                switch (This_Room_Enemys_Index)
+                {
+                    case 0:
+                        mons_1 += 1;
+                        break;
+                    case 1:
+                        mons_2 += 1;
+                        break;
+                    case 2:
+                        mons_3 += 1;
+                        break;
+                    case 3:
+                        mons_4 += 1;
+                        break;
+                }
+
+                if(count== B_Manager.MAX_MON_NUMS - 1)//守护据点房中每波怪至少有一只自爆虫
+                {
+                    if (mons_4 < 1)
+                    {
+                        This_Room_Enemys_Index = 3;
+                    }
+                    
+                }
+                Vector3 pos = new Vector3(bound.getRandomX(), bound.y + 0.3f, bound.getRandomZ());
                 // 开始刷新怪物
                 Instantiate(This_Room_Enemys[This_Room_Enemys_Index], pos, Quaternion.identity);
                 count++;
@@ -309,7 +387,7 @@ public class Enemy_Manager : MonoBehaviour
                 
                 int This_Room_Enemys_Index = Random.Range(0, This_Room_Enemys.Length);
                 Bound bound = getBound(gameObject.transform);
-                Vector3 pos = new Vector3(bound.getRandomX(), bound.y, bound.getRandomZ());
+                Vector3 pos = new Vector3(bound.getRandomX(), bound.y + 0.3f, bound.getRandomZ());
                 // 开始刷新怪物
                 Instantiate(This_Room_Enemys[This_Room_Enemys_Index], pos, Quaternion.identity);
                 count++;
