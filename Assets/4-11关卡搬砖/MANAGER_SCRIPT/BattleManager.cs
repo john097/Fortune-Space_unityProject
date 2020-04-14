@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class BattleManager : MonoBehaviour
 {
 
-
+    public Player_IN_Room S0_ROOM;
     public Player_IN_Room[] S1_ROOM;//第一关房间列表
     public Player_IN_Room[] S2_ROOM;
     public Player_IN_Room[] S3_ROOM;
@@ -56,8 +56,9 @@ public class BattleManager : MonoBehaviour
 
     private Transform player_tf;
     private Transform BornRoom_tf;
-   
 
+    private Dialog_Manager dialog_manager;
+    public bool tutorial_talking;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,22 +66,28 @@ public class BattleManager : MonoBehaviour
         Player = GameObject.Find("Actor").GetComponent<Actor>();
         player_tf = GameObject.Find("Actor").transform;
         flowchart = GameObject.Find("Flowchart1").GetComponent<Flowchart>();
+        dialog_manager = GetComponent<Dialog_Manager>();
+        tutorial_talking = false;
 
-        if (gameObject.scene.name== "Level 1 Scene")
+        if (gameObject.scene.name == "Tutorial Scene")
         {
             PlayerPrefs.SetInt("Current_State", 0);
         }
-        if (gameObject.scene.name == "Level 2  Scene 1")
+        if (gameObject.scene.name== "Level 1 Scene")
         {
             PlayerPrefs.SetInt("Current_State", 1);
         }
-        if (gameObject.scene.name == "Level 3")
+        if (gameObject.scene.name == "Level 2  Scene 1")
         {
             PlayerPrefs.SetInt("Current_State", 2);
         }
-        if (gameObject.scene.name == "BossRoom")
+        if (gameObject.scene.name == "Level 3")
         {
             PlayerPrefs.SetInt("Current_State", 3);
+        }
+        if (gameObject.scene.name == "BossRoom")
+        {
+            PlayerPrefs.SetInt("Current_State", 4);
         }
 
 
@@ -89,19 +96,23 @@ public class BattleManager : MonoBehaviour
         switch (PlayerPrefs.GetInt("Current_State"))//关卡开始传送到出生房
         {
             case 0:
-                BornRoom_tf = GameObject.Find("S1-Born_Zoom").transform;
+                BornRoom_tf = GameObject.Find("Tutorial-Born_Zoom").transform;
                 player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
             case 1:
-                BornRoom_tf = GameObject.Find("S2-Born_Zoom").transform;
+                BornRoom_tf = GameObject.Find("S1-Born_Zoom").transform;
                 player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
             case 2:
+                BornRoom_tf = GameObject.Find("S2-Born_Zoom").transform;
+                player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
+                break;
+            case 3:
                 BornRoom_tf = GameObject.Find("S3-Born_Zoom").transform;
                 player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
                 
-            case 3:
+            case 4:
                 BornRoom_tf = GameObject.Find("BossRoom_BornZoom").transform;
                 player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
@@ -121,7 +132,7 @@ public class BattleManager : MonoBehaviour
         Player_Choose = new int[3];
 
 
-        if (PlayerPrefs.GetInt("Current_State") == 2)//生成随机数组，用于定义房间类型
+        if (PlayerPrefs.GetInt("Current_State") == 3)//生成随机数组，用于定义房间类型
         {
             for (int j = 0; j < num_2.Length; j++)//第三关随机房间逻辑
             {
@@ -192,24 +203,28 @@ public class BattleManager : MonoBehaviour
         switch (PlayerPrefs.GetInt("Current_State"))//定义房间类型
         {
             case 0:
+                S0_ROOM.SET_ROOM_TYPE(3);
+                break;
+
+            case 1:
                 for (int i = 0; i < S1_ROOM.Length; i++)
                 {
                     S1_ROOM[i].SET_ROOM_TYPE(num[i]);
                 }
                 break;
-            case 1:
+            case 2:
                 for (int i = 0; i < S2_ROOM.Length; i++)
                 {
                     S2_ROOM[i].SET_ROOM_TYPE(num[i]);
                 }
                 break;
-            case 2:
+            case 3:
                 for (int i = 0; i < S3_ROOM.Length; i++)
                 {
                     S3_ROOM[i].SET_ROOM_TYPE(num_2[i]);
                 }
                 break;
-            case 3:
+            case 4:
                 BOSS_ROOM.SET_ROOM_TYPE(3);
                 break;
 
@@ -248,14 +263,58 @@ public class BattleManager : MonoBehaviour
 
         currentstate = PlayerPrefs.GetInt("Current_State");
 
+        
+
+        if(PlayerPrefs.GetInt("Current_State") == 0)//斩杀、克制教程
+        {
+            if (flowchart.GetIntegerVariable("Tutorial_Process") == 2)
+            {
+                float A = GameObject.FindGameObjectWithTag("ENEMY").GetComponent<Actor>().heal;
+                float B= GameObject.FindGameObjectWithTag("ENEMY").GetComponent<Actor>().maxHeal;
+
+                if (A <= (B * 0.2f)&& !tutorial_talking)
+                {
+                    dialog_manager.Tutorial_Process_Talk();
+                    tutorial_talking = true;
+                }
+                
+            }
+
+            if (flowchart.GetIntegerVariable("Tutorial_Process") == 3)
+            {
+                if (IsLastWave&& !tutorial_talking)
+                {
+                    dialog_manager.Tutorial_Process_Talk();
+                    tutorial_talking = true;
+                }
+            }
+
+        }
+        
+        
+
         if (MON_NUMS == 0&& IsLastWave==false)//非最后一波怪时刷新下一波怪
         {
+
+            if (PlayerPrefs.GetInt("Current_State") == 0&&!tutorial_talking)
+            {
+                dialog_manager.Tutorial_Process_Talk();
+                tutorial_talking = true;
+            }
             startspawn = true;
             finishspawn = false;
+
         }
 
         if(MON_NUMS == 0 && IsLastWave == true && finishspawn == true&&BattleFinish==false)//最后一波怪时不再刷新下一波怪
         {
+            tutorial_talking = false;
+            if (PlayerPrefs.GetInt("Current_State") == 0 && !tutorial_talking)
+            {
+                dialog_manager.Tutorial_Process_Talk();
+                tutorial_talking = true;
+            }
+
             RoomClear = true;
             BattleFinish = true;
 
@@ -340,21 +399,28 @@ public class BattleManager : MonoBehaviour
         {
             case 0:
                 PlayerPrefs.SetInt("Current_State", 1);
+
+                flowchart.SetBooleanVariable("SceneChange", false);
+
+                SceneManager.LoadScene("Level 1 Scene");
+                break;
+            case 1:
+                PlayerPrefs.SetInt("Current_State", 2);
                 
                 flowchart.SetBooleanVariable("SceneChange", false);
 
                 SceneManager.LoadScene("Level 2  Scene 1");
                 break;
 
-            case 1:
-                PlayerPrefs.SetInt("Current_State", 2);
+            case 2:
+                PlayerPrefs.SetInt("Current_State", 3);
                 
                 flowchart.SetBooleanVariable("SceneChange", false);
 
                 SceneManager.LoadScene("Level 3");
                 break;
-            case 2:
-                PlayerPrefs.SetInt("Current_State", 3);
+            case 3:
+                PlayerPrefs.SetInt("Current_State", 4);
 
                 flowchart.SetBooleanVariable("SceneChange", false);
 
@@ -374,7 +440,14 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-
+    public void Tutorial_Room_Start()
+    {
+        BattleFinish = false;
+        IsLastWave = false;
+        RoomClear = false;
+        MAX_MON_NUMS = 1;
+        Monster_Waves = 3;
+    }
 
     public void Normal_BATTLE_START()//普通房战斗
     {
@@ -389,7 +462,7 @@ public class BattleManager : MonoBehaviour
     {
         
 
-        if (PlayerPrefs.GetInt("Current_State") == 0)//守护据点
+        if (PlayerPrefs.GetInt("Current_State") == 1)//守护据点
         {
             
             
@@ -399,13 +472,13 @@ public class BattleManager : MonoBehaviour
             
         }
 
-        if (PlayerPrefs.GetInt("Current_State") == 1)//死斗
+        if (PlayerPrefs.GetInt("Current_State") == 2)//死斗
         {
             Dead_Room_Battle_Start();
             START_SPAWN();
         }
 
-        if (PlayerPrefs.GetInt("Current_State") == 3)//BOSS战
+        if (PlayerPrefs.GetInt("Current_State") == 4)//BOSS战
         {
             Boss_Battle_Start();
             START_SPAWN();
@@ -454,6 +527,7 @@ public class BattleManager : MonoBehaviour
 
     public void START_WAVE()
     {
+        tutorial_talking = false;
         MON_NUMS = MAX_MON_NUMS;
         startspawn = false;
     }

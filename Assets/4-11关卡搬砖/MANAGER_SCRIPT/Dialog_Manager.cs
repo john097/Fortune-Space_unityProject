@@ -32,16 +32,25 @@ public class Dialog_Manager : MonoBehaviour
 
     public void State_Start_Talks()
     {
+
         if (DM_MANAGER.In_New_State)//第一关开场对话
         {
-            if (PlayerPrefs.GetInt("Current_State") == 0)
+            if(PlayerPrefs.GetInt("Current_State") == 0)
+            {
+                flowchart.SendFungusMessage("Tutorial_Normal_Start ");
+
+                DM_MANAGER.In_New_State = false;
+
+            }
+
+            if (PlayerPrefs.GetInt("Current_State") == 1)
             {
                 flowchart.SendFungusMessage("State_1_Start");
                
                 DM_MANAGER.In_New_State = false;
             }
 
-            if (PlayerPrefs.GetInt("Current_State") == 1)//第二关开场对话
+            if (PlayerPrefs.GetInt("Current_State") == 2)//第二关开场对话
             {
 
                 flowchart.SendFungusMessage("State_2_Start");
@@ -49,7 +58,7 @@ public class Dialog_Manager : MonoBehaviour
                 DM_MANAGER.In_New_State = false;
             }
 
-            if (PlayerPrefs.GetInt("Current_State") == 2)//第三关开场对话
+            if (PlayerPrefs.GetInt("Current_State") == 3)//第三关开场对话
             {
                 flowchart.SendFungusMessage("State_3_Start");
                
@@ -60,6 +69,30 @@ public class Dialog_Manager : MonoBehaviour
 
         }
     }
+
+    public void Tutorial_Process_Talk()//教程进度对话
+    {
+        if (flowchart.GetIntegerVariable("Tutorial_Process") == 1)
+        {
+            flowchart.SendFungusMessage("Tutorial_Skill_Start");
+        }
+
+        if (flowchart.GetIntegerVariable("Tutorial_Process") == 2)
+        {
+            flowchart.SendFungusMessage("Tutorial_Zhan_Start");
+        }
+
+        if (flowchart.GetIntegerVariable("Tutorial_Process") == 3)
+        {
+            flowchart.SendFungusMessage("Tutorial_Zhan_Finish");
+        }
+
+        if (flowchart.GetIntegerVariable("Tutorial_Process") == 4)
+        {
+            flowchart.SendFungusMessage("Tutorial_Finish");
+        }
+    }
+
 
     public void ProtectPoint_Enter_Talk()//据点房入场对话
     {
@@ -85,15 +118,20 @@ public class Dialog_Manager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("Current_State") == 0)
         {
-            flowchart.SendFungusMessage("State_1_Talk_TP");
+            flowchart.SendFungusMessage("State_0_Talk_TP");
         }
 
         if (PlayerPrefs.GetInt("Current_State") == 1)
         {
-            flowchart.SendFungusMessage("State_2_Talk_TP");
+            flowchart.SendFungusMessage("State_1_Talk_TP");
         }
 
         if (PlayerPrefs.GetInt("Current_State") == 2)
+        {
+            flowchart.SendFungusMessage("State_2_Talk_TP");
+        }
+
+        if (PlayerPrefs.GetInt("Current_State") == 3)
         {
             flowchart.SendFungusMessage("Goto_BossRoom_Talk");
         }

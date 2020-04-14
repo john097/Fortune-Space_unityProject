@@ -98,6 +98,8 @@ public class Player_IN_Room : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
+        
+
         if (other.gameObject == player_collider && inroom_started == false && this_room_type == 1)//开始普通房战斗
         {
             var A = gameObject.transform.GetChild(2).gameObject;//生成围墙
@@ -132,19 +134,31 @@ public class Player_IN_Room : MonoBehaviour
             inroom_started = true;
             B_Manager.RoomClear = false;
 
+
             if(PlayerPrefs.GetInt("Current_State") == 0)
+            {
+                B_Manager.START_SPAWN();
+                B_Manager.Tutorial_Room_Start();
+
+                GetComponent<Enemy_Manager>().enabled = true;
+                GetComponent<Player_IN_Room>().enabled = false;
+
+            }
+
+
+            if(PlayerPrefs.GetInt("Current_State") == 1)
             {
                 dialog_manager.ProtectPoint_Enter_Talk();
                 b = false;
             }
 
-            if (PlayerPrefs.GetInt("Current_State") == 1)
+            if (PlayerPrefs.GetInt("Current_State") == 2)
             {
                 
                 b = false;
             }
 
-            if (PlayerPrefs.GetInt("Current_State") == 2)
+            if (PlayerPrefs.GetInt("Current_State") == 3)
             {
                 var A = gameObject.transform.GetChild(2).gameObject;//生成围墙
                 A.SetActive(true);
@@ -158,7 +172,7 @@ public class Player_IN_Room : MonoBehaviour
             }
 
 
-            if (PlayerPrefs.GetInt("Current_State") == 3)//Boss房战斗
+            if (PlayerPrefs.GetInt("Current_State") == 4)//Boss房战斗
             {
                 dialog_manager.BossBattle_Start_Talk();
                 B_Manager.Special_Battle_Start();

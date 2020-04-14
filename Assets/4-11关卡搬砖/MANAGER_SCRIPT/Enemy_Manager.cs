@@ -29,7 +29,7 @@ public class Enemy_Manager : MonoBehaviour
 
 
     private const string Prefabs = "Prefabs/";
-
+    private int tutorial_mon_num = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -80,8 +80,22 @@ public class Enemy_Manager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-
-
+        if(PlayerPrefs.GetInt("Current_State") == 0)
+        {
+            if (B_Manager.startspawn == true && Monster_CurrentWaves < B_Manager.Monster_Waves && ME.this_room_type == 3 && !flowchart.GetBooleanVariable("IS_TALKING"))//教程房间
+            {
+                if (Monster_CurrentWaves == 2)
+                {
+                    B_Manager.MAX_MON_NUMS = 2;
+                }
+                tutorial_mon_num = 0;
+                B_Manager.START_WAVE();
+                StartCoroutine(TutorialRoomCreateEnemies(Spawn_Cd));
+               
+                Monster_CurrentWaves += 1;
+            }
+        }
+       
 
         if (!flowchart.GetBooleanVariable("IS_TALKING"))
         {
@@ -96,7 +110,7 @@ public class Enemy_Manager : MonoBehaviour
 
             }
 
-            if (B_Manager.startspawn == true && Monster_CurrentWaves < B_Manager.Monster_Waves && ME.this_room_type == 3&& PlayerPrefs.GetInt("Current_State") == 2)//开始普通房刷怪模式
+            if (B_Manager.startspawn == true && Monster_CurrentWaves < B_Manager.Monster_Waves && ME.this_room_type == 3&& PlayerPrefs.GetInt("Current_State") == 3)//开始普通房刷怪模式
             {
 
 
@@ -106,31 +120,28 @@ public class Enemy_Manager : MonoBehaviour
 
             }
 
+           
 
-            if (B_Manager.startspawn == true && Monster_CurrentWaves < B_Manager.Monster_Waves && ME.this_room_type == 3 && PlayerPrefs.GetInt("Current_State") == 0)//开始守护据点房刷怪模式（需要调整逻辑
+                if (B_Manager.startspawn == true && Monster_CurrentWaves < B_Manager.Monster_Waves && ME.this_room_type == 3 && PlayerPrefs.GetInt("Current_State") == 1)//开始守护据点房刷怪模式（需要调整逻辑
             {
 
                 B_Manager.START_WAVE();
                 StartCoroutine(ProtectRoomCreateEnemies(Spawn_Cd));
 
-
-
-
             }
 
-            if (B_Manager.startspawn == true && ME.this_room_type == 3 && B_Manager.Dead_Room_Battle && PlayerPrefs.GetInt("Current_State") == 1)//开始死斗房刷怪模式（需要调整逻辑
+            if (B_Manager.startspawn == true && ME.this_room_type == 3 && B_Manager.Dead_Room_Battle && PlayerPrefs.GetInt("Current_State") == 2)//开始死斗房刷怪模式（需要调整逻辑
             {
 
                 B_Manager.START_WAVE();
                 StartCoroutine(DeadRoomCreateEnemies(Spawn_Cd));
-
 
             }
 
 
            
 
-            if (B_Manager.startspawn == true && ME.this_room_type == 3 && B_Manager.BOSS_Battle && PlayerPrefs.GetInt("Current_State") == 3)//开始BOSS房刷怪模式（需要调整逻辑
+            if (B_Manager.startspawn == true && ME.this_room_type == 3 && B_Manager.BOSS_Battle && PlayerPrefs.GetInt("Current_State") == 4)//开始BOSS房刷怪模式（需要调整逻辑
             {
                 B_Manager.START_WAVE();
                 B_Manager.IS_LAST_WAVE();
@@ -224,6 +235,40 @@ public class Enemy_Manager : MonoBehaviour
         }
         
     }
+
+    IEnumerator TutorialRoomCreateEnemies(float duration)//新手教程房间刷新怪物
+    {
+        int count = 0;
+
+        while (true)
+        {
+            if (count < B_Manager.MAX_MON_NUMS)
+            {
+                yield return new WaitForSeconds(duration);
+
+                Transform BornRoom_tf;
+                Transform BornRoom_tf2;
+                BornRoom_tf = GameObject.Find("Enemy_BornZoom").transform;
+                BornRoom_tf2 = GameObject.Find("Enemy_BornZoom2").transform;
+                Vector3[] pos=new Vector3[2];
+
+                pos[0]= new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
+                pos[1] = new Vector3(BornRoom_tf2.position.x, BornRoom_tf2.position.y, BornRoom_tf2.position.z);
+
+                // 开始刷新怪物
+                Instantiate(This_Room_Enemys[tutorial_mon_num], pos[tutorial_mon_num], Quaternion.identity);
+                count++;
+                tutorial_mon_num++;
+            }
+            else
+            {
+                B_Manager.FINISH_SPAWN();
+                break;
+            }
+        }
+
+    }
+
 
     IEnumerator ProtectRoomCreateEnemies(float duration)//守护据点房间刷新怪物
     {
