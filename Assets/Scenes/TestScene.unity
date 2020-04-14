@@ -1097,7 +1097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee220f35db39b04480a3ed78268d253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCredit: 0
+  playerCredit: 1000
   image_Credit: {fileID: 609051354}
 --- !u!4 &81979956
 Transform:
@@ -1159,7 +1159,7 @@ MonoBehaviour:
   - {fileID: 402873769}
   - {fileID: 760690462}
   Skills_1:
-  - {fileID: 0}
+  - {fileID: 1416328767}
   - {fileID: 1929908257}
   - {fileID: 298098693}
   - {fileID: 402873769}
@@ -2034,6 +2034,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u88C5\u5907\u5207\u6362_0"
   skillExplain: 
+  skillDamageExplain: 
+  skillVulnerabilityExplain: 
+  skillRepelExplain: 
+  skillSpecialExplain: 
   skillIcon: {fileID: 0}
   credit: 0
   thisWeaponType: 0
@@ -11978,6 +11982,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u88C5\u5907\u5207\u6362_0"
   skillExplain: 
+  skillDamageExplain: 
+  skillVulnerabilityExplain: 
+  skillRepelExplain: 
+  skillSpecialExplain: 
   skillIcon: {fileID: 0}
   credit: 0
   thisWeaponType: 0
@@ -12810,7 +12818,7 @@ GameObject:
   - component: {fileID: 797361170}
   - component: {fileID: 797361169}
   m_Layer: 10
-  m_Name: Capsule
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12833,7 +12841,7 @@ MonoBehaviour:
   thisSpType: 0
   actorCredit: 0
   maxHeal: 9999
-  heal: 9999
+  heal: 200
   isAlive: 1
   speed: 0
   minPointDistance: 0
@@ -20157,6 +20165,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1492404151}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1416328767 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7700267545219929599, guid: 8b7c9ceade12f5848b4db1d66da52094,
+    type: 3}
+  m_PrefabInstance: {fileID: 1492404151}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84646d5a1a5f904db136a585982853b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1422745151
 GameObject:
   m_ObjectHideFlags: 0

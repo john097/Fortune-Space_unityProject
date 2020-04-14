@@ -61,6 +61,9 @@ public class Bullet : MonoBehaviour
     [Tooltip("子弹与目标碰撞后销毁目标")]
         public bool destoryTarget;
 
+    [Tooltip("是否需要击杀敌人才触发时停")]
+        public bool killTargetMakeTimeSlow;
+
     [Tooltip("子弹击中目标时触发时停的倍率")]
         public float hitChangeTimeScale;
 
@@ -277,9 +280,22 @@ public class Bullet : MonoBehaviour
                 }
             }
 
-            if (hitChangeTimeScaleTime > 0)
+            if (killTargetMakeTimeSlow)
             {
-                ChangeTimeScaleFunc(hitChangeTimeScale,hitChangeTimeScaleTime);
+                if (!a || !a.isAlive)
+                {
+                    if (hitChangeTimeScaleTime > 0)
+                    {
+                        ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
+                    }
+                }
+            }
+            else
+            {
+                if (hitChangeTimeScaleTime > 0)
+                {
+                    ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
+                }
             }
 
         }

@@ -93,6 +93,11 @@ public class SelectUIScript : MonoBehaviour
         {
             messages[messages.Length - 1].transform.GetChild(0).GetComponent<Text>().text = " ";
             messages[messages.Length - 1].transform.GetChild(1).GetComponent<Text>().text = " ";
+            messages[messages.Length - 1].transform.GetChild(2).GetComponent<Text>().text = " ";
+            messages[messages.Length - 1].transform.GetChild(3).GetComponent<Text>().text = " ";
+            messages[messages.Length - 1].transform.GetChild(4).GetComponent<Text>().text = " ";
+            messages[messages.Length - 1].transform.GetChild(5).GetComponent<Text>().text = " ";
+            messages[messages.Length - 1].transform.GetChild(6).GetComponent<Text>().text = " ";
         }
     }
 }

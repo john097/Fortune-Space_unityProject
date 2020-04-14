@@ -94,6 +94,11 @@ public class Stage : MonoBehaviour
         GameObject sPrefabs;
         GameObject s;
 
+        //武器随机数量
+        int[] wHArr = GetRandomSequence(14);
+        //技能随机数量
+        int[] sHArr = GetRandomSequence(4);
+
         if (thisToolType == toolType.道具)
         {
             int t = Random.Range(0,2);
@@ -101,33 +106,32 @@ public class Stage : MonoBehaviour
             if (t == 0)
             {
                 int j = Random.Range(0, k + 1);
-                int h = Random.Range(0, 5);
-                sPrefabs = Resources.Load("SkillPrefabs/Weapon/Level_" + j + "/" + h + "/S_" + h) as GameObject;
+                sPrefabs = Resources.Load("SkillPrefabs/Weapon/Level_" + j + "/" + wHArr[0] + "/S_" + wHArr[0]) as GameObject;
                 s = Instantiate(sPrefabs, gameObject.transform);
             }
             else 
             {
                 int j = Random.Range(0, k + 1);
-                int h = Random.Range(0, 4);
-                sPrefabs = Resources.Load("SkillPrefabs/Skills/Level_" + j + "/" + h + "/S_" + h) as GameObject;
+                sPrefabs = Resources.Load("SkillPrefabs/Skills/Level_" + j + "/" + sHArr[0] + "/S_" + sHArr[0]) as GameObject;
                 s = Instantiate(sPrefabs, gameObject.transform);
             }
         }
         else if (thisToolType == toolType.商店)
         {
+            //四武器
             for (int i = 0; i < 4; i++)
             {
                 int j = Random.Range(0, k + 1);
-                int h = Random.Range(0, 5);
-                sPrefabs = Resources.Load("SkillPrefabs/Weapon/Level_" + j + "/" + h + "/S_" + h) as GameObject;
+                sPrefabs = Resources.Load("SkillPrefabs/Weapon/Level_" + j + "/" + wHArr[i] + "/S_" + wHArr[i]) as GameObject;
                 s = Instantiate(sPrefabs, gameObject.transform);
             }
 
+            //两技能
             for (int i = 0; i < 2; i++)
             {
                 int j = Random.Range(0, k + 1);
                 int h = Random.Range(0, 4);
-                sPrefabs = Resources.Load("SkillPrefabs/Skills/Level_" + j + "/" + h + "/S_" + h) as GameObject;
+                sPrefabs = Resources.Load("SkillPrefabs/Skills/Level_" + j + "/" + sHArr[i] + "/S_" + sHArr[i]) as GameObject;
                 s = Instantiate(sPrefabs, gameObject.transform);
             }
         }
@@ -135,42 +139,26 @@ public class Stage : MonoBehaviour
         RefrashToolList();
     }
 
-    //private void RandomSkillData(GameObject skill)
-    //{
-    //    float damage;
-    //    float vulnerabilityPercent;
-    //    float repel;
-    //    float lifeTime;
-    //    float coolDownTime;
+    //生成不重复随机数数组
+    public static int[] GetRandomSequence(int total)
+    {
+        int[] hashtable = new int[total];
+        int[] output = new int[total];
 
-    //    Skill s = skill.GetComponent<Skill>();
+        for (int i = 0; i < total; i++)
+        {
+            int num = Random.Range(0, total);
+            while (hashtable[num] > 0)
+            {
+                num = Random.Range(0, total);
+            }
 
-        
+            output[i] = num;
+            hashtable[num] = 1;
+        }
 
-    //    switch (s.thisWeaponType)
-    //    {
-    //        case Actor.weaponType.非武器:
-    //            if(s.bulletPrefabs.Length != 0)
-    //            {
-                    
-    //            }
-    //            break;
-    //        case Actor.weaponType.手枪:
-    //            break;
-    //        case Actor.weaponType.冲锋枪:
-    //            break;
-    //        case Actor.weaponType.霰弹枪:
-    //            break;
-    //        case Actor.weaponType.狙击枪:
-    //            break;
-    //        case Actor.weaponType.太刀:
-    //            break;
-    //        case Actor.weaponType.锤子:
-    //            break;
-    //        default:
-    //            break;
-    //    }
-    //}
+        return output;
+    }
 
     private void SkillDataSeedFunc(Skill s)
     {
