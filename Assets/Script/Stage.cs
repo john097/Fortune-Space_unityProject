@@ -33,10 +33,6 @@ public class Stage : MonoBehaviour
     public GameObject interactiveUI;
     public GameObject storeUI;
 
-
-
-
-
     private BattleManager pp_BattleManager;//DISON.VER
     private Dialog_Manager pp_DialogManager;//DISON.VER
 
@@ -95,7 +91,7 @@ public class Stage : MonoBehaviour
         GameObject s;
 
         //武器随机数量
-        int[] wHArr = GetRandomSequence(15);
+        int[] wHArr = GetRandomSequence(28);
         //技能随机数量
         int[] sHArr = GetRandomSequence(4);
 

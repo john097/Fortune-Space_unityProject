@@ -834,11 +834,27 @@ public class Actor : MonoBehaviour
         }
         else if (a.thisType == Buff.buffType.回血)
         {
-            healOverBuff = a;
+            if (healOverBuff && healOverBuff.lifeTime == a.lifeTime && healOverBuff.percent == a.percent)
+            {
+                healOverBuff.lifeTimeTimer = 0;
+                Destroy(a);
+            }
+            else
+            {
+                healOverBuff = a;
+            }
         }
         else if (a.thisType == Buff.buffType.持续伤害)
         {
-            damageOverTimeBuff = a;
+            if (damageOverTimeBuff && damageOverTimeBuff.lifeTime == a.lifeTime && damageOverTimeBuff.percent == a.percent)
+            {
+                damageOverTimeBuff.lifeTimeTimer = 0;
+                Destroy(a);
+            }
+            else
+            {
+                damageOverTimeBuff = a;
+            }
         }
         else if (a.thisType == Buff.buffType.冷却缩减)
         {
@@ -861,13 +877,13 @@ public class Actor : MonoBehaviour
         }
     }
 
-    public void BuffAction(Buff.buffType i)
+    public void BuffAction(Buff.buffType i,Buff b)
     {
-        if (i == Buff.buffType.回血)
+        if (i == Buff.buffType.回血 && healOverBuff == b)
         {
             TakeDamege(-maxHeal * healOverBuff.percent);
         }
-        else if (i == Buff.buffType.持续伤害)
+        else if (i == Buff.buffType.持续伤害 && damageOverTimeBuff == b)
         {
             TakeDamege(maxHeal * damageOverTimeBuff.percent);
         }

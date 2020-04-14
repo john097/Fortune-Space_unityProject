@@ -32,15 +32,19 @@ public class Buff : MonoBehaviour
 
     [Tooltip("数值类Buff的生效百分比")]
         public float percent;
-
-    private float lifeTimeTimer;
+    
+    [HideInInspector]
+    public float lifeTimeTimer;
     private float intervalTimer;
     private float previousValues;
+
+    private Buff thisBuffComponent;
 
     // Start is called before the first frame update
     void Start()
     {
         intervalTimer = 0;
+        thisBuffComponent = gameObject.GetComponent<Buff>();
     }
 
     // Update is called once per frame
@@ -75,7 +79,7 @@ public class Buff : MonoBehaviour
         {
             if (intervalTimer >= interval)
             {
-                target.BuffAction(thisType);
+                target.BuffAction(thisType,thisBuffComponent);
                 intervalTimer = 0;
             }
             else

@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84646d5a1a5f904db136a585982853b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: "\u521D\u59CB\u9730\u5F39\u67AA"
-  skillExplain: "\u8FDC\u8DDD\u79BB\u51B2\u950B\u67AA\u7C7B\u6B66\u5668\uFF0C\u653B\u51FB\u8FD1\u6218\u7C7B\u654C\u4EBA\u65F6\u4F24\u5BB3\u7FFB\u500D\u3002\u662F\u5177\u6709\u5F3A\u51FB\u9000\u6548\u679C\u7684\u8FDC\u8DDD\u79BB\u6B66\u5668\u3002"
+  skillName: "\u9730\u5F39\u67AA-\u521D\u59CB"
+  skillExplain: "\u8FDC\u8DDD\u79BB\u9730\u5F39\u67AA\u7C7B\u6B66\u5668\uFF0C\u653B\u51FB\u8FD1\u6218\u7C7B\u654C\u4EBA\u65F6\u4F24\u5BB3\u7FFB\u500D\u3002\u662F\u5177\u6709\u5F3A\u51FB\u9000\u6548\u679C\u7684\u8FDC\u8DDD\u79BB\u6B66\u5668\u3002"
   skillDamageExplain: 80*4
   skillVulnerabilityExplain: 250
   skillRepelExplain: "\u5BF9\u654C\u51FB\u9000\u503C\uFF1A35*4"
@@ -56,13 +56,13 @@ MonoBehaviour:
   thisSkillAnimState: 0
   thisSkillAnimSpeed: 1
   thisSkillSpeedNum: 0
-  thisSkillAnimTime: 0.1
+  thisSkillAnimTime: 0.5
   castActionTime_Tag: 0
   Main_Tag: 0
   castActionTime: 0.1
-  castTime: 0.5
+  castTime: 1
   cantCancelAfterCastAction: 0
-  cantCancelACATime: 0
+  cantCancelACATime: 0.9
   cantTurnInCastTime: 0
   cantTurnStartTime: 0
   cantTurnTime: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
   ammoNum: 6
   reloadTime: 2
   reloadKey: 114
-  coolDownTime: 0.9
+  coolDownTime: 0
   mustCancel: 0
   cantCancel: 0
   isStepSkill: 0
