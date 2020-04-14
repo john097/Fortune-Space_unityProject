@@ -206,9 +206,9 @@ public class Actor : MonoBehaviour
 
     void Update()
     {
-        if (isAlive && isPlayer&& !isTalking)//**DISON.ver**
+        if (isAlive && isPlayer)//**DISON.ver**
         {
-                if (!isTakingTool)
+                if (!isTakingTool && !isTalking)
                 {
                     //Move();
 
