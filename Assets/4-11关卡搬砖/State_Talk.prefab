@@ -316,6 +316,10 @@ GameObject:
   - component: {fileID: 8455947141660274245}
   - component: {fileID: 554983522996627061}
   - component: {fileID: 4882381207319647891}
+  - component: {fileID: 139540653897102144}
+  - component: {fileID: 8649098250549410615}
+  - component: {fileID: 8554607267725954186}
+  - component: {fileID: 6056040498448004645}
   m_Layer: 0
   m_Name: Flowchart1
   m_TagString: Untagged
@@ -350,7 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 1018.7924, y: 102.97449}
+  scrollPos: {x: 1447.0529, y: 142.10487}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
@@ -361,7 +365,8 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
+  selectedBlocks:
+  - {fileID: 1293630642147629934}
   selectedCommands: []
   variables:
   - {fileID: 1293630642147629910}
@@ -2052,19 +2057,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -700.9911
-    y: 49.6987
-    width: 129.99995
+    x: -920.556
+    y: 64.916084
+    width: 176.95645
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 58
-  blockName: Tutorial
+  blockName: Tutorial_Normal_Start
   description: 
   eventHandler: {fileID: 1293630642147629982}
   commandList:
   - {fileID: 1293630642147629958}
+  - {fileID: 8649098250549410615}
   - {fileID: 1293630642147629956}
+  - {fileID: 6056040498448004645}
+  - {fileID: 8554607267725954186}
+  - {fileID: 139540653897102144}
 --- !u!114 &1293630642147629959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2109,9 +2118,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 61
   indentLevel: 0
-  storyText: 
+  storyText: "\u6B22\u8FCE\u6765\u5230Fortune\u2014Space\uFF0C\u7279\u52A1\u3002\u6211\u662F\u60A8\u7684\u4E13\u5C5E\u8F85\u52A9AI\uFF0C\u4E5F\u662F\u60A8\u7684\u4E13\u7528\u6B66\u5668\u3002"
   description: 
-  character: {fileID: 0}
+  character: {fileID: 1293630643869959743}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -2162,7 +2171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 1293630642147629934}
-  message: 'Tutorial_Start '
+  message: 'Tutorial_Normal_Start '
 --- !u!114 &1293630642147629983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4189,7 +4198,7 @@ MonoBehaviour:
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
-  itemId: 38
+  itemId: 135
   blockName: Goto_BossRoom_Talk_CHOOSE_A1
   description: 
   eventHandler: {fileID: 0}
@@ -4281,7 +4290,7 @@ MonoBehaviour:
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
-  itemId: 39
+  itemId: 136
   blockName: Goto_BossRoom_Talk_CHOOSE_A
   description: 
   eventHandler: {fileID: 0}
@@ -4518,6 +4527,188 @@ MonoBehaviour:
   itemId: 134
   indentLevel: 0
   storyText: "\u90A3\u5C31\u5148\u597D\u597D\u51C6\u5907\u4E00\u4E0B\u5427"
+  description: 
+  character: {fileID: 1293630643869959743}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &139540653897102144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293630642147629918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb77d0ce495044f6e9feb91b31798e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 137
+  indentLevel: 0
+  variable: {fileID: 1293630642147629908}
+  setOperator: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  animatorData:
+    animatorRef: {fileID: 0}
+    animatorVal: {fileID: 0}
+  audioSourceData:
+    audioSourceRef: {fileID: 0}
+    audioSourceVal: {fileID: 0}
+  colorData:
+    colorRef: {fileID: 0}
+    colorVal: {r: 0, g: 0, b: 0, a: 0}
+  gameObjectData:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 0}
+  materialData:
+    materialRef: {fileID: 0}
+    materialVal: {fileID: 0}
+  objectData:
+    objectRef: {fileID: 0}
+    objectVal: {fileID: 0}
+  rigidbody2DData:
+    rigidbody2DRef: {fileID: 0}
+    rigidbody2DVal: {fileID: 0}
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  textureData:
+    textureRef: {fileID: 0}
+    textureVal: {fileID: 0}
+  transformData:
+    transformRef: {fileID: 0}
+    transformVal: {fileID: 0}
+  vector2Data:
+    vector2Ref: {fileID: 0}
+    vector2Val: {x: 0, y: 0}
+  vector3Data:
+    vector3Ref: {fileID: 0}
+    vector3Val: {x: 0, y: 0, z: 0}
+--- !u!114 &8649098250549410615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293630642147629918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb77d0ce495044f6e9feb91b31798e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 138
+  indentLevel: 0
+  variable: {fileID: 1293630642147629908}
+  setOperator: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  animatorData:
+    animatorRef: {fileID: 0}
+    animatorVal: {fileID: 0}
+  audioSourceData:
+    audioSourceRef: {fileID: 0}
+    audioSourceVal: {fileID: 0}
+  colorData:
+    colorRef: {fileID: 0}
+    colorVal: {r: 0, g: 0, b: 0, a: 0}
+  gameObjectData:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 0}
+  materialData:
+    materialRef: {fileID: 0}
+    materialVal: {fileID: 0}
+  objectData:
+    objectRef: {fileID: 0}
+    objectVal: {fileID: 0}
+  rigidbody2DData:
+    rigidbody2DRef: {fileID: 0}
+    rigidbody2DVal: {fileID: 0}
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  textureData:
+    textureRef: {fileID: 0}
+    textureVal: {fileID: 0}
+  transformData:
+    transformRef: {fileID: 0}
+    transformVal: {fileID: 0}
+  vector2Data:
+    vector2Ref: {fileID: 0}
+    vector2Val: {x: 0, y: 0}
+  vector3Data:
+    vector3Ref: {fileID: 0}
+    vector3Val: {x: 0, y: 0, z: 0}
+--- !u!114 &8554607267725954186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293630642147629918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 139
+  indentLevel: 0
+  storyText: "WASD\u79FB\u52A8\u81EA\u8EAB\uFF0C\u9F20\u6807\u5DE6\u952E\u653B\u51FB\uFF0CR\u952E\u6362\u5F39\u3002\u8BF7\u51FB\u8D25\u773C\u524D\u7684\u865A\u62DF\u654C\u4EBA\u70ED\u70ED\u8EAB\u3002"
+  description: 
+  character: {fileID: 1293630643869959743}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &6056040498448004645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293630642147629918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 140
+  indentLevel: 0
+  storyText: "\u6211\u5C06\u5728\u8FD9\u91CC\u6559\u4F1A\u4F60\u5982\u4F55\u5728\u8FD9\u4E2A\u7A7A\u95F4\u79FB\u52A8\uFF0C\u5E76\u4F7F\u7528\u6211\u6765\u9AD8\u6548\u7684\u51FB\u8D25\u654C\u4EBA\uFF0C\u5B8C\u6210\u4EFB\u52A1\u3002"
   description: 
   character: {fileID: 1293630643869959743}
   portrait: {fileID: 0}
