@@ -4,6 +4,7 @@ using BehaviorDesigner.Runtime.Tasks;
 using BehaviorDesigner.Runtime.Tasks.Movement;
 using System.Collections.Generic;
 using UnityEngine.AI;
+using Fungus;
 
 public class MONS_CANSEE : Conditional
 {
@@ -16,6 +17,7 @@ public class MONS_CANSEE : Conditional
     public float dis;
 
     private BattleManager MC_manager;
+    private Flowchart flowchart;
 
     private NavMeshAgent navMeshAgent;
     private Actor mons_actor;
@@ -34,8 +36,19 @@ public class MONS_CANSEE : Conditional
         mons_actor = GetComponent<Actor>();
 
         MC_manager = GameObject.Find("BattleManager").GetComponent<BattleManager>();
+        flowchart = GameObject.Find("Flowchart1").GetComponent<Flowchart>();
 
-        base.OnStart();
+        if (PlayerPrefs.GetInt("Current_State") == 0)
+        {
+            mons_actor.maxHeal = 200;
+            mons_actor.heal = 200;
+        }
+
+
+            base.OnStart();
+
+
+
 
     }
 
@@ -45,17 +58,27 @@ public class MONS_CANSEE : Conditional
         dis = Vector3.Distance(transform.position ,target.Value.position);
         timer += Time.deltaTime;
         
-
-        if (timer > patrol_cd)//Ëæ»úÑ²Âß
+        if(PlayerPrefs.GetInt("Current_State") != 0)
         {
-            
-            random_x = Random.Range(transform.position.x - patrol_distance, transform.position.x + patrol_distance);
-            random_z = Random.Range(transform.position.z - patrol_distance, transform.position.z + patrol_distance);
-           
-            navMeshAgent.SetDestination(new Vector3(random_x, transform.position.y,  random_z));
-            timer = 0;
+            if (timer > patrol_cd)//Ëæ»úÑ²Âß
+            {
+
+                random_x = Random.Range(transform.position.x - patrol_distance, transform.position.x + patrol_distance);
+                random_z = Random.Range(transform.position.z - patrol_distance, transform.position.z + patrol_distance);
+
+                navMeshAgent.SetDestination(new Vector3(random_x, transform.position.y, random_z));
+                timer = 0;
+            }
         }
         
+
+        if (PlayerPrefs.GetInt("Current_State")==0)
+        {
+            navMeshAgent.enabled = false;
+            return TaskStatus.Running;
+        }
+
+
         if (dis < CanSeeDistance.Value)
         {
             navMeshAgent.enabled = false;

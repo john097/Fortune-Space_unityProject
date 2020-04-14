@@ -274,8 +274,13 @@ public class BattleManager : MonoBehaviour
 
                 if (A <= (B * 0.2f)&& !tutorial_talking)
                 {
-                    dialog_manager.Tutorial_Process_Talk();
-                    tutorial_talking = true;
+                    
+
+                    if (!Player.steping)
+                    {
+                        dialog_manager.Tutorial_Process_Talk();
+                        tutorial_talking = true;
+                    }
                 }
                 
             }
@@ -284,8 +289,15 @@ public class BattleManager : MonoBehaviour
             {
                 if (IsLastWave&& !tutorial_talking)
                 {
-                    dialog_manager.Tutorial_Process_Talk();
-                    tutorial_talking = true;
+
+                    
+                    if (!Player.steping)
+                    {
+                        dialog_manager.Tutorial_Process_Talk();
+                        tutorial_talking = true;
+
+                    }
+                    
                 }
             }
 
@@ -298,8 +310,13 @@ public class BattleManager : MonoBehaviour
 
             if (PlayerPrefs.GetInt("Current_State") == 0&&!tutorial_talking)
             {
-                dialog_manager.Tutorial_Process_Talk();
-                tutorial_talking = true;
+                
+                if (!Player.steping)
+                {
+                    dialog_manager.Tutorial_Process_Talk();
+                    tutorial_talking = true;
+                }
+
             }
             startspawn = true;
             finishspawn = false;
@@ -311,8 +328,15 @@ public class BattleManager : MonoBehaviour
             tutorial_talking = false;
             if (PlayerPrefs.GetInt("Current_State") == 0 && !tutorial_talking)
             {
-                dialog_manager.Tutorial_Process_Talk();
-                tutorial_talking = true;
+
+                
+
+                if (!Player.steping)
+                {
+                    dialog_manager.Tutorial_Process_Talk();
+                    tutorial_talking = true;
+                }
+                
             }
 
             RoomClear = true;

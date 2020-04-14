@@ -306,7 +306,7 @@ public class Enemy_Manager : MonoBehaviour
                 pos[1] = new Vector3(BornRoom_tf2.position.x, BornRoom_tf2.position.y, BornRoom_tf2.position.z);
 
                 // 开始刷新怪物
-                Instantiate(This_Room_Enemys[tutorial_mon_num], pos[tutorial_mon_num], Quaternion.identity);
+                Instantiate(This_Room_Enemys[tutorial_mon_num], pos[tutorial_mon_num], Quaternion.Euler(new Vector3(0,-90f,0)));
                 count++;
                 tutorial_mon_num++;
             }
