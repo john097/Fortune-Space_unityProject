@@ -175,7 +175,7 @@ public  class Skill : MonoBehaviour
         coolDownFlag = true;
         reloadFlag = false;
         thisSkillClass = this.gameObject.GetComponent<Skill>();
-        ammoNum = ammoNumLimit;
+        //ammoNum = ammoNumLimit;
         comboNum = 0;
         thisSkillAnimTimer = 0;
     }
@@ -627,7 +627,21 @@ public  class Skill : MonoBehaviour
             if (skillVariantEvent)
             {
                 Debug.Log("释放变体");
-                UseSkillVariant();
+                if (ammoNumLimit != 0)
+                {
+                    ammoNum -= 1;
+                    UseSkillVariant();
+                }
+                else if (gameObject.transform.parent.gameObject.GetComponent<Skill>().ammoNumLimit != 0)
+                {
+                    Skill pS = gameObject.transform.parent.gameObject.GetComponent<Skill>();
+                    if (pS.ammoNum > 0)
+                    {
+                        UseSkillVariant();
+                        pS.ammoNum -= 1;
+                    }
+                }
+                
             }
 
             //阻止程序逻辑执行二次释放

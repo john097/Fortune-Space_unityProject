@@ -95,7 +95,7 @@ public class Stage : MonoBehaviour
         GameObject s;
 
         //武器随机数量
-        int[] wHArr = GetRandomSequence(14);
+        int[] wHArr = GetRandomSequence(15);
         //技能随机数量
         int[] sHArr = GetRandomSequence(4);
 
