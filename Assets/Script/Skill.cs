@@ -1,14 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public  class Skill : MonoBehaviour
 {
     [Tooltip("技能名")]
         public string skillName;
 
-    [Tooltip("技能描述")]
+    [Tooltip("技能基础描述")]
         public string skillExplain;
+
+    [Tooltip("技能伤害机制描述")]
+        public string skillDamageExplain;
+
+    [Tooltip("技能易伤机制描述")]
+        public string skillVulnerabilityExplain;
+
+    [Tooltip("技能施力机制描述")]
+        public string skillRepelExplain;
+
+    [Tooltip("技能特殊机制描述")]
+        public string skillSpecialExplain;
+
+    [Tooltip("技能图标")]
+        public Sprite skillIcon;
 
     [Tooltip("价格")]
         public int credit;
