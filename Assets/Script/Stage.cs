@@ -6,13 +6,16 @@ using UnityEngine;
 
 public class Stage : MonoBehaviour
 {
-    [HideInInspector]
+    //[HideInInspector]
     public Skill toolSkill;
-    [HideInInspector]
+    //[HideInInspector]
     public Skill[] storeSkills;
     private Actor actor;
 
     public float heal;
+
+    [HideInInspector]
+        public int refrashCredit;
 
     public enum toolType
     {
@@ -43,6 +46,11 @@ public class Stage : MonoBehaviour
     {
         actor = GameObject.Find("Actor").GetComponent<Actor>();
 
+        if (thisToolType == toolType.商店)
+        {
+            refrashCredit = 10;
+        }
+
         if (thisToolType != toolType.特殊交互点)
         {
             if (thisCreateType == createType.固定)
@@ -65,17 +73,21 @@ public class Stage : MonoBehaviour
     void Update()
     {
         
-
-      
     }
 
     public void ReGetRandomTools()
     {
-        for (int i = 0; i < gameObject.transform.childCount; i++)
+        if (refrashCredit <=GameObject.FindGameObjectWithTag("Player").GetComponent<Credit>().playerCredit)
         {
-            Destroy(gameObject.transform.GetChild(i).gameObject);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Credit>().playerCredit -= refrashCredit;
+            refrashCredit *= 2;
+            for (int i = 0; i < gameObject.transform.childCount + i; i++)
+            {
+                DestroyImmediate(gameObject.transform.GetChild(0).gameObject);
+            }
+
+            RandomTools(0);
         }
-        RandomTools(0);
     }
 
     public void RefrashToolList()
@@ -166,30 +178,6 @@ public class Stage : MonoBehaviour
         return output;
     }
 
-    private void SkillDataSeedFunc(Skill s)
-    {
-        switch (s.thisWeaponType)
-        {
-            case Actor.weaponType.非武器:
-
-                break;
-            case Actor.weaponType.手枪:
-                break;
-            case Actor.weaponType.冲锋枪:
-                break;
-            case Actor.weaponType.霰弹枪:
-                break;
-            case Actor.weaponType.狙击枪:
-                break;
-            case Actor.weaponType.太刀:
-                break;
-            case Actor.weaponType.锤子:
-                break;
-            default:
-                break;
-        }
-    }
-
     public void UseFunc()
     {
         actor.isTakingTool = true;
@@ -233,7 +221,7 @@ public class Stage : MonoBehaviour
         {
             ExchangeSkill(0);
         }
-        else
+        else 
         {
             GameObject a = Instantiate(interactiveUI, GameObject.Find("Canvas").transform);
             a.GetComponent<SelectUIScript>().tool = gameObject.GetComponent<Stage>();
@@ -256,7 +244,6 @@ public class Stage : MonoBehaviour
             }
         }
         
-
         switch (i)
         {
             case 0:
