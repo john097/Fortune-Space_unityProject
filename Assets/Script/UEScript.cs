@@ -135,6 +135,21 @@ public class UEScript : MonoBehaviour
     {
         //血量信息
         FillAmountUpdate(healImage, player.heal, 0, player.maxHeal);
+        if (player.heal <= player.maxHeal*0.2)
+        {
+            healImage.color = Color.red;
+        }
+        else if(player.heal > player.maxHeal * 0.2)
+        {
+            if (player.vulnerabilityBuff)
+            {
+                healImage.color = Color.yellow;
+            }
+            else
+            {
+                healImage.color = Color.green;
+            }
+        }
     }
 
     private void FillAmountUpdate(Image img,float value,float minValue, float maxValue)

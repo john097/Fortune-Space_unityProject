@@ -219,6 +219,12 @@ public class Actor : MonoBehaviour
 
                 changeWeaponModel();
             }
+
+        if (heal <= 0)
+        {
+
+            GoDie();
+        }
     }
 
     private void FixedUpdate()
@@ -232,10 +238,6 @@ public class Actor : MonoBehaviour
                 Move();
             }
 
-            if (heal <= 0)
-            {
-                GoDie();
-            }
         }  
     }
 
@@ -875,19 +877,19 @@ public class Actor : MonoBehaviour
             thisAnimator.SetTrigger("Dead");
         }
 
-        if (gameObject.layer == LayerMask.NameToLayer("Enemy")&&gameObject.tag!="BOSS")
-        {
+        //if (gameObject.layer == LayerMask.NameToLayer("Enemy")&&gameObject.tag!="BOSS")
+        //{
           
-            if (GameObject.FindGameObjectWithTag("Player"))
-            {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Credit>().AddPlayerCredit(actorCredit);
-            }
-            gameObject.GetComponent<BoxCollider>().enabled = false;
-            gameObject.GetComponent<Rigidbody>().useGravity=false;
-            //播放怪物死亡动画、特效
-            //2秒后销毁怪物
-            StartCoroutine(Monster_Dead_Animation(2));//***DISON.ver***
-        }
+        //    if (GameObject.FindGameObjectWithTag("Player"))
+        //    {
+        //        GameObject.FindGameObjectWithTag("Player").GetComponent<Credit>().AddPlayerCredit(actorCredit);
+        //    }
+        //    gameObject.GetComponent<BoxCollider>().enabled = false;
+        //    gameObject.GetComponent<Rigidbody>().useGravity=false;
+        //    //播放怪物死亡动画、特效
+        //    //2秒后销毁怪物
+        //    StartCoroutine(Monster_Dead_Animation(2));//***DISON.ver***
+        //}
 
        
     }
