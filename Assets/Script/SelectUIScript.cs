@@ -11,6 +11,7 @@ public class SelectUIScript : MonoBehaviour
 
     private GameObject[] messages;
     private int selectingTool;
+    private GameObject randomToolButton;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,7 @@ public class SelectUIScript : MonoBehaviour
 
     public void ChangeSelectingTool(int i)
     {
-            selectingTool = i;
+       selectingTool = i;
     }
 
     public void ReGetRandomTool()
@@ -57,7 +58,6 @@ public class SelectUIScript : MonoBehaviour
         {
             Debug.Log("积分不足");
         }
-        
     }
 
     public void SetInformation()
@@ -105,5 +105,7 @@ public class SelectUIScript : MonoBehaviour
             messages[messages.Length - 1].transform.GetChild(5).GetComponent<Text>().text = " ";
             messages[messages.Length - 1].transform.GetChild(6).GetComponent<Text>().text = " ";
         }
+
+
     }
 }

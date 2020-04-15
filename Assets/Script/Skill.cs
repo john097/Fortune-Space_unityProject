@@ -632,6 +632,10 @@ public  class Skill : MonoBehaviour
                     ammoNum -= 1;
                     UseSkillVariant();
                 }
+                else if (ammoNumLimit == 0)
+                {
+                    UseSkillVariant();
+                }
                 else if (gameObject.transform.parent.gameObject.GetComponent<Skill>().ammoNumLimit != 0)
                 {
                     Skill pS = gameObject.transform.parent.gameObject.GetComponent<Skill>();

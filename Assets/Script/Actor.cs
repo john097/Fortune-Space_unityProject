@@ -98,6 +98,7 @@ public class Actor : MonoBehaviour
     [HideInInspector]
         public GameObject aWarning;
 
+    [HideInInspector]
     public bool steping;//是否处于闪避状态
 
     public Buff imprisonmentBuff;//禁锢Buff
@@ -147,6 +148,7 @@ public class Actor : MonoBehaviour
     public Slider skill_1_Slider;
     public Slider skill_2_Slider;
     public Slider skill_3_Slider;
+    [HideInInspector]
     public GameObject uiTips_SpecialInteractive;
 
     private Vector3 cForward;
@@ -156,10 +158,11 @@ public class Actor : MonoBehaviour
     private Vector3 stepMoveDir;
 
     private const string weaponPrefabsPaths = "Prefabs/Weapons/";
-    
 
 
+    [HideInInspector]
     public bool BeAttacked;//**DISON.ver**用于怪物巡逻判断（若被攻击，则终止巡逻）
+    [HideInInspector]
     public bool isTalking;//**DISON.ver**对话时不让玩家移动
 
     void Start()
