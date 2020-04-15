@@ -112,23 +112,28 @@ public class BattleManager : MonoBehaviour
         switch (PlayerPrefs.GetInt("Current_State"))//关卡开始传送到出生房
         {
             case 0:
+                Player.TakeDamege(-(Player.maxHeal * 0.5f));//新关卡回血
                 BornRoom_tf = GameObject.Find("Tutorial-Born_Zoom").transform;
                 player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
             case 1:
+                Player.TakeDamege(-(Player.maxHeal * 0.5f));
                 BornRoom_tf = GameObject.Find("S1-Born_Zoom").transform;
                 player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
             case 2:
+                Player.TakeDamege(-(Player.maxHeal * 0.5f));
                 BornRoom_tf = GameObject.Find("S2-Born_Zoom").transform;
                 player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
             case 3:
+                Player.TakeDamege(-(Player.maxHeal * 0.5f));
                 BornRoom_tf = GameObject.Find("S3-Born_Zoom").transform;
                 player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
                 
             case 4:
+                Player.TakeDamege(-(Player.maxHeal * 0.5f));
                 BornRoom_tf = GameObject.Find("BossRoom_BornZoom").transform;
                 player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
@@ -139,7 +144,7 @@ public class BattleManager : MonoBehaviour
         Dead_Fight_Timer = 0f;
         Dead_Fight_MaxTime = 60f;
 
-       checknum_a = 1;
+       checknum_a = 2;
        
 
         int[] num = new int[5];
@@ -152,12 +157,12 @@ public class BattleManager : MonoBehaviour
         {
             for (int j = 0; j < num_2.Length; j++)//第三关随机房间逻辑
             {
-                if (checknum_a >= 3)
+                if (checknum_a >= 4)
                 {
-                    checknum_a = 3;
+                    checknum_a = 4;
                 }
 
-                num_2[j] = Random.Range(1, checknum_a+1);
+                num_2[j] = Random.Range(1, checknum_a);
 
                 checknum_a += 1;
 
@@ -177,7 +182,7 @@ public class BattleManager : MonoBehaviour
                     }
                     else
                     {
-                        checknum_a -= 1;
+                        num_2[j]= Random.Range(1, checknum_a-1);
                     }
                 }
                 
