@@ -321,7 +321,6 @@ public class Bullet : MonoBehaviour
     {
         if (i > 0)
         {
-            Debug.Log("触发了");
             actor.hitChangeTimeScaleTime = k;
             actor.recoverTimeScaleTimer = 0;
             Time.timeScale = i;
