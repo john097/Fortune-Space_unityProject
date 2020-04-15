@@ -90,7 +90,8 @@ public class Actor : MonoBehaviour
     [Tooltip("特殊交互键")]
         public KeyCode specialInteractiveKey;
 
-    private GameObject[] Tools;
+    //[HideInInspector]
+    public GameObject[] Tools;
 
     [HideInInspector]
         public Skill UsingSkill;//正在释放的技能

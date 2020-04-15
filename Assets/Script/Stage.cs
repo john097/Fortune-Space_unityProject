@@ -224,6 +224,69 @@ public class Stage : MonoBehaviour
                 pp_DialogManager.TP_Talk();//触发对话
                 
             }
+
+            if (gameObject.tag == "Heal_Treasure")//血包
+            {
+                int heal = Random.Range(50, 101);
+                actor.TakeDamege(-heal);
+
+                for (int i = 0; i < actor.Tools.Length; i++)
+                {
+                    if (actor.Tools[i] == gameObject)
+                    {
+                        actor.Tools[i] = null;
+                        break;
+                    }
+                }
+
+                for (int i = 0; i < actor.Tools.Length; i++)
+                {
+                    if (actor.Tools[i] != null)
+                    {
+                        break;
+                    }
+
+                    if (i == actor.Tools.Length - 1 && actor.uiTips_SpecialInteractive)
+                    {
+                        Destroy(actor.uiTips_SpecialInteractive);
+                    }
+                }
+
+                DestroyImmediate(gameObject);
+
+            }
+
+            if (gameObject.tag == "Gold_Treasure")//钱袋
+            {
+                int gold = Random.Range(10, 101);
+                actor.actorCredit += gold;
+
+                for (int i = 0; i < actor.Tools.Length; i++)
+                {
+                    if (actor.Tools[i] == gameObject)
+                    {
+                        actor.Tools[i] = null;
+                        break;
+                    }
+                }
+
+                for (int i = 0; i < actor.Tools.Length; i++)
+                {
+                    if (actor.Tools[i] != null)
+                    {
+                        break;
+                    }
+
+                    if (i == actor.Tools.Length - 1 && actor.uiTips_SpecialInteractive)
+                    {
+                        Destroy(actor.uiTips_SpecialInteractive);
+                    }
+                }
+                
+                DestroyImmediate(gameObject);
+
+            }
+
         }
     }
 
