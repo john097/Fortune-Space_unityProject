@@ -9,6 +9,9 @@ public class UEScript : MonoBehaviour
     [Tooltip("战斗UI寻找玩家对象")]
         public bool fightingUI;
 
+    [Tooltip("敌人血条")]
+        public bool enemyHealBar;
+
     Actor player;
     Credit playerCredit;
     Image healImage;
@@ -17,6 +20,8 @@ public class UEScript : MonoBehaviour
     Text ammoText;
     Text weaponNameText;
     Image weaponIcon;
+
+    GameObject followPlayerCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +45,12 @@ public class UEScript : MonoBehaviour
             weaponNameText = gameObject.transform.GetChild(3).transform.GetChild(0).gameObject.GetComponent<Text>();
             weaponIcon = gameObject.transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<Image>();
         }
+        else
+        {
+            healImage = gameObject.transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<Image>();
+            player = gameObject.transform.parent.gameObject.GetComponent<Actor>();
+            followPlayerCamera = GameObject.FindGameObjectWithTag("Player").GetComponent<Actor>().FollowCamera;
+        }
     }
 
     // Update is called once per frame
@@ -48,6 +59,12 @@ public class UEScript : MonoBehaviour
         if (fightingUI)
         {
             FightUIFunc();
+        }
+
+        if (enemyHealBar)
+        {
+            EnemyInfoUpdate();
+            transform.LookAt(followPlayerCamera.transform);
         }
     }
 
@@ -82,22 +99,22 @@ public class UEScript : MonoBehaviour
         {
             if (player.Skills_0[0].ammoNumLimit == 0)
             {
-                UpdateText("∞", creditText);
+                UpdateText("∞", ammoText);
             }
             else
             {
-                UpdateText(player.Skills_0[0].ammoNum + "/" + player.Skills_0[0].ammoNumLimit, creditText);
+                UpdateText(player.Skills_0[0].ammoNum + "/" + player.Skills_0[0].ammoNumLimit, ammoText);
             }
         }
         else if(player.skillArrNum == 1)
         {
             if (player.Skills_1[0].ammoNumLimit == 0)
             {
-                UpdateText("∞", creditText);
+                UpdateText("∞", ammoText);
             }
             else
             {
-                UpdateText(player.Skills_1[0].ammoNum + "/" + player.Skills_1[0].ammoNumLimit, creditText);
+                UpdateText(player.Skills_1[0].ammoNum + "/" + player.Skills_1[0].ammoNumLimit, ammoText);
             }
         }
 
@@ -112,6 +129,12 @@ public class UEScript : MonoBehaviour
             UpdateText(player.Skills_1[0].skillName, weaponNameText);
             weaponIcon.sprite = player.Skills_1[0].skillIcon;
         }
+    }
+
+    private void EnemyInfoUpdate()
+    {
+        //血量信息
+        FillAmountUpdate(healImage, player.heal, 0, player.maxHeal);
     }
 
     private void FillAmountUpdate(Image img,float value,float minValue, float maxValue)
