@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 using UnityEngine.SceneManagement;
+using Cinemachine.Utility;
+using Cinemachine;
 
 public class BattleManager : MonoBehaviour
 {
+
+    
 
     public Player_IN_Room S0_ROOM;
     public Player_IN_Room[] S1_ROOM;//第一关房间列表
@@ -60,14 +64,24 @@ public class BattleManager : MonoBehaviour
     private Dialog_Manager dialog_manager;
     public bool tutorial_talking;
 
-
+    public CinemachineVirtualCamera camera_follow;
+    public GameObject camera;
     // Start is called before the first frame update
     void Start()
     {
         //PlayerPrefs.DeleteKey("Current_State");
+        
         Player = GameObject.Find("Actor").GetComponent<Actor>();
         player_tf = GameObject.Find("Actor").transform;
-        flowchart = GameObject.Find("Flowchart1").GetComponent<Flowchart>();
+
+        camera_follow = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
+
+        camera = GameObject.Find("Main Camera");
+
+        camera_follow.m_Follow = player_tf;
+        Player.FollowCamera = camera;
+
+         flowchart = GameObject.Find("Flowchart1").GetComponent<Flowchart>();
         dialog_manager = GetComponent<Dialog_Manager>();
         tutorial_talking = false;
 

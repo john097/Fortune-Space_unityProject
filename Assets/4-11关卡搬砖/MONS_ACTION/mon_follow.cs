@@ -50,6 +50,10 @@ public class mon_follow : Action
                 
             
         }
+        if (!mons_actor.isAlive)
+        {
+            navMeshAgent.enabled = false ;
+        }
         
 
 
