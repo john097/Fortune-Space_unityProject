@@ -44,8 +44,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: "\u7275\u5236"
-  skillExplain: "\u7529\u51FA\u5E72\u6270\u88C5\u7F6E\u6CBF\u9014\u653B\u51FB\u654C\u4EBA\uFF0C\u6700\u540E\u56DE\u5230\u624B\u4E2D\u3002\u4F24\u5BB3\uFF1A20\uFF08\u4E00\u6BB5\uFF09\u300150\uFF08\u4E8C\u6BB5\uFF09
-    \  \u6613\u4F24\uFF1A2\u79D2"
+  skillExplain: "\u7529\u51FA\u5E72\u6270\u88C5\u7F6E\u6CBF\u9014\u653B\u51FB\u654C\u4EBA\uFF0C\u6700\u540E\u56DE\u5230\u624B\u4E2D\u3002"
+  skillDamageExplain: 20/50
+  skillVulnerabilityExplain: 0
+  skillRepelExplain: 50/50
+  skillSpecialExplain: "\u547D\u4E2D\u654C\u4EBA\u9020\u62102\u79D2\u6613\u4F24\u6548\u679C"
+  skillIcon: {fileID: 0}
   credit: 50
   thisWeaponType: 0
   weaponModelNum: 0
@@ -66,7 +70,7 @@ MonoBehaviour:
   ammoNum: 0
   reloadTime: 0
   reloadKey: 0
-  coolDownTime: 2
+  coolDownTime: 7
   mustCancel: 0
   cantCancel: 0
   isStepSkill: 0
