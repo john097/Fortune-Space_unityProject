@@ -32,6 +32,12 @@ public class SelectUIScript : MonoBehaviour
             selectingTool = i;
     }
 
+    public void ReGetRandomTool()
+    {
+        tool.ReGetRandomTools();
+        SetInformation();
+    }
+
     public void ButtonPressEvent(int i)
     {
         tool.ExchangeSkill(i);

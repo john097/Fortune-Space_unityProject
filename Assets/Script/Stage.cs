@@ -49,7 +49,7 @@ public class Stage : MonoBehaviour
             {
                 RefrashToolList();
             }
-            else
+            else if (thisCreateType == createType.随机)
             {
                 RandomTools(0);
             }
@@ -69,6 +69,15 @@ public class Stage : MonoBehaviour
       
     }
 
+    public void ReGetRandomTools()
+    {
+        for (int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            Destroy(gameObject.transform.GetChild(i).gameObject);
+        }
+        RandomTools(0);
+    }
+
     public void RefrashToolList()
     {
         if (thisToolType == toolType.道具)
@@ -85,6 +94,7 @@ public class Stage : MonoBehaviour
         }
     }
 
+    //随机刷道具
     private void RandomTools(int k)
     {
         GameObject sPrefabs;
