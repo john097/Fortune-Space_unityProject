@@ -532,7 +532,7 @@ PrefabInstance:
     - target: {fileID: 5312677954979328596, guid: 7ee50944ca840bf4fa8cf731df56b2a2,
         type: 3}
       propertyPath: buffPrefabsInCastActionTime.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5312677954979328596, guid: 7ee50944ca840bf4fa8cf731df56b2a2,
         type: 3}
@@ -12360,7 +12360,7 @@ MonoBehaviour:
   lifeTime: 999
   speed: 0
   timeToStop: 0
-  damage: 105
+  damage: 1
   isSustained: 0
   vulnerabilityPercent: 0
   thisSpType: 0
@@ -12376,9 +12376,7 @@ MonoBehaviour:
   hitChangeTimeScale: 0
   hitChangeTimeScaleTime: 0
   skillVariantEvent: 0
-  buffPrefabs:
-  - {fileID: 5448528744795969956, guid: b2d28e08ab5010a48910e39a3b733f5e, type: 3}
-  - {fileID: 5448528744795969956, guid: 88ccced249638124692ac6d2c93217b5, type: 3}
+  buffPrefabs: []
   bulletSons: []
   createEffect: {fileID: 0}
   hitEffect: {fileID: 0}

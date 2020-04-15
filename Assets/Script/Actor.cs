@@ -845,7 +845,7 @@ public class Actor : MonoBehaviour
             }
             else
             {
-                if (i>0 && !superArmorBuff && !UsingSkill)
+                if (i>0 && !superArmorBuff)
                 {
                     if (UsingSkill)
                     {
@@ -856,7 +856,6 @@ public class Actor : MonoBehaviour
                     {
                         thisAnimator.SetTrigger("Behit");
                     }
-                    
                 }
             }
 
