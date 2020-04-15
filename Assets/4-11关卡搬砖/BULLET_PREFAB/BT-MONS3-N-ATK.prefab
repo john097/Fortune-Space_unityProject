@@ -105,9 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa112f10973025f4da03daafc634cd3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisType: 0
-  lifeTime: 3
-  speed: 50
+  thisType: 1
+  lifeTime: 0.25
+  speed: 500
   timeToStop: 0
   damage: 15
   isSustained: 0
@@ -116,11 +116,12 @@ MonoBehaviour:
   repelRelativeSelf: 0
   repel: 0
   lockOnTarget: {fileID: 0}
-  isFollowActor: 0
-  destoryAfterCollision: 1
+  isFollowActor: 1
+  destoryAfterCollision: 0
   destoryAfterCollisionWithActor: 0
   destoryIfSkillBeCancel: 0
   destoryTarget: 0
+  killTargetMakeTimeSlow: 0
   hitChangeTimeScale: 0
   hitChangeTimeScaleTime: 0
   skillVariantEvent: 0

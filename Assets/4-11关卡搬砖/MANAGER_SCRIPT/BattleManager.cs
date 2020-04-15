@@ -25,7 +25,7 @@ public class BattleManager : MonoBehaviour
     public bool Normal_Room_Battle;//普通怪物房战斗
 
     public bool Protect_Room_Battle;//守护据点战斗
-    public float PP_Heal;//据点生命值
+    public bool PP_Dead;//据点是否被破坏
     public float Crack_Progress;//破译进度
 
 
@@ -59,6 +59,8 @@ public class BattleManager : MonoBehaviour
 
     private Dialog_Manager dialog_manager;
     public bool tutorial_talking;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -121,7 +123,7 @@ public class BattleManager : MonoBehaviour
 
         Crack_Progress = 0f;
         Dead_Fight_Timer = 0f;
-        Dead_Fight_MaxTime = 15f;
+        Dead_Fight_MaxTime = 60f;
 
        checknum_a = 1;
        
@@ -245,8 +247,8 @@ public class BattleManager : MonoBehaviour
 
         startspawn = false;
         finishspawn = false;
-
-        IsLastWave = false;
+        PP_Dead = false;
+       IsLastWave = false;
         RoomClear = false;
         BattleFinish = false;
 
@@ -364,7 +366,7 @@ public class BattleManager : MonoBehaviour
 
         if (Protect_Room_Battle && !isTalking)//保护据点房计时
         {
-            if (Crack_Progress >= 30f)
+            if (Crack_Progress >= 60f||PP_Dead)
             {
                 IS_LAST_WAVE();
                 FINISH_SPAWN();
@@ -418,41 +420,8 @@ public class BattleManager : MonoBehaviour
 
     public void State_Up() //场景切换
     {
-
-        switch (PlayerPrefs.GetInt("Current_State"))
-        {
-            case 0:
-                PlayerPrefs.SetInt("Current_State", 1);
-
-                flowchart.SetBooleanVariable("SceneChange", false);
-
-                SceneManager.LoadScene("Level 1 Scene");
-                break;
-            case 1:
-                PlayerPrefs.SetInt("Current_State", 2);
-                
-                flowchart.SetBooleanVariable("SceneChange", false);
-
-                SceneManager.LoadScene("Level 2  Scene 1");
-                break;
-
-            case 2:
-                PlayerPrefs.SetInt("Current_State", 3);
-                
-                flowchart.SetBooleanVariable("SceneChange", false);
-
-                SceneManager.LoadScene("Level 3");
-                break;
-            case 3:
-                PlayerPrefs.SetInt("Current_State", 4);
-
-                flowchart.SetBooleanVariable("SceneChange", false);
-
-                SceneManager.LoadScene("BossRoom");
-                break;
-        }
-
-
+        flowchart.SetBooleanVariable("SceneChange", false);
+        SceneManager.LoadScene("Loading_Scene");
     }
 
     public void Mon_Dead()
@@ -478,8 +447,22 @@ public class BattleManager : MonoBehaviour
         BattleFinish = false;
         IsLastWave = false;
         RoomClear = false;
-        MAX_MON_NUMS = 5;
-        Monster_Waves = 1;
+        switch (PlayerPrefs.GetInt("Current_State"))
+        {
+            case 1:
+                MAX_MON_NUMS = Random.Range(5, 8);
+                Monster_Waves = Random.Range(2, 4);
+                break;
+            case 2:
+                MAX_MON_NUMS = Random.Range(6, 9);
+                Monster_Waves = Random.Range(2, 4);
+                break;
+            case 3:
+                MAX_MON_NUMS = Random.Range(7, 10);
+                Monster_Waves = Random.Range(2, 4);
+                break;
+        }
+        
     }
 
     public void Special_Battle_Start()//特殊房战斗类型判断

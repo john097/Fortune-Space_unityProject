@@ -40,8 +40,8 @@ public class MONS_CANSEE : Conditional
 
         if (PlayerPrefs.GetInt("Current_State") == 0)
         {
-            mons_actor.maxHeal = 200;
-            mons_actor.heal = 200;
+            mons_actor.maxHeal = 500;
+            mons_actor.heal = 500;
         }
 
 

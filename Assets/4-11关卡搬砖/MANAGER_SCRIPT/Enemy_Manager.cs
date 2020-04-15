@@ -31,10 +31,10 @@ public class Enemy_Manager : MonoBehaviour
     private const string Prefabs = "Prefabs/";
     private int tutorial_mon_num = 0;
 
-    private int mons_1;
-    private int mons_2;
-    private int mons_3;
-    private int mons_4;
+    public int mons_1;
+    public int mons_2;
+    public int mons_3;
+    public int mons_4;
 
     // Start is called before the first frame update
     void Start()
@@ -230,24 +230,26 @@ public class Enemy_Manager : MonoBehaviour
             {
                 yield return new WaitForSeconds(duration);
 
-                if (PlayerPrefs.GetInt("Current_State") != 1)//第二关开始普通房才会刷新爆破虫
+                if (PlayerPrefs.GetInt("Current_State") != 1)//第一关只会刷新rank1级别的怪物
                 {
                     This_Room_Enemys_Index = Random.Range(0, This_Room_Enemys.Length);
 
                 }
                 else
                 {
-                    This_Room_Enemys_Index = Random.Range(0, (This_Room_Enemys.Length - 1));
+                    This_Room_Enemys_Index = Random.Range(0, (This_Room_Enemys.Length - 2));
                 }
 
                 if (mons_4 >= 2)//Rank2级别的怪物每波每种最多刷两只；
                 {
                     This_Room_Enemys_Index = Random.Range(0, (This_Room_Enemys.Length - 1));
 
-                    if (mons_3 >= 2)
-                    {
-                        This_Room_Enemys_Index = Random.Range(0, (This_Room_Enemys.Length - 2));
-                    }
+                    
+                }
+
+                if (mons_3 >= 2)
+                {
+                    This_Room_Enemys_Index = Random.Range(0, (This_Room_Enemys.Length - 2));
                 }
 
                 switch (This_Room_Enemys_Index)

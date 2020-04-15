@@ -10,7 +10,7 @@ public class Player_IN_Room : MonoBehaviour
     BattleManager B_Manager;
    
     public GameObject DOORS;
-    public GameObject ProtectPoint;
+   private Stage ProtectPoint;
 
     public GameObject DeadPoint;
 
@@ -22,8 +22,8 @@ public class Player_IN_Room : MonoBehaviour
     private bool a;
     private bool b;
     public int this_room_type;//房间类型，=1时为怪物房间，=2时为道具/商店房间
-    
-    
+
+    public bool PP_Dead;//判断据点会否被破坏
   
 
 
@@ -41,8 +41,10 @@ public class Player_IN_Room : MonoBehaviour
         B_Manager = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattleManager>();
         a = false;
         b = true;
+        PP_Dead = true;
         dialog_manager = GameObject.Find("BattleManager").GetComponent<Dialog_Manager>();
 
+        ProtectPoint = gameObject.transform.GetChild(0).gameObject.GetComponent<Stage>();
 
     }
 
@@ -50,7 +52,7 @@ public class Player_IN_Room : MonoBehaviour
     void Update()
     {
 
-        if ((B_Manager.Protect_Room_Battle || B_Manager.Dead_Room_Battle) && !B_Manager.isTalking && !b)
+        if ((B_Manager.Protect_Room_Battle || B_Manager.Dead_Room_Battle) && !B_Manager.isTalking && !b)//生成房间围墙
         {
             var A = gameObject.transform.GetChild(2).gameObject;
             A.SetActive(true);
@@ -64,9 +66,15 @@ public class Player_IN_Room : MonoBehaviour
         {
             var A = gameObject.transform.GetChild(0).gameObject;
             A.SetActive(true);
+            if (ProtectPoint.heal <= 0)
+            {
+                B_Manager.PP_Dead = true;
+                A.SetActive(false);
+                a = true;
+            }
            
-            a = true;
         }
+
 
         if (this_room_type == 3 && gameObject.tag==("S2-ROOM") && !a)//死斗房间触发器
         {

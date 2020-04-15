@@ -5887,6 +5887,11 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 30.09
       objectReference: {fileID: 0}
+    - target: {fileID: 6055902469823330139, guid: 095266d91aa181c49a9627086ff5e288,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 095266d91aa181c49a9627086ff5e288, type: 3}
 --- !u!1 &1292904728
@@ -5999,10 +6004,10 @@ MonoBehaviour:
   isPlayer: 1
   thisSpType: 0
   actorCredit: 0
-  maxHeal: 100
+  maxHeal: 500
   heal: 100
   isAlive: 1
-  speed: 10
+  speed: 6
   minPointDistance: 0
   lookAtSpeed: 10
   skillArrNum: 1
