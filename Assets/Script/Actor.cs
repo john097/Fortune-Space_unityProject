@@ -90,7 +90,8 @@ public class Actor : MonoBehaviour
     [Tooltip("特殊交互键")]
         public KeyCode specialInteractiveKey;
 
-    private GameObject[] Tools;
+    [HideInInspector]
+        public GameObject[] Tools;
 
     [HideInInspector]
         public Skill UsingSkill;//正在释放的技能
@@ -142,12 +143,13 @@ public class Actor : MonoBehaviour
     [HideInInspector]
         public float hitChangeTimeScaleTime;
 
-    public Slider healSlider;
+    public Image healSlider;
     public Text ammoText;
-    public Slider skill_0_Slider;
-    public Slider skill_1_Slider;
-    public Slider skill_2_Slider;
-    public Slider skill_3_Slider;
+    public Image skill_0_Slider;
+    public Image skill_1_Slider;
+    public Image skill_2_Slider;
+    public Image skill_3_Slider;
+
     [HideInInspector]
     public GameObject uiTips_SpecialInteractive;
 
@@ -243,66 +245,66 @@ public class Actor : MonoBehaviour
 
     private void UIUpdate()
     {
-        if (healSlider)
-        {
-            UEScript.UpdateSilder(heal,0,maxHeal,healSlider);
-        }
+        //if (healSlider)
+        //{
+        //    UEScript.UpdateSilder(heal,0,maxHeal,healSlider);
+        //}
 
-        if (ammoText)
-        {
-            if (skillArrNum == 0)
-            {
-                UEScript.UpdateText(Skills_0[0].ammoNum + "/" + Skills_0[0].ammoNumLimit, ammoText);
-            }
-            else if (skillArrNum == 1)
-            {
-                UEScript.UpdateText(Skills_1[0].ammoNum + "/" + Skills_1[0].ammoNumLimit, ammoText);
-            }
-        }
+        //if (ammoText)
+        //{
+        //    if (skillArrNum == 0)
+        //    {
+        //        UEScript.UpdateText(Skills_0[0].ammoNum + "/" + Skills_0[0].ammoNumLimit, ammoText);
+        //    }
+        //    else if (skillArrNum == 1)
+        //    {
+        //        UEScript.UpdateText(Skills_1[0].ammoNum + "/" + Skills_1[0].ammoNumLimit, ammoText);
+        //    }
+        //}
 
-        if (skillArrNum == 0)
-        {
-            if (skill_0_Slider)
-            {
-                UEScript.UpdateSilder(Skills_0[1].coolDownTimer,0, Skills_0[1].coolDownTime,skill_0_Slider);
-            }
+        //if (skillArrNum == 0)
+        //{
+        //    if (skill_0_Slider)
+        //    {
+        //        UEScript.UpdateSilder(Skills_0[1].coolDownTimer,0, Skills_0[1].coolDownTime,skill_0_Slider);
+        //    }
 
-            if (skill_1_Slider)
-            {
-                UEScript.UpdateSilder(Skills_0[2].coolDownTimer, 0, Skills_0[2].coolDownTime, skill_1_Slider);
-            }
+        //    if (skill_1_Slider)
+        //    {
+        //        UEScript.UpdateSilder(Skills_0[2].coolDownTimer, 0, Skills_0[2].coolDownTime, skill_1_Slider);
+        //    }
 
-            if (skill_2_Slider)
-            {
-                UEScript.UpdateSilder(Skills_0[3].coolDownTimer, 0, Skills_0[3].coolDownTime, skill_2_Slider);
-            }
+        //    if (skill_2_Slider)
+        //    {
+        //        UEScript.UpdateSilder(Skills_0[3].coolDownTimer, 0, Skills_0[3].coolDownTime, skill_2_Slider);
+        //    }
 
-            if (skill_3_Slider)
-            {
-                UEScript.UpdateSilder(Skills_0[4].coolDownTimer, 0, Skills_0[4].coolDownTime, skill_3_Slider);
-            }
-        }else if (skillArrNum == 1)
-        {
-            if (skill_0_Slider)
-            {
-                UEScript.UpdateSilder(Skills_1[1].coolDownTimer, 0, Skills_1[1].coolDownTime, skill_0_Slider);
-            }
+        //    if (skill_3_Slider)
+        //    {
+        //        UEScript.UpdateSilder(Skills_0[4].coolDownTimer, 0, Skills_0[4].coolDownTime, skill_3_Slider);
+        //    }
+        //}else if (skillArrNum == 1)
+        //{
+        //    if (skill_0_Slider)
+        //    {
+        //        UEScript.UpdateSilder(Skills_1[1].coolDownTimer, 0, Skills_1[1].coolDownTime, skill_0_Slider);
+        //    }
 
-            if (skill_1_Slider)
-            {
-                UEScript.UpdateSilder(Skills_1[2].coolDownTimer, 0, Skills_1[2].coolDownTime, skill_1_Slider);
-            }
+        //    if (skill_1_Slider)
+        //    {
+        //        UEScript.UpdateSilder(Skills_1[2].coolDownTimer, 0, Skills_1[2].coolDownTime, skill_1_Slider);
+        //    }
 
-            if (skill_2_Slider)
-            {
-                UEScript.UpdateSilder(Skills_1[3].coolDownTimer, 0, Skills_1[3].coolDownTime, skill_2_Slider);
-            }
+        //    if (skill_2_Slider)
+        //    {
+        //        UEScript.UpdateSilder(Skills_1[3].coolDownTimer, 0, Skills_1[3].coolDownTime, skill_2_Slider);
+        //    }
 
-            if (skill_3_Slider)
-            {
-                UEScript.UpdateSilder(Skills_1[4].coolDownTimer, 0, Skills_1[4].coolDownTime, skill_3_Slider);
-            }
-        }
+        //    if (skill_3_Slider)
+        //    {
+        //        UEScript.UpdateSilder(Skills_1[4].coolDownTimer, 0, Skills_1[4].coolDownTime, skill_3_Slider);
+        //    }
+        //}
 
     }
 
