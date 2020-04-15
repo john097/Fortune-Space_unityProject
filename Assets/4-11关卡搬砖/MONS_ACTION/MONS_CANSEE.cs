@@ -60,17 +60,26 @@ public class MONS_CANSEE : Conditional
         
         if(PlayerPrefs.GetInt("Current_State") != 0)
         {
-            if (timer > patrol_cd)//Ëæ»úÑ²Âß
+
+            if (mons_actor.isAlive)
             {
+                if (timer > patrol_cd)//Ëæ»úÑ²Âß
+                {
 
-                random_x = Random.Range(transform.position.x - patrol_distance, transform.position.x + patrol_distance);
-                random_z = Random.Range(transform.position.z - patrol_distance, transform.position.z + patrol_distance);
+                    random_x = Random.Range(transform.position.x - patrol_distance, transform.position.x + patrol_distance);
+                    random_z = Random.Range(transform.position.z - patrol_distance, transform.position.z + patrol_distance);
 
-                navMeshAgent.SetDestination(new Vector3(random_x, transform.position.y, random_z));
-                timer = 0;
+                    navMeshAgent.SetDestination(new Vector3(random_x, transform.position.y, random_z));
+                    timer = 0;
+                }
             }
+            
         }
-        
+
+        if (!mons_actor.isAlive)
+        {
+            return TaskStatus.Running;
+        }
 
         if (PlayerPrefs.GetInt("Current_State")==0)
         {

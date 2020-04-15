@@ -926,26 +926,38 @@ public class Actor : MonoBehaviour
 
     public void GoDie()
     {
-       
 
-        if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        SetAlive(false);
+
+        if (gameObject.layer == LayerMask.NameToLayer("Enemy")&&gameObject.tag!="BOSS")
         {
-            if (GameObject.Find("BattleManager"))
-            {
-                GameObject.Find("BattleManager").GetComponent<BattleManager>().Mon_Dead();//**DISON.ver**用于怪物刷新系统的击杀怪物数量计算
-            }
-            
-
+          
             if (GameObject.FindGameObjectWithTag("Player"))
             {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<Credit>().AddPlayerCredit(actorCredit);
             }
-            
-            Destroy(gameObject);//***DISON.ver***
+            gameObject.GetComponent<BoxCollider>().enabled = false;
+            gameObject.GetComponent<Rigidbody>().useGravity=false;
+            //播放怪物死亡动画、特效
+            //2秒后销毁怪物
+            StartCoroutine(Monster_Dead_Animation(2));//***DISON.ver***
         }
 
-        SetAlive(false);
+       
     }
+
+    IEnumerator Monster_Dead_Animation(float duration)//***DISON.ver***
+    {
+        yield return new WaitForSeconds(duration);
+
+        if (GameObject.Find("BattleManager"))
+        {
+            GameObject.Find("BattleManager").GetComponent<BattleManager>().Mon_Dead();//**DISON.ver**用于怪物刷新系统的击杀怪物数量计算
+        }
+
+        Destroy(gameObject);//***DISON.ver***
+    }
+
 
     private void RecoverTimeScale()
     {

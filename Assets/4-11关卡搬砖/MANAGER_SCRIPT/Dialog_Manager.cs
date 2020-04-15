@@ -9,7 +9,8 @@ public class Dialog_Manager : MonoBehaviour
     private Flowchart flowchart;
     private BattleManager DM_MANAGER;
     private Actor actor;
-
+    public bool Boss_isAlive;
+    private bool a = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,8 @@ public class Dialog_Manager : MonoBehaviour
         flowchart = GameObject.Find("Flowchart1").GetComponent<Flowchart>();        
         actor = GameObject.Find("Actor").GetComponent<Actor>();
         DM_MANAGER = GetComponent<BattleManager>();
+
+        
     }
 
     // Update is called once per frame
@@ -27,7 +30,7 @@ public class Dialog_Manager : MonoBehaviour
 
         Talking_Remove();
 
-
+        Boss_Win_Talk();
     }
 
     public void State_Start_Talks()
@@ -113,6 +116,21 @@ public class Dialog_Manager : MonoBehaviour
     {
         flowchart.SendFungusMessage("BossBattle_Start");
     }
+
+    public void Boss_Win_Talk()
+    {
+
+
+        if (PlayerPrefs.GetInt("Current_State") == 4)
+        {
+            if (!GameObject.Find("BOSS_1").GetComponent<Actor>().isAlive&&a)
+            {
+                flowchart.SendFungusMessage("BossBattle_Win");
+                a = false;
+            }
+        }
+    }
+
 
     public void TP_Talk()//传送对话
     {
