@@ -64,6 +64,7 @@ MonoBehaviour:
   destoryAfterCollisionWithActor: 0
   destoryIfSkillBeCancel: 0
   destoryTarget: 1
+  killTargetMakeTimeSlow: 0
   hitChangeTimeScale: 0
   hitChangeTimeScaleTime: 0
   skillVariantEvent: 1
@@ -176,7 +177,7 @@ PrefabInstance:
     - target: {fileID: 7757015693236901181, guid: 0b7f46d5cedaf4c40b123fbafb429360,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.642
       objectReference: {fileID: 0}
     - target: {fileID: 7757015693236901181, guid: 0b7f46d5cedaf4c40b123fbafb429360,
         type: 3}

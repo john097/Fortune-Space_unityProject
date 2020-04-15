@@ -15,10 +15,33 @@ public class SelectUIScript : MonoBehaviour
     private int selectingTool;
     private Text randomToolButtonText;
 
+    public bool skillSelectUI;
+    private GameObject[] exchangeButton;
+
     // Start is called before the first frame update
     void Start()
     {
-        randomToolButtonText = gameObject.transform.GetChild(1).gameObject.GetComponentInChildren<Text>();
+        if (!skillSelectUI)
+        {
+            randomToolButtonText = gameObject.transform.GetChild(2).gameObject.GetComponentInChildren<Text>();
+        }
+        else 
+        {
+            exchangeButton = new GameObject[4];
+
+            for (int i = 0; i < 4; i++)
+            {
+                exchangeButton[i] = gameObject.transform.GetChild(0).transform.GetChild(i+1).gameObject;
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                exchangeButton[i].GetComponent<Image>().sprite = GameObject.FindGameObjectWithTag("Player").GetComponent<Actor>().Skills_0[i+1].skillIcon;
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                exchangeButton[i+2].GetComponent<Image>().sprite = GameObject.FindGameObjectWithTag("Player").GetComponent<Actor>().Skills_1[i+1].skillIcon;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -73,11 +96,11 @@ public class SelectUIScript : MonoBehaviour
 
     public void SetInformation()
     {
-        messages = new GameObject[gameObject.transform.GetChild(0).childCount];
+        messages = new GameObject[gameObject.transform.GetChild(1).childCount];
 
-        for (int i = 0; i < gameObject.transform.GetChild(0).childCount; i++)
+        for (int i = 0; i < gameObject.transform.GetChild(1).childCount; i++)
         {
-            messages[i] = gameObject.transform.GetChild(0).GetChild(i).gameObject;
+            messages[i] = gameObject.transform.GetChild(1).GetChild(i).gameObject;
         }
 
         for (int i = 0; i < messages.Length - 1; i++)
@@ -119,5 +142,11 @@ public class SelectUIScript : MonoBehaviour
         }
 
         randomToolButtonText.text = "花费" + tool.refrashCredit + "刷新商品";
+    }
+
+    public void DestroySelf()
+    {
+        tool.actor.isTakingTool = false;
+        Destroy(gameObject);
     }
 }

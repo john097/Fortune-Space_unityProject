@@ -6,11 +6,12 @@ using UnityEngine;
 
 public class Stage : MonoBehaviour
 {
-    //[HideInInspector]
+    [HideInInspector]
     public Skill toolSkill;
-    //[HideInInspector]
+    [HideInInspector]
     public Skill[] storeSkills;
-    private Actor actor;
+    [HideInInspector]
+    public Actor actor;
 
     public float heal;
 
