@@ -92,6 +92,13 @@ public class Buff : MonoBehaviour
     public void SetTarget(Actor a)
     {
         target = a;
+        if (target.superArmorBuff)
+        {
+            if (thisType == buffType.止步 || thisType == buffType.沉默)
+            {
+                Destroy(gameObject);
+            }
+        }
         target.SetBuff(this.gameObject.GetComponent<Buff>());
     }
 

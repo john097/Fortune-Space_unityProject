@@ -93,7 +93,7 @@ public class Actor : MonoBehaviour
     [HideInInspector]
         public GameObject[] Tools;
 
-    [HideInInspector]
+    //[HideInInspector]
         public Skill UsingSkill;//正在释放的技能
 
     [HideInInspector]
@@ -142,13 +142,6 @@ public class Actor : MonoBehaviour
 
     [HideInInspector]
         public float hitChangeTimeScaleTime;
-
-    public Image healSlider;
-    public Text ammoText;
-    public Image skill_0_Slider;
-    public Image skill_1_Slider;
-    public Image skill_2_Slider;
-    public Image skill_3_Slider;
 
     [HideInInspector]
     public GameObject uiTips_SpecialInteractive;
@@ -226,8 +219,6 @@ public class Actor : MonoBehaviour
 
                 changeWeaponModel();
             }
-
-            UIUpdate();
     }
 
     private void FixedUpdate()
@@ -240,72 +231,12 @@ public class Actor : MonoBehaviour
 
                 Move();
             }
+
+            if (heal <= 0)
+            {
+                GoDie();
+            }
         }  
-    }
-
-    private void UIUpdate()
-    {
-        //if (healSlider)
-        //{
-        //    UEScript.UpdateSilder(heal,0,maxHeal,healSlider);
-        //}
-
-        //if (ammoText)
-        //{
-        //    if (skillArrNum == 0)
-        //    {
-        //        UEScript.UpdateText(Skills_0[0].ammoNum + "/" + Skills_0[0].ammoNumLimit, ammoText);
-        //    }
-        //    else if (skillArrNum == 1)
-        //    {
-        //        UEScript.UpdateText(Skills_1[0].ammoNum + "/" + Skills_1[0].ammoNumLimit, ammoText);
-        //    }
-        //}
-
-        //if (skillArrNum == 0)
-        //{
-        //    if (skill_0_Slider)
-        //    {
-        //        UEScript.UpdateSilder(Skills_0[1].coolDownTimer,0, Skills_0[1].coolDownTime,skill_0_Slider);
-        //    }
-
-        //    if (skill_1_Slider)
-        //    {
-        //        UEScript.UpdateSilder(Skills_0[2].coolDownTimer, 0, Skills_0[2].coolDownTime, skill_1_Slider);
-        //    }
-
-        //    if (skill_2_Slider)
-        //    {
-        //        UEScript.UpdateSilder(Skills_0[3].coolDownTimer, 0, Skills_0[3].coolDownTime, skill_2_Slider);
-        //    }
-
-        //    if (skill_3_Slider)
-        //    {
-        //        UEScript.UpdateSilder(Skills_0[4].coolDownTimer, 0, Skills_0[4].coolDownTime, skill_3_Slider);
-        //    }
-        //}else if (skillArrNum == 1)
-        //{
-        //    if (skill_0_Slider)
-        //    {
-        //        UEScript.UpdateSilder(Skills_1[1].coolDownTimer, 0, Skills_1[1].coolDownTime, skill_0_Slider);
-        //    }
-
-        //    if (skill_1_Slider)
-        //    {
-        //        UEScript.UpdateSilder(Skills_1[2].coolDownTimer, 0, Skills_1[2].coolDownTime, skill_1_Slider);
-        //    }
-
-        //    if (skill_2_Slider)
-        //    {
-        //        UEScript.UpdateSilder(Skills_1[3].coolDownTimer, 0, Skills_1[3].coolDownTime, skill_2_Slider);
-        //    }
-
-        //    if (skill_3_Slider)
-        //    {
-        //        UEScript.UpdateSilder(Skills_1[4].coolDownTimer, 0, Skills_1[4].coolDownTime, skill_3_Slider);
-        //    }
-        //}
-
     }
 
     private void Look()
@@ -377,7 +308,7 @@ public class Actor : MonoBehaviour
     //移动
     private void Move()
     {
-        if (!imprisonmentBuff && isAlive && isPlayer)//是否存在禁锢Buff
+        if (isAlive && isPlayer)//是否存在禁锢Buff
         {
             moveDirection = cForward * Input.GetAxis("Vertical") + cRight * Input.GetAxis("Horizontal");
 
@@ -409,6 +340,11 @@ public class Actor : MonoBehaviour
             else 
             {
                 moveDirection *= speed;
+            }
+
+            if (imprisonmentBuff)
+            {
+                moveDirection = Vector3.zero;
             }
 
             //播放动画
@@ -504,9 +440,6 @@ public class Actor : MonoBehaviour
 
             thisAnimator.SetInteger("Skill", aS);
         }
-            
-
-        
     }
 
     //技能、攻击动画停止
@@ -517,9 +450,7 @@ public class Actor : MonoBehaviour
             thisAnimator.SetBool("NormalAttack", false);
 
             thisAnimator.SetInteger("Skill", 0);
-        }
-
-           
+        } 
     }
 
     //实时更换武器模型
@@ -911,14 +842,21 @@ public class Actor : MonoBehaviour
             if (heal <= 0)
             {
                 heal = 0;
-                GoDie();
             }
             else
             {
-                if (i>0 && !superArmorBuff && UsingSkill)
+                if (i>0 && !superArmorBuff && !UsingSkill)
                 {
-                    UsingSkill.SkillActionStop(true);
-                    //播放受击动画
+                    if (UsingSkill)
+                    {
+                        UsingSkill.SkillActionStop(true);
+                    }
+
+                    if (isPlayer)
+                    {
+                        thisAnimator.SetTrigger("Behit");
+                    }
+                    
                 }
             }
 
@@ -933,6 +871,10 @@ public class Actor : MonoBehaviour
     {
 
         SetAlive(false);
+        if (isPlayer)
+        {
+            thisAnimator.SetTrigger("Dead");
+        }
 
         if (gameObject.layer == LayerMask.NameToLayer("Enemy")&&gameObject.tag!="BOSS")
         {

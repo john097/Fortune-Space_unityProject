@@ -677,7 +677,6 @@ public  class Skill : MonoBehaviour
 
         timer = 0;
         actor.UsingSkill = null;
-        //Debug.Log(skillName + "  结束！");
     }
 
     //技能变体释放
