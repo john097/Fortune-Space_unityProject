@@ -283,6 +283,7 @@ public class Bullet : MonoBehaviour
                             if (hitChangeTimeScaleTime > 0)
                             {
                                 ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
+                                skillParent.coolDownTimer = skillParent.coolDownTime;
                             }
                         }
                     }
