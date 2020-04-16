@@ -1197,7 +1197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee220f35db39b04480a3ed78268d253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCredit: 1000
+  playerCredit: 0
   image_Credit: {fileID: 0}
 --- !u!4 &81979956
 Transform:
@@ -1582,6 +1582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toolSkill: {fileID: 0}
   storeSkills: []
+  actor: {fileID: 0}
   heal: 0
   refrashCredit: 0
   thisToolType: 0
@@ -12855,7 +12856,7 @@ GameObject:
   - component: {fileID: 797361169}
   m_Layer: 10
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: ENEMY
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12875,7 +12876,7 @@ MonoBehaviour:
   FollowCamera: {fileID: 0}
   isPlayer: 0
   thisSpType: 0
-  actorCredit: 0
+  actorCredit: 1000
   maxHeal: 9999
   heal: 200
   isAlive: 1
@@ -26588,6 +26589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toolSkill: {fileID: 0}
   storeSkills: []
+  actor: {fileID: 0}
   heal: 0
   refrashCredit: 0
   thisToolType: 1
