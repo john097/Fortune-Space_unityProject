@@ -282,8 +282,11 @@ public class Bullet : MonoBehaviour
                         {
                             if (hitChangeTimeScaleTime > 0)
                             {
-                                ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
-                                skillParent.coolDownTimer = skillParent.coolDownTime;
+                                if (a.isAlive)
+                                {
+                                    ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
+                                    skillParent.coolDownTimer = skillParent.coolDownTime - 0.5f;
+                                }
                             }
                         }
                     }
@@ -293,7 +296,7 @@ public class Bullet : MonoBehaviour
 
             if (killTargetMakeTimeSlow)
             {
-                if (!a || !a.isAlive)
+                if (!a || a.isAlive)
                 {
                     if (hitChangeTimeScaleTime > 0)
                     {
@@ -303,10 +306,10 @@ public class Bullet : MonoBehaviour
             }
             else
             {
-                if (hitChangeTimeScaleTime > 0)
-                {
-                    ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
-                }
+                    if (hitChangeTimeScaleTime > 0)
+                    {
+                        ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
+                    }
             }
 
         }
