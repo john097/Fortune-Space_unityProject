@@ -632,6 +632,10 @@ public  class Skill : MonoBehaviour
                     ammoNum -= 1;
                     UseSkillVariant();
                 }
+                else if (ammoNumLimit == 0)
+                {
+                    UseSkillVariant();
+                }
                 else if (gameObject.transform.parent.gameObject.GetComponent<Skill>().ammoNumLimit != 0)
                 {
                     Skill pS = gameObject.transform.parent.gameObject.GetComponent<Skill>();
@@ -673,7 +677,6 @@ public  class Skill : MonoBehaviour
 
         timer = 0;
         actor.UsingSkill = null;
-        //Debug.Log(skillName + "  结束！");
     }
 
     //技能变体释放

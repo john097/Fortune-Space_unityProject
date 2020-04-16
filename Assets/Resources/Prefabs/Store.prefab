@@ -50,7 +50,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toolSkill: {fileID: 0}
   storeSkills: []
+  actor: {fileID: 0}
+  actor_credit: {fileID: 0}
   heal: 0
+  refrashCredit: 0
   thisToolType: 1
   thisCreateType: 1
   interactiveUI: {fileID: 4284588454714518158, guid: 3fe9ce471372d194890dfb777a9bb434,
@@ -63,7 +66,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8819235975444223308}
-  m_Mesh: {fileID: 8659943070623925175, guid: 00b0b350b5343184ba32840c2465bf9b, type: 3}
+  m_Mesh: {fileID: 6329158148709259305, guid: b14bd9cb2fcb0a549ba12900a58df194, type: 3}
 --- !u!23 &8819235975444223311
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -81,7 +84,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3da4aad06945bbf4baf801c2aacbc01e, type: 2}
+  - {fileID: 2100000, guid: defd11c23bd5586429e12d95c56be2d8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -129,7 +132,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 356.80624, y: 205.6274, z: 171.55249}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 100, z: 0}
 --- !u!135 &4119804524584547540
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -142,4 +145,4 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 266.7
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 70, z: 0}

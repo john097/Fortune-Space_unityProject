@@ -276,6 +276,16 @@ public class Bullet : MonoBehaviour
                 {
                     GameObject b = Instantiate(buffPrefabs[i]);
                     b.GetComponent<Buff>().SetTarget(a);
+                    if (b.GetComponent<Buff>().thisType == Buff.buffType.斩杀20)
+                    {
+                        if (a.heal < (a.maxHeal * 0.2))
+                        {
+                            if (hitChangeTimeScaleTime > 0)
+                            {
+                                ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
+                            }
+                        }
+                    }
                     b.transform.parent = null;
                 }
             }
@@ -311,7 +321,6 @@ public class Bullet : MonoBehaviour
     {
         if (i > 0)
         {
-            Debug.Log("触发了");
             actor.hitChangeTimeScaleTime = k;
             actor.recoverTimeScaleTimer = 0;
             Time.timeScale = i;

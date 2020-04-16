@@ -45,6 +45,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u95EA\u907F"
   skillExplain: 
+  skillDamageExplain: 
+  skillVulnerabilityExplain: 
+  skillRepelExplain: 
+  skillSpecialExplain: 
+  skillIcon: {fileID: 21300000, guid: 657cdbb0765c1514b8e5b161110d654e, type: 3}
   credit: 0
   thisWeaponType: 0
   weaponModelNum: 0
@@ -65,7 +70,7 @@ MonoBehaviour:
   ammoNum: 0
   reloadTime: 0
   reloadKey: 0
-  coolDownTime: 1
+  coolDownTime: 4
   mustCancel: 1
   cantCancel: 1
   isStepSkill: 1

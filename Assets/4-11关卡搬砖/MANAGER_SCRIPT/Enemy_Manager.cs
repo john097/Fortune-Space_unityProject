@@ -139,7 +139,7 @@ public class Enemy_Manager : MonoBehaviour
             {
 
                 B_Manager.START_WAVE();
-                StartCoroutine(DeadRoomCreateEnemies(Spawn_Cd));
+                StartCoroutine(DeadRoomCreateEnemies(Spawn_Cd*2));
 
             }
 

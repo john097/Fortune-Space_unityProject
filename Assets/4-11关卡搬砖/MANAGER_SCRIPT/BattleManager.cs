@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 using UnityEngine.SceneManagement;
+using Cinemachine.Utility;
+using Cinemachine;
 
 public class BattleManager : MonoBehaviour
 {
+
+    
 
     public Player_IN_Room S0_ROOM;
     public Player_IN_Room[] S1_ROOM;//第一关房间列表
@@ -60,14 +64,24 @@ public class BattleManager : MonoBehaviour
     private Dialog_Manager dialog_manager;
     public bool tutorial_talking;
 
-
+    public CinemachineVirtualCamera camera_follow;
+    public GameObject camera;
     // Start is called before the first frame update
     void Start()
     {
         //PlayerPrefs.DeleteKey("Current_State");
+        
         Player = GameObject.Find("Actor").GetComponent<Actor>();
         player_tf = GameObject.Find("Actor").transform;
-        flowchart = GameObject.Find("Flowchart1").GetComponent<Flowchart>();
+
+        camera_follow = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
+
+        camera = GameObject.Find("Main Camera");
+
+        camera_follow.m_Follow = player_tf;
+        Player.FollowCamera = camera;
+
+         flowchart = GameObject.Find("Flowchart1").GetComponent<Flowchart>();
         dialog_manager = GetComponent<Dialog_Manager>();
         tutorial_talking = false;
 
@@ -98,23 +112,28 @@ public class BattleManager : MonoBehaviour
         switch (PlayerPrefs.GetInt("Current_State"))//关卡开始传送到出生房
         {
             case 0:
+                Player.TakeDamege(-(Player.maxHeal * 0.5f));//新关卡回血
                 BornRoom_tf = GameObject.Find("Tutorial-Born_Zoom").transform;
                 player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
             case 1:
+                Player.TakeDamege(-(Player.maxHeal * 0.5f));
                 BornRoom_tf = GameObject.Find("S1-Born_Zoom").transform;
                 player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
             case 2:
+                Player.TakeDamege(-(Player.maxHeal * 0.5f));
                 BornRoom_tf = GameObject.Find("S2-Born_Zoom").transform;
                 player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
             case 3:
+                Player.TakeDamege(-(Player.maxHeal * 0.5f));
                 BornRoom_tf = GameObject.Find("S3-Born_Zoom").transform;
                 player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
                 
             case 4:
+                Player.TakeDamege(-(Player.maxHeal * 0.5f));
                 BornRoom_tf = GameObject.Find("BossRoom_BornZoom").transform;
                 player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
                 break;
@@ -125,7 +144,7 @@ public class BattleManager : MonoBehaviour
         Dead_Fight_Timer = 0f;
         Dead_Fight_MaxTime = 60f;
 
-       checknum_a = 1;
+       checknum_a = 2;
        
 
         int[] num = new int[5];
@@ -138,12 +157,12 @@ public class BattleManager : MonoBehaviour
         {
             for (int j = 0; j < num_2.Length; j++)//第三关随机房间逻辑
             {
-                if (checknum_a >= 3)
+                if (checknum_a >= 4)
                 {
-                    checknum_a = 3;
+                    checknum_a = 4;
                 }
 
-                num_2[j] = Random.Range(1, checknum_a+1);
+                num_2[j] = Random.Range(1, checknum_a);
 
                 checknum_a += 1;
 
@@ -163,7 +182,7 @@ public class BattleManager : MonoBehaviour
                     }
                     else
                     {
-                        checknum_a -= 1;
+                        num_2[j]= Random.Range(1, checknum_a-1);
                     }
                 }
                 
@@ -191,11 +210,51 @@ public class BattleManager : MonoBehaviour
                     num[j + 1] = 3;
                     break;
                 }
-                if (j == 3 && sum >= 4)
+                if (j == 3 && sum >= 5)
                 {
-                    num[j] = 3;
-                    num[j + 1] = Random.Range(1, 3);
-                    break;
+                    if (num[2] == 3)//前三关就出现特殊关时，后面两关不再出现特殊关
+                    {
+
+                        if(num[1] == 1)
+                        {
+                            num[j] = 2;
+                            num[j + 1] = Random.Range(1, 3);
+                            break;
+                        }
+                        else
+                        {
+                            num[j] = 1;
+                            num[j + 1] = Random.Range(1, 3);
+                            break;
+                        }
+                        
+  
+                    }
+                    else
+                    {
+                        int a = Random.Range(1, 3);
+                        if (a == 1)
+                        {
+                            num[j] = 1;
+                        }
+                        if (a == 2)
+                        {
+                            num[j] = 3;
+                        }
+                    }
+                   
+                   
+                }
+                if (j == 4)
+                {
+                    if (num[3] == 3)
+                    {
+                        num[j] = Random.Range(1, 3); 
+                    }
+                    else
+                    {
+                        num[j] = 3; 
+                    }
                 }
 
                 sum += num[j];

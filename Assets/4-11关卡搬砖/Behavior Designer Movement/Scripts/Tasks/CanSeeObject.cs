@@ -47,6 +47,7 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
       
         public SharedBool lv2;
         public SharedBool dash;
+        private Actor mons_actor;
 
         public override void OnStart()
         {
@@ -63,6 +64,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
             dash = (SharedBool)behaviortree.GetVariable("DASH_RUNNING");
             is_bomber = (SharedBool)behaviortree.GetVariable("is_bomber");
 
+            mons_actor = GetComponent<Actor>();
+
 
             base.OnStart();
         }
@@ -70,6 +73,11 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
         // Returns success if an object was found otherwise failure
         public override TaskStatus OnUpdate()
         {
+            if (!mons_actor.isAlive)
+            {
+                return TaskStatus.Failure;
+            }
+
             if (MCS_manager.Protect_Room_Battle)
             {
                 ProtectPoint = GameObject.Find("ProtectPoint").transform;
