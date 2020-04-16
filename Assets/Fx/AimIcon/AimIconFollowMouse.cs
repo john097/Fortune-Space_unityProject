@@ -11,7 +11,7 @@ public class AimIconFollowMouse : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        camera1 = Camera.main;
+
     }
     void Update()
     {
