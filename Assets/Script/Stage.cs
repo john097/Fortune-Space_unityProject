@@ -12,6 +12,8 @@ public class Stage : MonoBehaviour
     public Skill[] storeSkills;
     [HideInInspector]
     public Actor actor;
+    [HideInInspector]
+    public Credit actor_credit;//DISON.VER,用于钱袋增加玩家金币
 
     public float heal;
 
@@ -248,7 +250,8 @@ public class Stage : MonoBehaviour
             if (gameObject.tag == "Gold_Treasure")//钱袋
             {
                 int gold = Random.Range(10, 101);
-                actor.actorCredit += gold;
+                actor_credit = GameObject.Find("Actor").GetComponent<Credit>();
+                actor_credit.playerCredit += gold;
 
                 for (int i = 0; i < actor.Tools.Length; i++)
                 {
