@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1205294471198645869}
   - component: {fileID: 1068627628346324905}
   - component: {fileID: 5171555997899110819}
+  - component: {fileID: 1126524911414747732}
   m_Layer: 10
   m_Name: MONSTER-2
   m_TagString: ENEMY
@@ -174,7 +175,7 @@ MonoBehaviour:
   isPlayer: 0
   thisSpType: 1
   actorCredit: 10
-  maxHeal: 100
+  maxHeal: 400
   heal: 0
   isAlive: 1
   speed: 50
@@ -240,6 +241,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1126524911414747732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126114607953071880}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865ea602f40958341a0731b4cd3ba2e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  B: 0
 --- !u!1 &3006077160306790959
 GameObject:
   m_ObjectHideFlags: 0

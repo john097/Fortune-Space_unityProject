@@ -210,11 +210,51 @@ public class BattleManager : MonoBehaviour
                     num[j + 1] = 3;
                     break;
                 }
-                if (j == 3 && sum >= 4)
+                if (j == 3 && sum >= 5)
                 {
-                    num[j] = 3;
-                    num[j + 1] = Random.Range(1, 3);
-                    break;
+                    if (num[2] == 3)//前三关就出现特殊关时，后面两关不再出现特殊关
+                    {
+
+                        if(num[1] == 1)
+                        {
+                            num[j] = 2;
+                            num[j + 1] = Random.Range(1, 3);
+                            break;
+                        }
+                        else
+                        {
+                            num[j] = 1;
+                            num[j + 1] = Random.Range(1, 3);
+                            break;
+                        }
+                        
+  
+                    }
+                    else
+                    {
+                        int a = Random.Range(1, 3);
+                        if (a == 1)
+                        {
+                            num[j] = 1;
+                        }
+                        if (a == 2)
+                        {
+                            num[j] = 3;
+                        }
+                    }
+                   
+                   
+                }
+                if (j == 4)
+                {
+                    if (num[3] == 3)
+                    {
+                        num[j] = Random.Range(1, 3); 
+                    }
+                    else
+                    {
+                        num[j] = 3; 
+                    }
                 }
 
                 sum += num[j];

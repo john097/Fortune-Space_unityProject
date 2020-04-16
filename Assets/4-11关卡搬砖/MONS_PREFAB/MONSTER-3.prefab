@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 4017694244756842847}
   - component: {fileID: 8738215027209589679}
   - component: {fileID: 7553742242587017965}
+  - component: {fileID: 9148119826355494534}
   m_Layer: 10
   m_Name: MONSTER-3
   m_TagString: ENEMY
@@ -217,9 +218,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FollowCamera: {fileID: 0}
   isPlayer: 0
-  thisSpType: 1
+  thisSpType: 2
   actorCredit: 15
-  maxHeal: 150
+  maxHeal: 700
   heal: 0
   isAlive: 1
   speed: 50
@@ -338,6 +339,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9148119826355494534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4017694244756842822}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865ea602f40958341a0731b4cd3ba2e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  B: 0
 --- !u!1 &4017694244935017313
 GameObject:
   m_ObjectHideFlags: 0

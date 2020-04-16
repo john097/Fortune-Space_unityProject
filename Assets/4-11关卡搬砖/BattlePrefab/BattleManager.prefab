@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 691841457939105326}
   - component: {fileID: -7349179175009823006}
   - component: {fileID: 196777751652471133}
+  - component: {fileID: 1730898669388111212}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: BattleManager
@@ -113,5 +114,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237f6f41b4f3599469d30245da335fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Treasure_Rooms: []
   T_nums: 0
   T_type_num: 0
+--- !u!114 &1730898669388111212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691841457939105296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22127c89a991ad543874a8e1d0b9a3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

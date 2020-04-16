@@ -27,7 +27,7 @@ public class Treasure_Manager : MonoBehaviour
 
             for (int i = 0; i < Treasure_Rooms.Length; i++)
             {
-                T_nums = Random.Range(0, 4);
+                T_nums = Random.Range(1, 6);
                 
 
                 Bound bound = getBound(Treasure_Rooms[i].transform);
