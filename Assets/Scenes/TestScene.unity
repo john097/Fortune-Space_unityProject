@@ -1583,6 +1583,7 @@ MonoBehaviour:
   toolSkill: {fileID: 0}
   storeSkills: []
   actor: {fileID: 0}
+  actor_credit: {fileID: 0}
   heal: 0
   refrashCredit: 0
   thisToolType: 0
@@ -15934,6 +15935,51 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3184890647471857546, guid: 25d77bf573203db4dba29a9316d11ac6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0000019073486
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184890647471857546, guid: 25d77bf573203db4dba29a9316d11ac6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000030517578
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184890647488183227, guid: 25d77bf573203db4dba29a9316d11ac6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000009536743
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184890647488183227, guid: 25d77bf573203db4dba29a9316d11ac6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.0000019073486
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184890647337302492, guid: 25d77bf573203db4dba29a9316d11ac6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000030517578
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184890647337302492, guid: 25d77bf573203db4dba29a9316d11ac6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184890647188694061, guid: 25d77bf573203db4dba29a9316d11ac6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.79999924
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184890647188694061, guid: 25d77bf573203db4dba29a9316d11ac6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000061035156
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184890646268282753, guid: 25d77bf573203db4dba29a9316d11ac6,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25d77bf573203db4dba29a9316d11ac6, type: 3}
 --- !u!4 &1100510569 stripped
@@ -26590,6 +26636,7 @@ MonoBehaviour:
   toolSkill: {fileID: 0}
   storeSkills: []
   actor: {fileID: 0}
+  actor_credit: {fileID: 0}
   heal: 0
   refrashCredit: 0
   thisToolType: 1
@@ -27618,6 +27665,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501730829961579099, guid: a2841b6f71dface4faec67d6e9871b05,
+        type: 3}
+      propertyPath: skillIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 4019de69f67c9a94eaa63e5adfa2fa09,
+        type: 3}
+    - target: {fileID: 3501730829961579099, guid: a2841b6f71dface4faec67d6e9871b05,
+        type: 3}
+      propertyPath: bulletOffsets.Array.data[0].z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2841b6f71dface4faec67d6e9871b05, type: 3}

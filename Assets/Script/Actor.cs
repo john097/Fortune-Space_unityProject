@@ -317,6 +317,7 @@ public class Actor : MonoBehaviour
             if (steping && moveDirection == Vector3.zero)
             {
                 moveDirection = thisTimeForward;
+                stepMoveDir = thisTimeForward;
             }
 
             if (steping && stepMoveDir == Vector3.zero)
