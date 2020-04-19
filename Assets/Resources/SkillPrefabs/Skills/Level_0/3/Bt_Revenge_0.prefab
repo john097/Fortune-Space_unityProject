@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisType: 0
-  lifeTime: 1.1
+  lifeTime: 0.9
   speed: 0
   timeToStop: 0
   damage: 0
@@ -60,6 +60,7 @@ MonoBehaviour:
   repel: 0
   lockOnTarget: {fileID: 0}
   isFollowActor: 1
+  destoryDelay: 0.5
   destoryAfterCollision: 1
   destoryAfterCollisionWithActor: 0
   destoryIfSkillBeCancel: 0
@@ -72,7 +73,9 @@ MonoBehaviour:
   bulletSons:
   - {fileID: 0}
   createEffect: {fileID: 0}
-  hitEffect: {fileID: 0}
+  alignTheMuzzlePosition: 0
+  hitEffect: {fileID: 8493972315982058378, guid: 4bf00dfcecae9404c9e865fdfceebf97,
+    type: 3}
   destroyEffect: {fileID: 0}
   actor: {fileID: 0}
   skillParent: {fileID: 0}
