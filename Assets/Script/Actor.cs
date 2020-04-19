@@ -167,23 +167,6 @@ public class Actor : MonoBehaviour
             DontDestroyOnLoad(gameObject);
 
             thisAnimator = gameObject.transform.Find("ActorModel").GetComponent<Animator>();
-
-            Vector3 i = FollowCamera.transform.position;
-            Vector3 k = FollowCamera.transform.GetChild(0).transform.position;
-            i.y = 0;
-            k.y = 0;
-
-            cForward = k - i;
-            cForward = cForward.normalized;
-
-            i = FollowCamera.transform.position;
-            k = FollowCamera.transform.GetChild(1).transform.position;
-
-            i.y = 0;
-            k.y = 0;
-
-            cRight = k - i;
-            cRight = cRight.normalized;
         }
 
         nowThisTakeWeapon = weaponType.非武器;
@@ -196,8 +179,6 @@ public class Actor : MonoBehaviour
         Tools = new GameObject[10];
         isTakingTool = false;
 
-
-       
         BeAttacked = false;//**DISON.ver**
         isTalking = false;//**DISON.ver**
     }
@@ -206,10 +187,10 @@ public class Actor : MonoBehaviour
     {
         if (isAlive && isPlayer)//**DISON.ver**
         {
+            CameraDirUpdata();
+
                 if (!isTakingTool && !isTalking)
                 {
-                    //Move();
-
                     Skill(skillArrNum);
 
                     SpecialInteractive();
@@ -238,6 +219,26 @@ public class Actor : MonoBehaviour
             }
 
         }  
+    }
+
+    private void CameraDirUpdata()
+    {
+        Vector3 i = FollowCamera.transform.position;
+        Vector3 k = FollowCamera.transform.GetChild(0).transform.position;
+        i.y = 0;
+        k.y = 0;
+
+        cForward = k - i;
+        cForward = cForward.normalized;
+
+        i = FollowCamera.transform.position;
+        k = FollowCamera.transform.GetChild(1).transform.position;
+
+        i.y = 0;
+        k.y = 0;
+
+        cRight = k - i;
+        cRight = cRight.normalized;
     }
 
     private void Look()
@@ -311,6 +312,8 @@ public class Actor : MonoBehaviour
     {
         if (isAlive && isPlayer)//是否存在禁锢Buff
         {
+            CameraDirUpdata();
+
             moveDirection = cForward * Input.GetAxis("Vertical") + cRight * Input.GetAxis("Horizontal");
 
             //是否憨憨玩家没有按方向键
@@ -870,7 +873,6 @@ public class Actor : MonoBehaviour
 
     public void GoDie()
     {
-
         SetAlive(false);
         if (isPlayer)
         {

@@ -49,6 +49,9 @@ public class Bullet : MonoBehaviour
     [Tooltip("子弹是否跟随角色")]
         public bool isFollowActor;
 
+    [Tooltip("子弹销毁自身的延迟")]
+        public float destoryDelay;
+
     [Tooltip("子弹碰撞后是否销毁自身")]
         public bool destoryAfterCollision;
 
@@ -83,7 +86,7 @@ public class Bullet : MonoBehaviour
         public GameObject createEffect;
 
     [Tooltip("子弹生成时是否对齐枪口位置(非枪械类子弹不勾选)")]
-        public GameObject alignTheMuzzlePosition;
+        public bool alignTheMuzzlePosition;
 
     [Tooltip("子弹碰撞特效")]
         public GameObject hitEffect;
@@ -178,7 +181,7 @@ public class Bullet : MonoBehaviour
 
         if (createEffect)
         {
-            CreateEffect(createEffect,true);
+            CreateEffect(createEffect,alignTheMuzzlePosition);
         }
     }
 
@@ -324,15 +327,19 @@ public class Bullet : MonoBehaviour
 
         if (alignMuzzle)
         {
-            a = Instantiate(e,GameObject.Find("Muzzle").transform);
+            a = Instantiate(e,GameObject.Find("Muzzle").transform.position,Quaternion.identity);
             a.transform.forward = gameObject.transform.forward;
         }
         else
         {
             a = Instantiate(e, gameObject.transform);
-            a.transform.parent = null;
         }
 
+        if (a.GetComponent<ShieldHitEffectScript>())
+        {
+            a.GetComponent<ShieldHitEffectScript>().bulletParent = gameObject;
+            a.GetComponent<ShieldHitEffectScript>().ChangeShieldColor(Color.red);
+        }
         a.transform.parent = null;
     }
 
@@ -476,6 +483,6 @@ public class Bullet : MonoBehaviour
             }
         }
 
-        Destroy(this.gameObject);
+        Destroy(this.gameObject,destoryDelay);
     }
 }
