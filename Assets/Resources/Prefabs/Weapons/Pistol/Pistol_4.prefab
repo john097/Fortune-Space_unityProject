@@ -281,6 +281,36 @@ Transform:
   m_Father: {fileID: 8429031103318497275}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5767925975732997409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1841716769817255059}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1841716769817255059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5767925975732997409}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -17.8, y: 13.5, z: 0}
+  m_LocalScale: {x: 0.999909, y: 0.99990934, z: 0.999909}
+  m_Children: []
+  m_Father: {fileID: 7723722647566582424}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5976412170763945721
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +353,7 @@ GameObject:
   - component: {fileID: 7723722647566582424}
   - component: {fileID: 412694073465122786}
   m_Layer: 0
-  m_Name: g003_anim (4)
+  m_Name: Pistol_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -341,6 +371,7 @@ Transform:
   m_LocalScale: {x: 0.011041004, y: 0.011041, z: 0.011041004}
   m_Children:
   - {fileID: 5234349904131516089}
+  - {fileID: 1841716769817255059}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -63,6 +63,7 @@ MonoBehaviour:
   destoryAfterCollisionWithActor: 0
   destoryIfSkillBeCancel: 0
   destoryTarget: 0
+  killTargetMakeTimeSlow: 0
   hitChangeTimeScale: 0
   hitChangeTimeScaleTime: 0
   skillVariantEvent: 0
@@ -70,8 +71,8 @@ MonoBehaviour:
   - {fileID: 4062038196249826196, guid: 9ebf689d4ac87404fa081c2378bf3f23, type: 3}
   - {fileID: 7509876754938940149, guid: 8620971618cbfe243b06451773dd9e00, type: 3}
   bulletSons: []
-  createEffect: {fileID: 0}
-  hitEffect: {fileID: 0}
+  createEffect: {fileID: 100000, guid: b7f96b2dc32bcfb4d90628423b49481e, type: 3}
+  hitEffect: {fileID: 100004, guid: 572f75a4fe7fccb418203dfcddc43cb3, type: 3}
   destroyEffect: {fileID: 0}
   actor: {fileID: 0}
   skillParent: {fileID: 0}

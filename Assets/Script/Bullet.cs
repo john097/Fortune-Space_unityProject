@@ -82,6 +82,9 @@ public class Bullet : MonoBehaviour
     [Tooltip("子弹生成特效")]
         public GameObject createEffect;
 
+    [Tooltip("子弹生成时是否对齐枪口位置(非枪械类子弹不勾选)")]
+        public GameObject alignTheMuzzlePosition;
+
     [Tooltip("子弹碰撞特效")]
         public GameObject hitEffect;
 
@@ -175,7 +178,7 @@ public class Bullet : MonoBehaviour
 
         if (createEffect)
         {
-            CreateEffect(createEffect);
+            CreateEffect(createEffect,true);
         }
     }
 
@@ -294,6 +297,7 @@ public class Bullet : MonoBehaviour
                 }
             }
 
+            //时停判定
             if (killTargetMakeTimeSlow)
             {
                 if (!a || a.isAlive)
@@ -311,13 +315,24 @@ public class Bullet : MonoBehaviour
                         ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
                     }
             }
-
         }
     }
 
-    private void CreateEffect(GameObject e)
+    private void CreateEffect(GameObject e,bool alignMuzzle)
     {
-        GameObject a = Instantiate(e,gameObject.transform);
+        GameObject a;
+
+        if (alignMuzzle)
+        {
+            a = Instantiate(e,GameObject.Find("Muzzle").transform);
+            a.transform.forward = gameObject.transform.forward;
+        }
+        else
+        {
+            a = Instantiate(e, gameObject.transform);
+            a.transform.parent = null;
+        }
+
         a.transform.parent = null;
     }
 
@@ -379,7 +394,7 @@ public class Bullet : MonoBehaviour
 
         if (hitEffect)
         {
-            CreateEffect(hitEffect);
+            CreateEffect(hitEffect,false);
         }
 
         if (skillVariantEvent)
@@ -443,7 +458,7 @@ public class Bullet : MonoBehaviour
     {
         if (destroyEffect)
         {
-            CreateEffect(destroyEffect);
+            CreateEffect(destroyEffect,false);
         }
 
 
