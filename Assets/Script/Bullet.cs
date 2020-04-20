@@ -288,11 +288,11 @@ public class Bullet : MonoBehaviour
                         {
                             if (hitChangeTimeScaleTime > 0)
                             {
-                                if (a.isAlive)
-                                {
-                                    ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
-                                    skillParent.coolDownTimer = skillParent.coolDownTime - 0.5f;
-                                }
+                                    if (a.isAlive)
+                                    {
+                                        ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
+                                        skillParent.coolDownTimer = skillParent.coolDownTime - 0.5f;
+                                    }
                             }
                         }
                     }
@@ -300,24 +300,36 @@ public class Bullet : MonoBehaviour
                 }
             }
 
-            //时停判定
-            if (killTargetMakeTimeSlow)
+            if (!killTargetMakeTimeSlow)
             {
-                if (!a || a.isAlive)
+                if (hitChangeTimeScaleTime > 0)
                 {
-                    if (hitChangeTimeScaleTime > 0)
+                    if (a.isAlive)
                     {
                         ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
+                        skillParent.coolDownTimer = skillParent.coolDownTime - 0.5f;
                     }
                 }
             }
-            else
-            {
-                    if (hitChangeTimeScaleTime > 0)
-                    {
-                        ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
-                    }
-            }
+
+            //时停判定
+            //if (killTargetMakeTimeSlow)
+            //{
+            //    if (!a || a.isAlive)
+            //    {
+            //        if (hitChangeTimeScaleTime > 0)
+            //        {
+            //            ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //        if (hitChangeTimeScaleTime > 0)
+            //        {
+            //            ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
+            //        }
+            //}
         }
     }
 
