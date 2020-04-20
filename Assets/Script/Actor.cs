@@ -814,7 +814,15 @@ public class Actor : MonoBehaviour
         }
         else if (a.thisType == Buff.buffType.装备切换)
         {
-            skillArrNum = (int)a.percent;
+            //skillArrNum = (int)a.percent;
+            if (skillArrNum == 0)
+            {
+                skillArrNum = 1;
+            }
+            else
+            {
+                skillArrNum = 0;
+            }
         }
     }
 
