@@ -55,9 +55,10 @@ MonoBehaviour:
   vulnerabilityPercent: 1
   thisSpType: 0
   repelRelativeSelf: 0
-  repel: 10
+  repel: 20
   lockOnTarget: {fileID: 0}
   isFollowActor: 1
+  destoryDelay: 0
   destoryAfterCollision: 0
   destoryAfterCollisionWithActor: 0
   destoryIfSkillBeCancel: 0
@@ -70,6 +71,7 @@ MonoBehaviour:
   - {fileID: 2095219287823678365, guid: 829facb107297344a9fcbe67c6d2f0e9, type: 3}
   bulletSons: []
   createEffect: {fileID: 0}
+  alignTheMuzzlePosition: 0
   hitEffect: {fileID: 0}
   destroyEffect: {fileID: 0}
   actor: {fileID: 0}
