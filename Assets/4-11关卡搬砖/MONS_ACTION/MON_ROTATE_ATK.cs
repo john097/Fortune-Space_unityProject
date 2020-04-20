@@ -21,6 +21,7 @@ public class MON_ROTATE_ATK : Action
     public SharedBool boss_usingskill;
     
     public SharedInt mons3_action;
+    private Animator thisAnimator;
 
     public override void OnStart()
     {
@@ -33,7 +34,8 @@ public class MON_ROTATE_ATK : Action
         if (gameObject.tag == "BOSS")
         {
             boss_usingskill= (SharedBool)behaviortree.GetVariable("USING_SKILL");
-  
+            thisAnimator = gameObject.transform.Find("m002-shenshi").GetComponent<Animator>();
+
         }
         else
         {
@@ -77,6 +79,11 @@ public class MON_ROTATE_ATK : Action
         }
         else
         {
+            if(gameObject.tag== "BOSS")
+            {
+                thisAnimator.SetBool("Idle", true);
+                thisAnimator.SetBool("Walk", false);
+            }
             mon_rotation = transform.rotation;
             transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
             lookat_rotation = transform.rotation;

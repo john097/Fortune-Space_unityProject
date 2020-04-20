@@ -15,11 +15,13 @@ public class mon_skill : Action
     public int random_cd;
     
     public bool timeborn;
+    private Actor mons_actor;
 
     public override void OnAwake()
     {
         timeborn = false;
         skill_time = 5f;
+        mons_actor = GetComponent<Actor>();
         base.OnAwake();
     }
 
@@ -29,6 +31,10 @@ public class mon_skill : Action
 
     public override TaskStatus OnUpdate()
     {
+        if (!mons_actor.isAlive)
+        {
+            shield.SetActive(false);
+        }
         if (!timeborn)
         {
             random_cd = Random.Range(5, 6);
@@ -36,7 +42,7 @@ public class mon_skill : Action
             timeborn = true;
         }
 
-        if (timeborn)
+        if (timeborn&&mons_actor.isAlive)
         {
             timer += Time.deltaTime;
             if (timer >= random_cd)
@@ -45,6 +51,7 @@ public class mon_skill : Action
                 StartCoroutine(Remove());
             }
         }
+       
 
 
         return TaskStatus.Running;

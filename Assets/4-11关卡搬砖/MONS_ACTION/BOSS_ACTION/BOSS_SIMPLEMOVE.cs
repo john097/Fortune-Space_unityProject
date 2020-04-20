@@ -35,6 +35,8 @@ public class BOSS_SIMPLEMOVE : Action
     public float lerp_speed = 0.0f;//旋转角度越大，lerp变化速度应该越慢
     public float lerp_tm = 0.0f;//lerp的动态参数
 
+    public Animator thisAnimator;
+
     public override void OnAwake()
     {
         mons_actor = GetComponent<Actor>();
@@ -47,6 +49,8 @@ public class BOSS_SIMPLEMOVE : Action
         Action_Num.Value = -1;
         usingskill.Value = false;
         Num_Borning.Value = false;
+
+        thisAnimator= gameObject.transform.Find("m002-shenshi").GetComponent<Animator>();
 
         base.OnAwake();
     }
@@ -79,6 +83,11 @@ public class BOSS_SIMPLEMOVE : Action
         if (mons_actor.isAlive && follow_timer <= 5 && !usingskill.Value)//追击TIME未达到MAX时以LV1的速度追击玩家
         {
             navMeshAgent.enabled = true;
+
+
+            thisAnimator.SetBool("Idle", false);
+            thisAnimator.SetBool("Walk", true);
+
             navMeshAgent.SetDestination(PLAYER);
 
 
@@ -89,13 +98,15 @@ public class BOSS_SIMPLEMOVE : Action
            
 
             
-            Action_Num.Value = Random.Range(0,3);//取随机数
+            Action_Num.Value = Random.Range(1,2);//取随机数
             Num_Borning.Value = true;
         }
 
         if (Action_Num.Value == 0)//行动数A为0时以LV2的速度追击玩家
         {
             LV2_SPEED();
+            thisAnimator.SetBool("Idle", false);
+            thisAnimator.SetBool("Walk", true);
         }
 
         if (Action_Num.Value == 1)//行动数A为1时使用激光炮技能，开始蓄力
@@ -103,6 +114,8 @@ public class BOSS_SIMPLEMOVE : Action
             if (!usingskill.Value)
             {
                 UseLaserCannon();
+                thisAnimator.SetBool("Walk", false);
+                thisAnimator.SetBool("Idle", true);
                 usingskill.Value = true;
             }
             
