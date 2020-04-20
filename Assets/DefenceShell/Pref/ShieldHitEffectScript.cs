@@ -22,7 +22,6 @@ public class ShieldHitEffectScript : MonoBehaviour
     {
         thisRenderers = bulletParent.GetComponentsInChildren<Renderer>();
 
-        //thisRenderers[0].material.GetColor("_Emissive");
         foreach (var item in thisRenderers)
         {
             item.material.SetColor("_Emissive", Color.Lerp(thisRenderers[0].material.GetColor("_Emissive"),c,2f));

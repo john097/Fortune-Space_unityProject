@@ -26,10 +26,14 @@ public class PlayerArrowScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
         if (Input.GetKeyDown(KeyCode.F1))
         {
             StartArrow();
         }
+
+
 
         if (Input.GetKeyDown(KeyCode.F2))
         {
