@@ -6,6 +6,7 @@ public class Arrow : MonoBehaviour
 {
     public GameObject target;
     private Vector3 dir;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,7 @@ public class Arrow : MonoBehaviour
     void Update()
     {
         dir.x = target.transform.position.x;
+        dir.y = gameObject.transform.position.y;
         dir.z = target.transform.position.z;
         gameObject.transform.LookAt(dir);
     }
