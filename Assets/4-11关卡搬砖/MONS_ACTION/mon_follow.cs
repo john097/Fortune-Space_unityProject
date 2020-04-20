@@ -27,6 +27,12 @@ public class mon_follow : Action
 
 	public override TaskStatus OnUpdate()
 	{
+        if (!mons_actor.isAlive)
+        {
+            navMeshAgent.enabled = false;
+            return TaskStatus.Success;
+        }
+
         if (mf_manager.Protect_Room_Battle)
         {
             ProtectPoint = GameObject.Find("ProtectPoint").transform.position;//获取据点的位置
@@ -50,10 +56,7 @@ public class mon_follow : Action
                 
             
         }
-        if (!mons_actor.isAlive)
-        {
-            navMeshAgent.enabled = false ;
-        }
+      
         
 
 

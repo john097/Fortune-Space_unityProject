@@ -517,8 +517,8 @@ public class BattleManager : MonoBehaviour
                 Monster_Waves = Random.Range(2, 4);
                 break;
             case 3:
-                MAX_MON_NUMS = Random.Range(6, 10);
-                Monster_Waves = Random.Range(2, 4);
+                MAX_MON_NUMS = Random.Range(5, 6);
+                Monster_Waves = Random.Range(2, 3);
                 break;
         }
         

@@ -30,11 +30,14 @@ public class BOSS_ATTACK_ACTION : Action
     public SharedBool lv2_Attack;
     public SharedBool dash_Attack;
     public SharedBool usingskill_Attack;
+    public Animator thisAnimator;
 
     public override void OnAwake()
     {
         mons_actor = GetComponent<Actor>();
         behaviortree = GetComponent<BehaviorTree>();
+        thisAnimator = gameObject.transform.Find("m002-shenshi").GetComponent<Animator>();
+
         for (int i = 0; i < 4; i++)
         {
             Atk_C_A[i] = mons_actor.Skills_0[i].castActionTime + mons_actor.Skills_0[i].castTime;//获取攻击硬值时间
@@ -49,7 +52,8 @@ public class BOSS_ATTACK_ACTION : Action
     public override void OnStart()
 	{
 
-
+        thisAnimator.SetBool("Idle", true);
+        thisAnimator.SetBool("Walk", false);
 
         s = false;
 
@@ -78,7 +82,10 @@ public class BOSS_ATTACK_ACTION : Action
             mons_actor.Skills_0[3].UseSkill();
             dash_Attack.Value = false;
             usingskill_Attack.Value = true;
-            
+
+            thisAnimator.SetBool("Walk", false);
+            thisAnimator.SetBool("Idle", false);
+            thisAnimator.SetTrigger("TuCi");
 
             StartCoroutine(DashRemove());
             return TaskStatus.Running;
@@ -94,6 +101,7 @@ public class BOSS_ATTACK_ACTION : Action
         if (mons_actor.isAlive && !usingskill_Attack.Value && lv2_Attack.Value)//若boss是以LV2的速度冲向玩家，玩家进入攻击范围后立刻进行一次攻击（平A或突刺）
         {
             Action_Timer.Value = Action_Time.Value;
+
             lv2_Attack.Value = false;
         }
 
@@ -120,6 +128,9 @@ public class BOSS_ATTACK_ACTION : Action
     public void NormalAttack()
     {
         mons_actor.Skills_0[0].UseSkill();
+        thisAnimator.SetBool("Walk", false);
+        thisAnimator.SetBool("Idle", false);
+        thisAnimator.SetTrigger("TuCi");
         usingskill_Attack.Value = true;
         StartCoroutine(NormalAttackRemove());
         Action_Timer.Value = 0;
@@ -130,6 +141,9 @@ public class BOSS_ATTACK_ACTION : Action
         if (!mons_actor.Skills_0[1].coolDownFlag)//若此时突刺还未冷却完毕，转为使用普通攻击
         {
             mons_actor.Skills_0[1].UseSkill();
+            thisAnimator.SetBool("Walk", false);
+            thisAnimator.SetBool("Idle", false);
+            thisAnimator.SetTrigger("TuCi");
             usingskill_Attack.Value = true;
             StartCoroutine(ThrustRemove());
             Action_Timer.Value = 0;
@@ -137,6 +151,9 @@ public class BOSS_ATTACK_ACTION : Action
         else
         {
             NormalAttack();
+            thisAnimator.SetBool("Walk", false);
+            thisAnimator.SetBool("Idle", false);
+            thisAnimator.SetTrigger("TuCi");
             Debug.Log("突刺为冷却完毕，转为普通攻击！");
         }
         
@@ -151,6 +168,8 @@ public class BOSS_ATTACK_ACTION : Action
         Num_Borning.Value = false;
         s = true;
 
+        thisAnimator.SetBool("Idle", true);
+
         Action_Num.Value = -1;
         
     }
@@ -163,6 +182,8 @@ public class BOSS_ATTACK_ACTION : Action
         Num_Borning.Value = false;
         s = true;
 
+        thisAnimator.SetBool("Idle", true);
+
         Action_Num.Value = -1;
         
     }
@@ -174,6 +195,8 @@ public class BOSS_ATTACK_ACTION : Action
         usingskill_Attack.Value = false;
         Num_Borning.Value = false;
         s = true;
+
+        thisAnimator.SetBool("Idle", true);
 
         Action_Num.Value = -1;
         Action_Timer.Value = 0;

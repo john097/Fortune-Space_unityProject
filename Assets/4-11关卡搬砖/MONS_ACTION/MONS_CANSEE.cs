@@ -54,7 +54,11 @@ public class MONS_CANSEE : Conditional
 
     public override TaskStatus OnUpdate()
 	{
-        
+        if (!mons_actor.isAlive)
+        {
+            return TaskStatus.Success;
+        }
+
         dis = Vector3.Distance(transform.position ,target.Value.position);
         timer += Time.deltaTime;
         
@@ -76,10 +80,7 @@ public class MONS_CANSEE : Conditional
             
         }
 
-        if (!mons_actor.isAlive)
-        {
-            return TaskStatus.Running;
-        }
+        
 
         if (PlayerPrefs.GetInt("Current_State")==0)
         {
