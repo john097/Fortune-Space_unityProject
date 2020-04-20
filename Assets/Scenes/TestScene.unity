@@ -3175,9 +3175,9 @@ GameObject:
   - component: {fileID: 196590742}
   - component: {fileID: 196590741}
   - component: {fileID: 196590740}
-  m_Layer: 15
-  m_Name: Sphere (4)
-  m_TagString: Untagged
+  m_Layer: 31
+  m_Name: Gate
+  m_TagString: TP_GATE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3248,7 +3248,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 196590739}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.94, y: 1.1397445, z: -2.08}
+  m_LocalPosition: {x: -16.17, y: 1.1397445, z: -8.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5158,8 +5158,8 @@ GameObject:
   - component: {fileID: 316753268}
   - component: {fileID: 316753267}
   m_Layer: 15
-  m_Name: Sphere (5)
-  m_TagString: Untagged
+  m_Name: Gate2
+  m_TagString: TP_GATE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5230,7 +5230,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 316753266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.27, y: 1.1397445, z: -2.08}
+  m_LocalPosition: {x: -8.38, y: 1.1397445, z: -12.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5245,6 +5245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 318011602}
+  - component: {fileID: 318011603}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -5266,6 +5267,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &318011603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318011601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762d0cc7ccd768f48be8b9742087a2c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 8112348817842098358, guid: 0d2a40fe5a6805e47bdd374897c470e9,
+    type: 3}
+  target: []
 --- !u!1001 &327172756
 PrefabInstance:
   m_ObjectHideFlags: 0
