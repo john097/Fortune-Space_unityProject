@@ -125,8 +125,8 @@ public class Actor : MonoBehaviour
     [HideInInspector]
         public Animator thisAnimator;
 
-    [HideInInspector]
-        public bool lookAtTag;
+    //[HideInInspector]
+        public  bool lookAtTag;
 
     [HideInInspector]
         public bool isTakingTool;
@@ -340,7 +340,6 @@ public class Actor : MonoBehaviour
             if (steping && moveDirection == Vector3.zero)
             {
                 moveDirection = thisTimeForward;
-                stepMoveDir = thisTimeForward;
             }
 
             if (steping && stepMoveDir == Vector3.zero)
@@ -358,7 +357,7 @@ public class Actor : MonoBehaviour
                 stepMoveDir = Vector3.zero;
             }
 
-            if (slowDownBuff && !steping)
+            if (slowDownBuff)
             {
                 moveDirection = moveDirection * speed * slowDownBuff.GetComponent<Buff>().percent;
             }

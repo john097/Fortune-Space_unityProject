@@ -159,7 +159,7 @@ public  class Skill : MonoBehaviour
     private bool reloadFlag;//字面意思
 
     [HideInInspector]
-    public Actor actor;//角色对象
+        public Actor actor;//角色对象
     private Skill thisSkillClass;//当前技能类
 
     // 初始化
@@ -422,14 +422,15 @@ public  class Skill : MonoBehaviour
             //开始无法转向
             if (timer >= cantTurnStartTime)
             {
-                if (cantTurnInCastTime)
-                {
-                    actor.SetLookAtTag(false);
-                }
-                else
-                {
-                    actor.SetLookAtTag(true);
-                }
+                //if (cantTurnInCastTime)
+                //{
+                //    actor.SetLookAtTag(false);
+                //}
+                //else
+                //{
+                //    actor.SetLookAtTag(true);
+                //}
+                actor.SetLookAtTag(false);
             }
 
             //结束计时
@@ -445,10 +446,11 @@ public  class Skill : MonoBehaviour
 
             if (timer >= cantTurnTime)
             {
-                if (cantTurnInCastTime)
-                {
-                    actor.SetLookAtTag(true);
-                }
+                //if (cantTurnInCastTime)
+                //{
+                //    actor.SetLookAtTag(true);
+                //}
+                actor.SetLookAtTag(true);
             }
 
             if (timer >= attackWarningDestoryTime)
@@ -542,6 +544,8 @@ public  class Skill : MonoBehaviour
 
         //播放技能动画
         actor.StartAnim(thisSkillAnimState,thisSkillAnimSpeed, thisSkillSpeedNum);
+
+        actor.SetSteping(isStepSkill);
 
         //克隆攻击预警
         if (actor.aWarning)
