@@ -132,9 +132,6 @@ public class Actor : MonoBehaviour
         public bool isTakingTool;
 
     [HideInInspector]
-        public bool isOpeningPlayerMenu;
-
-    [HideInInspector]
         public weaponType nowThisTakeWeapon;
 
     [HideInInspector]
@@ -148,9 +145,6 @@ public class Actor : MonoBehaviour
 
     [HideInInspector]
     public GameObject uiTips_SpecialInteractive;
-
-    //[HideInInspector]
-    public GameObject playerMenu;
 
     private Vector3 cForward;
     private Vector3 cRight;
@@ -195,17 +189,12 @@ public class Actor : MonoBehaviour
         {
             CameraDirUpdata();
 
-                if (!isTakingTool && !isTalking && !isOpeningPlayerMenu)
+                if (!isTakingTool && !isTalking)
                 {
                     Skill(skillArrNum);
 
                     SpecialInteractive();
                 }
-
-            if (Input.GetKeyDown(KeyCode.F1))
-            {
-                CallPlayerMenu();
-            }
 
                 RecoverTimeScale();
 
@@ -222,7 +211,7 @@ public class Actor : MonoBehaviour
     {
         if (isAlive && isPlayer && !isTalking)//**DISON.ver**
         {
-            if (!isTakingTool && !isOpeningPlayerMenu)
+            if (!isTakingTool)
             {
                 Look();
 
@@ -315,15 +304,6 @@ public class Actor : MonoBehaviour
                     Tools[selectIndex].GetComponent<Stage>().UseFunc();
                 }
             }
-        }
-    }
-
-    public void CallPlayerMenu()
-    {
-        if (!playerMenu)
-        {
-            playerMenu = Instantiate(Resources.Load("UIPrefabs/PlayerMenu") as GameObject,GameObject.Find("Canvas").transform);
-            isOpeningPlayerMenu = true;
         }
     }
 
@@ -914,7 +894,6 @@ public class Actor : MonoBehaviour
             {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<Credit>().AddPlayerCredit(actorCredit);
             }
-
             gameObject.GetComponent<BoxCollider>().enabled = false;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
             //播放怪物死亡动画、特效

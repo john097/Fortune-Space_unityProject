@@ -402,7 +402,7 @@ public class BattleManager : MonoBehaviour
 
             RoomClear = true;
             BattleFinish = true;
-            
+
             
 
         }
@@ -425,7 +425,7 @@ public class BattleManager : MonoBehaviour
 
         if (Protect_Room_Battle && !isTalking)//保护据点房计时
         {
-            if (Crack_Progress >= 10f||PP_Dead)
+            if (Crack_Progress >= 60f||PP_Dead)
             {
                 IS_LAST_WAVE();
                 FINISH_SPAWN();
@@ -509,15 +509,15 @@ public class BattleManager : MonoBehaviour
         switch (PlayerPrefs.GetInt("Current_State"))
         {
             case 1:
-                MAX_MON_NUMS = Random.Range(5, 7);
+                MAX_MON_NUMS = Random.Range(5, 8);
                 Monster_Waves = Random.Range(2, 4);
                 break;
             case 2:
-                MAX_MON_NUMS = Random.Range(5, 9);
+                MAX_MON_NUMS = Random.Range(6, 9);
                 Monster_Waves = Random.Range(2, 4);
                 break;
             case 3:
-                MAX_MON_NUMS = Random.Range(6, 10);
+                MAX_MON_NUMS = Random.Range(7, 10);
                 Monster_Waves = Random.Range(2, 4);
                 break;
         }

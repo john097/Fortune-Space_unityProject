@@ -169,8 +169,6 @@ public class Enemy_Manager : MonoBehaviour
 
                     Vector3 pos = new Vector3(player_transform.position.x + x, player_transform.position.y, player_transform.position.z + z);
                     Instantiate(tp_gate, pos, Quaternion.identity);
-
-                    
                 }
 
                 GetComponent<Enemy_Manager>().enabled = false;
