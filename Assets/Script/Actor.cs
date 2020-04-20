@@ -914,7 +914,7 @@ public class Actor : MonoBehaviour
                 GameObject.FindGameObjectWithTag("Player").GetComponent<Credit>().AddPlayerCredit(actorCredit);
             }
 
-            gameObject.GetComponent<BoxCollider>().enabled = false;
+            //gameObject.GetComponent<BoxCollider>().enabled = false;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
             //播放怪物死亡动画、特效
             //2秒后销毁怪物
