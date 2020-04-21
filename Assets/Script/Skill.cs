@@ -162,6 +162,8 @@ public  class Skill : MonoBehaviour
         public Actor actor;//角色对象
     private Skill thisSkillClass;//当前技能类
 
+    private AimIconFollowMouse AimIcon;
+
     // 初始化
     void Start()
     {
@@ -178,6 +180,11 @@ public  class Skill : MonoBehaviour
         //ammoNum = ammoNumLimit;
         comboNum = 0;
         thisSkillAnimTimer = 0;
+
+        if (GameObject.Find("Aim"))
+        {
+            AimIcon = GameObject.Find("Aim").GetComponent<AimIconFollowMouse>();
+        }
     }
 
     // 每帧检测需要响应的事件
@@ -545,7 +552,11 @@ public  class Skill : MonoBehaviour
         //播放技能动画
         actor.StartAnim(thisSkillAnimState,thisSkillAnimSpeed, thisSkillSpeedNum);
 
-        actor.SetSteping(isStepSkill);
+        if (isStepSkill)
+        {
+            actor.SetSteping(isStepSkill);
+        }
+        
 
         //克隆攻击预警
         if (actor.aWarning)
@@ -584,6 +595,8 @@ public  class Skill : MonoBehaviour
             //Debug.Log("调用资源（音效、特效），链接角色类传递动画信号");
 
             CastActionEndFunc();
+
+            AimIconEvent();
 
             //使用次数减一
             if (ammoNumLimit != 0)
@@ -689,5 +702,12 @@ public  class Skill : MonoBehaviour
         skillVariant.UseSkill();
     }
 
+    public void AimIconEvent()
+    {
+        if (AimIcon)
+        {
+            AimIcon.ShootingIconAnim(0.4f, Color.red);
+        }
+    }
     
 }

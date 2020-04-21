@@ -59,12 +59,14 @@ MonoBehaviour:
   repel: 200
   lockOnTarget: {fileID: 0}
   isFollowActor: 0
+  destoryDelay: 0
   destoryAfterCollision: 0
   destoryAfterCollisionWithActor: 0
   destoryIfSkillBeCancel: 0
   destoryTarget: 0
-  hitChangeTimeScale: 0
-  hitChangeTimeScaleTime: 0
+  killTargetMakeTimeSlow: 0
+  hitChangeTimeScale: 0.1
+  hitChangeTimeScaleTime: 0.2
   skillVariantEvent: 0
   buffPrefabs:
   - {fileID: 5448528744795969956, guid: 49bc9bf0802aaaa45979218ad1b68ad4, type: 3}
@@ -72,6 +74,7 @@ MonoBehaviour:
   - {fileID: 5448528744795969956, guid: 88ccced249638124692ac6d2c93217b5, type: 3}
   bulletSons: []
   createEffect: {fileID: 0}
+  alignTheMuzzlePosition: 0
   hitEffect: {fileID: 0}
   destroyEffect: {fileID: 0}
   actor: {fileID: 0}

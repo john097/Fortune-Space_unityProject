@@ -56,19 +56,22 @@ MonoBehaviour:
   vulnerabilityPercent: 1.5
   thisSpType: 1
   repelRelativeSelf: 0
-  repel: 0
+  repel: 15
   lockOnTarget: {fileID: 0}
   isFollowActor: 0
+  destoryDelay: 0
   destoryAfterCollision: 1
   destoryAfterCollisionWithActor: 0
   destoryIfSkillBeCancel: 0
   destoryTarget: 0
+  killTargetMakeTimeSlow: 0
   hitChangeTimeScale: 0
   hitChangeTimeScaleTime: 0
   skillVariantEvent: 0
   buffPrefabs: []
   bulletSons: []
   createEffect: {fileID: 0}
+  alignTheMuzzlePosition: 0
   hitEffect: {fileID: 0}
   destroyEffect: {fileID: 0}
   actor: {fileID: 0}

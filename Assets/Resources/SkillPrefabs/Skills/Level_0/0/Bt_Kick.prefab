@@ -59,13 +59,14 @@ MonoBehaviour:
   repel: 350
   lockOnTarget: {fileID: 0}
   isFollowActor: 0
+  destoryDelay: 0
   destoryAfterCollision: 0
   destoryAfterCollisionWithActor: 0
   destoryIfSkillBeCancel: 0
   destoryTarget: 0
   killTargetMakeTimeSlow: 0
-  hitChangeTimeScale: 0
-  hitChangeTimeScaleTime: 0
+  hitChangeTimeScale: 0.1
+  hitChangeTimeScaleTime: 0.2
   skillVariantEvent: 0
   buffPrefabs:
   - {fileID: 3955029746003138601, guid: 13cb379264b77ac46a51696f1fced6bd, type: 3}
