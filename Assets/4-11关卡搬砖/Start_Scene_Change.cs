@@ -19,7 +19,7 @@ public class Start_Scene_Change : MonoBehaviour
         {
             PlayerPrefs.SetInt("Current_State", -1);
         }
-        else if(scene_name == "SpawnRoom")
+        else if (scene_name == "SpawnRoom")
         {
             PlayerPrefs.SetInt("Current_State", -2);
         }
@@ -29,8 +29,32 @@ public class Start_Scene_Change : MonoBehaviour
             actor_g = GameObject.Find("Actor");
         }
 
-        
-        
+        switch (scene_name)
+        {
+            case "Tutorial Scene":
+                PlayerPrefs.SetInt("Current_State", 0);
+                
+                break;
+            case "Level 1 Scene":
+                PlayerPrefs.SetInt("Current_State", 1);
+                
+                break;
+            case "Level 2  Scene 1":
+                PlayerPrefs.SetInt("Current_State", 2);
+                
+                break;
+            case "Level 3":
+                PlayerPrefs.SetInt("Current_State", 3);
+                
+                break;
+            case "BossRoom":
+                PlayerPrefs.SetInt("Current_State", 4);
+                
+                break;
+        }
+
+
+
     }
 
     // Update is called once per frame

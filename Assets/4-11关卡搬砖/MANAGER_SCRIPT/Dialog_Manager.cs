@@ -14,6 +14,7 @@ public class Dialog_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
 
         flowchart = GameObject.Find("Flowchart1").GetComponent<Flowchart>();        
         actor = GameObject.Find("Actor").GetComponent<Actor>();
@@ -25,6 +26,7 @@ public class Dialog_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
 
         State_Start_Talks();
 

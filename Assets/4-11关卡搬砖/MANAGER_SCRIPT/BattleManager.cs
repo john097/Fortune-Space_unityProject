@@ -52,7 +52,7 @@ public class BattleManager : MonoBehaviour
     public bool RoomClear;//
     public bool BattleFinish;
 
-    public bool In_New_State;//进入到新的关卡
+    public bool In_New_State=false;//进入到新的关卡
     public bool isTalking;
     private Flowchart flowchart;
 
@@ -66,11 +66,13 @@ public class BattleManager : MonoBehaviour
 
     public CinemachineVirtualCamera camera_follow;
     public GameObject camera;
+
+    public string scene_name;
     // Start is called before the first frame update
     void Start()
     {
-        //PlayerPrefs.DeleteKey("Current_State");
-        
+
+
         Player = GameObject.Find("Actor").GetComponent<Actor>();
         player_tf = GameObject.Find("Actor").transform;
 
@@ -89,29 +91,55 @@ public class BattleManager : MonoBehaviour
         dialog_manager = GetComponent<Dialog_Manager>();
         tutorial_talking = false;
 
-        if (gameObject.scene.name == "Tutorial Scene")
-        {
-            PlayerPrefs.SetInt("Current_State", 0);
-        }
-        if (gameObject.scene.name== "Level 1 Scene")
-        {
-            PlayerPrefs.SetInt("Current_State", 1);
-        }
-        if (gameObject.scene.name == "Level 2  Scene 1")
-        {
-            PlayerPrefs.SetInt("Current_State", 2);
-        }
-        if (gameObject.scene.name == "Level 3")
-        {
-            PlayerPrefs.SetInt("Current_State", 3);
-        }
-        if (gameObject.scene.name == "BossRoom")
-        {
-            PlayerPrefs.SetInt("Current_State", 4);
-        }
+        scene_name = SceneManager.GetActiveScene().name;
+
+        //switch (scene_name)
+        //{
+        //    case "Tutorial Scene":
+        //        PlayerPrefs.SetInt("Current_State", 0);
+        //        In_New_State = true;
+        //        break;
+        //    case "Level 1 Scene":
+        //        PlayerPrefs.SetInt("Current_State", 1);
+        //        In_New_State = true;
+        //        break;
+        //    case "Level 2  Scene 1":
+        //        PlayerPrefs.SetInt("Current_State", 2);
+        //        In_New_State = true;
+        //        break;
+        //    case "Level 3":
+        //        PlayerPrefs.SetInt("Current_State", 3);
+        //        In_New_State = true;
+        //        break;
+        //    case "BossRoom":
+        //        PlayerPrefs.SetInt("Current_State", 4);
+        //        In_New_State = true;
+        //        break;
+        //}
+
+        //if (scene_name == "Tutorial Scene")
+        //{
+        //    PlayerPrefs.SetInt("Current_State", 0);
+        //}
+        //if (scene_name == "Level 1 Scene")
+        //{
+        //    PlayerPrefs.SetInt("Current_State", 1);
+        //}
+        //if (scene_name == "Level 2  Scene 1")
+        //{
+        //    PlayerPrefs.SetInt("Current_State", 2);
+        //}
+        //if (scene_name == "Level 3")
+        //{
+        //    PlayerPrefs.SetInt("Current_State", 3);
+        //}
+        //if (scene_name == "BossRoom")
+        //{
+        //    PlayerPrefs.SetInt("Current_State", 4);
+        //}
 
 
-       
+
 
         switch (PlayerPrefs.GetInt("Current_State"))//关卡开始传送到出生房
         {
@@ -321,8 +349,8 @@ public class BattleManager : MonoBehaviour
         BattleFinish = false;
 
         TP = false;
+
         In_New_State = true;
-        
 
     }
 
@@ -330,7 +358,7 @@ public class BattleManager : MonoBehaviour
     void Update()
     {
         isTalking = flowchart.GetBooleanVariable("IS_TALKING");
-
+        
         currentstate = PlayerPrefs.GetInt("Current_State");
 
         
