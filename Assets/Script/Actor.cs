@@ -99,7 +99,7 @@ public class Actor : MonoBehaviour
     [HideInInspector]
         public GameObject aWarning;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool steping;//是否处于闪避状态
 
     public Buff imprisonmentBuff;//禁锢Buff
@@ -682,7 +682,7 @@ public class Actor : MonoBehaviour
     {
         steping = a;
 
-        if (imprisonmentBuff)
+        if (imprisonmentBuff && a)
         {
             Destroy(imprisonmentBuff);
         }
