@@ -45,8 +45,8 @@ public class SceneChange : MonoBehaviour
 
 
                 case -1:
-                    PlayerPrefs.SetInt("Current_State", 0);
-                    async = SceneManager.LoadSceneAsync("Tutorial Scene");
+                    PlayerPrefs.SetInt("Current_State", -2);
+                    async = SceneManager.LoadSceneAsync("SpawnRoom");
                     async.allowSceneActivation = true;
 
                     break;
@@ -82,6 +82,9 @@ public class SceneChange : MonoBehaviour
 
     IEnumerator LoadScene2()
     {
+        PlayerPrefs.SetInt("Current_State", 1);
+        async = SceneManager.LoadSceneAsync("Level 1 Scene");
+        async.allowSceneActivation = true;
 
         yield return null;
     }

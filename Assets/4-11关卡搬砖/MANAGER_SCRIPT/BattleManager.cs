@@ -476,28 +476,30 @@ public class BattleManager : MonoBehaviour
 
             }
         }
-        if (flowchart.GetBooleanVariable("SceneChange"))//传送到下一关卡，当前关卡数+1
+
+        if (PlayerPrefs.GetInt("Current_State")==-2)
         {
-            if (gameObject.scene.name == "Spawn_Room")
+
+            if (flowchart.GetIntegerVariable("Spawn_Room_Choose") == 2)
             {
                 PlayerPrefs.SetInt("Spawn_To_Level_1", 1);
-                //if (flowchart.GetIntegerVariable("Spawn_Room_Choose")==2)
-                //{
-                //    PlayerPrefs.SetInt("Spawn_To_Level_1", 1);
-                  
-                //}
-                //if (flowchart.GetIntegerVariable("Spawn_Room_Choose") == 1)
-                //{
-                //    PlayerPrefs.DeleteKey("Spawn_To_Level_1");
 
-                //}
             }
+            else
+            {
+                PlayerPrefs.SetInt("Spawn_To_Level_1", 2);
+            }
+        }
+
+        if (flowchart.GetBooleanVariable("SceneChange"))//传送到下一关卡，当前关卡数+1
+        {
+           
 
             State_Up();
 
         }
-            
 
+        
 
 
     }
