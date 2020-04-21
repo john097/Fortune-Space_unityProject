@@ -82,16 +82,19 @@ public class Bullet : MonoBehaviour
     [Tooltip("子子弹:在父子弹被销毁之后自动生成的子弹")]
         public GameObject[] bulletSons;
 
-    [Tooltip("子弹生成特效")]
+    [Tooltip("子弹开火特效(枪口火焰)")]
         public GameObject createEffect;
+
+    [Tooltip("子弹特效(子弹本体特效)")]
+        public GameObject bulletEffect;
 
     [Tooltip("子弹生成时是否对齐枪口位置(非枪械类子弹不勾选)")]
         public bool alignTheMuzzlePosition;
 
-    [Tooltip("子弹碰撞特效")]
+    [Tooltip("子弹碰撞特效(命中)")]
         public GameObject hitEffect;
 
-    [Tooltip("子弹销毁特效")]
+    [Tooltip("子弹销毁特效(爆炸类子弹的引爆特效)")]
     public GameObject destroyEffect;
 
     private float lifeTimeTimer;
@@ -181,7 +184,13 @@ public class Bullet : MonoBehaviour
 
         if (createEffect)
         {
-            CreateEffect(createEffect,alignTheMuzzlePosition);
+            CreateEffect(createEffect,alignTheMuzzlePosition,false);
+            
+        }
+
+        if (bulletEffect)
+        {
+            CreateEffect(bulletEffect, alignTheMuzzlePosition, true);
         }
     }
 
@@ -329,7 +338,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void CreateEffect(GameObject e,bool alignMuzzle)
+    private void CreateEffect(GameObject e,bool alignMuzzle,bool followBullet)
     {
         GameObject a;
 
@@ -348,7 +357,15 @@ public class Bullet : MonoBehaviour
             a.GetComponent<ShieldHitEffectScript>().bulletParent = gameObject;
             a.GetComponent<ShieldHitEffectScript>().ChangeShieldColor(Color.red);
         }
-        a.transform.parent = null;
+
+        if (followBullet)
+        {
+            a.transform.parent = gameObject.transform;
+        }
+        else
+        {
+            a.transform.parent = null;
+        }
     }
 
     private void ChangeTimeScaleFunc(float i,float k)
@@ -416,7 +433,7 @@ public class Bullet : MonoBehaviour
 
         if (hitEffect)
         {
-            CreateEffect(hitEffect,false);
+            CreateEffect(hitEffect,false,false);
         }
 
         if (skillVariantEvent)
@@ -480,7 +497,7 @@ public class Bullet : MonoBehaviour
     {
         if (destroyEffect)
         {
-            CreateEffect(destroyEffect,false);
+            CreateEffect(destroyEffect,false,false);
         }
 
 
