@@ -220,7 +220,14 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-                lifeTimeTimer += Time.deltaTime * Time.timeScale;
+            if (Time.timeScale != 1)
+            {
+                lifeTimeTimer += Time.deltaTime - Time.deltaTime * Time.timeScale;
+            }
+            else
+            {
+                lifeTimeTimer += Time.deltaTime;
+            }
         }
     }
 
@@ -301,25 +308,24 @@ public class Bullet : MonoBehaviour
             }
 
             //时停判定
-            //if (killTargetMakeTimeSlow)
-            //{
-            //    if (!a || !a.isAlive)
-            //    {
-            //        if (hitChangeTimeScaleTime > 0)
-            //        {
-            //            ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    if (hitChangeTimeScaleTime > 0)
-            //    {
-            //        ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
-            //    }
-            //}
-
-            ChangeTimeScaleFunc(0.8f, 0.2f);
+            if (killTargetMakeTimeSlow)
+            {
+                if (!a || !a.isAlive)
+                {
+                    if (hitChangeTimeScaleTime > 0)
+                    {
+                        ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
+                    }
+                }
+            }
+            else
+            {
+                if (hitChangeTimeScaleTime > 0)
+                {
+                    ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
+                }
+            }
+            //ChangeTimeScaleFunc(0.1f, 0.2f);
         }
     }
 
@@ -399,6 +405,13 @@ public class Bullet : MonoBehaviour
         {
             Stage s = other.gameObject.GetComponent<Stage>();
             s.TakeDamege(damage);
+        }
+        else if (other.gameObject.layer == LayerMask.NameToLayer("EnemyBullet"))
+        {
+            if (hitChangeTimeScaleTime > 0)
+            {
+                ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
+            }
         }
 
         if (hitEffect)

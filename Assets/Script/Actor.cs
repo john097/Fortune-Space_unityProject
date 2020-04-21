@@ -200,7 +200,13 @@ public class Actor : MonoBehaviour
                     Skill(skillArrNum);
 
                     SpecialInteractive();
-                }
+
+                    Cursor.visible = false;
+            }
+            else
+            {
+                Cursor.visible = true;
+            }
 
             if (Input.GetKeyDown(KeyCode.F1))
             {
