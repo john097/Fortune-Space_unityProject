@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0f9bc41a07f315e4cbaae7da129cdbb0, type: 2}
+  - {fileID: 2100000, guid: 08533c0d1f8fb0544b6cb5f3796c5008, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -117,6 +117,7 @@ MonoBehaviour:
   repel: 0
   lockOnTarget: {fileID: 0}
   isFollowActor: 0
+  destoryDelay: 0
   destoryAfterCollision: 1
   destoryAfterCollisionWithActor: 0
   destoryIfSkillBeCancel: 0
@@ -128,6 +129,7 @@ MonoBehaviour:
   buffPrefabs: []
   bulletSons: []
   createEffect: {fileID: 0}
+  alignTheMuzzlePosition: 0
   hitEffect: {fileID: 0}
   destroyEffect: {fileID: 0}
   actor: {fileID: 0}

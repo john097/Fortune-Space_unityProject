@@ -27,6 +27,8 @@ public class mon_follow : Action
 
 	public override TaskStatus OnUpdate()
 	{
+        //gameObject.layer = LayerMask.NameToLayer("Enemy");
+
         if (!mons_actor.isAlive)
         {
             navMeshAgent.enabled = false;
