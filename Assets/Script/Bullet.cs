@@ -301,23 +301,25 @@ public class Bullet : MonoBehaviour
             }
 
             //时停判定
-            if (killTargetMakeTimeSlow)
-            {
-                if (!a || !a.isAlive)
-                {
-                    if (hitChangeTimeScaleTime > 0)
-                    {
-                        ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
-                    }
-                }
-            }
-            else
-            {
-                if (hitChangeTimeScaleTime > 0)
-                {
-                    ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
-                }
-            }
+            //if (killTargetMakeTimeSlow)
+            //{
+            //    if (!a || !a.isAlive)
+            //    {
+            //        if (hitChangeTimeScaleTime > 0)
+            //        {
+            //            ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    if (hitChangeTimeScaleTime > 0)
+            //    {
+            //        ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
+            //    }
+            //}
+
+            ChangeTimeScaleFunc(0.8f, 0.2f);
         }
     }
 

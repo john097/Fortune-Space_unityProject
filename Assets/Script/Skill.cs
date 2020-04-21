@@ -552,7 +552,11 @@ public  class Skill : MonoBehaviour
         //播放技能动画
         actor.StartAnim(thisSkillAnimState,thisSkillAnimSpeed, thisSkillSpeedNum);
 
-        actor.SetSteping(isStepSkill);
+        if (isStepSkill)
+        {
+            actor.SetSteping(isStepSkill);
+        }
+        
 
         //克隆攻击预警
         if (actor.aWarning)
