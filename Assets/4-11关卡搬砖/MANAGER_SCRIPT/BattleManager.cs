@@ -74,12 +74,16 @@ public class BattleManager : MonoBehaviour
         Player = GameObject.Find("Actor").GetComponent<Actor>();
         player_tf = GameObject.Find("Actor").transform;
 
-        camera_follow = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
+        if (gameObject.scene.name != "SpawnRoom")
+        {
+            camera_follow = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
 
-        camera = GameObject.Find("Main Camera");
+            camera = GameObject.Find("Main Camera");
 
-        camera_follow.m_Follow = player_tf;
-        Player.FollowCamera = camera;
+            camera_follow.m_Follow = player_tf;
+            Player.FollowCamera = camera;
+        }
+        
 
          flowchart = GameObject.Find("Flowchart1").GetComponent<Flowchart>();
         dialog_manager = GetComponent<Dialog_Manager>();
@@ -111,6 +115,11 @@ public class BattleManager : MonoBehaviour
 
         switch (PlayerPrefs.GetInt("Current_State"))//关卡开始传送到出生房
         {
+            //case -2:
+            //    BornRoom_tf = GameObject.Find("SpawnRoom_BornZoom").transform;
+            //    player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
+            //    break;
+
             case 0:
                 Player.TakeDamege(-(Player.maxHeal * 0.5f));//新关卡回血
                 BornRoom_tf = GameObject.Find("Tutorial-Born_Zoom").transform;
@@ -469,7 +478,23 @@ public class BattleManager : MonoBehaviour
         }
         if (flowchart.GetBooleanVariable("SceneChange"))//传送到下一关卡，当前关卡数+1
         {
+            if (gameObject.scene.name == "Spawn_Room")
+            {
+                PlayerPrefs.SetInt("Spawn_To_Level_1", 1);
+                //if (flowchart.GetIntegerVariable("Spawn_Room_Choose")==2)
+                //{
+                //    PlayerPrefs.SetInt("Spawn_To_Level_1", 1);
+                  
+                //}
+                //if (flowchart.GetIntegerVariable("Spawn_Room_Choose") == 1)
+                //{
+                //    PlayerPrefs.DeleteKey("Spawn_To_Level_1");
+
+                //}
+            }
+
             State_Up();
+
         }
             
 
@@ -509,8 +534,8 @@ public class BattleManager : MonoBehaviour
         switch (PlayerPrefs.GetInt("Current_State"))
         {
             case 1:
-                MAX_MON_NUMS = Random.Range(5, 7);
-                Monster_Waves = Random.Range(2, 4);
+                MAX_MON_NUMS = Random.Range(5, 6);
+                Monster_Waves = Random.Range(2, 3);
                 break;
             case 2:
                 MAX_MON_NUMS = Random.Range(5, 9);

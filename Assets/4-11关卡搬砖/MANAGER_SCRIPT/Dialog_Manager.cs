@@ -36,7 +36,7 @@ public class Dialog_Manager : MonoBehaviour
     public void State_Start_Talks()
     {
 
-        if (DM_MANAGER.In_New_State)//第一关开场对话
+        if (DM_MANAGER.In_New_State)//教程关卡开场对话
         {
             if(PlayerPrefs.GetInt("Current_State") == 0)
             {
@@ -46,7 +46,7 @@ public class Dialog_Manager : MonoBehaviour
 
             }
 
-            if (PlayerPrefs.GetInt("Current_State") == 1)
+            if (PlayerPrefs.GetInt("Current_State") == 1)//第一关开场对话
             {
                 flowchart.SendFungusMessage("State_1_Start");
                
@@ -134,6 +134,11 @@ public class Dialog_Manager : MonoBehaviour
 
     public void TP_Talk()//传送对话
     {
+        if (PlayerPrefs.GetInt("Current_State") == -2)
+        {
+            flowchart.SendFungusMessage("SpawnRoom_Talk_TP");
+        }
+
         if (PlayerPrefs.GetInt("Current_State") == 0)
         {
             flowchart.SendFungusMessage("State_0_Talk_TP");

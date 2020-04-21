@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Fungus;
 public class Start_Scene_Change : MonoBehaviour
 {
     private Actor actor;
@@ -14,30 +15,43 @@ public class Start_Scene_Change : MonoBehaviour
         {
             PlayerPrefs.SetInt("Current_State", -1);
         }
+        else if(gameObject.scene.name == "SpawnRoom")
+        {
+            PlayerPrefs.SetInt("Current_State", -2);
+        }
         else
         {
             actor = GameObject.Find("Actor").GetComponent<Actor>();
             actor_g = GameObject.Find("Actor");
         }
+
+        
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(gameObject.scene.name != "Start_Scene")
-        {
-            if (!actor.isAlive)
-            {
-                Defeat_UI.SetActive(true);
+        //if(gameObject.scene.name != "Start_Scene")
+        //{
+        //    if (gameObject.scene.name != "SpawnRoom ")
+        //    {
+        //        if (!actor.isAlive)
+        //        {
+        //            Defeat_UI.SetActive(true);
 
-                if (Input.anyKeyDown)
-                {
-                    Destroy(actor_g);
-                    SceneManager.LoadScene("Start_Scene");
-                }
-            }
-        }
+        //            if (Input.anyKeyDown)
+        //            {
+        //                Destroy(actor_g);
+        //                SceneManager.LoadScene("Start_Scene");
+        //            }
+        //        }
+        //    }
+               
+        //}
+
+
+
     }
 
     public void Start_Button_Onclick()
