@@ -8,14 +8,18 @@ public class Start_Scene_Change : MonoBehaviour
     private Actor actor;
     private GameObject actor_g;
     public GameObject Defeat_UI;
+    private string scene_name;
     // Start is called before the first frame update
     void Start()
     {
-        if (gameObject.scene.name == "Start_Scene")
+        PlayerPrefs.DeleteAll();
+
+        scene_name = SceneManager.GetActiveScene().name;
+        if (scene_name == "Start_Scene")
         {
             PlayerPrefs.SetInt("Current_State", -1);
         }
-        else if(gameObject.scene.name == "SpawnRoom")
+        else if(scene_name == "SpawnRoom")
         {
             PlayerPrefs.SetInt("Current_State", -2);
         }
