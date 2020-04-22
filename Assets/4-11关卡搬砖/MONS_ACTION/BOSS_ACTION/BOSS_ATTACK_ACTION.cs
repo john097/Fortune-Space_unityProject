@@ -94,7 +94,7 @@ public class BOSS_ATTACK_ACTION : Action
         if (mons_actor.isAlive && !usingskill_Attack.Value && !Num_Borning.Value)//生成行为随机数
         {
             Action_Num.Value = Random.Range(0, 2);//随机行为数
-            Action_Time.Value = Random.Range(2f, 5f);//随机行动公共CD
+            Action_Time.Value = Random.Range(2f, 4f);//随机行动公共CD
             Num_Borning.Value = true;
         }
 
