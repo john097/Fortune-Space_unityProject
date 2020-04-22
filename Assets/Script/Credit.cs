@@ -29,4 +29,6 @@ public class Credit : MonoBehaviour
     {
         playerCredit += i;
     }
+
+
 }

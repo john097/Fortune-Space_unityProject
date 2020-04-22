@@ -50,4 +50,9 @@ public class AimIconFollowMouse : MonoBehaviour
         f[1] = sf;
         c[1] = sc;
     }
+
+    public void ReloadIcon()
+    {
+
+    }
 }
