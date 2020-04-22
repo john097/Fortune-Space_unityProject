@@ -22,8 +22,6 @@ public class Start_Scene_Change : MonoBehaviour
         else if (scene_name == "SpawnRoom")
         {
             PlayerPrefs.SetInt("Current_State", -2);
-            actor = GameObject.Find("Actor").GetComponent<Actor>();
-            actor_g = GameObject.Find("Actor");
         }
         else
         {
@@ -62,23 +60,23 @@ public class Start_Scene_Change : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (scene_name != "Start_Scene")
-        {
-            if (scene_name != "SpawnRoom ")
-            {
-                if (!actor.isAlive)
-                {
-                    Defeat_UI.SetActive(true);
+        //if(gameObject.scene.name != "Start_Scene")
+        //{
+        //    if (gameObject.scene.name != "SpawnRoom ")
+        //    {
+        //        if (!actor.isAlive)
+        //        {
+        //            Defeat_UI.SetActive(true);
 
-                    if (Input.anyKeyDown)
-                    {
-                        Destroy(actor_g);
-                        SceneManager.LoadScene("Start_Scene");
-                    }
-                }
-            }
-
-        }
+        //            if (Input.anyKeyDown)
+        //            {
+        //                Destroy(actor_g);
+        //                SceneManager.LoadScene("Start_Scene");
+        //            }
+        //        }
+        //    }
+               
+        //}
 
 
 

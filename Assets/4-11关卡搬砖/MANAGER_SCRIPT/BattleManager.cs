@@ -10,9 +10,6 @@ using Cinemachine;
 
 public class BattleManager : MonoBehaviour
 {
-
-    
-    
     public Player_IN_Room S0_ROOM;
     public Player_IN_Room[] S1_ROOM;//第一关房间列表
     public Player_IN_Room[] S2_ROOM;
@@ -536,7 +533,6 @@ public class BattleManager : MonoBehaviour
             if (Image_found)
             {
                 black.DOFade(1, 0.5f);
-               
                 StartCoroutine(State_Up_IE(1f));
             }
             else
