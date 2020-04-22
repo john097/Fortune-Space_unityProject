@@ -160,6 +160,8 @@ public class Actor : MonoBehaviour
 
     private const string weaponPrefabsPaths = "Prefabs/Weapons/";
 
+    private Credit playerCredit;
+
 
     [HideInInspector]
     public bool BeAttacked;//**DISON.ver**用于怪物巡逻判断（若被攻击，则终止巡逻）
@@ -175,6 +177,8 @@ public class Actor : MonoBehaviour
             thisAnimator = gameObject.transform.Find("ActorModel").GetComponent<Animator>();
         }
 
+
+        playerCredit = GameObject.FindGameObjectWithTag("Player").GetComponent<Credit>();
         nowThisTakeWeapon = weaponType.非武器;
         heal = maxHeal;
         lookAtTag = true;
@@ -917,7 +921,8 @@ public class Actor : MonoBehaviour
 
             if (GameObject.FindGameObjectWithTag("Player"))
             {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Credit>().AddPlayerCredit(actorCredit);
+                playerCredit.AddPlayerCredit(actorCredit);
+                playerCredit.AddKillstreaksNum();
             }
 
             gameObject.GetComponent<BoxCollider>().enabled = false;
