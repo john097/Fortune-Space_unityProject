@@ -39,19 +39,19 @@ public class UEScript : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Actor>();
             playerCredit = player.gameObject.GetComponent<Credit>();
 
-            healImage = gameObject.transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<Image>();
+            healImage = GameObject.Find("I_Health").gameObject.GetComponent<Image>();
 
             skills = new Image[4];
-            skills[0] = gameObject.transform.GetChild(1).transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Image>();
-            skills[1] = gameObject.transform.GetChild(1).transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<Image>();
-            skills[2] = gameObject.transform.GetChild(1).transform.GetChild(2).transform.GetChild(0).gameObject.GetComponent<Image>();
-            skills[3] = gameObject.transform.GetChild(1).transform.GetChild(3).transform.GetChild(0).gameObject.GetComponent<Image>();
+            for (int i = 0; i < 4; i++)
+            {
+                skills[i] = gameObject.transform.GetChild(0).transform.GetChild(1).transform.GetChild(i).transform.GetChild(0).gameObject.GetComponent<Image>();
+            }
 
-            creditText = gameObject.transform.GetChild(2).transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Text>();
-            ammoText = gameObject.transform.GetChild(2).transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<Text>();
+            creditText = GameObject.Find("T_Credit").gameObject.GetComponent<Text>();
+            ammoText = GameObject.Find("T_Ammo").gameObject.GetComponent<Text>();
 
-            weaponNameText = gameObject.transform.GetChild(3).transform.GetChild(0).gameObject.GetComponent<Text>();
-            weaponIcon = gameObject.transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<Image>();
+            //weaponNameText = gameObject.transform.GetChild(3).transform.GetChild(0).gameObject.GetComponent<Text>();
+            weaponIcon = GameObject.Find("I_Weapon").gameObject.GetComponent<Image>();
         }
         else if(enemyHealBar)
         {
@@ -152,7 +152,7 @@ public class UEScript : MonoBehaviour
         //武器信息
         if (player.skillArrNum == 0)
         {
-            UpdateText(player.Skills_0[0].skillName,weaponNameText);
+            //UpdateText(player.Skills_0[0].skillName,weaponNameText);
             weaponIcon.sprite = player.Skills_0[0].skillIcon;
         }
         else if (player.skillArrNum == 1)
