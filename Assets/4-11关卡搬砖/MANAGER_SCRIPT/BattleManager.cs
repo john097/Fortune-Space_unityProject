@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
+using UnityEngine.UI;
+using DG.Tweening;
 using UnityEngine.SceneManagement;
 using Cinemachine.Utility;
 using Cinemachine;
@@ -19,7 +21,8 @@ public class BattleManager : MonoBehaviour
 
     Actor Player;
     Stage PP;
-
+    Image black;
+    private bool Image_found = false;
     private int checknum_a;
     private int sum;
 
@@ -71,7 +74,12 @@ public class BattleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if (GameObject.Find("Fade_IN_OUT_Image"))//淡入淡出
+        {
+            black = GameObject.Find("Fade_IN_OUT_Image").GetComponent<Image>();
+            black.DOFade(0, 2);
+            Image_found = true;
+        }
 
         Player = GameObject.Find("Actor").GetComponent<Actor>();
         player_tf = GameObject.Find("Actor").transform;
@@ -521,15 +529,30 @@ public class BattleManager : MonoBehaviour
 
         if (flowchart.GetBooleanVariable("SceneChange"))//传送到下一关卡，当前关卡数+1
         {
-           
+            if (Image_found)
+            {
+                black.DOFade(1, 0.5f);
+                StartCoroutine(State_Up_IE(1f));
+            }
+            else
+            {
+                State_Up();
+            }
 
-            State_Up();
+           
 
         }
 
         
 
 
+    }
+
+    IEnumerator State_Up_IE(float duration)
+    {
+        
+        yield return new WaitForSeconds(duration);
+        State_Up();
     }
 
     public void State_Up() //场景切换

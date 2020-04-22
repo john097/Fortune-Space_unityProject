@@ -7,9 +7,12 @@ public class TP_GATE_Rotate : MonoBehaviour
 {
     private Transform Actor;
     private PlayerArrowScript Arrow;
+ 
     // Start is called before the first frame update
     void Start()
     {
+
+
         if (PlayerPrefs.GetInt("Current_State") != -2)
         {
             Actor = GameObject.Find("Actor").transform;
