@@ -46,9 +46,9 @@ public class Credit : MonoBehaviour
         if (killstreaksTimer >= killstreaksTime)
         {
             AddPlayerCredit(killstreaksCredit * killstreaksNum);
-            ResetKillstreaksNum();
+            killstreaksNum = 0;
         }
-        else if(killstreaksNum >= 2)
+        else
         {
             killstreaksTimer += Time.deltaTime;
         }
@@ -71,23 +71,9 @@ public class Credit : MonoBehaviour
     }
 
     //重置连杀奖励
-    public void ResetKillstreaksNum()
+    private void ResetKillstreaksNum()
     {
         killstreaksTimer = killstreaksTime + 1;
-        killstreaksNum = 0;
-    }
-
-    public void AddKillstreaksNum()
-    {
-        killstreaksNum += 1;
-        if (killstreaksTimer < killstreaksTime && killstreaksTimer > 0)
-        {
-            killstreaksTimer = 0;
-        }
-        else if(killstreaksTimer >= killstreaksTime && killstreaksNum >= 2)
-        {
-            killstreaksTimer = 0;
-        }
     }
 
 

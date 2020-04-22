@@ -10,9 +10,6 @@ using Cinemachine;
 
 public class BattleManager : MonoBehaviour
 {
-
-    
-    
     public Player_IN_Room S0_ROOM;
     public Player_IN_Room[] S1_ROOM;//第一关房间列表
     public Player_IN_Room[] S2_ROOM;
@@ -22,6 +19,8 @@ public class BattleManager : MonoBehaviour
     Actor Player;
     Stage PP;
     Image black;
+    Credit player_combo_kill;
+
     private bool Image_found = false;
     private int checknum_a;
     private int sum;
@@ -82,6 +81,8 @@ public class BattleManager : MonoBehaviour
         }
 
         Player = GameObject.Find("Actor").GetComponent<Actor>();
+        player_combo_kill= GameObject.Find("Actor").GetComponent<Credit>();
+
         player_tf = GameObject.Find("Actor").transform;
 
         if (gameObject.scene.name != "SpawnRoom")
@@ -532,7 +533,6 @@ public class BattleManager : MonoBehaviour
             if (Image_found)
             {
                 black.DOFade(1, 0.5f);
-               
                 StartCoroutine(State_Up_IE(1f));
             }
             else
@@ -567,6 +567,8 @@ public class BattleManager : MonoBehaviour
         if (MON_NUMS > 0)
         {
             MON_NUMS -= 1;
+            player_combo_kill.ResetKillstreaksNum();
+
             Debug.Log(MON_NUMS);
         }
     }
