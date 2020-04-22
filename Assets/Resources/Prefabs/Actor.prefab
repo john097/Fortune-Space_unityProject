@@ -331,11 +331,13 @@ MonoBehaviour:
   thisAnimator: {fileID: 0}
   lookAtTag: 0
   isTakingTool: 0
+  isOpeningPlayerMenu: 0
   nowThisTakeWeapon: 0
   nowThisTakeWeaponNum: 0
   recoverTimeScaleTimer: 0
   hitChangeTimeScaleTime: 0
   uiTips_SpecialInteractive: {fileID: 0}
+  playerMenu: {fileID: 0}
   BeAttacked: 0
   isTalking: 0
 --- !u!136 &6899225971329745431
@@ -735,7 +737,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b80cd5487821c0d45ae777dcbb10521f, type: 2}
+      objectReference: {fileID: 2100000, guid: 57b17b2c4bf6cbb48a62c68c5ca98b30, type: 2}
     - target: {fileID: 4474818580322844752, guid: fc5b4c3cb75b6b7449a35ee0e1ecf2a7,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -746,6 +748,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: e2322a7381e5a1644b4fe2b023159143, type: 2}
+    - target: {fileID: 3777782156933746448, guid: fc5b4c3cb75b6b7449a35ee0e1ecf2a7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 80af3143a4b311346ab05626e75040c5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc5b4c3cb75b6b7449a35ee0e1ecf2a7, type: 3}
 --- !u!4 &4335477334256637508 stripped
