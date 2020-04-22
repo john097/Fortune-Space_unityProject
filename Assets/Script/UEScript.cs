@@ -157,7 +157,7 @@ public class UEScript : MonoBehaviour
         }
         else if (player.skillArrNum == 1)
         {
-            UpdateText(player.Skills_1[0].skillName, weaponNameText);
+            //UpdateText(player.Skills_1[0].skillName, weaponNameText);
             weaponIcon.sprite = player.Skills_1[0].skillIcon;
         }
     }

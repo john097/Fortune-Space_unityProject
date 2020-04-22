@@ -51,8 +51,8 @@ public class AimIconFollowMouse : MonoBehaviour
         c[1] = sc;
     }
 
-    public void ReloadIcon()
+    public void ReloadIcon(int i)
     {
-
+        thisRenderer.material.SetInt("_Mode3", i);
     }
 }

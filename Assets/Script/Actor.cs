@@ -991,6 +991,7 @@ public class Actor : MonoBehaviour
             if (!uiTips_SpecialInteractive)
             {
                 uiTips_SpecialInteractive = Instantiate(Resources.Load("UIPrefabs/Image_SpecialInteractive") as GameObject, GameObject.Find("Canvas").transform);
+                uiTips_SpecialInteractive.transform.SetSiblingIndex(0);
             }
         }
     }
