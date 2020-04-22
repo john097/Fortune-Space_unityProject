@@ -22,6 +22,8 @@ public class BattleManager : MonoBehaviour
     Actor Player;
     Stage PP;
     Image black;
+    Credit player_combo_kill;
+
     private bool Image_found = false;
     private int checknum_a;
     private int sum;
@@ -82,6 +84,8 @@ public class BattleManager : MonoBehaviour
         }
 
         Player = GameObject.Find("Actor").GetComponent<Actor>();
+        player_combo_kill= GameObject.Find("Actor").GetComponent<Credit>();
+
         player_tf = GameObject.Find("Actor").transform;
 
         if (gameObject.scene.name != "SpawnRoom")
@@ -567,6 +571,8 @@ public class BattleManager : MonoBehaviour
         if (MON_NUMS > 0)
         {
             MON_NUMS -= 1;
+            player_combo_kill.ResetKillstreaksNum();
+
             Debug.Log(MON_NUMS);
         }
     }
