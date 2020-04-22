@@ -41,14 +41,14 @@ public class Text_Effect : MonoBehaviour
                 StartCoroutine(FadeInText(timeMultiplier, textToUse));
                 StartCoroutine(FadeInText(timeMultiplier, text_english));
 
-                StartCoroutine(MoveObject(start, middle,move_time));
+                //StartCoroutine(MoveObject(start, middle,move_time));
             }
             else
             {
                 StartCoroutine(FadeOutText(timeMultiplier, textToUse));
                 StartCoroutine(FadeOutText(timeMultiplier, text_english));
 
-                StartCoroutine(MoveObject(middle,end , move_time));
+                //StartCoroutine(MoveObject(middle,end , move_time));
             }
         }
         
@@ -63,7 +63,7 @@ public class Text_Effect : MonoBehaviour
             StartCoroutine(FadeOutText(timeMultiplier, textToUse));
             StartCoroutine(FadeOutText(timeMultiplier, text_english));
 
-            StartCoroutine(MoveObject(middle, end, move_time));
+            //StartCoroutine(MoveObject(middle, end, move_time));
             A = false;
         }
     }
