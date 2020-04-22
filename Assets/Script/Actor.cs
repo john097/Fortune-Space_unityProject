@@ -195,7 +195,7 @@ public class Actor : MonoBehaviour
         {
             CameraDirUpdata();
 
-                if (!isTakingTool && !isTalking && !isOpeningPlayerMenu)
+            if (!isTakingTool && !isTalking && !isOpeningPlayerMenu)
                 {
                     Skill(skillArrNum);
 
