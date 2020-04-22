@@ -536,9 +536,19 @@ public  class Skill : MonoBehaviour
                 reloadTimer = 0;
                 reloadFlag = false;
                 ammoNum = ammoNumLimit;
+
+                if (AimIcon)
+                {
+                    AimIcon.ReloadIcon(0);
+                }
             }
             else
             {
+                if (AimIcon)
+                {
+                    AimIcon.ReloadIcon(1);
+                }
+
                 reloadTimer += Time.deltaTime;
             }
         }
