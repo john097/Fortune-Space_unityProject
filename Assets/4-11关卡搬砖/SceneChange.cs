@@ -71,7 +71,7 @@ public class SceneChange : MonoBehaviour
                 while (Start_Change)
                 {
                     
-                    async.allowSceneActivation = false; 
+                    
                     if(timer> wait_time)
                     {
                         async.allowSceneActivation = true;

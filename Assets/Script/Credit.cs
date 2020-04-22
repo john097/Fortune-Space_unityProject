@@ -71,7 +71,7 @@ public class Credit : MonoBehaviour
     }
 
     //重置连杀奖励
-    private void ResetKillstreaksNum()
+    public void ResetKillstreaksNum()
     {
         killstreaksTimer = killstreaksTime + 1;
     }
