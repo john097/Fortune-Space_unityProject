@@ -21,7 +21,22 @@ public class SceneChange : MonoBehaviour
         timer = 0;
         black =GameObject.Find("Fade_IN_OUT_Image").GetComponent<Image>();
         black.DOFade(0, 2);
+        
+        if (PlayerPrefs.GetInt("Spawn_To_Level_1") == 1)
+        {
+            Start_Change = true;
+            StartCoroutine("LoadScene2");
+           
 
+        }
+        else
+        {
+            Start_Change = true;
+            StartCoroutine("LoadScene");
+            
+
+            Debug.Log("!=1");
+        }
 
     }
 
@@ -38,22 +53,7 @@ public class SceneChange : MonoBehaviour
             fade_out = true;
         }
 
-        if (timer > wait_time&& !Start_Change)
-        {
-            if (PlayerPrefs.GetInt("Spawn_To_Level_1") == 1)
-            {
-                StartCoroutine("LoadScene2");
-                Start_Change = true;
-
-            }
-            else
-            {
-                StartCoroutine("LoadScene");
-                Start_Change = true;
-
-                Debug.Log("!=1");
-            }
-        }
+        
         
     }
 
@@ -63,12 +63,22 @@ public class SceneChange : MonoBehaviour
             switch (PlayerPrefs.GetInt("Current_State"))
             {
                 case -2:
-                    PlayerPrefs.SetInt("Current_State", 0);
-                    async = SceneManager.LoadSceneAsync("Tutorial Scene");
-                //async.allowSceneActivation = true;
                 
+                PlayerPrefs.SetInt("Current_State", 0);
+                async = SceneManager.LoadSceneAsync("Tutorial Scene");
+                async.allowSceneActivation = false;
 
+                while (Start_Change)
+                {
                     
+                    
+                    if(timer> wait_time)
+                    {
+                        async.allowSceneActivation = true;
+                        Start_Change = false;
+                    }
+                }
+                
                     break;
 
 
@@ -76,34 +86,39 @@ public class SceneChange : MonoBehaviour
                 case -1:
                     PlayerPrefs.SetInt("Current_State", -2);
                     async = SceneManager.LoadSceneAsync("SpawnRoom");
-                    //async.allowSceneActivation = true;
-                   
-                    break;
+                //async.allowSceneActivation = true;
+                async.allowSceneActivation = false;
+
+                break;
 
                 case 0:
                     PlayerPrefs.SetInt("Current_State", 1);
                     async = SceneManager.LoadSceneAsync("Level 1 Scene");
-                    //async.allowSceneActivation = true;
-                    
-                    break;
+                //async.allowSceneActivation = true;
+                async.allowSceneActivation = false;
+
+                break;
                 case 1:
                     PlayerPrefs.SetInt("Current_State", 2);
                     async = SceneManager.LoadSceneAsync("Level 2  Scene 1");
-                    //async.allowSceneActivation = true;
-                    
+                //async.allowSceneActivation = true;
+                async.allowSceneActivation = false;
+
                 break;
 
                 case 2:
                     PlayerPrefs.SetInt("Current_State", 3);
                     async = SceneManager.LoadSceneAsync("Level 3");
-                    //async.allowSceneActivation = true;
-                    
+                //async.allowSceneActivation = true;
+                async.allowSceneActivation = false;
+
                 break;
                 case 3:
                     PlayerPrefs.SetInt("Current_State", 4);
                     async = SceneManager.LoadSceneAsync("BossRoom");
-                    //async.allowSceneActivation = true;
-                   
+                //async.allowSceneActivation = true;
+                async.allowSceneActivation = false;
+
                 break;
             }
         
@@ -117,7 +132,8 @@ public class SceneChange : MonoBehaviour
         PlayerPrefs.SetInt("Current_State", 1);
         async = SceneManager.LoadSceneAsync("Level 1 Scene");
         //async.allowSceneActivation = true;
-        
+        async.allowSceneActivation = false;
+
 
         yield return null;
     }

@@ -181,6 +181,11 @@ public class UEScript : MonoBehaviour
                 healImage.color = Color.green;
             }
         }
+
+        if (!player.isAlive)
+        {
+            DestroySelf();
+        }
     }
 
     private void PlayerMenuUpdate()
