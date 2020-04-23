@@ -590,8 +590,8 @@ public class BattleManager : MonoBehaviour
         switch (PlayerPrefs.GetInt("Current_State"))
         {
             case 1:
-                MAX_MON_NUMS = Random.Range(5, 6);
-                Monster_Waves = Random.Range(2, 3);
+                MAX_MON_NUMS = Random.Range(4,6);
+                Monster_Waves = Random.Range(1,2);
                 break;
             case 2:
                 MAX_MON_NUMS = Random.Range(5, 9);

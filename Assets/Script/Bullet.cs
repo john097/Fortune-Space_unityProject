@@ -246,27 +246,68 @@ public class Bullet : MonoBehaviour
         if (a.gameObject.layer == LayerMask.NameToLayer("Enemy")  || a.gameObject.layer == LayerMask.NameToLayer("Actor"))
         {
             float d = damage;
+            string dTipString = "";
+            Color dTipColor = Color.white;
+            GameObject dTip = null;
 
             //计算易伤倍率
             if (a.vulnerabilityBuff)
             {
                 d = d * vulnerabilityPercent;
-            }
-
-            //克制关系
-            if (thisSpType == Actor.specialType.远 && a.thisSpType == Actor.specialType.近)
-            {
-                d *= 2;
-            }
-            else if (thisSpType == Actor.specialType.近 && a.thisSpType == Actor.specialType.远)
-            {
-                d *= 2;
+                dTipColor = Color.blue;
             }
 
             if (isSustained)
             {
                 d *= Time.deltaTime;
             }
+
+            //克制关系
+            if (thisSpType == Actor.specialType.远 && a.thisSpType == Actor.specialType.近)
+            {
+                d *= 2;
+                dTipString = d + " Counter!";
+
+                if (dTipColor == Color.blue)
+                {
+                    dTipColor += Color.red;
+                }
+                else
+                {
+                    dTipColor = Color.red;
+                }
+
+            }
+            else if (thisSpType == Actor.specialType.近 && a.thisSpType == Actor.specialType.远)
+            {
+                d *= 2;
+                dTipString = d + " Counter!";
+
+                if (dTipColor == Color.blue)
+                {
+                    dTipColor += Color.red;
+                }
+                else
+                {
+                    dTipColor = Color.red;
+                }
+            }
+            else
+            {
+                dTipString = d.ToString();
+            }
+
+            if (a.tag == "ENEMY" && a.transform.Find("HpBar"))
+            {
+                dTip = Instantiate(Resources.Load("UIPrefabs/T_DamageTip") as GameObject , a.transform.Find("HpBar").transform);
+                dTip.GetComponent<UEScript>().damageTipText = dTipString;
+                dTip.GetComponent<UEScript>().damageTipColor = dTipColor;
+            }
+
+            //if (isSustained)
+            //{
+            //    d *= Time.deltaTime;
+            //}
 
             //造成伤害
             a.TakeDamege(d);
@@ -298,6 +339,8 @@ public class Bullet : MonoBehaviour
                 {
                     GameObject b = Instantiate(buffPrefabs[i]);
                     b.GetComponent<Buff>().SetTarget(a);
+
+                    //斩杀判定
                     if (b.GetComponent<Buff>().thisType == Buff.buffType.斩杀20)
                     {
                         if (a.heal < (a.maxHeal * 0.2))
@@ -308,10 +351,18 @@ public class Bullet : MonoBehaviour
                                 {
                                     ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
                                     skillParent.coolDownTimer = skillParent.coolDownTime - 0.5f;
+                                    if (dTip != null)
+                                    {
+                                        dTip.GetComponent<UEScript>().damageTipText = "Eliminate!";
+                                        dTip.GetComponent<UEScript>().damageTipColor = Color.black;
+                                    }
+                                    
                                 }
                             }
                         }
                     }
+
+
                     b.transform.parent = null;
                 }
             }
@@ -410,46 +461,50 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy") || other.gameObject.layer == LayerMask.NameToLayer("Actor"))
+        if (!isSustained)
         {
-            Actor a = other.gameObject.GetComponent<Actor>();
-            if (a)
+            if (other.gameObject.layer == LayerMask.NameToLayer("Enemy") || other.gameObject.layer == LayerMask.NameToLayer("Actor"))
             {
-                HitTargetFunc(a);
+                Actor a = other.gameObject.GetComponent<Actor>();
+                if (a)
+                {
+                    HitTargetFunc(a);
+                }
+            }
+            else if (other.gameObject.layer == LayerMask.NameToLayer("Tool"))
+            {
+                Stage s = other.gameObject.GetComponent<Stage>();
+                s.TakeDamege(damage);
+            }
+            else if (other.gameObject.layer == LayerMask.NameToLayer("EnemyBullet"))
+            {
+                if (hitChangeTimeScaleTime > 0)
+                {
+                    ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
+                }
+            }
+
+            if (hitEffect)
+            {
+                CreateEffect(hitEffect, false, false);
+            }
+
+            if (skillVariantEvent)
+            {
+                skillParent.UseSkillVariant();
+            }
+
+            if (destoryTarget)
+            {
+                Destroy(other.gameObject);
+            }
+
+            if (other.gameObject && destoryAfterCollisionWithActor && other.gameObject == actor.gameObject)
+            {
+                DestroyBullet();
             }
         }
-        else if (other.gameObject.layer == LayerMask.NameToLayer("Tool"))
-        {
-            Stage s = other.gameObject.GetComponent<Stage>();
-            s.TakeDamege(damage);
-        }
-        else if (other.gameObject.layer == LayerMask.NameToLayer("EnemyBullet"))
-        {
-            if (hitChangeTimeScaleTime > 0)
-            {
-                ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
-            }
-        }
-
-        if (hitEffect)
-        {
-            CreateEffect(hitEffect,false,false);
-        }
-
-        if (skillVariantEvent)
-        {
-            skillParent.UseSkillVariant();
-        }
-
-        if (destoryTarget)
-        {
-            Destroy(other.gameObject);
-        }
-
-        if (other.gameObject && destoryAfterCollisionWithActor && other.gameObject == actor.gameObject)
-        {
-            DestroyBullet();
-        }
+        
 
 
         //碰撞后是否销毁自身
@@ -463,33 +518,34 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        //if (isSustained)
-        //{
-        //    Actor a = other.gameObject.GetComponent<Actor>();
-        //    if (a)
-        //    {
-        //        HitTargetFunc(a);
-        //    }
-
-        //    if (skillVariantEvent)
-        //    {
-        //        skillParent.UseSkillVariant();
-        //    }
-        //}
-
-        Actor a = other.gameObject.GetComponent<Actor>();
-        buff_timer += Time.deltaTime;
-
-        if (a && isSustained && buff_timer >= BUFF_CD)
+        if (isSustained)
         {
-            HitTargetFunc(a);
-            buff_timer = 0;
+            Actor a = other.gameObject.GetComponent<Actor>();
+            if (a)
+            {
+                //HitTargetFunc(a);
+                if (buff_timer > BUFF_CD)
+                {
+                    HitTargetFunc(a);
+                    buff_timer = 0;
+                    
+
+
+                }
+                else
+                {
+                    buff_timer += Time.deltaTime;
+                }
+               
+            }
+
+            if (skillVariantEvent)
+            {
+                skillParent.UseSkillVariant();
+            }
         }
-        if (skillVariantEvent && isSustained && buff_timer >= BUFF_CD)
-        {
-            skillParent.UseSkillVariant();
-            buff_timer = 0;
-        }
+
+        
 
     }
 
