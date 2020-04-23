@@ -15,6 +15,9 @@ public class UEScript : MonoBehaviour
     [Tooltip("个人信息界面")]
         public bool playerMenu;
 
+    [Tooltip("伤害提示")]
+        public bool DamageTip;
+
     private Text[] messages;
 
     Actor player;
@@ -30,6 +33,13 @@ public class UEScript : MonoBehaviour
     private int selectingSkill;
 
     GameObject followPlayerCamera;
+
+    [HideInInspector]
+        public string damageTipText;
+    [HideInInspector]
+    public Color damageTipColor;
+    private float damageTipTimer;
+    public float damageTipTime;
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +87,13 @@ public class UEScript : MonoBehaviour
 
             creditText = gameObject.transform.GetChild(1).transform.GetChild(6).transform.GetChild(0).gameObject.GetComponent<Text>();
         }
+        else if (DamageTip)
+        {
+            damageTipTimer = 0;
+            transform.Rotate(0,180,0);
+            GetComponent<Text>().text = damageTipText;
+            GetComponent<Text>().color = damageTipColor;
+        }
     }
 
     // Update is called once per frame
@@ -96,6 +113,11 @@ public class UEScript : MonoBehaviour
         if (playerMenu)
         {
             PlayerMenuUpdate();
+        }
+
+        if (DamageTip)
+        {
+            DamageTipUpdate();
         }
     }
 
@@ -184,7 +206,7 @@ public class UEScript : MonoBehaviour
 
         if (!player.isAlive)
         {
-            DestroySelf();
+            Destroy(gameObject.transform.GetChild(0));
         }
     }
 
@@ -239,6 +261,19 @@ public class UEScript : MonoBehaviour
         }
 
         creditText.text = playerCredit.playerCredit + "";
+    }
+
+    private void DamageTipUpdate()
+    {
+        if (damageTipTimer >= damageTipTime)
+        {
+            DestroySelf();
+        }
+        else
+        {
+            damageTipTimer += Time.deltaTime;
+            transform.position +=  new Vector3(0,Time.deltaTime,0);
+        }
     }
 
     public  void ChangeSelectingSkill(int i)

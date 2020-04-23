@@ -246,26 +246,62 @@ public class Bullet : MonoBehaviour
         if (a.gameObject.layer == LayerMask.NameToLayer("Enemy")  || a.gameObject.layer == LayerMask.NameToLayer("Actor"))
         {
             float d = damage;
+            string dTipString = "";
+            Color dTipColor = Color.white;
+            GameObject dTip = null;
 
             //计算易伤倍率
             if (a.vulnerabilityBuff)
             {
                 d = d * vulnerabilityPercent;
+                dTipColor = Color.blue;
+            }
+
+            if (isSustained)
+            {
+                d *= Time.deltaTime;
             }
 
             //克制关系
             if (thisSpType == Actor.specialType.远 && a.thisSpType == Actor.specialType.近)
             {
                 d *= 2;
+                dTipString = d + " Counter!";
+
+                if (dTipColor == Color.blue)
+                {
+                    dTipColor += Color.red;
+                }
+                else
+                {
+                    dTipColor = Color.red;
+                }
+
             }
             else if (thisSpType == Actor.specialType.近 && a.thisSpType == Actor.specialType.远)
             {
                 d *= 2;
+                dTipString = d + " Counter!";
+
+                if (dTipColor == Color.blue)
+                {
+                    dTipColor += Color.red;
+                }
+                else
+                {
+                    dTipColor = Color.red;
+                }
+            }
+            else
+            {
+                dTipString = d.ToString();
             }
 
-            if (isSustained)
+            if (a.tag == "ENEMY" && a.transform.Find("HpBar"))
             {
-                d *= Time.deltaTime;
+                dTip = Instantiate(Resources.Load("UIPrefabs/T_DamageTip") as GameObject , a.transform.Find("HpBar").transform);
+                dTip.GetComponent<UEScript>().damageTipText = dTipString;
+                dTip.GetComponent<UEScript>().damageTipColor = dTipColor;
             }
 
             //造成伤害
@@ -298,6 +334,8 @@ public class Bullet : MonoBehaviour
                 {
                     GameObject b = Instantiate(buffPrefabs[i]);
                     b.GetComponent<Buff>().SetTarget(a);
+
+                    //斩杀判定
                     if (b.GetComponent<Buff>().thisType == Buff.buffType.斩杀20)
                     {
                         if (a.heal < (a.maxHeal * 0.2))
@@ -308,10 +346,18 @@ public class Bullet : MonoBehaviour
                                 {
                                     ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
                                     skillParent.coolDownTimer = skillParent.coolDownTime - 0.5f;
+                                    if (dTip != null)
+                                    {
+                                        dTip.GetComponent<UEScript>().damageTipText = "Eliminate!";
+                                        dTip.GetComponent<UEScript>().damageTipColor = Color.black;
+                                    }
+                                    
                                 }
                             }
                         }
                     }
+
+
                     b.transform.parent = null;
                 }
             }
