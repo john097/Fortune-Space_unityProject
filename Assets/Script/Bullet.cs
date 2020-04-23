@@ -350,6 +350,12 @@ public class Bullet : MonoBehaviour
                                 if (a.isAlive)
                                 {
                                     ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
+
+                                    if (a.tag == "ENEMY")
+                                    {
+                                        actor.gameObject.GetComponent<Credit>().EliminateEvent();
+                                    }
+                                    
                                     skillParent.coolDownTimer = skillParent.coolDownTime - 0.5f;
                                     if (dTip != null)
                                     {

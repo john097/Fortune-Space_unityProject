@@ -9,10 +9,15 @@ public class Credit : MonoBehaviour
     public Text image_Credit;
 
     public float killstreaksTime;
-    private float killstreaksTimer;
+    public float killstreaksTimer;
     public int killstreaksCredit;
-    private int killstreaksNum;
-    private GameObject killstreaksUI;
+    public int killstreaksNum;
+    private Animator killstreaksUI;
+    private Text killstreaksUINum;
+
+    public int eliminateCredit;
+    private Animator eliminateUI;
+    private Text eliminateUINum;
 
     //Current_State关卡变量名
 
@@ -21,6 +26,11 @@ public class Credit : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("Player");
         killstreaksNum = 0;
+        killstreaksTimer = killstreaksTime +1;
+        killstreaksUI = GameObject.Find("T_Killstreak").GetComponent<Animator>();
+        killstreaksUINum = killstreaksUI.gameObject.GetComponent<Text>();
+        eliminateUI = GameObject.Find("T_Eliminate").GetComponent<Animator>();
+        eliminateUINum = eliminateUI.gameObject.GetComponent<Text>(); ;
     }
 
     // Update is called once per frame
@@ -56,16 +66,17 @@ public class Credit : MonoBehaviour
         if (killstreaksNum >= 2)
         {
             //出现连杀提示UI
-            if (!killstreaksUI)
+            if (killstreaksUI)
             {
-
+                killstreaksUI.SetInteger("i", 1);
+                killstreaksUINum.text = "Killstreak  × " + killstreaksNum;
             }
         }
         else
         {
             if (killstreaksUI)
             {
-                Destroy(killstreaksUI);
+                killstreaksUI.SetInteger("i", 2);
             }
         }
     }
@@ -76,7 +87,19 @@ public class Credit : MonoBehaviour
         killstreaksTimer = killstreaksTime + 1;
     }
 
+    public void AddKillstreaksNum()
+    {
+        killstreaksNum += 1;
+        killstreaksTimer = 0;
+    }
 
-    
+    public void EliminateEvent()
+    {
+        eliminateUI.SetTrigger("Start");
+        eliminateUINum.text = "Eliminate + " + eliminateCredit;
+        AddPlayerCredit(eliminateCredit);
+    }
+
+
 
 }
