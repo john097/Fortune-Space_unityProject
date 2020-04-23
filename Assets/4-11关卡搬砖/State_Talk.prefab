@@ -451,6 +451,10 @@ GameObject:
   - component: {fileID: 834105082581099615}
   - component: {fileID: 4853495676091585794}
   - component: {fileID: 3592226714754257255}
+  - component: {fileID: 174353180905393151}
+  - component: {fileID: 2534052560393967308}
+  - component: {fileID: 2154679375693116487}
+  - component: {fileID: 2178104278121301427}
   m_Layer: 0
   m_Name: Flowchart1
   m_TagString: Untagged
@@ -497,9 +501,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 2561595987675557326}
-  selectedCommands:
-  - {fileID: 8277113237074982511}
+  - {fileID: 174353180905393151}
+  selectedCommands: []
   variables:
   - {fileID: 1293630642147629910}
   - {fileID: 1293630642147629904}
@@ -10035,6 +10038,77 @@ MonoBehaviour:
   vector3Data:
     vector3Ref: {fileID: 0}
     vector3Val: {x: 0, y: 0, z: 0}
+--- !u!114 &174353180905393151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293630642147629918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: -1453.0867
+    y: 289.38803
+    width: 151.22449
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 340
+  blockName: Golden_Box_Start
+  description: 
+  eventHandler: {fileID: 2534052560393967308}
+  commandList:
+  - {fileID: 2154679375693116487}
+  - {fileID: 2178104278121301427}
+--- !u!114 &2534052560393967308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293630642147629918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 174353180905393151}
+  message: Golden_Box_Start
+--- !u!114 &2154679375693116487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293630642147629918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65d551a201c94bc79950076ff3eaf2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 341
+  indentLevel: 0
+  sayDialog: {fileID: 1293630642248617693}
+--- !u!114 &2178104278121301427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293630642147629918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b097b9790a8a1456a86bc4d322b487db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 342
+  indentLevel: 0
+  menuDialog: {fileID: 1293630642627743301}
 --- !u!1 &1293630642176868709
 GameObject:
   m_ObjectHideFlags: 0

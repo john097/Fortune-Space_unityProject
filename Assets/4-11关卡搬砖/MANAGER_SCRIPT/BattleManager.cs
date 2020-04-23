@@ -102,60 +102,13 @@ public class BattleManager : MonoBehaviour
 
         scene_name = SceneManager.GetActiveScene().name;
 
-        //switch (scene_name)
-        //{
-        //    case "Tutorial Scene":
-        //        PlayerPrefs.SetInt("Current_State", 0);
-        //        In_New_State = true;
-        //        break;
-        //    case "Level 1 Scene":
-        //        PlayerPrefs.SetInt("Current_State", 1);
-        //        In_New_State = true;
-        //        break;
-        //    case "Level 2  Scene 1":
-        //        PlayerPrefs.SetInt("Current_State", 2);
-        //        In_New_State = true;
-        //        break;
-        //    case "Level 3":
-        //        PlayerPrefs.SetInt("Current_State", 3);
-        //        In_New_State = true;
-        //        break;
-        //    case "BossRoom":
-        //        PlayerPrefs.SetInt("Current_State", 4);
-        //        In_New_State = true;
-        //        break;
-        //}
-
-        //if (scene_name == "Tutorial Scene")
-        //{
-        //    PlayerPrefs.SetInt("Current_State", 0);
-        //}
-        //if (scene_name == "Level 1 Scene")
-        //{
-        //    PlayerPrefs.SetInt("Current_State", 1);
-        //}
-        //if (scene_name == "Level 2  Scene 1")
-        //{
-        //    PlayerPrefs.SetInt("Current_State", 2);
-        //}
-        //if (scene_name == "Level 3")
-        //{
-        //    PlayerPrefs.SetInt("Current_State", 3);
-        //}
-        //if (scene_name == "BossRoom")
-        //{
-        //    PlayerPrefs.SetInt("Current_State", 4);
-        //}
-
+      
 
 
 
         switch (PlayerPrefs.GetInt("Current_State"))//关卡开始传送到出生房
         {
-            //case -2:
-            //    BornRoom_tf = GameObject.Find("SpawnRoom_BornZoom").transform;
-            //    player_tf.transform.position = new Vector3(BornRoom_tf.position.x, BornRoom_tf.position.y, BornRoom_tf.position.z);
-            //    break;
+         
 
             case 0:
                 Player.TakeDamege(-(Player.maxHeal * 0.5f));//新关卡回血
