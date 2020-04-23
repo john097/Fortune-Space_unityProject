@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 1068627628346324905}
   - component: {fileID: 5171555997899110819}
   - component: {fileID: 1126524911414747732}
+  - component: {fileID: 7451441140264001689}
+  - component: {fileID: 8150782647420663072}
   m_Layer: 10
   m_Name: MONSTER-2
   m_TagString: ENEMY
@@ -256,6 +258,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   B: 0
+--- !u!114 &7451441140264001689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126114607953071880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b3f38eaad5b054e9659878dc4fee2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &8150782647420663072
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126114607953071880}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.3, z: 0.3}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3006077160306790959
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,7 +859,7 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 7920930bac90e5b44ae57ccb03130e47, type: 2}
-    - target: {fileID: -2610755638356363046, guid: 4a5bf4eba3563074f9fa9a954114653b,
+    - target: {fileID: 1696094264978984491, guid: 4a5bf4eba3563074f9fa9a954114653b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -842,16 +869,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0beaac5ca61369e44b1585d8013e427a, type: 2}
-    - target: {fileID: 1696094264978984491, guid: 4a5bf4eba3563074f9fa9a954114653b,
+    - target: {fileID: -2610755638356363046, guid: 4a5bf4eba3563074f9fa9a954114653b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0beaac5ca61369e44b1585d8013e427a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a5bf4eba3563074f9fa9a954114653b, type: 3}
---- !u!4 &6136266353500853892 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 4a5bf4eba3563074f9fa9a954114653b,
+--- !u!1 &4343649262765417499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6046807560587765371, guid: 4a5bf4eba3563074f9fa9a954114653b,
     type: 3}
   m_PrefabInstance: {fileID: 1176232741159583134}
   m_PrefabAsset: {fileID: 0}
@@ -861,9 +888,9 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1176232741159583134}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4343649262765417499 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -6046807560587765371, guid: 4a5bf4eba3563074f9fa9a954114653b,
+--- !u!4 &6136266353500853892 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 4a5bf4eba3563074f9fa9a954114653b,
     type: 3}
   m_PrefabInstance: {fileID: 1176232741159583134}
   m_PrefabAsset: {fileID: 0}
