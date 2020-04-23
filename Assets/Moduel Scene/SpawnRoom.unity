@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: -2.9485993, y: 0.5844365, z: 3.8536546}
+  m_FollowOffset: {x: -2.9485993, y: 2.1644363, z: 3.8536546}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1021,8 +1021,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696843080}
-  m_LocalRotation: {x: 0.02711609, y: 0.9704719, z: -0.13118534, w: 0.20059782}
-  m_LocalPosition: {x: -2.93, y: 0.52000004, z: 1.9}
+  m_LocalRotation: {x: 0.075498655, y: 0.909312, z: -0.36283904, w: 0.18920769}
+  m_LocalPosition: {x: -2.93, y: 2.14, z: 1.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 28070687}
@@ -1374,6 +1374,7 @@ GameObject:
   - component: {fileID: 906071223}
   - component: {fileID: 906071222}
   - component: {fileID: 906071224}
+  - component: {fileID: 906071225}
   m_Layer: 0
   m_Name: CM vcam2
   m_TagString: Untagged
@@ -1425,7 +1426,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906071221}
-  m_LocalRotation: {x: 0.06396503, y: 0.78782296, z: -0.08303121, w: 0.60691786}
+  m_LocalRotation: {x: 0.063965015, y: 0.78782296, z: -0.083031185, w: 0.60691786}
   m_LocalPosition: {x: -1.23, y: 0.799, z: -7.305}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1463,6 +1464,21 @@ MonoBehaviour:
   m_Damping: 0
   m_DampingWhenOccluded: 0
   m_OptimalTargetDistance: 0
+--- !u!114 &906071225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906071221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d70cc20219cd84593f67d248eafe36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Offset: {x: 0, y: 0, z: 0}
+  m_ApplyAfter: 1
+  m_PreserveComposition: 0
 --- !u!1 &944208015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1813,6 +1829,12 @@ PrefabInstance:
 --- !u!4 &1210182014 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7062354942933976952, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1564473990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1230162644 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 6899225971329745431, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b,
     type: 3}
   m_PrefabInstance: {fileID: 1564473990}
   m_PrefabAsset: {fileID: 0}
@@ -3435,7 +3457,7 @@ Cloth:
   - maxDistance: 1
     collisionSphereDistance: 3.4028235e+38
   m_CapsuleColliders:
-  - {fileID: 0}
+  - {fileID: 1230162644}
   m_SphereColliders: []
   m_SelfCollisionDistance: 0
   m_SelfCollisionStiffness: 1
@@ -6745,7 +6767,7 @@ Cloth:
   - maxDistance: 1
     collisionSphereDistance: 3.4028235e+38
   m_CapsuleColliders:
-  - {fileID: 0}
+  - {fileID: 1230162644}
   m_SphereColliders: []
   m_SelfCollisionDistance: 0
   m_SelfCollisionStiffness: 1
