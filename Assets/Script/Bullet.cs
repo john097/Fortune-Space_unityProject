@@ -304,6 +304,11 @@ public class Bullet : MonoBehaviour
                 dTip.GetComponent<UEScript>().damageTipColor = dTipColor;
             }
 
+            //if (isSustained)
+            //{
+            //    d *= Time.deltaTime;
+            //}
+
             //造成伤害
             a.TakeDamege(d);
 
@@ -456,46 +461,50 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy") || other.gameObject.layer == LayerMask.NameToLayer("Actor"))
+        if (!isSustained)
         {
-            Actor a = other.gameObject.GetComponent<Actor>();
-            if (a)
+            if (other.gameObject.layer == LayerMask.NameToLayer("Enemy") || other.gameObject.layer == LayerMask.NameToLayer("Actor"))
             {
-                HitTargetFunc(a);
+                Actor a = other.gameObject.GetComponent<Actor>();
+                if (a)
+                {
+                    HitTargetFunc(a);
+                }
+            }
+            else if (other.gameObject.layer == LayerMask.NameToLayer("Tool"))
+            {
+                Stage s = other.gameObject.GetComponent<Stage>();
+                s.TakeDamege(damage);
+            }
+            else if (other.gameObject.layer == LayerMask.NameToLayer("EnemyBullet"))
+            {
+                if (hitChangeTimeScaleTime > 0)
+                {
+                    ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
+                }
+            }
+
+            if (hitEffect)
+            {
+                CreateEffect(hitEffect, false, false);
+            }
+
+            if (skillVariantEvent)
+            {
+                skillParent.UseSkillVariant();
+            }
+
+            if (destoryTarget)
+            {
+                Destroy(other.gameObject);
+            }
+
+            if (other.gameObject && destoryAfterCollisionWithActor && other.gameObject == actor.gameObject)
+            {
+                DestroyBullet();
             }
         }
-        else if (other.gameObject.layer == LayerMask.NameToLayer("Tool"))
-        {
-            Stage s = other.gameObject.GetComponent<Stage>();
-            s.TakeDamege(damage);
-        }
-        else if (other.gameObject.layer == LayerMask.NameToLayer("EnemyBullet"))
-        {
-            if (hitChangeTimeScaleTime > 0)
-            {
-                ChangeTimeScaleFunc(hitChangeTimeScale, hitChangeTimeScaleTime);
-            }
-        }
-
-        if (hitEffect)
-        {
-            CreateEffect(hitEffect,false,false);
-        }
-
-        if (skillVariantEvent)
-        {
-            skillParent.UseSkillVariant();
-        }
-
-        if (destoryTarget)
-        {
-            Destroy(other.gameObject);
-        }
-
-        if (other.gameObject && destoryAfterCollisionWithActor && other.gameObject == actor.gameObject)
-        {
-            DestroyBullet();
-        }
+        
 
 
         //碰撞后是否销毁自身
@@ -509,33 +518,34 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        //if (isSustained)
-        //{
-        //    Actor a = other.gameObject.GetComponent<Actor>();
-        //    if (a)
-        //    {
-        //        HitTargetFunc(a);
-        //    }
-
-        //    if (skillVariantEvent)
-        //    {
-        //        skillParent.UseSkillVariant();
-        //    }
-        //}
-
-        Actor a = other.gameObject.GetComponent<Actor>();
-        buff_timer += Time.deltaTime;
-
-        if (a && isSustained && buff_timer >= BUFF_CD)
+        if (isSustained)
         {
-            HitTargetFunc(a);
-            buff_timer = 0;
+            Actor a = other.gameObject.GetComponent<Actor>();
+            if (a)
+            {
+                //HitTargetFunc(a);
+                if (buff_timer > BUFF_CD)
+                {
+                    HitTargetFunc(a);
+                    buff_timer = 0;
+                    
+
+
+                }
+                else
+                {
+                    buff_timer += Time.deltaTime;
+                }
+               
+            }
+
+            if (skillVariantEvent)
+            {
+                skillParent.UseSkillVariant();
+            }
         }
-        if (skillVariantEvent && isSustained && buff_timer >= BUFF_CD)
-        {
-            skillParent.UseSkillVariant();
-            buff_timer = 0;
-        }
+
+        
 
     }
 
