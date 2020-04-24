@@ -280,31 +280,31 @@ public class Stage : MonoBehaviour
             }
             if (gameObject.tag == "Challenge_Box")//挑战箱
             {
-                
+                GetComponent<Challenge_Box_Room_Battle>().Box_Event();
 
-                for (int i = 0; i < actor.Tools.Length; i++)
-                {
-                    if (actor.Tools[i] == gameObject)
-                    {
-                        actor.Tools[i] = null;
-                        break;
-                    }
-                }
+                //for (int i = 0; i < actor.Tools.Length; i++)
+                //{
+                //    if (actor.Tools[i] == gameObject)
+                //    {
+                //        actor.Tools[i] = null;
+                //        break;
+                //    }
+                //}
 
-                for (int i = 0; i < actor.Tools.Length; i++)
-                {
-                    if (actor.Tools[i] != null)
-                    {
-                        break;
-                    }
+                //for (int i = 0; i < actor.Tools.Length; i++)
+                //{
+                //    if (actor.Tools[i] != null)
+                //    {
+                //        break;
+                //    }
 
-                    if (i == actor.Tools.Length - 1 && actor.uiTips_SpecialInteractive)
-                    {
-                        Destroy(actor.uiTips_SpecialInteractive);
-                    }
-                }
+                //    if (i == actor.Tools.Length - 1 && actor.uiTips_SpecialInteractive)
+                //    {
+                //        Destroy(actor.uiTips_SpecialInteractive);
+                //    }
+                //}
 
-                DestroyImmediate(gameObject);
+                //DestroyImmediate(gameObject);
 
             }
 

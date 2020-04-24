@@ -27,10 +27,21 @@ public class Credit : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player");
         killstreaksNum = 0;
         killstreaksTimer = killstreaksTime +1;
-        killstreaksUI = GameObject.Find("T_Killstreak").GetComponent<Animator>();
-        killstreaksUINum = killstreaksUI.gameObject.GetComponent<Text>();
-        eliminateUI = GameObject.Find("T_Eliminate").GetComponent<Animator>();
-        eliminateUINum = eliminateUI.gameObject.GetComponent<Text>(); ;
+        //killstreaksUI = GameObject.Find("T_Killstreak").GetComponent<Animator>();
+        //killstreaksUINum = killstreaksUI.gameObject.GetComponent<Text>();
+        //eliminateUI = GameObject.Find("T_Eliminate").GetComponent<Animator>();
+        //eliminateUINum = eliminateUI.gameObject.GetComponent<Text>(); 
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if (level != 1 && level != 2)
+        {
+            killstreaksUI = GameObject.Find("T_Killstreak").GetComponent<Animator>();
+            killstreaksUINum = killstreaksUI.gameObject.GetComponent<Text>();
+            eliminateUI = GameObject.Find("T_Eliminate").GetComponent<Animator>();
+            eliminateUINum = eliminateUI.gameObject.GetComponent<Text>();
+        }
     }
 
     // Update is called once per frame

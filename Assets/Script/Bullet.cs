@@ -257,10 +257,7 @@ public class Bullet : MonoBehaviour
                 dTipColor = Color.blue;
             }
 
-            if (isSustained)
-            {
-                d *= Time.deltaTime;
-            }
+            
 
             //克制关系
             if (thisSpType == Actor.specialType.远 && a.thisSpType == Actor.specialType.近)
@@ -304,11 +301,7 @@ public class Bullet : MonoBehaviour
                 dTip.GetComponent<UEScript>().damageTipColor = dTipColor;
             }
 
-            //if (isSustained)
-            //{
-            //    d *= Time.deltaTime;
-            //}
-
+           
             //造成伤害
             a.TakeDamege(d);
 
@@ -530,19 +523,17 @@ public class Bullet : MonoBehaviour
             if (a)
             {
                 //HitTargetFunc(a);
-                if (buff_timer > BUFF_CD)
+                if (buff_timer >= BUFF_CD)
                 {
                     HitTargetFunc(a);
                     buff_timer = 0;
                     
-
-
                 }
                 else
                 {
                     buff_timer += Time.deltaTime;
                 }
-               
+
             }
 
             if (skillVariantEvent)

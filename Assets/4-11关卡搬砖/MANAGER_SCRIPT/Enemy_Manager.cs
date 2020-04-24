@@ -68,7 +68,8 @@ public class Enemy_Manager : MonoBehaviour
  
     Bound getBound(Transform tf)
     {
-        Vector3 center = tf.GetComponent<BoxCollider>().bounds.center;
+        //Vector3 center = tf.GetComponent<BoxCollider>().bounds.center;
+        Vector3 center = player_transform.position;
         Vector3 extents = tf.GetComponent<BoxCollider>().bounds.extents;
         Vector3 dL = new Vector3(center.x - extents.x, center.y, center.z - extents.z);
         Vector3 dR = new Vector3(center.x + extents.x, center.y, center.z - extents.z);
@@ -160,24 +161,23 @@ public class Enemy_Manager : MonoBehaviour
 
             if (B_Manager.RoomClear)//完成关底，生成传送门
             {
-                if (ME.this_room_type == 3)
+                if (PlayerPrefs.GetInt("Current_State") != 0)
                 {
-                    int x = Random.Range(0, 10);
-                    int z = Random.Range(0, 10);
-                    GameObject tp_gate;
-                    tp_gate = Resources.Load(Prefabs + "TP_GATE") as GameObject;
+                    if (ME.this_room_type == 3)
+                    {
+                        int x = Random.Range(0, 10);
+                        int z = Random.Range(0, 10);
+                        GameObject tp_gate;
+                        tp_gate = Resources.Load(Prefabs + "TP_GATE") as GameObject;
 
-                    Vector3 pos = new Vector3(player_transform.position.x + x, player_transform.position.y, player_transform.position.z + z);
-                    Instantiate(tp_gate, pos, Quaternion.identity);
+                        Vector3 pos = new Vector3(player_transform.position.x + x, player_transform.position.y, player_transform.position.z + z);
+                        Instantiate(tp_gate, pos, Quaternion.identity);
 
-                    
+
+                    }
+
+                    GetComponent<Enemy_Manager>().enabled = false;
                 }
-
-                GetComponent<Enemy_Manager>().enabled = false;
-
-
-
-
             }
             if (Monster_CurrentWaves == B_Manager.Monster_Waves)
             {
