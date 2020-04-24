@@ -52,47 +52,20 @@ public class Player_IN_Room : MonoBehaviour
     void Update()
     {
 
-        if ((B_Manager.Protect_Room_Battle || B_Manager.Dead_Room_Battle) && !B_Manager.isTalking && !b)//生成房间围墙
-        {
-            var A = gameObject.transform.GetChild(2).gameObject;
-            A.SetActive(true);
-
-            b = true;
-            
-        }
+        
 
 
         if (this_room_type == 3 && gameObject.tag == ("S1-ROOM") && !a)//守护据点关卡触发器
         {
-            var A = gameObject.transform.GetChild(0).gameObject;
-            A.SetActive(true);
+           
             if (ProtectPoint.heal <= 0)
             {
                 B_Manager.PP_Dead = true;
-                A.SetActive(false);
+                
                 a = true;
             }
            
         }
-
-
-        if (this_room_type == 3 && gameObject.tag==("S2-ROOM") && !a)//死斗房间触发器
-        {
-            var A = gameObject.transform.GetChild(1).gameObject;
-            A.SetActive(true);
-            
-            a = true;
-        }
-
-        if (this_room_type == 3 && gameObject.tag == ("S3-ROOM") && !a)
-        {
-           
-
-            a = true;
-        }
-
-
-
     }
 
 
@@ -110,8 +83,6 @@ public class Player_IN_Room : MonoBehaviour
 
         if (other.gameObject == player_collider && inroom_started == false && this_room_type == 1)//开始普通房战斗
         {
-            var A = gameObject.transform.GetChild(2).gameObject;//生成围墙
-            A.SetActive(true);
 
             PlayerInRoom = true;
             inroom_started = true;
@@ -168,8 +139,6 @@ public class Player_IN_Room : MonoBehaviour
 
             if (PlayerPrefs.GetInt("Current_State") == 3)
             {
-                var A = gameObject.transform.GetChild(2).gameObject;//生成围墙
-                A.SetActive(true);
 
                 GetComponent<Enemy_Manager>().enabled = true;
                 GetComponent<Player_IN_Room>().enabled = false;
@@ -188,24 +157,9 @@ public class Player_IN_Room : MonoBehaviour
             }
 
             GetComponent<Enemy_Manager>().enabled = true;
-            //GetComponent<Player_IN_Room>().enabled = false;
-            
-            //B_Manager.Special_Battle_Start();
 
         }
 
-        //if (other.gameObject == player_collider && inroom_started == false && this_room_type == 3&&B_Manager.Current_State==2)//Boss房战斗
-        //{
-        //    PlayerInRoom = true;
-        //    inroom_started = true;  
-        //    B_Manager.RoomClear = false;
-            
-
-        //    GetComponent<Enemy_Manager>().enabled = true;
-        //    GetComponent<Player_IN_Room>().enabled = false;
-           
-
-        //}
     }
 
 

@@ -68,7 +68,8 @@ public class Enemy_Manager : MonoBehaviour
  
     Bound getBound(Transform tf)
     {
-        Vector3 center = tf.GetComponent<BoxCollider>().bounds.center;
+        //Vector3 center = tf.GetComponent<BoxCollider>().bounds.center;
+        Vector3 center = player_transform.position;
         Vector3 extents = tf.GetComponent<BoxCollider>().bounds.extents;
         Vector3 dL = new Vector3(center.x - extents.x, center.y, center.z - extents.z);
         Vector3 dR = new Vector3(center.x + extents.x, center.y, center.z - extents.z);
