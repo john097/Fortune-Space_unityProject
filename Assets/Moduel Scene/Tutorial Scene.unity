@@ -2531,7 +2531,10 @@ MonoBehaviour:
   playerCredit: 0
   image_Credit: {fileID: 0}
   killstreaksTime: 100
+  killstreaksTimer: 0
   killstreaksCredit: 100
+  killstreaksNum: 0
+  eliminateCredit: 0
 --- !u!4 &565751708
 Transform:
   m_ObjectHideFlags: 0
@@ -2878,7 +2881,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634500544}
   m_LocalRotation: {x: 0.42660013, y: 0.33944437, z: -0.17670354, w: 0.8194912}
-  m_LocalPosition: {x: 29949.227, y: -60135.27, z: 29641.033}
+  m_LocalPosition: {x: 29967.49, y: -60172.113, z: 29659.297}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 275733619}
@@ -4420,11 +4423,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6900564327279435769, guid: fc5b4c3cb75b6b7449a35ee0e1ecf2a7,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b80cd5487821c0d45ae777dcbb10521f, type: 2}
     - target: {fileID: 4474818580322844752, guid: fc5b4c3cb75b6b7449a35ee0e1ecf2a7,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4435,6 +4433,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: e2322a7381e5a1644b4fe2b023159143, type: 2}
+    - target: {fileID: 6900564327279435769, guid: fc5b4c3cb75b6b7449a35ee0e1ecf2a7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b80cd5487821c0d45ae777dcbb10521f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc5b4c3cb75b6b7449a35ee0e1ecf2a7, type: 3}
 --- !u!1001 &979656989
@@ -8348,6 +8351,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504745308943760385, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -8.0998535
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ada0cca816dfde4a8344abc30515f40, type: 3}
