@@ -27,27 +27,32 @@ public class CamShake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
+        if (vCam)
         {
-            CameraShake(new Vector3(1,1,currentOffset.z));
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                CameraShake(new Vector3(1, 1, currentOffset.z));
+            }
+
+            if (!shaking)
+            {
+                vCam.m_Offset = Vector3.Lerp(t, currentOffset, recoverSpeed);
+
+            }
+            else
+            {
+                vCam.m_Offset = Vector3.Lerp(t, changeOffset, shakeSpeed);
+            }
+
+            t = vCam.m_Offset;
+
+            if (t == changeOffset)
+            {
+                shaking = false;
+            }
         }
 
-        if (!shaking)
-        {
-            vCam.m_Offset = Vector3.Lerp(t, currentOffset, recoverSpeed);
-
-        }
-        else
-        {
-            vCam.m_Offset = Vector3.Lerp(t, changeOffset, shakeSpeed);
-        }
-
-        t = vCam.m_Offset;
-
-        if (t == changeOffset)
-        {
-            shaking = false;
-        }
+        
     }
 
     public void CameraShake(Vector3 cO)
