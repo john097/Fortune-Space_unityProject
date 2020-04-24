@@ -28,14 +28,14 @@ public class PlayerArrowScript : MonoBehaviour
     {
 
         
-        if (Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             StartArrow();
         }
 
 
-
-        if (Input.GetKeyDown(KeyCode.F2))
+        
+        if (Input.GetKeyDown(KeyCode.Y))
         {
             DestroyArrow();
         }

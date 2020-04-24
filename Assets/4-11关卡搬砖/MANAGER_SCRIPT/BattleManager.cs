@@ -70,6 +70,7 @@ public class BattleManager : MonoBehaviour
     public GameObject camera;
 
     public string scene_name;
+    public GameObject TP_GATE;
     // Start is called before the first frame update
     void Start()
     {
@@ -330,6 +331,7 @@ public class BattleManager : MonoBehaviour
             if (flowchart.GetIntegerVariable("Tutorial_Process") == 2)
             {
                 float A = GameObject.FindGameObjectWithTag("ENEMY").GetComponent<Actor>().heal;
+
                 float B= GameObject.FindGameObjectWithTag("ENEMY").GetComponent<Actor>().maxHeal;
 
                 if (A <= (B * 0.2f)&& !tutorial_talking)
@@ -359,6 +361,11 @@ public class BattleManager : MonoBehaviour
                     }
                     
                 }
+            }
+
+            if(flowchart.GetIntegerVariable("Tutorial_Process") == 5)
+            {
+                TP_GATE.SetActive(true);
             }
 
         }
@@ -412,6 +419,7 @@ public class BattleManager : MonoBehaviour
             if (GameObject.FindGameObjectWithTag("ENEMY"))
             {
                 GameObject[] enemys = GameObject.FindGameObjectsWithTag("ENEMY");
+
                 for (int i = 0; i < enemys.Length; i++)
                 {
                     enemys[i].GetComponent<Actor>().GoDie();

@@ -94,6 +94,11 @@ public class Dialog_Manager : MonoBehaviour
 
         if (flowchart.GetIntegerVariable("Tutorial_Process") == 4)
         {
+            flowchart.SendFungusMessage("Tutorial_GateSearch_Start");
+        }
+
+        if (flowchart.GetIntegerVariable("Tutorial_Process") == 5)
+        {
             flowchart.SendFungusMessage("Tutorial_Finish");
         }
     }
