@@ -530,19 +530,16 @@ public class Bullet : MonoBehaviour
             if (a)
             {
                 //HitTargetFunc(a);
-                if (buff_timer > BUFF_CD)
-                {
-                    HitTargetFunc(a);
-                    buff_timer = 0;
-                    
-
-
+                if (buff_timer < BUFF_CD)
+                {                   
+                    buff_timer += Time.deltaTime;
                 }
                 else
                 {
-                    buff_timer += Time.deltaTime;
+                    HitTargetFunc(a);
+                    buff_timer = 0;
                 }
-               
+
             }
 
             if (skillVariantEvent)

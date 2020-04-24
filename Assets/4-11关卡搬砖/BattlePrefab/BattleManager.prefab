@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -7349179175009823006}
   - component: {fileID: 196777751652471133}
   - component: {fileID: 1730898669388111212}
+  - component: {fileID: 15802621425268565}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: BattleManager
@@ -89,6 +90,8 @@ MonoBehaviour:
   tutorial_talking: 0
   camera_follow: {fileID: 0}
   camera: {fileID: 0}
+  scene_name: 
+  TP_GATE: {fileID: 0}
 --- !u!114 &-7349179175009823006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,3 +132,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22127c89a991ad543874a8e1d0b9a3a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Defeat_UI: {fileID: 0}
+--- !u!114 &15802621425268565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691841457939105296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762d0cc7ccd768f48be8b9742087a2c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 0}
+  target: []

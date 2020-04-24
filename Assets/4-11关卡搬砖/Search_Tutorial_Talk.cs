@@ -32,11 +32,11 @@ public class Search_Tutorial_Talk : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * 30);
 
+        
         if (flowchart.GetIntegerVariable("Tutorial_Process") == 5)
         {
-            
+            transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * 50);
             Airwall.SetActive(false);
            
         }
