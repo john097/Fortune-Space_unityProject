@@ -206,7 +206,11 @@ public class UEScript : MonoBehaviour
 
         if (!player.isAlive)
         {
-            Destroy(gameObject.transform.GetChild(0));
+            if (gameObject.transform.Find("Slider_Heal"))
+            {
+                Destroy(gameObject.transform.Find("Slider_Heal").gameObject);
+            }
+            
         }
     }
 
@@ -267,7 +271,7 @@ public class UEScript : MonoBehaviour
     {
         if (damageTipTimer >= damageTipTime)
         {
-            DestroySelf();
+            Destroy(gameObject);
         }
         else
         {
