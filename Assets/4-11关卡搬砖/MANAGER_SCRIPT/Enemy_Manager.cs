@@ -59,28 +59,40 @@ public class Enemy_Manager : MonoBehaviour
         B_Manager = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattleManager>();
     }
 
-    
-
-        
 
 
 
- 
+
+
+
     Bound getBound(Transform tf)
     {
-        //Vector3 center = tf.GetComponent<BoxCollider>().bounds.center;
-        Vector3 center = player_transform.position;
+       
+            Vector3 player_center = player_transform.position;
+            Vector3 extents = tf.GetComponent<BoxCollider>().bounds.extents;
+            Vector3 dL = new Vector3(player_center.x - extents.x, player_center.y, player_center.z - extents.z);
+            Vector3 dR = new Vector3(player_center.x + extents.x, player_center.y, player_center.z - extents.z);
+            Vector3 sR = new Vector3(player_center.x + extents.x, player_center.y, player_center.z + extents.z);
+            Vector3 sL = new Vector3(player_center.x - extents.x, player_center.y, player_center.z + extents.z);
+            Bound bound = new Bound(dL, dR, sR, sL, player_center, player_center.y);
+
+        return bound;
+    }
+
+    Bound getBound2(Transform tf)
+    {
+
+        Vector3 center = tf.GetComponent<BoxCollider>().bounds.center;
         Vector3 extents = tf.GetComponent<BoxCollider>().bounds.extents;
         Vector3 dL = new Vector3(center.x - extents.x, center.y, center.z - extents.z);
         Vector3 dR = new Vector3(center.x + extents.x, center.y, center.z - extents.z);
         Vector3 sR = new Vector3(center.x + extents.x, center.y, center.z + extents.z);
         Vector3 sL = new Vector3(center.x - extents.x, center.y, center.z + extents.z);
-        Bound bound = new Bound(dL, dR, sR, sL, center,center.y);
-        
+        Bound bound = new Bound(dL, dR, sR, sL, center, center.y);
+
         return bound;
     }
-   
-    
+
 
 
     // Update is called once per frame
@@ -195,7 +207,7 @@ public class Enemy_Manager : MonoBehaviour
 
     public void StoreBorn()//生成商店
     {
-        Bound bound = getBound(gameObject.transform);
+        Bound bound = getBound2(gameObject.transform);
         Vector3 pos = new Vector3(bound.center.x, bound.y+2, bound.center.z);
         GameObject Store;
 
@@ -206,7 +218,7 @@ public class Enemy_Manager : MonoBehaviour
 
     public void ToolBorn()//生成道具
     {
-        Bound bound = getBound(gameObject.transform);
+        Bound bound = getBound2(gameObject.transform);
         Vector3 pos = new Vector3(bound.center.x, bound.y, bound.center.z);
         GameObject Tool;
 
