@@ -866,6 +866,7 @@ public class Actor : MonoBehaviour
     //受伤函数响应
     public void TakeDamege(float i)
     {
+        BeAttacked = true;
         if (isAlive)
         {
             if (vulnerabilityBuff)

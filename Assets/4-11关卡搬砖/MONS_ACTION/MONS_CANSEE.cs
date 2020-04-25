@@ -21,8 +21,6 @@ public class MONS_CANSEE : Conditional
 
     private NavMeshAgent navMeshAgent;
     private Actor mons_actor;
-    public float patrol_distance;//随机巡逻的距离
-    public float patrol_cd;//随机巡逻的时间间隔
     float random_x;
     float random_z;
     float timer;
@@ -40,8 +38,8 @@ public class MONS_CANSEE : Conditional
 
         if (PlayerPrefs.GetInt("Current_State") == 0)
         {
-            mons_actor.maxHeal = 500;
-            mons_actor.heal = 500;
+            mons_actor.maxHeal = 1500;
+            mons_actor.heal = 1500;
         }
 
 
@@ -60,55 +58,32 @@ public class MONS_CANSEE : Conditional
         }
 
         dis = Vector3.Distance(transform.position ,target.Value.position);
-        timer += Time.deltaTime;
-        
-        if(PlayerPrefs.GetInt("Current_State") != 0)
-        {
-
-            if (mons_actor.isAlive)
-            {
-                if (timer > patrol_cd)//随机巡逻
-                {
-
-                    random_x = Random.Range(transform.position.x - patrol_distance, transform.position.x + patrol_distance);
-                    random_z = Random.Range(transform.position.z - patrol_distance, transform.position.z + patrol_distance);
-
-                    navMeshAgent.SetDestination(new Vector3(random_x, transform.position.y, random_z));
-                    timer = 0;
-                }
-            }
-            
-        }
-
-        
-
+  
         if (PlayerPrefs.GetInt("Current_State")==0)
         {
             navMeshAgent.enabled = false;
             return TaskStatus.Running;
         }
 
-
         if (dis < CanSeeDistance.Value)
         {
-            navMeshAgent.enabled = false;
+            mons_actor.BeAttacked = false;
             return TaskStatus.Success;
         }
+
         if (mons_actor.BeAttacked)
         {
-            navMeshAgent.enabled = false;
+
             return TaskStatus.Success;
         }
+
+       
+       
         if (MC_manager.Protect_Room_Battle)//若为保护据点战，则直接追击据点，不需要巡逻
         {
             return TaskStatus.Success;
         }
-        //if(dis> CanSeeDistance.Value)
-        //{
-        //    return TaskStatus.Failure;
-        //}
-
-        return TaskStatus.Running;
+        return TaskStatus.Failure;
 	}
 
 

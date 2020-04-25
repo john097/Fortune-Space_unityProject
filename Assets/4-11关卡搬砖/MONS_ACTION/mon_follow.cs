@@ -10,7 +10,7 @@ public class mon_follow : Action
     private Actor mons_actor;
     private BattleManager mf_manager;
     private NavMeshAgent navMeshAgent;
-    Vector3 PLAYER;
+    GameObject PLAYER;
     Vector3 ProtectPoint;
     float player_distance;
 
@@ -18,11 +18,14 @@ public class mon_follow : Action
 
     public override void OnStart()
 	{
-        //agent = GetComponent<MON_AGENT>();
+       
         mons_actor = GetComponent<Actor>();
         doing_sth = false;
         navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.enabled = true;
         mf_manager = GameObject.Find("BattleManager").GetComponent<BattleManager>();
+        PLAYER = GameObject.Find("Actor");
+        
     }
 
 	public override TaskStatus OnUpdate()
@@ -35,15 +38,6 @@ public class mon_follow : Action
             return TaskStatus.Success;
         }
 
-        if (mf_manager.Protect_Room_Battle)
-        {
-            ProtectPoint = GameObject.Find("ProtectPoint").transform.position;//获取据点的位置
-        }
-        PLAYER = GameObject.Find("Actor").transform.position;//获取玩家位置
-        
-        
-        
-
         if (mons_actor.isAlive)
         {
             navMeshAgent.enabled = true;
@@ -53,15 +47,17 @@ public class mon_follow : Action
             }
             else
             {
-                navMeshAgent.SetDestination(PLAYER);
+                navMeshAgent.SetDestination(PLAYER.transform.position);
             }
-                
-            
+
         }
-      
-        
 
-
+        if (mf_manager.Protect_Room_Battle)
+        {
+            ProtectPoint = GameObject.Find("ProtectPoint").transform.position;
+        }
+       
+  
             return TaskStatus.Running;
        
 	}
