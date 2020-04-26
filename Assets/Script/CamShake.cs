@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CamShake : MonoBehaviour
 {
-    private CinemachineCameraOffset vCam;
+    public CinemachineCameraOffset vCam;
     private Vector3 currentOffset;
     private Vector3 t;
     private Vector3 changeOffset;
