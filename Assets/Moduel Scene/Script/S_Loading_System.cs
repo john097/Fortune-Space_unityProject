@@ -14,7 +14,7 @@ public class S_Loading_System : MonoBehaviour
     void Start()
     {
         text.text = v_rs[(int)Random.Range(0, v_rs.Length)];
-        os.transform.eulerAngles = new Vector3(Random.Range(0,60), Random.Range(0, 60), Random.Range(0, 60));
+        os.transform.eulerAngles = new Vector3(Random.Range(-60,60), Random.Range(-60, 60), Random.Range(-60, 60));
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class S_Loading_System : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            os.transform.eulerAngles = new Vector3(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
+            os.transform.eulerAngles = new Vector3(Random.Range(-60, 60), Random.Range(-60, 60), Random.Range(-60, 60));
         }
         if (Input.GetMouseButton(2))
         {
