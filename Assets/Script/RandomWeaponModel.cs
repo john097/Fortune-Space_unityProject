@@ -11,8 +11,10 @@ public class RandomWeaponModel : MonoBehaviour
     {
         weaponModelPath = "Prefabs/Weapons";
 
-        int[] wHArr = GetRandomSequence(46);
+        int[] wHArr = GetRandomSequence(55);
         int j = 0;
+
+        //wHArr[0] = 48;
 
         if (0<=wHArr[0] && wHArr[0] <= 8)
         {
@@ -20,48 +22,50 @@ public class RandomWeaponModel : MonoBehaviour
             j = wHArr[0] - 0;
             weaponModelPath += "/Pistol/Pistol_" + j;
         }
-        else if (9 <= wHArr[0] && wHArr[0] <= 16)
+        else if (9 <= wHArr[0] && wHArr[0] <= 15)
         {
             //冲锋枪
             j = wHArr[0] - 9;
             weaponModelPath += "/SMG/SMG_" + j;
         }
-        else if (17 <= wHArr[0] && wHArr[0] <= 26)
+        else if (16 <= wHArr[0] && wHArr[0] <= 24)
         {
             //霰弹枪
-            j = wHArr[0] - 17;
+            j = wHArr[0] - 16;
             weaponModelPath += "/ShotGun/ShotGun_" + j;
         }
-        else if (27 <= wHArr[0] && wHArr[0] <= 36)
+        else if (25 <= wHArr[0] && wHArr[0] <= 33)
         {
             //狙击枪
-            j = wHArr[0] - 27;
+            j = wHArr[0] - 25;
             weaponModelPath += "/Sniper/Sniper_" + j;
         }
-        else if (37 <= wHArr[0] && wHArr[0] <= 52)
+        else if (34 <= wHArr[0] && wHArr[0] <= 48)
         {
             //武士刀
-            j = wHArr[0] - 37;
+            j = wHArr[0] - 34;
             weaponModelPath += "/Katana/Katana_" + j;
         }
-        else if (53 <= wHArr[0] && wHArr[0] <= 59)
+        else if (49 <= wHArr[0] && wHArr[0] <= 54)
         {
             //大锤
-            j = wHArr[0] - 53;
+            j = wHArr[0] - 49;
             weaponModelPath += "/Hammer/Hammer_" + j;
         }
+
+        Debug.Log(weaponModelPath);
 
         GameObject a = Instantiate(Resources.Load(weaponModelPath), gameObject.transform) as GameObject;
         
         a.transform.localRotation = Quaternion.identity;
 
-        if (37 <= wHArr[0] && wHArr[0] <= 52)
+        if (34 <= wHArr[0] && wHArr[0] <= 48)
         {
             //武士刀
             a.transform.localPosition = new Vector3(0, -40f, 0);
             a.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         }
-        else if (53 <= wHArr[0] && wHArr[0] <= 59)
+        else if (49 <= wHArr[0] && wHArr[0] <= 54)
         {
             //锤子
             a.transform.localPosition = new Vector3(0, -25f, 0);
@@ -69,7 +73,7 @@ public class RandomWeaponModel : MonoBehaviour
         }
         else
         {
-            a.transform.localPosition = Vector3.zero;
+            a.transform.localPosition = new Vector3(0, -10f, 0);
             a.transform.localScale = new Vector3(1, 1, 1);
         }
         

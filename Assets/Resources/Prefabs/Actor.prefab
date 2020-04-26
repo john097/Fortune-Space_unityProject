@@ -276,6 +276,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCredit: 0
   image_Credit: {fileID: 0}
+  killstreaksTime: 0
+  killstreaksTimer: 0
+  killstreaksCredit: 0
+  killstreaksNum: 0
+  eliminateCredit: 0
 --- !u!114 &4437975455191907812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,7 +355,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -686,7 +691,7 @@ PrefabInstance:
     - target: {fileID: 392904616934268557, guid: fc5b4c3cb75b6b7449a35ee0e1ecf2a7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 392904616934268557, guid: fc5b4c3cb75b6b7449a35ee0e1ecf2a7,
         type: 3}
