@@ -16,9 +16,19 @@ public class CamShake : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (transform.GetChild(transform.childCount).GetComponent<CinemachineCameraOffset>())
+        if (transform.Find("CM vcam1").gameObject.GetComponent<CinemachineCameraOffset>())
         {
-            vCam = transform.GetChild(transform.childCount).GetComponent<CinemachineCameraOffset>();
+            vCam = transform.Find("CM vcam1").gameObject.GetComponent<CinemachineCameraOffset>();
+            currentOffset = vCam.m_Offset;
+            changeOffset = currentOffset;
+        }
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if (transform.Find("CM vcam1").gameObject.GetComponent<CinemachineCameraOffset>())
+        {
+            vCam = transform.Find("CM vcam1").gameObject.GetComponent<CinemachineCameraOffset>();
             currentOffset = vCam.m_Offset;
             changeOffset = currentOffset;
         }
