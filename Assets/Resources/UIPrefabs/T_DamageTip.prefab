@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3668307953418249045}
   - component: {fileID: 3341836350192038441}
   - component: {fileID: -2769975712546656673}
+  - component: {fileID: 6871633820092623783}
   m_Layer: 9
   m_Name: T_DamageTip
   m_TagString: Untagged
@@ -97,4 +98,20 @@ MonoBehaviour:
   playerMenu: 0
   DamageTip: 1
   damageTipText: 
+  damageTipColor: {r: 0, g: 0, b: 0, a: 0}
   damageTipTime: 2
+--- !u!114 &6871633820092623783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2630580841568525026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.5188679, g: 0, b: 0.45478457, a: 0.5}
+  m_EffectDistance: {x: 5, y: -5}
+  m_UseGraphicAlpha: 1

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1165332611}
   - component: {fileID: 1165332610}
   - component: {fileID: 1165332609}
+  - component: {fileID: 1041389029835095457}
   m_Layer: 5
   m_Name: T_Killstreak
   m_TagString: Untagged
@@ -59,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9720799, g: 1, b: 0.08962262, a: 1}
+  m_Color: {r: 1, g: 0.98242074, b: 0.15566039, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -99,6 +100,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1041389029835095457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165332607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0.2969432, b: 1, a: 1}
+  m_EffectDistance: {x: 4, y: 0.08}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1971403957
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,6 +127,7 @@ GameObject:
   - component: {fileID: 1971403961}
   - component: {fileID: 1971403960}
   - component: {fileID: 1971403959}
+  - component: {fileID: 1237942093046245864}
   m_Layer: 5
   m_Name: T_Eliminate
   m_TagString: Untagged
@@ -198,6 +215,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1237942093046245864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971403957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 3.63, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &19097490465130107
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +335,7 @@ RectTransform:
   m_Children:
   - {fileID: 6831485828030130110}
   m_Father: {fileID: 5949023171016822467}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -530,11 +562,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 5949023172004010182}
   - {fileID: 1011105529987933574}
   - {fileID: 9132222683004054222}
   - {fileID: 9132222683346033853}
   - {fileID: 9132222683489873638}
-  - {fileID: 5949023172004010182}
   - {fileID: 5949023171443372521}
   m_Father: {fileID: 9132222683340667524}
   m_RootOrder: 0
@@ -686,7 +718,7 @@ RectTransform:
   m_Children:
   - {fileID: 5949023172040296999}
   m_Father: {fileID: 5949023171016822467}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -714,7 +746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5019608}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1941,7 +1973,7 @@ RectTransform:
   - {fileID: 9132222682038709501}
   - {fileID: 9132222681889263971}
   m_Father: {fileID: 5949023171016822467}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2195,7 +2227,7 @@ RectTransform:
   m_Children:
   - {fileID: 1439869759158575222}
   m_Father: {fileID: 5949023171016822467}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2271,7 +2303,7 @@ RectTransform:
   - {fileID: 9132222682703893528}
   - {fileID: 9132222683562691614}
   m_Father: {fileID: 5949023171016822467}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}

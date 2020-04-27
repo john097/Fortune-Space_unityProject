@@ -747,6 +747,10 @@ MonoBehaviour:
   fightingUI: 0
   enemyHealBar: 0
   playerMenu: 1
+  DamageTip: 0
+  damageTipText: 
+  damageTipColor: {r: 0, g: 0, b: 0, a: 0}
+  damageTipTime: 0
 --- !u!1 &6617740506470334232
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,8 +1769,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -29, y: -354}
-  m_SizeDelta: {x: 222.7, y: 30}
+  m_AnchoredPosition: {x: -29, y: -342.27}
+  m_SizeDelta: {x: 222.7, y: 17.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6617740507092547481
 CanvasRenderer:
@@ -1798,10 +1802,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 11aa39b1df78c994eb4f9a0ac1440f44, type: 3}
-    m_FontSize: 20
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
