@@ -240,22 +240,25 @@ public class Actor : MonoBehaviour
 
     private void CameraDirUpdata()
     {
-        Vector3 i = FollowCamera.transform.position;
-        Vector3 k = FollowCamera.transform.GetChild(0).transform.position;
-        i.y = 0;
-        k.y = 0;
+        if (FollowCamera)
+        {
+            Vector3 i = FollowCamera.transform.position;
+            Vector3 k = FollowCamera.transform.GetChild(0).transform.position;
+            i.y = 0;
+            k.y = 0;
 
-        cForward = k - i;
-        cForward = cForward.normalized;
+            cForward = k - i;
+            cForward = cForward.normalized;
 
-        i = FollowCamera.transform.position;
-        k = FollowCamera.transform.GetChild(1).transform.position;
+            i = FollowCamera.transform.position;
+            k = FollowCamera.transform.GetChild(1).transform.position;
 
-        i.y = 0;
-        k.y = 0;
+            i.y = 0;
+            k.y = 0;
 
-        cRight = k - i;
-        cRight = cRight.normalized;
+            cRight = k - i;
+            cRight = cRight.normalized;
+        }
     }
 
     private void Look()
@@ -475,7 +478,7 @@ public class Actor : MonoBehaviour
     //技能、攻击动画停止
     public void StopAnim()
     {
-        if (isPlayer)//DISON.VER{
+        if (isPlayer)//DISON.VER
         {
             thisAnimator.SetBool("NormalAttack", false);
 

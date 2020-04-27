@@ -104,6 +104,9 @@ public  class Skill : MonoBehaviour
     [Tooltip("位移技能位移速度")]
         public float stepSpeed;
 
+    [Tooltip("技能释放时震动")]
+        public CamShake.ShakeIntensity skillShake;
+
     [Tooltip("技能对应发射的子弹预支物")]
         public GameObject[] bulletPrefabs;//技能发射子弹
 
@@ -177,7 +180,6 @@ public  class Skill : MonoBehaviour
         coolDownFlag = true;
         reloadFlag = false;
         thisSkillClass = this.gameObject.GetComponent<Skill>();
-        //ammoNum = ammoNumLimit;
         comboNum = 0;
         thisSkillAnimTimer = 0;
 
@@ -606,6 +608,7 @@ public  class Skill : MonoBehaviour
 
             CastActionEndFunc();
 
+            //准星扩散
             AimIconEvent();
 
             //使用次数减一
@@ -648,6 +651,14 @@ public  class Skill : MonoBehaviour
             {
                 actor.speed += stepSpeed;
                 actor.SetSteping(true);
+            }
+
+            //模拟后坐力摄像机震动
+            if (skillShake != CamShake.ShakeIntensity.无 && actor.isPlayer && GameObject.Find("CM vcam1"))
+            {
+                Vector3 c = Camera.main.WorldToScreenPoint(transform.position) - Camera.main.WorldToScreenPoint(transform.position + transform.forward);
+
+                actor.FollowCamera.GetComponent<CamShake>().CameraShake(c, skillShake);
             }
 
             //技能第一次释放之后触发变体打断原技能
@@ -714,7 +725,7 @@ public  class Skill : MonoBehaviour
 
     public void AimIconEvent()
     {
-        if (AimIcon)
+        if (AimIcon && actor.isPlayer)
         {
             AimIcon.ShootingIconAnim(0.4f, Color.red);
         }

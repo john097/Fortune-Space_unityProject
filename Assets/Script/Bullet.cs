@@ -52,6 +52,9 @@ public class Bullet : MonoBehaviour
     [Tooltip("子弹销毁自身的延迟")]
         public float destoryDelay;
 
+    [Tooltip("子弹震动")]
+        public CamShake.ShakeIntensity bulletHitShake;
+
     [Tooltip("子弹碰撞后是否销毁自身")]
         public bool destoryAfterCollision;
 
@@ -385,6 +388,15 @@ public class Bullet : MonoBehaviour
                 }
             }
             //ChangeTimeScaleFunc(0.1f, 0.2f);
+
+            //攻击命中时摄像机震动
+            if (bulletHitShake != CamShake.ShakeIntensity.无 && actor.isPlayer && GameObject.Find("CM vcam1"))
+            {
+                Vector3 c = Camera.main.WorldToScreenPoint(a.transform.position)- Camera.main.WorldToScreenPoint(transform.position);
+
+                actor.FollowCamera.GetComponent<CamShake>().CameraShake(c,bulletHitShake);
+            }
+
         }
     }
 
