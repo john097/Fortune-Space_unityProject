@@ -55,4 +55,9 @@ public class AimIconFollowMouse : MonoBehaviour
     {
         thisRenderer.material.SetInt("_Mode3", i);
     }
+
+    public void NoAmmoIcon(int i)
+    {
+        thisRenderer.material.SetInt("_Mode4", i);
+    }
 }

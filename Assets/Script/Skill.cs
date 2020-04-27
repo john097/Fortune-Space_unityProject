@@ -562,6 +562,18 @@ public  class Skill : MonoBehaviour
                 reloadTimer += Time.deltaTime;
             }
         }
+        else
+        {
+            if (ammoNumLimit != 0 && ammoNum == 0)
+            {
+                AimIcon.NoAmmoIcon(1);
+            }
+            else
+            {
+                AimIcon.NoAmmoIcon(0);
+            }
+                
+        }
     }
 
     //技能前摇事件
