@@ -146,16 +146,54 @@ public class BattleManager : MonoBehaviour
 
        checknum_a = 2;
        
-
-        int[] num = new int[5];
-        int[] num_2 = new int[4];
+        int[] num_1= new int[8];
+        int[] num_2 = new int[5];
+        int[] num_3 = new int[4];
 
         Player_Choose = new int[3];
 
 
         if (PlayerPrefs.GetInt("Current_State") == 3)//生成随机数组，用于定义房间类型
         {
-            for (int j = 0; j < num_2.Length; j++)//第三关随机房间逻辑
+            for (int j = 0; j < num_3.Length; j++)//第三关随机房间逻辑
+            {
+                if (checknum_a >= 4)
+                {
+                    checknum_a = 4;
+                }
+
+                num_3[j] = Random.Range(1, checknum_a);
+
+                checknum_a += 1;
+
+                if (j == 2 && sum < 3)
+                {
+                    
+                    num_3[j ] = 2;
+                    num_3[j + 1] = 3;
+                    break;
+                }
+                
+                if (j == 3 )
+                {
+                    if(sum < 6)
+                    {
+                        num_3[j] = 3;
+                    }
+                    else
+                    {
+                        num_3[j]= Random.Range(1, checknum_a-1);
+                    }
+                }
+                
+
+                sum += num_3[j];
+            }
+  
+        }
+        if (PlayerPrefs.GetInt("Current_State") == 2)
+        {
+            for (int j = 0; j < num_2.Length; j++)//第2大关随机房间逻辑
             {
                 if (checknum_a >= 4)
                 {
@@ -166,65 +204,27 @@ public class BattleManager : MonoBehaviour
 
                 checknum_a += 1;
 
-                if (j == 2 && sum < 3)
-                {
-                    
-                    num_2[j ] = 2;
-                    num_2[j + 1] = 3;
-                    break;
-                }
-                
-                if (j == 3 )
-                {
-                    if(sum < 6)
-                    {
-                        num_2[j] = 3;
-                    }
-                    else
-                    {
-                        num_2[j]= Random.Range(1, checknum_a-1);
-                    }
-                }
-                
-
-                sum += num_2[j];
-            }
-  
-        }
-        else
-        {
-            for (int j = 0; j < num.Length; j++)//前2关随机房间逻辑
-            {
-                if (checknum_a >= 4)
-                {
-                    checknum_a = 4;
-                }
-
-                num[j] = Random.Range(1, checknum_a);
-
-                checknum_a += 1;
-
                 if (j == 3 && sum < 4)
                 {
-                    num[j] = 2;
-                    num[j + 1] = 3;
+                    num_2[j] = 2;
+                    num_2[j + 1] = 3;
                     break;
                 }
                 if (j == 3 && sum >= 5)
                 {
-                    if (num[2] == 3)//前三关就出现特殊关时，后面两关不再出现特殊关
+                    if (num_2[2] == 3)//前三关就出现特殊关时，后面两关不再出现特殊关
                     {
 
-                        if(num[1] == 1)
+                        if(num_2[1] == 1)
                         {
-                            num[j] = 2;
-                            num[j + 1] = Random.Range(1, 3);
+                            num_2[j] = 2;
+                            num_2[j + 1] = Random.Range(1, 3);
                             break;
                         }
                         else
                         {
-                            num[j] = 1;
-                            num[j + 1] = Random.Range(1, 3);
+                            num_2[j] = 1;
+                            num_2[j + 1] = Random.Range(1, 3);
                             break;
                         }
                         
@@ -235,11 +235,11 @@ public class BattleManager : MonoBehaviour
                         int a = Random.Range(1, 3);
                         if (a == 1)
                         {
-                            num[j] = 1;
+                            num_2[j] = 1;
                         }
                         if (a == 2)
                         {
-                            num[j] = 3;
+                            num_2[j] = 3;
                         }
                     }
                    
@@ -247,17 +247,154 @@ public class BattleManager : MonoBehaviour
                 }
                 if (j == 4)
                 {
-                    if (num[3] == 3)
+                    if (num_2[3] == 3)
                     {
-                        num[j] = Random.Range(1, 3); 
+                        num_2[j] = Random.Range(1, 3); 
                     }
                     else
                     {
-                        num[j] = 3; 
+                        num_2[j] = 3; 
                     }
                 }
 
-                sum += num[j];
+                sum += num_2[j];
+            }
+        }
+
+        if (PlayerPrefs.GetInt("Current_State") == 1)
+        {
+            int A = 0;
+            int B = 0;
+            int C = 0;
+
+            for (int j = 0; j < num_1.Length; j++)//第1大关随机房间逻辑
+            {
+                if (checknum_a >= 4)
+                {
+                    checknum_a = 4;
+                }
+                num_1[j] = Random.Range(1, checknum_a);
+
+                switch (num_1[j])
+                {
+                    case 1:
+                        A += 1;
+                        break;
+                    case 2:
+                        B += 1;
+                        break;
+                    case 3:
+                        C += 1;
+                        break;
+
+                }
+
+                if (j <= 4 && num_1[j] == 3)//防止传送门房间过早出现
+                {
+                    C -= 1;
+                    num_1[j] = Random.Range(1, 3);
+                    switch (num_1[j])
+                    {
+                        case 1:
+                            A += 1;
+                            break;
+                        case 2:
+                            B += 1;
+                            break;
+                        case 3:
+                            C += 1;
+                            break;
+
+                    }
+                }
+
+                if (num_1[j] == 3 || num_1[j] == 2)
+                {
+                    if (C > 1 && B > 2)
+                    {
+                        num_1[j] = 1;
+                        switch (num_1[j])
+                        {
+                            case 1:
+                                A += 1;
+                                break;
+                            case 2:
+                                B += 1;
+                                break;
+                            case 3:
+                                C += 1;
+                                break;
+
+                        }
+
+                    }
+                    if (C > 1)
+                    {
+                        num_1[j] = Random.Range(1, 3);
+                        switch (num_1[j])
+                        {
+                            case 1:
+                                A += 1;
+                                break;
+                            case 2:
+                                B += 1;
+                                break;
+                            case 3:
+                                C += 1;
+                                break;
+
+                        }
+
+                    }
+                    if (B > 2)
+                    {
+                        num_1[j] = 1;
+                        switch (num_1[j])
+                        {
+                            case 1:
+                                A += 1;
+                                break;
+                            case 2:
+                                B += 1;
+                                break;
+                            case 3:
+                                C += 1;
+                                break;
+
+                        }
+
+                    }
+                }
+
+                if (A >= 5 && B == 0)
+                {
+                    num_1[j] = 2;
+                    switch (num_1[j])
+                    {
+                        case 1:
+                            A += 1;
+                            break;
+                        case 2:
+                            B += 1;
+                            break;
+                        case 3:
+                            C += 1;
+                            break;
+
+                    }
+
+                }
+
+                if (j == 7)
+                {
+                    if (C == 0)
+                    {
+                        num_1[j] = 3;
+                    }
+                }
+               
+                checknum_a += 1;
+
             }
         }
 
@@ -270,19 +407,19 @@ public class BattleManager : MonoBehaviour
             case 1:
                 for (int i = 0; i < S1_ROOM.Length; i++)
                 {
-                    S1_ROOM[i].SET_ROOM_TYPE(num[i]);
+                    S1_ROOM[i].SET_ROOM_TYPE(num_1[i]);
                 }
                 break;
             case 2:
                 for (int i = 0; i < S2_ROOM.Length; i++)
                 {
-                    S2_ROOM[i].SET_ROOM_TYPE(num[i]);
+                    S2_ROOM[i].SET_ROOM_TYPE(num_2[i]);
                 }
                 break;
             case 3:
                 for (int i = 0; i < S3_ROOM.Length; i++)
                 {
-                    S3_ROOM[i].SET_ROOM_TYPE(num_2[i]);
+                    S3_ROOM[i].SET_ROOM_TYPE(num_3[i]);
                 }
                 break;
             case 4:
@@ -553,15 +690,15 @@ public class BattleManager : MonoBehaviour
         {
             case 1:
                 MAX_MON_NUMS = Random.Range(4,6);
-                Monster_Waves = Random.Range(1,2);
+                Monster_Waves = 1;
                 break;
             case 2:
                 MAX_MON_NUMS = Random.Range(5, 9);
-                Monster_Waves = Random.Range(2, 4);
+                Monster_Waves = 1;
                 break;
             case 3:
                 MAX_MON_NUMS = Random.Range(5, 6);
-                Monster_Waves = Random.Range(2, 3);
+                Monster_Waves = 1;
                 break;
         }
         

@@ -211,7 +211,7 @@ public class Enemy_Manager : MonoBehaviour
         Vector3 pos = new Vector3(bound.center.x, bound.y+2, bound.center.z);
         GameObject Store;
 
-        Store = Resources.Load(Prefabs + "Store") as GameObject;
+        Store = Resources.Load(Prefabs + "StorePrefab") as GameObject;
 
         Instantiate(Store, pos, Quaternion.identity);
     }
