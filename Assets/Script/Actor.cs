@@ -208,7 +208,7 @@ public class Actor : MonoBehaviour
                 Cursor.visible = true;
             }
 
-            if (Input.GetKeyDown(KeyCode.F1))
+            if (Input.GetKeyDown(KeyCode.Tab))
             {
                 CallPlayerMenu();
             }
@@ -228,9 +228,12 @@ public class Actor : MonoBehaviour
     {
         if (isAlive && isPlayer && !isTalking)//**DISON.ver**
         {
-            if (!isTakingTool && !isOpeningPlayerMenu)
+            if (!isTakingTool)
             {
-                Look();
+                if (!isOpeningPlayerMenu)
+                {
+                    Look();
+                }
 
                 Move();
             }
@@ -384,6 +387,12 @@ public class Actor : MonoBehaviour
             NowMoveState(moveDirection.normalized);
 
             moveDirection.y = thisRigidbody.velocity.y;
+
+            if (steping)
+            {
+                moveDirection.y = 0;
+            }
+            
 
             thisRigidbody.velocity = moveDirection;
            
@@ -744,7 +753,7 @@ public class Actor : MonoBehaviour
                     Skills_0[3].UseSkill();
                 }
 
-                if (Input.GetKey(playerControl[4]))
+                if (Input.GetKey(playerControl[4]) || Input.GetKey(KeyCode.Alpha2))
                 {
                     Skills_0[4].UseSkill();
                 }
@@ -774,7 +783,7 @@ public class Actor : MonoBehaviour
                     Skills_1[3].UseSkill();
                 }
 
-                if (Input.GetKey(playerControl[4]))
+                if (Input.GetKey(playerControl[4]) || Input.GetKey(KeyCode.Alpha2))
                 {
                     Skills_1[4].UseSkill();
                 }

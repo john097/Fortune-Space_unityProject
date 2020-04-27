@@ -2402,6 +2402,11 @@ PrefabInstance:
       propertyPath: itemId
       value: 339
       objectReference: {fileID: 0}
+    - target: {fileID: 6504745308943760385, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -8.099609
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ada0cca816dfde4a8344abc30515f40, type: 3}
 --- !u!4 &1352989368 stripped
@@ -3535,13 +3540,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4437975455191907812, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b,
         type: 3}
+      propertyPath: playerControl.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437975455191907812, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b,
+        type: 3}
       propertyPath: FollowCamera
       value: 
       objectReference: {fileID: 1506459984}
+    - target: {fileID: 4437975455191907812, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b,
+        type: 3}
+      propertyPath: playerControl.Array.data[5]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437975455191907812, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b,
+        type: 3}
+      propertyPath: playerControl.Array.data[4]
+      value: 49
+      objectReference: {fileID: 0}
     - target: {fileID: 6002883238265773856, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b,
         type: 3}
       propertyPath: skillShake
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1478070338, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b, type: 3}
+      propertyPath: castActionTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1478070338, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b, type: 3}
+      propertyPath: castTime
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b, type: 3}

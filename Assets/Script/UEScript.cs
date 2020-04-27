@@ -216,7 +216,7 @@ public class UEScript : MonoBehaviour
 
     private void PlayerMenuUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyUp(KeyCode.Tab))
         {
             DestroySelf();
         }

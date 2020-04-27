@@ -358,7 +358,14 @@ public class Bullet : MonoBehaviour
                                         dTip.GetComponent<UEScript>().damageTipText = "Eliminate!";
                                         dTip.GetComponent<UEScript>().damageTipColor = Color.black;
                                     }
-                                    
+
+                                    if (actor.isPlayer && GameObject.Find("CM vcam1"))
+                                    {
+                                        Vector3 c = Camera.main.WorldToScreenPoint(a.transform.position) - Camera.main.WorldToScreenPoint(transform.position);
+
+                                        actor.FollowCamera.GetComponent<CamShake>().CameraShake(c, CamShake.ShakeIntensity.中);
+                                    }
+
                                 }
                             }
                         }

@@ -32,7 +32,7 @@ public class CamShake : MonoBehaviour
     {
         time = 0;
 
-        if (transform.Find("CM vcam1").gameObject.GetComponent<CinemachineCameraOffset>())
+        if (transform.Find("CM vcam1"))
         {
             vCam = transform.Find("CM vcam1").gameObject.GetComponent<CinemachineCameraOffset>();
             currentOffset = vCam.m_Offset;

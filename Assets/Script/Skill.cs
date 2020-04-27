@@ -189,6 +189,14 @@ public  class Skill : MonoBehaviour
         }
     }
 
+    private void OnLevelWasLoaded(int level)
+    {
+        if (GameObject.Find("Aim"))
+        {
+            AimIcon = GameObject.Find("Aim").GetComponent<AimIconFollowMouse>();
+        }
+    }
+
     // 每帧检测需要响应的事件
     void Update()
     {
