@@ -71,6 +71,10 @@ public class BattleManager : MonoBehaviour
 
     public string scene_name;
     public GameObject TP_GATE;
+
+    public int A;
+    public int B;
+    public int C;
     // Start is called before the first frame update
     void Start()
     {
@@ -263,12 +267,12 @@ public class BattleManager : MonoBehaviour
 
         if (PlayerPrefs.GetInt("Current_State") == 1)
         {
-            int A = 0;
-            int B = 0;
-            int C = 0;
 
+            
             for (int j = 0; j < num_1.Length; j++)//第1大关随机房间逻辑
             {
+                
+
                 if (checknum_a >= 4)
                 {
                     checknum_a = 4;
@@ -330,6 +334,7 @@ public class BattleManager : MonoBehaviour
                     }
                     if (C > 1)
                     {
+                        C -= 1;
                         num_1[j] = Random.Range(1, 3);
                         switch (num_1[j])
                         {
@@ -348,6 +353,7 @@ public class BattleManager : MonoBehaviour
                     }
                     if (B > 2)
                     {
+                        B -= 1;
                         num_1[j] = 1;
                         switch (num_1[j])
                         {
@@ -369,30 +375,17 @@ public class BattleManager : MonoBehaviour
                 if (A >= 5 && B == 0)
                 {
                     num_1[j] = 2;
-                    switch (num_1[j])
-                    {
-                        case 1:
-                            A += 1;
-                            break;
-                        case 2:
-                            B += 1;
-                            break;
-                        case 3:
-                            C += 1;
-                            break;
-
-                    }
-
+                    B += 1;
                 }
 
-                if (j == 7)
+                if (j == 7 & C == 0)
                 {
-                    if (C == 0)
-                    {
-                        num_1[j] = 3;
-                    }
+                    C += 1;
+                    num_1[j] = 3;
+                    Debug.Log("asdf");
+
                 }
-               
+
                 checknum_a += 1;
 
             }
