@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6507460174639430321}
   - component: {fileID: 6507460174639430320}
   - component: {fileID: 6507460174639430327}
-  - component: {fileID: 6507460174639430326}
   - component: {fileID: 6507460174639430325}
   - component: {fileID: 6507460174639430322}
   m_Layer: 30
@@ -80,19 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &6507460174639430326
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6507460174639430324}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6507460174639430325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,7 +93,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toolSkill: {fileID: 0}
   storeSkills: []
+  actor: {fileID: 0}
+  actor_credit: {fileID: 0}
   heal: 0
+  refrashCredit: 0
   thisToolType: 2
   thisCreateType: 0
   interactiveUI: {fileID: 4284588454714518158, guid: 3fe9ce471372d194890dfb777a9bb434,
@@ -121,7 +110,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6507460174639430324}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1

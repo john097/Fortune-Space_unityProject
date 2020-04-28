@@ -278,36 +278,103 @@ public class Stage : MonoBehaviour
                 DestroyImmediate(gameObject);
 
             }
-            if (gameObject.tag == "Challenge_Box")//挑战箱
+            if (gameObject.tag == "Blood_Box")//献血抽奖箱
             {
-                GetComponent<Challenge_Box_Room_Battle>().Box_Event();
+                if (actor.heal > actor.maxHeal * 0.25f)
+                {
+                    GetComponent<Blood_Box>().Box_Event();
 
-                //for (int i = 0; i < actor.Tools.Length; i++)
-                //{
-                //    if (actor.Tools[i] == gameObject)
-                //    {
-                //        actor.Tools[i] = null;
-                //        break;
-                //    }
-                //}
+                    for (int i = 0; i < actor.Tools.Length; i++)
+                    {
+                        if (actor.Tools[i] == gameObject)
+                        {
+                            actor.Tools[i] = null;
+                            break;
+                        }
+                    }
 
-                //for (int i = 0; i < actor.Tools.Length; i++)
-                //{
-                //    if (actor.Tools[i] != null)
-                //    {
-                //        break;
-                //    }
+                    for (int i = 0; i < actor.Tools.Length; i++)
+                    {
+                        if (actor.Tools[i] != null)
+                        {
+                            break;
+                        }
 
-                //    if (i == actor.Tools.Length - 1 && actor.uiTips_SpecialInteractive)
-                //    {
-                //        Destroy(actor.uiTips_SpecialInteractive);
-                //    }
-                //}
+                        if (i == actor.Tools.Length - 1 && actor.uiTips_SpecialInteractive)
+                        {
+                            Destroy(actor.uiTips_SpecialInteractive);
+                        }
+                    }
 
-                //DestroyImmediate(gameObject);
+                    
+                }
 
             }
+            if (gameObject.tag == "Gold_Box")//金币抽奖箱
+            {
+                int ticket_this = GetComponent<Gold_Box>().ticket;
+                actor_credit = GameObject.Find("Actor").GetComponent<Credit>();               
+                if (actor_credit.playerCredit > ticket_this)
+                {
+                    GetComponent<Gold_Box>().Box_Event();
 
+                    for (int i = 0; i < actor.Tools.Length; i++)
+                    {
+                        if (actor.Tools[i] == gameObject)
+                        {
+                            actor.Tools[i] = null;
+                            break;
+                        }
+                    }
+
+                    for (int i = 0; i < actor.Tools.Length; i++)
+                    {
+                        if (actor.Tools[i] != null)
+                        {
+                            break;
+                        }
+
+                        if (i == actor.Tools.Length - 1 && actor.uiTips_SpecialInteractive)
+                        {
+                            Destroy(actor.uiTips_SpecialInteractive);
+                        }
+                    }
+
+                   
+                }
+
+            }
+            if (gameObject.tag == "Miracle_Box")//随机事件妙妙箱
+            {
+                
+                    GetComponent<Miracle_BOX>().Box_Event();
+
+                    for (int i = 0; i < actor.Tools.Length; i++)
+                    {
+                        if (actor.Tools[i] == gameObject)
+                        {
+                            actor.Tools[i] = null;
+                            break;
+                        }
+                    }
+
+                    for (int i = 0; i < actor.Tools.Length; i++)
+                    {
+                        if (actor.Tools[i] != null)
+                        {
+                            break;
+                        }
+
+                        if (i == actor.Tools.Length - 1 && actor.uiTips_SpecialInteractive)
+                        {
+                            Destroy(actor.uiTips_SpecialInteractive);
+                        }
+                    }
+
+               
+                
+
+            }
         }
     }
 

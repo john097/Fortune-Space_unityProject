@@ -5,7 +5,7 @@ using UnityEngine;
 public class Treasure_Manager : MonoBehaviour
 {
     public GameObject[] Treasure_Rooms;
-    private const string Prefabs = "Prefabs/Treasure_Prefab/";
+    private const string Prefabs = "Prefabs/Treasure_Box_Prefab/";
     private bool a=true;
     public int T_nums;
     public int T_type_num;
@@ -16,47 +16,44 @@ public class Treasure_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (PlayerPrefs.GetInt("Current_State")== 0|| PlayerPrefs.GetInt("Current_State") == 4)
-        {
-            a = false;
-        }
-
-        if (a)
-        {
+      
             Treasure_Rooms = GameObject.FindGameObjectsWithTag("Treasure_Room");
 
             for (int i = 0; i < Treasure_Rooms.Length; i++)
             {
-                T_nums = Random.Range(1, 6);
-                
+                T_nums = Random.Range(1, 4);
 
+            if (T_nums == 0)
+            {
+               continue;
+            }
                 Bound bound = getBound(Treasure_Rooms[i].transform);
 
 
                 
 
                 for (int j = 0; j < T_nums; j++)
-                {
+                {   
                     T_type_num = Random.Range(0, 3);
 
                     switch (T_type_num)
                     {
                         case 0:
-                            treasure = Resources.Load(Prefabs + "Gold_Treasure") as GameObject;
+                            treasure = Resources.Load(Prefabs + "Blood_Box") as GameObject;
                             break;
                         case 1:
-                            treasure = Resources.Load(Prefabs + "Heal_Treasure") as GameObject;
+                            treasure = Resources.Load(Prefabs + "Gold_Box") as GameObject;
                             break;
                         case 2:
-                            treasure = Resources.Load(Prefabs + "Weapon_Treasure") as GameObject;
+                            treasure = Resources.Load(Prefabs + "Miracle_Box") as GameObject;
                             break;
                     }
 
-                    Vector3 pos = new Vector3(bound.getRandomX(), bound.y + 2, bound.getRandomZ());
+                    Vector3 pos = new Vector3(bound.getRandomX(), bound.y, bound.getRandomZ());
                     Instantiate(treasure, pos, Quaternion.identity);
                 }
             }
-        }
+        
         
     }
 
