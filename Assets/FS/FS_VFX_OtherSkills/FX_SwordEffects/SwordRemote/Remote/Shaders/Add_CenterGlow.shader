@@ -1,4 +1,4 @@
-Shader "YI/Particles/Add_CenterGlow"
+Shader "ERB/Particles/Add_CenterGlow"
 {
 	Properties
 	{	

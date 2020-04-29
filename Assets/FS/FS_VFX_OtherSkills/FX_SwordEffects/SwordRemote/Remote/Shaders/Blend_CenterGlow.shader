@@ -1,4 +1,4 @@
-Shader "Particles/Blend_CenterGlow"
+Shader "ERB/Particles/Blend_CenterGlow"
 {
 	Properties
 	{
