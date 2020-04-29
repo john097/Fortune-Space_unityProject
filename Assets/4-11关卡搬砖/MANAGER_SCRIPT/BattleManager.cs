@@ -562,7 +562,7 @@ public class BattleManager : MonoBehaviour
 
         if (Protect_Room_Battle && !isTalking)//保护据点房计时
         {
-            if (Crack_Progress >= 10f||PP_Dead)
+            if (Crack_Progress >= 30f||PP_Dead)
             {
                 IS_LAST_WAVE();
                 FINISH_SPAWN();

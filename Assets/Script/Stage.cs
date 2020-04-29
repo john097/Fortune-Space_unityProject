@@ -278,10 +278,39 @@ public class Stage : MonoBehaviour
                 DestroyImmediate(gameObject);
 
             }
+            if (gameObject.tag == "Power_Box")//属性增幅箱
+            {
+
+                GetComponent<Power_Box>().Box_Event();
+
+                for (int i = 0; i < actor.Tools.Length; i++)
+                {
+                    if (actor.Tools[i] == gameObject)
+                    {
+                        actor.Tools[i] = null;
+                        break;
+                    }
+                }
+
+                for (int i = 0; i < actor.Tools.Length; i++)
+                {
+                    if (actor.Tools[i] != null)
+                    {
+                        break;
+                    }
+
+                    if (i == actor.Tools.Length - 1 && actor.uiTips_SpecialInteractive)
+                    {
+                        Destroy(actor.uiTips_SpecialInteractive);
+                    }
+
+                }
+                DestroyImmediate(gameObject);
+
+            }
             if (gameObject.tag == "Blood_Box")//献血抽奖箱
             {
-                if (actor.heal > actor.maxHeal * 0.25f)
-                {
+                
                     GetComponent<Blood_Box>().Box_Event();
 
                     for (int i = 0; i < actor.Tools.Length; i++)
@@ -304,7 +333,7 @@ public class Stage : MonoBehaviour
                         {
                             Destroy(actor.uiTips_SpecialInteractive);
                         }
-                    }
+                    
 
                     
                 }
