@@ -280,7 +280,7 @@ public class Actor : MonoBehaviour
             RaycastHit hit;
 
             LayerMask layerMask = 0;
-            layerMask = 1 << LayerMask.NameToLayer("Environment");
+            layerMask = 1 << LayerMask.NameToLayer("Floor");
             Vector3 dir = Vector3.zero;
 
             if (Physics.Raycast(ray, out hit, 1000f, layerMask))

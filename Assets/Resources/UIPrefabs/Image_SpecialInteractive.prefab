@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2174243812724322488}
   - component: {fileID: 4269081298409313421}
   - component: {fileID: 7533082142936100721}
+  - component: {fileID: 7872633819080235520}
   m_Layer: 5
   m_Name: Image_SpecialInteractive
   m_TagString: Untagged
@@ -35,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -332.1, y: -141.04}
-  m_SizeDelta: {x: 241.8, y: 61.2}
+  m_AnchoredPosition: {x: -261.4, y: -158.9}
+  m_SizeDelta: {x: 383.1, y: 97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4269081298409313421
 CanvasRenderer:
@@ -75,6 +76,26 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &7872633819080235520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4246350883182873391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bace547bec6985e45ba4084a72d0a13a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fightingUI: 0
+  enemyHealBar: 0
+  playerMenu: 0
+  DamageTip: 0
+  SpecialInteractiveTip: 1
+  damageTipText: 
+  damageTipColor: {r: 0, g: 0, b: 0, a: 0}
+  damageTipTime: 0
 --- !u!1 &7811496566461004034
 GameObject:
   m_ObjectHideFlags: 0

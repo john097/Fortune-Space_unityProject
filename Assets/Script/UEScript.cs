@@ -18,6 +18,9 @@ public class UEScript : MonoBehaviour
     [Tooltip("伤害提示")]
         public bool DamageTip;
 
+    [Tooltip("特殊交互提示")]
+        public bool SpecialInteractiveTip;
+
     private Text[] messages;
 
     Actor player;
@@ -40,6 +43,8 @@ public class UEScript : MonoBehaviour
     public Color damageTipColor;
     private float damageTipTimer;
     public float damageTipTime;
+
+    private Text specialInteractiveText;
 
     // Start is called before the first frame update
     void Start()
@@ -94,6 +99,11 @@ public class UEScript : MonoBehaviour
             GetComponent<Text>().text = damageTipText;
             GetComponent<Text>().color = damageTipColor;
         }
+        else if (SpecialInteractiveTip)
+        {
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Actor>();
+            specialInteractiveText = gameObject.GetComponentInChildren<Text>();
+        }
     }
 
     // Update is called once per frame
@@ -118,6 +128,87 @@ public class UEScript : MonoBehaviour
         if (DamageTip)
         {
             DamageTipUpdate();
+        }
+
+        if (SpecialInteractiveTip)
+        {
+            int k = 0;
+            float dis = 9999999;
+            for (int i = 0; i < player.Tools.Length; i++)
+            {
+                if (player.Tools[i])
+                {
+                    if (Vector3.Distance(player.Tools[i].transform.position, player.gameObject.transform.position) < dis)
+                    {
+                        k = i;
+                        dis = Vector3.Distance(player.Tools[i].transform.position, player.gameObject.transform.position);
+                    }
+                }
+            }
+
+            switch (player.Tools[k].GetComponent<Stage>().thisToolType)
+            {
+                case Stage.toolType.道具:
+                    specialInteractiveText.text = "按 F 拾取道具";
+                    break;
+                case Stage.toolType.商店:
+                    specialInteractiveText.text = "按 F 打开商店";
+                    break;
+                case Stage.toolType.特殊交互点:
+                    switch (player.Tools[k].tag)
+                    {
+                        case "Heal_Treasure":
+                            specialInteractiveText.text = "按 F 拾取血包";
+                            break;
+                        case "Gold_Treasure":
+                            specialInteractiveText.text = "按 F 拾取金币箱";
+                            break;
+                        case "Miracle_Box":
+                            specialInteractiveText.text = "按 F 打开箱子";
+                            break;
+                        case "Blood_Box":
+                            specialInteractiveText.text = "按 F 消耗最大血量的25%开启武器箱";
+                            break;
+                        case "Gold_Box":
+                            specialInteractiveText.text = "按 F 消耗" + player.Tools[k].GetComponent<Gold_Box>().ticket + "金币开启箱子";
+                            break;
+                        case "Power_Box":
+                            specialInteractiveText.text = "按 F 拾取增幅箱";
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            //if (player.Tools[k].GetComponent<Stage>().thisToolType == Stage.toolType.特殊交互点)
+            //{
+            //    switch (player.Tools[k].tag)
+            //    {
+            //        case "Heal_Treasure":
+            //            specialInteractiveText.text = "按 F 拾取血包";
+            //            break;
+            //        case "Gold_Treasure":
+            //            specialInteractiveText.text = "按 F 拾取金币箱";
+            //            break;
+            //        case "Miracle_Box":
+            //            specialInteractiveText.text = "按 F 打开箱子";
+            //            break;
+            //        case "Blood_Box":
+            //            specialInteractiveText.text = "按 F 消耗最大血量的25%开启武器箱";
+            //            break;
+            //        case "Gold_Box":
+            //            specialInteractiveText.text = "按 F 消耗" + player.Tools[k].GetComponent<Gold_Box>().ticket + "金币开启箱子";
+            //            break;
+            //        case "Power_Box":
+            //            specialInteractiveText.text = "按 F 拾取增幅箱";
+            //            break;
+            //        default:
+            //            break;
+            //    }
+            //}
         }
     }
 
