@@ -56,7 +56,15 @@ public class Blood_Box : MonoBehaviour
     {
         if (actor.heal <= actor.maxHeal*0.25f)
         {
-            Debug.Log("您的生命值不够");
+            actor.heal = 1;
+            treasure = Resources.Load(Prefabs + "Weapon_Treasure") as GameObject;
+            Vector3 pos = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
+
+            Instantiate(treasure, pos, Quaternion.identity);
+            Finish = true;
+            GetComponent<BoxCollider>().enabled = false;
+            costimage.SetActive(false);
+            StartCoroutine(Destroy_This(2f));
         }
         else
         {

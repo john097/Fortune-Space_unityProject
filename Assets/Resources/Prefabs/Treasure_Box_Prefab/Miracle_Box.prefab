@@ -130,6 +130,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Finish: 0
   costimage: {fileID: 0}
+  shakeRate: {x: 0.1, y: 0.1, z: 0.1}
+  shakeTime: 0.5
+  shakeDertaTime: 0.1
 --- !u!1001 &5395982748395535468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -255,7 +258,7 @@ PrefabInstance:
     - target: {fileID: 8530816126755886820, guid: 9b68421d395abb74b9a40c1dc28ed0c1,
         type: 3}
       propertyPath: m_Text
-      value: ???
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8530816126755886820, guid: 9b68421d395abb74b9a40c1dc28ed0c1,
         type: 3}

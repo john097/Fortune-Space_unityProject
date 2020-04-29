@@ -71,10 +71,14 @@ public class BattleManager : MonoBehaviour
 
     public string scene_name;
     public GameObject TP_GATE;
-
+    
     public int A;
     public int B;
     public int C;
+
+    public float Gamming_Time=0;
+    public int Game_Level = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -454,7 +458,18 @@ public class BattleManager : MonoBehaviour
         
         currentstate = PlayerPrefs.GetInt("Current_State");
 
-        
+        if (Game_Level < 4)//怪物属性随游戏时长增加而增强
+        {
+            Gamming_Time += Time.deltaTime;
+
+            if (Gamming_Time >= 60f)
+            {
+                Game_Level += 1;
+                Debug.Log("Game Level Up!");
+                Gamming_Time = 0f;
+            }
+        }
+       
 
         if(PlayerPrefs.GetInt("Current_State") == 0)//斩杀、克制教程
         {
@@ -562,7 +577,7 @@ public class BattleManager : MonoBehaviour
 
         if (Protect_Room_Battle && !isTalking)//保护据点房计时
         {
-            if (Crack_Progress >= 10f||PP_Dead)
+            if (Crack_Progress >= 30f||PP_Dead)
             {
                 IS_LAST_WAVE();
                 FINISH_SPAWN();

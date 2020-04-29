@@ -59,6 +59,17 @@ public class Player_IN_Room : MonoBehaviour
             C = true;
         }
 
+        if (this_room_type == 3 && B_Manager.isTalking && !b)
+        {
+            gameObject.transform.GetChild(2).gameObject.SetActive(true);
+            b = true;
+        }
+
+        if (!B_Manager.Protect_Room_Battle && B_Manager.BattleFinish)
+        {
+            gameObject.transform.GetChild(2).gameObject.SetActive(false);
+            GetComponent<Player_IN_Room>().enabled = false;
+        }
 
         if (this_room_type == 3 && gameObject.tag == ("S1-ROOM") && !a)//守护据点关卡触发器
         {
@@ -119,7 +130,7 @@ public class Player_IN_Room : MonoBehaviour
             B_Manager.RoomClear = false;
 
 
-            if(PlayerPrefs.GetInt("Current_State") == 0)
+            if (PlayerPrefs.GetInt("Current_State") == 0)
             {
                 B_Manager.START_SPAWN();
                 B_Manager.Tutorial_Room_Start();

@@ -20,11 +20,23 @@ public class Miracle_BOX : MonoBehaviour
     private float rand_rotate;
     public GameObject costimage;
     GameObject player_collider;
+
+    public Vector3 shakeRate = new Vector3(0.1f, 0.1f, 0.1f);
+    public float shakeTime = 0.5f;
+    public float shakeDertaTime = 0.1f;
     // Start is called before the first frame update
     void Start()
     {
-        rand_rotate = Random.Range(0, 361);
-        transform.Rotate(0, rand_rotate,0);
+        if (gameObject.name == "Funny_Box")
+        {
+
+        }
+        else
+        {
+            rand_rotate = Random.Range(0, 361);
+            transform.Rotate(0, rand_rotate, 0);
+        }
+        
         costimage = gameObject.transform.GetChild(0).gameObject;
         if (GameObject.Find("Actor"))
         {
@@ -50,23 +62,49 @@ public class Miracle_BOX : MonoBehaviour
             A.SetFloat("_Alpha_Dis", effect_num);
 
         }
+        if (gameObject.name == "Funny_Box")
+        {
+            if (Input.GetKey(KeyCode.A))
+            {
+                Shake();
+            }
+            
+        }
+    }
+
+    public void Shake()
+    {
+        StartCoroutine(Shake_Coroutine());
+    }
+    public IEnumerator Shake_Coroutine()
+    {
+        var oriPosition = gameObject.transform.position;
+        for (float i = 0; i < shakeTime; i += shakeDertaTime)
+        {
+            gameObject.transform.position = oriPosition +
+                Random.Range(-shakeRate.x, shakeRate.x) * Vector3.right +
+                Random.Range(-shakeRate.y, shakeRate.y) * Vector3.up +
+                Random.Range(-shakeRate.z, shakeRate.z) * Vector3.forward;
+            yield return new WaitForSeconds(shakeDertaTime);
+        }
+        gameObject.transform.position = oriPosition;
     }
 
     public void Box_Event()
     {
         
          rand_num = Random.Range(0, 10);
-            if (rand_num <=2)//毒雾
-            {
-                trap = Resources.Load(Prefabs2 + "Bt_Poison_Fog") as GameObject;
-                Vector3 pos = new Vector3(transform.position.x, transform.position.y+1f, transform.position.z);
-                Instantiate(trap, pos, Quaternion.identity);
-            Finish = true;
-            GetComponent<BoxCollider>().enabled = false;
-            costimage.SetActive(false);
-            StartCoroutine(Destroy_This(2f));
-        }
-            else if(rand_num>2&&rand_num<=4)//金币
+     if (rand_num <=2)//毒雾
+     {
+        trap = Resources.Load(Prefabs2 + "Bt_Poison_Fog") as GameObject;
+        Vector3 pos = new Vector3(transform.position.x, transform.position.y+1f, transform.position.z);
+        Instantiate(trap, pos, Quaternion.identity);
+        Finish = true;
+        GetComponent<BoxCollider>().enabled = false;
+        costimage.SetActive(false);
+        StartCoroutine(Destroy_This(2f));
+     }
+            else if(rand_num>2&&rand_num<=5)//金币
             {
                 treasure2 = Resources.Load(Prefabs + "Gold_Treasure") as GameObject;
                 Vector3 pos2 = new Vector3(transform.position.x, transform.position.y+1f, transform.position.z);
@@ -75,17 +113,16 @@ public class Miracle_BOX : MonoBehaviour
             GetComponent<BoxCollider>().enabled = false;
             costimage.SetActive(false);
             StartCoroutine(Destroy_This(2f));
-        }
-            else if (rand_num > 4 && rand_num <= 7)//宝箱怪
+            }
+            else if (rand_num > 5 && rand_num <= 8)//宝箱怪
             {
-                Monster = Resources.Load(Prefabs3 + "MONS-BOMBER") as GameObject;
-                Vector3 pos2 = new Vector3(transform.position.x, transform.position.y+1f, transform.position.z);
-                Instantiate(Monster, pos2, Quaternion.identity);
+            StartCoroutine(Enemy_Born(0.5f));
+            
             Finish = true;
             GetComponent<BoxCollider>().enabled = false;
             costimage.SetActive(false);
             StartCoroutine(Destroy_This(2f));
-        }
+            }
             else//武器
             {
                 treasure = Resources.Load(Prefabs + "Weapon_Treasure") as GameObject;
@@ -98,6 +135,14 @@ public class Miracle_BOX : MonoBehaviour
         }
            
         
+    }
+
+    IEnumerator Enemy_Born(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        Monster = Resources.Load(Prefabs3 + "MONS-BOMBER") as GameObject;
+        Vector3 pos2 = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
+        Instantiate(Monster, pos2, Quaternion.identity);
     }
 
     IEnumerator Destroy_This(float duration)

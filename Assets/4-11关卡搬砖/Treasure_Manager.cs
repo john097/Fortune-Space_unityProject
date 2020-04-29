@@ -21,7 +21,7 @@ public class Treasure_Manager : MonoBehaviour
 
             for (int i = 0; i < Treasure_Rooms.Length; i++)
             {
-                T_nums = Random.Range(1, 4);
+                T_nums = Random.Range(2, 5);
 
             if (T_nums == 0)
             {
@@ -34,7 +34,7 @@ public class Treasure_Manager : MonoBehaviour
 
                 for (int j = 0; j < T_nums; j++)
                 {   
-                    T_type_num = Random.Range(0, 3);
+                    T_type_num = Random.Range(0, 6);
 
                     switch (T_type_num)
                     {
@@ -45,9 +45,18 @@ public class Treasure_Manager : MonoBehaviour
                             treasure = Resources.Load(Prefabs + "Gold_Box") as GameObject;
                             break;
                         case 2:
+                            treasure = Resources.Load(Prefabs + "Gold_Box") as GameObject;
+                            break;
+                        case 3:
+                            treasure = Resources.Load(Prefabs + "Gold_Box") as GameObject;
+                            break;
+                        case 4:
                             treasure = Resources.Load(Prefabs + "Miracle_Box") as GameObject;
                             break;
-                    }
+                        case 5:
+                            treasure = Resources.Load(Prefabs + "Power_Box") as GameObject;
+                            break;
+                }
 
                     Vector3 pos = new Vector3(bound.getRandomX(), bound.y, bound.getRandomZ());
                     Instantiate(treasure, pos, Quaternion.identity);
