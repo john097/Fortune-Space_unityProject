@@ -79,11 +79,11 @@ MonoBehaviour:
   skillVariantEvent: 0
   buffPrefabs: []
   bulletSons: []
-  createEffect: {fileID: 840055127379207196, guid: ae8aaa739d46368489101f1335cd42cd,
-    type: 3}
-  bulletEffect: {fileID: 0}
+  createEffect: {fileID: 100004, guid: 572f75a4fe7fccb418203dfcddc43cb3, type: 3}
+  bulletEffect: {fileID: 100004, guid: b68468ea19b581744b2449b90138eba4, type: 3}
   alignTheMuzzlePosition: 1
-  hitEffect: {fileID: 100004, guid: 572f75a4fe7fccb418203dfcddc43cb3, type: 3}
+  hitEffect: {fileID: 3188187975871522200, guid: 23861aac1932cd043b14af5a1a139805,
+    type: 3}
   destroyEffect: {fileID: 0}
   actor: {fileID: 0}
   skillParent: {fileID: 0}
@@ -96,7 +96,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660421946339405354}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

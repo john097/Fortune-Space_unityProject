@@ -564,15 +564,17 @@ public  class Skill : MonoBehaviour
         }
         else
         {
-            if (ammoNumLimit != 0 && ammoNum == 0)
+            if (thisWeaponType == Actor.weaponType.手枪 || thisWeaponType == Actor.weaponType.冲锋枪 || thisWeaponType == Actor.weaponType.霰弹枪 || thisWeaponType == Actor.weaponType.狙击枪)
             {
-                AimIcon.NoAmmoIcon(1);
+                if (AimIcon && ammoNumLimit != 0 && ammoNum == 0 && actor.skillArrNum == 0)
+                {
+                    AimIcon.NoAmmoIcon(1);
+                }
+                else if (AimIcon)
+                {
+                    AimIcon.NoAmmoIcon(0);
+                }
             }
-            else
-            {
-                AimIcon.NoAmmoIcon(0);
-            }
-                
         }
     }
 

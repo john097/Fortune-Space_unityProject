@@ -60,6 +60,7 @@ MonoBehaviour:
   lockOnTarget: {fileID: 0}
   isFollowActor: 0
   destoryDelay: 0
+  bulletHitShake: 0
   destoryAfterCollision: 1
   destoryAfterCollisionWithActor: 0
   destoryIfSkillBeCancel: 0
@@ -71,8 +72,10 @@ MonoBehaviour:
   buffPrefabs: []
   bulletSons: []
   createEffect: {fileID: 0}
+  bulletEffect: {fileID: 0}
   alignTheMuzzlePosition: 0
-  hitEffect: {fileID: 0}
+  hitEffect: {fileID: 1044188686828318022, guid: afa5579fdcba64945bfeaf4a310ffb4b,
+    type: 3}
   destroyEffect: {fileID: 0}
   actor: {fileID: 0}
   skillParent: {fileID: 0}
@@ -93,7 +96,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3624860947721134957}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

@@ -69,6 +69,12 @@ public class Actor : MonoBehaviour
     [Tooltip("角色移动速度")]
         public float speed;
 
+    [Tooltip("角色攻击力加成")]
+        public float attack;
+
+    [Tooltip("角色生命回复")]
+        public float healRecover;
+
     [Tooltip("鼠标射线点与角色的最小距离")]
         public float minPointDistance;
 
@@ -184,7 +190,6 @@ public class Actor : MonoBehaviour
         skillArrNum = 0;
         Tools = new GameObject[10];
         isTakingTool = false;
-
         BeAttacked = false;//**DISON.ver**
         isTalking = false;//**DISON.ver**
     }
@@ -196,7 +201,7 @@ public class Actor : MonoBehaviour
             CameraDirUpdata();
 
             if (!isTakingTool && !isTalking && !isOpeningPlayerMenu)
-                {
+            {
                     Skill(skillArrNum);
 
                     SpecialInteractive();
@@ -212,6 +217,9 @@ public class Actor : MonoBehaviour
             {
                 CallPlayerMenu();
             }
+
+            //角色基础回复
+            TakeDamege(-healRecover*Time.deltaTime);
 
                 RecoverTimeScale();
 

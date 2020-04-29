@@ -1663,16 +1663,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 4a5bf4eba3563074f9fa9a954114653b,
-        type: 3}
-      propertyPath: m_Name
-      value: m001_bomber
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 4a5bf4eba3563074f9fa9a954114653b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 4a5bf4eba3563074f9fa9a954114653b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1711,7 +1701,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 4a5bf4eba3563074f9fa9a954114653b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 4a5bf4eba3563074f9fa9a954114653b,
         type: 3}
@@ -1726,6 +1716,16 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 4a5bf4eba3563074f9fa9a954114653b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 4a5bf4eba3563074f9fa9a954114653b,
+        type: 3}
+      propertyPath: m_Name
+      value: m001_bomber
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 4a5bf4eba3563074f9fa9a954114653b,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1696094264978984491, guid: 4a5bf4eba3563074f9fa9a954114653b,
@@ -2763,7 +2763,7 @@ Transform:
   - {fileID: 2144268734}
   - {fileID: 1050948972}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 45, y: 45.000004, z: 0}
 --- !u!114 &1506459991
 MonoBehaviour:
@@ -2800,50 +2800,6 @@ MonoBehaviour:
   medium: 0
   big: 0
   shaking: 0
---- !u!1 &1548557462 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8711850258194447794, guid: f2421a5d60be3c44fadecb3b0d5b3a6d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1939917520}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1548557464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1548557462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowDebugText: 0
-  m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 0
-  m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
-  m_BlendUpdateMethod: 1
-  m_DefaultBlend:
-    m_Style: 1
-    m_Time: 2
-    m_CustomCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
-  m_CameraCutEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Cinemachine, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  m_CameraActivatedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Cinemachine.CinemachineBrain+VcamActivatedEvent, Cinemachine, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1563935860
 GameObject:
   m_ObjectHideFlags: 0

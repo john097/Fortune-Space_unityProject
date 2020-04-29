@@ -248,7 +248,7 @@ public class Bullet : MonoBehaviour
         //命中逻辑
         if (a.gameObject.layer == LayerMask.NameToLayer("Enemy")  || a.gameObject.layer == LayerMask.NameToLayer("Actor"))
         {
-            float d = damage;
+            float d = damage + actor.attack;
             string dTipString = "";
             Color dTipColor = Color.white;
             GameObject dTip = null;
@@ -304,7 +304,6 @@ public class Bullet : MonoBehaviour
                 dTip.GetComponent<UEScript>().damageTipColor = dTipColor;
             }
 
-           
             //造成伤害
             a.TakeDamege(d);
 

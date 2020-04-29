@@ -17,10 +17,6 @@ public class Cam : MonoBehaviour
     {
         //获取到摄像机于要跟随物体之间的距离
         Dir = m_Player.transform.position - transform.position;
-
-        
-
-        
     }
 
     // Update is called once per frame
