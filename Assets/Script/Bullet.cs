@@ -248,7 +248,13 @@ public class Bullet : MonoBehaviour
         //命中逻辑
         if (a.gameObject.layer == LayerMask.NameToLayer("Enemy")  || a.gameObject.layer == LayerMask.NameToLayer("Actor"))
         {
-            float d = damage + actor.attack;
+            float d= damage;
+
+            if (gameObject.layer!= LayerMask.NameToLayer("Particles"))
+            {
+               d+=actor.attack;
+            }
+            
             string dTipString = "";
             Color dTipColor = Color.white;
             GameObject dTip = null;

@@ -47,7 +47,7 @@ public class Gold_Box : MonoBehaviour
 
 
         }
-        Cost_Text.text = "$" + ticket;
+        
     }
 
     // Update is called once per frame

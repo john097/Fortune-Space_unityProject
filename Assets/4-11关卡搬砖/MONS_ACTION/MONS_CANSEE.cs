@@ -36,12 +36,7 @@ public class MONS_CANSEE : Conditional
         MC_manager = GameObject.Find("BattleManager").GetComponent<BattleManager>();
         flowchart = GameObject.Find("Flowchart1").GetComponent<Flowchart>();
 
-        if (PlayerPrefs.GetInt("Current_State") == 0)
-        {
-            mons_actor.maxHeal = 1500;
-            mons_actor.heal = 1500;
-        }
-
+        
 
             base.OnStart();
 
