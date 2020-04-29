@@ -73,9 +73,10 @@ MonoBehaviour:
   reloadKey: 0
   coolDownTime: 3
   mustCancel: 1
-  cantCancel: 0
+  cantCancel: 1
   isStepSkill: 0
   stepSpeed: 0
+  skillShake: 0
   bulletPrefabs:
   - {fileID: 4537102702703356570, guid: b4662c69828335b4cb483fa9b6448d63, type: 3}
   bulletOffsets:
@@ -172,6 +173,7 @@ MonoBehaviour:
   cantCancel: 1
   isStepSkill: 0
   stepSpeed: 0
+  skillShake: 0
   bulletPrefabs:
   - {fileID: 4688727010566055277, guid: e68aa97c7c45bd94ea487f31149a394a, type: 3}
   bulletOffsets:
