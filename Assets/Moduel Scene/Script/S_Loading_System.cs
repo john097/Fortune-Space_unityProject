@@ -14,7 +14,8 @@ public class S_Loading_System : MonoBehaviour
     void Start()
     {
         text.text = v_rs[(int)Random.Range(0, v_rs.Length)];
-        os.transform.eulerAngles = new Vector3(Random.Range(-60,60), Random.Range(-60, 60), Random.Range(-60, 60));
+        //os.transform.eulerAngles = new Vector3(Random.Range(-60,60), Random.Range(-60, 60), Random.Range(-60, 60));
+        os.transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
