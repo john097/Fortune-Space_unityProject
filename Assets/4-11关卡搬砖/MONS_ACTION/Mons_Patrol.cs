@@ -10,16 +10,20 @@ public class Mons_Patrol : Action
 {
     private Flowchart flowchart;
     private NavMeshAgent navMeshAgent;
+    private Actor mons_actor;
     float timer;
     float random_x;
     float random_z;
     public float patrol_distance;//随机巡逻的距离
     public float patrol_cd;//随机巡逻的时间间隔
-
+    public float patrol_timer;
     public override void OnStart()
 	{
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.enabled = true;
+        mons_actor = GetComponent<Actor>();
+        patrol_timer = 0f;
+
         if (patrol_cd ==0)
         {
             patrol_cd = 3f;
@@ -35,6 +39,13 @@ public class Mons_Patrol : Action
 	public override TaskStatus OnUpdate()
 	{
         timer += Time.deltaTime;
+        patrol_timer += Time.deltaTime;
+
+        if (patrol_timer >= 30f)
+        {
+            mons_actor.GoDie();
+        }
+
         if (timer > patrol_cd)//随机巡逻
         {
             

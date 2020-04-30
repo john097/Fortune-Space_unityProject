@@ -61,6 +61,7 @@ public class Power_Box : MonoBehaviour
                 Debug.Log("你的生命回复小幅度增加了");
                 GetComponent<BoxCollider>().enabled = false;
                 costimage.SetActive(false);
+                Finish = true;
                 StartCoroutine(Destroy_This(2f));
                 break;
             case 1://增加攻击力
@@ -68,6 +69,7 @@ public class Power_Box : MonoBehaviour
                 Debug.Log("你的攻击力小幅度增加了");
                 GetComponent<BoxCollider>().enabled = false;
                 costimage.SetActive(false);
+                Finish = true;
                 StartCoroutine(Destroy_This(2f));
                 break;
             case 2://增加移动速度
@@ -75,6 +77,7 @@ public class Power_Box : MonoBehaviour
                 Debug.Log("你的移动速度小幅度增加了");
                 GetComponent<BoxCollider>().enabled = false;
                 costimage.SetActive(false);
+                Finish = true;
                 StartCoroutine(Destroy_This(2f));
                 break;
             case 3://增加最大生命值
@@ -82,6 +85,7 @@ public class Power_Box : MonoBehaviour
                 Debug.Log("你的最大生命值小幅度增加了");
                 GetComponent<BoxCollider>().enabled = false;
                 costimage.SetActive(false);
+                Finish = true;
                 StartCoroutine(Destroy_This(2f));
                 break;
         }

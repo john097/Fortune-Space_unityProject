@@ -56,10 +56,11 @@ public class Player_IN_Room : MonoBehaviour
         if(this_room_type == 3 && gameObject.tag == ("S1-ROOM") && !C)
         {
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            
             C = true;
         }
 
-        if (this_room_type == 3 && B_Manager.isTalking && !b)
+        if (this_room_type == 3&& !b)
         {
             gameObject.transform.GetChild(2).gameObject.SetActive(true);
             b = true;
@@ -143,8 +144,9 @@ public class Player_IN_Room : MonoBehaviour
 
             if(PlayerPrefs.GetInt("Current_State") == 1)
             {
-                dialog_manager.ProtectPoint_Enter_Talk();
                 b = false;
+                dialog_manager.ProtectPoint_Enter_Talk();
+                
             }
 
             if (PlayerPrefs.GetInt("Current_State") == 2)
