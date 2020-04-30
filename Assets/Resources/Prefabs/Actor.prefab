@@ -59,8 +59,8 @@ MonoBehaviour:
   thisSkillAnimTime: 0
   castActionTime_Tag: 0
   Main_Tag: 0
-  castActionTime: 0.3
-  castTime: 0.5
+  castActionTime: 0
+  castTime: 0.1
   cantCancelAfterCastAction: 0
   cantCancelACATime: 0
   cantTurnInCastTime: 0
@@ -75,6 +75,7 @@ MonoBehaviour:
   cantCancel: 1
   isStepSkill: 0
   stepSpeed: 0
+  skillShake: 0
   bulletPrefabs: []
   bulletOffsets: []
   bulletRotationOffsets: []
@@ -161,7 +162,7 @@ Transform:
   m_GameObject: {fileID: 7117566430146738237}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 1765813453}
   - {fileID: 4335477334256637508}
@@ -182,11 +183,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCredit: 0
   image_Credit: {fileID: 0}
-  killstreaksTime: 0
+  killstreaksTime: 10
   killstreaksTimer: 0
-  killstreaksCredit: 0
+  killstreaksCredit: 15
   killstreaksNum: 0
-  eliminateCredit: 0
+  eliminateCredit: 50
 --- !u!114 &4437975455191907812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,10 +208,12 @@ MonoBehaviour:
   heal: 100
   isAlive: 1
   speed: 6
+  attack: 0
+  healRecover: 0
   minPointDistance: 0
   lookAtSpeed: 10
   skillArrNum: 1
-  playerControl: 4301000071000000650000002000000009000000
+  playerControl: 4301000071000000650000002000000031000000
   Skills_0:
   - {fileID: 6002883238265773856}
   - {fileID: 5312677954803865980}
@@ -534,6 +537,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6002883237709612967, guid: 82fb671bdaa45a741ba43f03a52514c1,
+        type: 3}
+      propertyPath: skillShake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82fb671bdaa45a741ba43f03a52514c1, type: 3}
@@ -883,17 +891,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5312677954979328596, guid: 7ee50944ca840bf4fa8cf731df56b2a2,
-        type: 3}
-      propertyPath: buffPrefabsInCastActionTime.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5312677954979328596, guid: 7ee50944ca840bf4fa8cf731df56b2a2,
-        type: 3}
-      propertyPath: buffPrefabsInCastActionTime.Array.data[0]
-      value: 
-      objectReference: {fileID: 5448528744795969956, guid: e71e4c112f1884040a5cea1afe963187,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ee50944ca840bf4fa8cf731df56b2a2, type: 3}
 --- !u!114 &5312677954803865980 stripped

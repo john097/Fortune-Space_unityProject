@@ -59,7 +59,7 @@ MonoBehaviour:
   lifeTime: 0.29
   speed: 100
   timeToStop: 0
-  damage: 100
+  damage: 150
   isSustained: 0
   vulnerabilityPercent: 2
   thisSpType: 1
@@ -67,6 +67,8 @@ MonoBehaviour:
   repel: 0
   lockOnTarget: {fileID: 0}
   isFollowActor: 0
+  destoryDelay: 0
+  bulletHitShake: 0
   destoryAfterCollision: 1
   destoryAfterCollisionWithActor: 0
   destoryIfSkillBeCancel: 0
@@ -78,6 +80,9 @@ MonoBehaviour:
   buffPrefabs: []
   bulletSons: []
   createEffect: {fileID: 0}
+  bulletEffect: {fileID: 0}
+  alignTheMuzzlePosition: 0
+  alignTheActorPosition: 0
   hitEffect: {fileID: 0}
   destroyEffect: {fileID: 0}
   actor: {fileID: 0}

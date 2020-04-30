@@ -674,7 +674,7 @@ public class BattleManager : MonoBehaviour
         if (MON_NUMS > 0)
         {
             MON_NUMS -= 1;
-            player_combo_kill.ResetKillstreaksNum();
+            //player_combo_kill.ResetKillstreaksNum();
 
             Debug.Log(MON_NUMS);
         }

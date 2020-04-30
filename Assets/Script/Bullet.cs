@@ -91,8 +91,11 @@ public class Bullet : MonoBehaviour
     [Tooltip("子弹特效(子弹本体特效)")]
         public GameObject bulletEffect;
 
-    [Tooltip("子弹生成时是否对齐枪口位置(非枪械类子弹不勾选)")]
+    [Tooltip("子弹特效生成时是否对齐枪口位置(非枪械类子弹不勾选)")]
         public bool alignTheMuzzlePosition;
+
+    [Tooltip("子弹特效生成时是否根据角色偏移")]
+        public bool alignTheActorPosition;
 
     [Tooltip("子弹碰撞特效(命中)")]
         public GameObject hitEffect;
@@ -421,9 +424,16 @@ public class Bullet : MonoBehaviour
             a = Instantiate(e,GameObject.Find("Muzzle").transform.position,Quaternion.identity);
             a.transform.forward = gameObject.transform.forward;
         }
-        else
+        else 
         {
-            a = Instantiate(e, gameObject.transform);
+            if (alignTheActorPosition)
+            {
+                a = Instantiate(e, actor.transform.position,actor.transform.rotation);
+            }
+            else
+            {
+                a = Instantiate(e, gameObject.transform);
+            }
         }
 
         if (a.GetComponent<ShieldHitEffectScript>())

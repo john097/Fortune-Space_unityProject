@@ -73,8 +73,8 @@ MonoBehaviour:
   reloadKey: 0
   coolDownTime: 3
   mustCancel: 1
-  cantCancel: 1
-  isStepSkill: 0
+  cantCancel: 0
+  isStepSkill: 1
   stepSpeed: 0
   skillShake: 0
   bulletPrefabs:
@@ -92,6 +92,7 @@ MonoBehaviour:
   comboNum: 0
   comboSkills: []
   buffPrefabsInCastActionTime:
+  - {fileID: 5497257284127662012, guid: 9038871b0ec69524eb8f1b0c0462c9c9, type: 3}
   - {fileID: 5497257284127662012, guid: 9038871b0ec69524eb8f1b0c0462c9c9, type: 3}
   buffPrefabs: []
   skillVariantEvent: 0

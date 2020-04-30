@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Actor : MonoBehaviour
 {
@@ -192,6 +193,18 @@ public class Actor : MonoBehaviour
         isTakingTool = false;
         BeAttacked = false;//**DISON.ver**
         isTalking = false;//**DISON.ver**
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if (level == 1)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+        }
     }
 
     void Update()
