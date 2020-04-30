@@ -24,6 +24,7 @@ public class Miracle_BOX : MonoBehaviour
     public Vector3 shakeRate = new Vector3(0.1f, 0.1f, 0.1f);
     public float shakeTime = 0.5f;
     public float shakeDertaTime = 0.1f;
+    private float dis;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,10 +65,15 @@ public class Miracle_BOX : MonoBehaviour
         }
         if (gameObject.name == "Funny_Box")
         {
-            if (Input.GetKey(KeyCode.A))
+            dis = Vector3.Distance(transform.position, player_collider.transform.position);
+            if (dis < 10f)
             {
-                Shake();
+                if (Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.D))
+                {
+                    Shake();
+                }
             }
+            
             
         }
     }
