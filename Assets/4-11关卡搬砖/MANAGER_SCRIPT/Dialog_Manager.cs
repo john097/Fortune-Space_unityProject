@@ -11,6 +11,7 @@ public class Dialog_Manager : MonoBehaviour
     private Actor actor;
     public bool Boss_isAlive;
     private bool a = true;
+    public bool start_crack=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -111,6 +112,7 @@ public class Dialog_Manager : MonoBehaviour
 
     public void ProtectPoint_Start_Talk()//据点房开战前对话
     {
+        start_crack = true;
         flowchart.SendFungusMessage("ProtectPoint_Start");
     }
 

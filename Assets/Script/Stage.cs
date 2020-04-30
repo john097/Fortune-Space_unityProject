@@ -15,8 +15,9 @@ public class Stage : MonoBehaviour
     [HideInInspector]
     public Credit actor_credit;//DISON.VER,用于钱袋增加玩家金币
 
+    public float maxHeal;
     public float heal;
-
+    
     [HideInInspector]
         public int refrashCredit;
 
@@ -67,6 +68,7 @@ public class Stage : MonoBehaviour
         }
         else
         {
+            heal = maxHeal;
             pp_BattleManager = GameObject.Find("BattleManager").GetComponent<BattleManager>();//DISON.VER
             pp_DialogManager = GameObject.Find("BattleManager").GetComponent<Dialog_Manager>();//DISON.VER
         }
@@ -199,8 +201,13 @@ public class Stage : MonoBehaviour
             actor.isTakingTool = false;
             if (gameObject.tag == "ProtectPoint")//保护据点触发器//DISON.VER
             {
-                pp_DialogManager.ProtectPoint_Start_Talk();//触发对话//DISON.VER
-                pp_BattleManager.Special_Battle_Start();
+                if (!GetComponent<ProtectPointManager>().StartCrack)
+                {
+                    pp_BattleManager.Special_Battle_Start();
+                    pp_DialogManager.ProtectPoint_Start_Talk();//触发对话//DISON.VER
+                    
+                }
+                
             }
 
 

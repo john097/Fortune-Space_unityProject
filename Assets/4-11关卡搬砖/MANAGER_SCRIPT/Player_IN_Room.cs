@@ -72,17 +72,7 @@ public class Player_IN_Room : MonoBehaviour
             GetComponent<Player_IN_Room>().enabled = false;
         }
 
-        if (this_room_type == 3 && gameObject.tag == ("S1-ROOM") && !a)//守护据点关卡触发器
-        {
-           
-            if (ProtectPoint.heal <= 0)
-            {
-                B_Manager.PP_Dead = true;
-                
-                a = true;
-            }
-           
-        }
+       
     }
 
 

@@ -154,7 +154,7 @@ public class BattleManager : MonoBehaviour
 
        checknum_a = 2;
        
-        int[] num_1= new int[8];
+        int[] num_1= new int[12];
         int[] num_2 = new int[5];
         int[] num_3 = new int[4];
 
@@ -297,7 +297,7 @@ public class BattleManager : MonoBehaviour
 
                 }
 
-                if (j <= 4 && num_1[j] == 3)//防止传送门房间过早出现
+                if (j <= 8 && num_1[j] == 3)//防止传送门房间过早出现
                 {
                     C -= 1;
                     num_1[j] = Random.Range(1, 3);
@@ -382,7 +382,7 @@ public class BattleManager : MonoBehaviour
                     B += 1;
                 }
 
-                if (j == 7 & C == 0)
+                if (j == 11 & C == 0)
                 {
                     C += 1;
                     num_1[j] = 3;

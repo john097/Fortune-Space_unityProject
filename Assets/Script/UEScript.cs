@@ -12,6 +12,9 @@ public class UEScript : MonoBehaviour
     [Tooltip("敌人血条")]
         public bool enemyHealBar;
 
+    [Tooltip("敌人血条")]
+        public bool protecpointHealBar;
+
     [Tooltip("个人信息界面")]
         public bool playerMenu;
 
@@ -24,6 +27,7 @@ public class UEScript : MonoBehaviour
     private Text[] messages;
 
     Actor player;
+    Stage protectpoint;
     Credit playerCredit;
     Image healImage;
     Image[] skills;
@@ -74,6 +78,12 @@ public class UEScript : MonoBehaviour
             player = gameObject.transform.parent.gameObject.GetComponent<Actor>();
             followPlayerCamera = GameObject.FindGameObjectWithTag("Player").GetComponent<Actor>().FollowCamera;
         }
+        else if (protecpointHealBar)//保护据点的血条***DISON.VER***
+        {
+            healImage = gameObject.transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<Image>();
+            protectpoint = gameObject.transform.parent.gameObject.GetComponent<Stage>();
+            followPlayerCamera = GameObject.FindGameObjectWithTag("Player").GetComponent<Actor>().FollowCamera;
+        }
         else if (playerMenu)
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Actor>();
@@ -117,6 +127,12 @@ public class UEScript : MonoBehaviour
         if (enemyHealBar)
         {
             EnemyInfoUpdate();
+            transform.LookAt(followPlayerCamera.transform);
+        }
+
+        if (protecpointHealBar)//保护据点的血条***DISON.VER***
+        {
+            ProtectPointInfoUpdate();
             transform.LookAt(followPlayerCamera.transform);
         }
 
@@ -302,6 +318,33 @@ public class UEScript : MonoBehaviour
                 Destroy(gameObject.transform.Find("Slider_Heal").gameObject);
             }
             
+        }
+    }
+
+    private void ProtectPointInfoUpdate()//保护据点的血条***DISON.VER***
+    {
+        FillAmountUpdate(healImage, protectpoint.heal, 0, protectpoint.maxHeal);
+
+        if (protectpoint.heal <= protectpoint.maxHeal * 0.2)
+        {
+            healImage.color = Color.red;
+        }
+        else if (protectpoint.heal > protectpoint.maxHeal * 0.2&& protectpoint.heal <= protectpoint.maxHeal * 0.5)
+        {     
+            healImage.color = Color.yellow;
+        }
+        else
+        {
+            healImage.color = Color.green;
+        }
+
+        if (protectpoint.heal<=0)
+        {
+            if (gameObject.transform.Find("Slider_Heal"))
+            {
+                Destroy(gameObject.transform.Find("Slider_Heal").gameObject);
+            }
+
         }
     }
 

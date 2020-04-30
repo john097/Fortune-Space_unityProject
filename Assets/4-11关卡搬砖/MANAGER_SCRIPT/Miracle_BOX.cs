@@ -93,7 +93,7 @@ public class Miracle_BOX : MonoBehaviour
     public void Box_Event()
     {
         
-         rand_num = Random.Range(0, 10);
+         rand_num = /*Random.Range(0, 10)*/6;
      if (rand_num <=2)//毒雾
      {
         trap = Resources.Load(Prefabs2 + "Bt_Poison_Fog") as GameObject;

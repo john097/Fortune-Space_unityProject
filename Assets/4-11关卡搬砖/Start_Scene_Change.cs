@@ -88,6 +88,11 @@ public class Start_Scene_Change : MonoBehaviour
 
     }
 
+    public void ProtectFailed()
+    {
+        actor.isAlive = false;
+    }
+
     public void Start_Button_Onclick()
     {
         Debug.Log("asd");
