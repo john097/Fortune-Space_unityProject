@@ -305,7 +305,7 @@ public class Stage : MonoBehaviour
                     }
 
                 }
-                DestroyImmediate(gameObject);
+                
 
             }
             if (gameObject.tag == "Blood_Box")//献血抽奖箱

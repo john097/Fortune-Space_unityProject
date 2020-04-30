@@ -62,8 +62,8 @@ public class RandomWeaponModel : MonoBehaviour
         if (34 <= wHArr[0] && wHArr[0] <= 48)
         {
             //武士刀
-            a.transform.localPosition = new Vector3(0, -40f, 0);
-            a.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+            a.transform.localPosition = new Vector3(0, -25f, 0);
+            a.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
         }
         else if (49 <= wHArr[0] && wHArr[0] <= 54)
         {
