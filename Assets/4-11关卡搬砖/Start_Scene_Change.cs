@@ -15,6 +15,7 @@ public class Start_Scene_Change : MonoBehaviour
         PlayerPrefs.DeleteAll();
 
         scene_name = SceneManager.GetActiveScene().name;
+
         if (scene_name == "Start_Scene")
         {
             PlayerPrefs.SetInt("Current_State", -1);

@@ -15,7 +15,9 @@ public class mon_follow : Action
     float player_distance;
 
     public bool doing_sth;
-
+    public Animator thisAnimator;
+    public SharedBool is_bomber;
+    public BehaviorTree behaviortree;
     public override void OnStart()
 	{
        
@@ -25,7 +27,12 @@ public class mon_follow : Action
         navMeshAgent.enabled = true;
         mf_manager = GameObject.Find("BattleManager").GetComponent<BattleManager>();
         PLAYER = GameObject.Find("Actor");
-        
+        behaviortree = GetComponent<BehaviorTree>();
+        is_bomber = (SharedBool)behaviortree.GetVariable("is_bomber");
+        if (!is_bomber.Value)
+        {
+            thisAnimator = gameObject.transform.Find("m002-LM-1").GetComponent<Animator>();
+        }
     }
 
 	public override TaskStatus OnUpdate()
@@ -35,14 +42,25 @@ public class mon_follow : Action
         if (!mons_actor.isAlive)
         {
             navMeshAgent.enabled = false;
+
+            thisAnimator.SetInteger("ContolInt", 0);
+            
             return TaskStatus.Success;
+        }
+
+        if (mf_manager.Protect_Room_Battle)
+        {
+            ProtectPoint = GameObject.Find("ProtectPoint").transform.position;
         }
 
         if (mons_actor.isAlive)
         {
             navMeshAgent.enabled = true;
+            thisAnimator.SetInteger("ContolInt", 2);
+
             if (mf_manager.Protect_Room_Battle)
             {
+
                 navMeshAgent.SetDestination(ProtectPoint);
             }
             else
@@ -52,10 +70,7 @@ public class mon_follow : Action
 
         }
 
-        if (mf_manager.Protect_Room_Battle)
-        {
-            ProtectPoint = GameObject.Find("ProtectPoint").transform.position;
-        }
+        
        
   
             return TaskStatus.Running;

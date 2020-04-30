@@ -558,20 +558,20 @@ public class BattleManager : MonoBehaviour
 
         }
 
-        if (BattleFinish)//打开房间门口
-        {
+        //if (BattleFinish)//打开房间门口
+        //{
 
-            if (GameObject.FindGameObjectWithTag("ENEMY"))
-            {
-                GameObject[] enemys = GameObject.FindGameObjectsWithTag("ENEMY");
+        //    if (GameObject.FindGameObjectWithTag("ENEMY"))
+        //    {
+        //        GameObject[] enemys = GameObject.FindGameObjectsWithTag("ENEMY");
 
-                for (int i = 0; i < enemys.Length; i++)
-                {
-                    enemys[i].GetComponent<Actor>().GoDie();
-                    Debug.Log("godie");
-                }
-            }
-        }
+        //        for (int i = 0; i < enemys.Length; i++)
+        //        {
+        //            enemys[i].GetComponent<Actor>().GoDie();
+        //            Debug.Log("godie");
+        //        }
+        //    }
+        //}
        
 
 
@@ -674,6 +674,7 @@ public class BattleManager : MonoBehaviour
         if (MON_NUMS > 0)
         {
             MON_NUMS -= 1;
+
             player_combo_kill.ResetKillstreaksNum();
 
             Debug.Log(MON_NUMS);
