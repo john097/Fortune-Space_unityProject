@@ -132,8 +132,11 @@ public class Actor : MonoBehaviour
     [HideInInspector]
         public Animator thisAnimator;
 
+    [HideInInspector]
+        public Animator monsAnimator;
+
     //[HideInInspector]
-        public  bool lookAtTag;
+    public  bool lookAtTag;
 
     [HideInInspector]
         public bool isTakingTool;
@@ -180,6 +183,10 @@ public class Actor : MonoBehaviour
             DontDestroyOnLoad(gameObject);
 
             thisAnimator = gameObject.transform.Find("ActorModel").GetComponent<Animator>();
+        }
+        else
+        {
+            monsAnimator = gameObject.transform.Find("m002-LM-1").GetComponent<Animator>();
         }
 
         nowThisTakeWeapon = weaponType.非武器;
@@ -816,8 +823,13 @@ public class Actor : MonoBehaviour
     {
         if (a.thisType == Buff.buffType.止步)
         {
-            imprisonmentBuff = a;
-            thisRigidbody.velocity = Vector3.zero;
+            if (isPlayer)
+            {
+                imprisonmentBuff = a;
+                thisRigidbody.velocity = Vector3.zero;
+            }
+           
+            
         }
         else if (a.thisType == Buff.buffType.沉默)
         {
@@ -899,7 +911,12 @@ public class Actor : MonoBehaviour
     //受伤函数响应
     public void TakeDamege(float i)
     {
-        BeAttacked = true;
+        if (!isPlayer)
+        {
+            BeAttacked = true;
+            GetComponent<Mons_Speed_Change>().BEHIT();
+        }
+        
         if (isAlive)
         {
             if (vulnerabilityBuff)
@@ -927,6 +944,10 @@ public class Actor : MonoBehaviour
                     if (isPlayer)
                     {
                         thisAnimator.SetTrigger("Behit");
+                    }
+                    else
+                    {
+                        monsAnimator.SetTrigger("Behit");
                     }
                 }
             }
