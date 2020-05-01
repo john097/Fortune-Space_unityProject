@@ -44,13 +44,13 @@ public class MON_ROTATE_ATK : Action
             thisAnimator = gameObject.transform.Find("m002-LM-1").GetComponent<Animator>();
             ProtectPoint = GameObject.Find("ProtectPoint");
 
-            C.attack_finished.Value = true;
+            //C.attack_finished.Value = true;
         }
         else
         {
             ProtectPoint = GameObject.Find("ProtectPoint");
 
-            C.attack_finished.Value = true;
+            //C.attack_finished.Value = true;
         }
      
 

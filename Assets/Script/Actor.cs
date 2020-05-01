@@ -934,18 +934,18 @@ public class Actor : MonoBehaviour
             }
             else
             {
-                if (i>0 && !superArmorBuff)
-                {
-                    if (UsingSkill)
-                    {
-                        UsingSkill.SkillActionStop(true);
-                    }
+                //if (i>0 && !superArmorBuff)
+                //{
+                //    if (UsingSkill)
+                //    {
+                //        UsingSkill.SkillActionStop(true);
+                //    }
 
-                    if (isPlayer)
-                    {
-                        thisAnimator.SetTrigger("Behit");
-                    }
-                }
+                //    if (isPlayer)
+                //    {
+                //        thisAnimator.SetTrigger("Behit");
+                //    }
+                //}
             }
 
             if (heal >= maxHeal)
