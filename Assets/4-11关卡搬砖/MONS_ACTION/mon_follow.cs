@@ -29,6 +29,7 @@ public class mon_follow : Action
         PLAYER = GameObject.Find("Actor");
         behaviortree = GetComponent<BehaviorTree>();
         is_bomber = (SharedBool)behaviortree.GetVariable("is_bomber");
+
         if (!is_bomber.Value)
         {
             thisAnimator = gameObject.transform.Find("m002-LM-1").GetComponent<Animator>();
@@ -43,9 +44,13 @@ public class mon_follow : Action
         {
             navMeshAgent.enabled = false;
 
-            thisAnimator.SetInteger("ContolInt", 0);
             
-            return TaskStatus.Success;
+            if (!is_bomber.Value)
+            {
+                thisAnimator.SetInteger("ContolInt", 0);
+            }
+
+                return TaskStatus.Success;
         }
 
         if (mf_manager.Protect_Room_Battle)
@@ -56,7 +61,12 @@ public class mon_follow : Action
         if (mons_actor.isAlive)
         {
             navMeshAgent.enabled = true;
-            thisAnimator.SetInteger("ContolInt", 2);
+
+            if (!is_bomber.Value)
+            {
+                thisAnimator.SetInteger("ContolInt", 2);
+            }
+               
 
             if (mf_manager.Protect_Room_Battle)
             {

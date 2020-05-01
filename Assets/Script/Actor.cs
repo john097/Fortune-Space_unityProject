@@ -184,10 +184,10 @@ public class Actor : MonoBehaviour
 
             thisAnimator = gameObject.transform.Find("ActorModel").GetComponent<Animator>();
         }
-        else
-        {
-            monsAnimator = gameObject.transform.Find("m002-LM-1").GetComponent<Animator>();
-        }
+        //else
+        //{
+        //    monsAnimator = gameObject.transform.Find("m002-LM-1").GetComponent<Animator>();
+        //}
 
         nowThisTakeWeapon = weaponType.非武器;
         heal = maxHeal;
@@ -944,10 +944,6 @@ public class Actor : MonoBehaviour
                     if (isPlayer)
                     {
                         thisAnimator.SetTrigger("Behit");
-                    }
-                    else
-                    {
-                        monsAnimator.SetTrigger("Behit");
                     }
                 }
             }

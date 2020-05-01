@@ -154,7 +154,7 @@ public class BattleManager : MonoBehaviour
        
         int[] num_1= new int[12];
         int[] num_2 = new int[5];
-        int[] num_3 = new int[4];
+        int[] num_3 = new int[8];
 
         Player_Choose = new int[3];
 
@@ -172,28 +172,7 @@ public class BattleManager : MonoBehaviour
 
                 checknum_a += 1;
 
-                if (j == 2 && sum < 3)
-                {
-                    
-                    num_3[j ] = 2;
-                    num_3[j + 1] = 3;
-                    break;
-                }
-                
-                if (j == 3 )
-                {
-                    if(sum < 6)
-                    {
-                        num_3[j] = 3;
-                    }
-                    else
-                    {
-                        num_3[j]= Random.Range(1, checknum_a-1);
-                    }
-                }
-                
-
-                sum += num_3[j];
+               
             }
   
         }

@@ -75,10 +75,15 @@ public class mon_attack : Action
             else
             {
                 mons_actor.Skills_0[0].UseSkill();
-                thisAnimator.SetInteger("ContolInt", 1);
+
+                if (!is_bomber.Value)
+                {
+                    thisAnimator.SetInteger("ContolInt", 1);
+                }
+                    
                 attack_finished.Value = false;
             }
-           
+
             
 
 
@@ -112,7 +117,12 @@ public class mon_attack : Action
         else
         {
             yield return new WaitForSeconds(Atk_C_A);
-            thisAnimator.SetInteger("ContolInt", 0);
+
+            if (!is_bomber.Value)
+            {
+                thisAnimator.SetInteger("ContolInt", 0);
+            }
+            
             C.lerp_tm = 0f;
             attack_finished = true;
             s = true;
