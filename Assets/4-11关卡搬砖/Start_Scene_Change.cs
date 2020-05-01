@@ -49,7 +49,7 @@ public class Start_Scene_Change : MonoBehaviour
                 PlayerPrefs.SetInt("Current_State", 2);
                 
                 break;
-            case "Level 3":
+            case "Level3Mod":
                 PlayerPrefs.SetInt("Current_State", 3);
                 
                 break;
