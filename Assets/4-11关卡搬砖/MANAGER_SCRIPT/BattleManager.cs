@@ -117,8 +117,6 @@ public class BattleManager : MonoBehaviour
 
         switch (PlayerPrefs.GetInt("Current_State"))//关卡开始传送到出生房
         {
-         
-
             case 0:
                 Player.TakeDamege(-(Player.maxHeal * 0.5f));//新关卡回血
                 BornRoom_tf = GameObject.Find("Tutorial-Born_Zoom").transform;

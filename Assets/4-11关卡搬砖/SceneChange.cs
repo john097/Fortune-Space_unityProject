@@ -88,15 +88,15 @@ public class SceneChange : MonoBehaviour
 
                 break;
                 case 1:
-                    PlayerPrefs.SetInt("Current_State", 2);
-                    async = SceneManager.LoadSceneAsync("Level 2  Scene 1");
+                PlayerPrefs.SetInt("Current_State", 3);
+                async = SceneManager.LoadSceneAsync("Level3Mod");
                 async.allowSceneActivation = true;
 
                 break;
 
                 case 2:
                     PlayerPrefs.SetInt("Current_State", 3);
-                    async = SceneManager.LoadSceneAsync("Level 3");
+                    async = SceneManager.LoadSceneAsync("Level3Mod");
                 async.allowSceneActivation = true;
 
                 break;
