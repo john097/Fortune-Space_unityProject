@@ -17,6 +17,7 @@ public class mon_follow : Action
     public bool doing_sth;
     public Animator thisAnimator;
     public SharedBool is_bomber;
+    public SharedBool is_mons3;
     public BehaviorTree behaviortree;
     public override void OnStart()
 	{
@@ -29,8 +30,9 @@ public class mon_follow : Action
         PLAYER = GameObject.Find("Actor");
         behaviortree = GetComponent<BehaviorTree>();
         is_bomber = (SharedBool)behaviortree.GetVariable("is_bomber");
+        is_mons3 = (SharedBool)behaviortree.GetVariable("is_mons3");
 
-        if (!is_bomber.Value)
+        if (!is_bomber.Value && !is_mons3.Value)
         {
             thisAnimator = gameObject.transform.Find("m002-LM-1").GetComponent<Animator>();
         }
@@ -45,7 +47,7 @@ public class mon_follow : Action
             navMeshAgent.enabled = false;
 
             
-            if (!is_bomber.Value)
+            if (!is_bomber.Value && !is_mons3.Value)
             {
                 thisAnimator.SetInteger("ContolInt", 0);
             }
@@ -62,7 +64,7 @@ public class mon_follow : Action
         {
             navMeshAgent.enabled = true;
 
-            if (!is_bomber.Value)
+            if (!is_bomber.Value && !is_mons3.Value)
             {
                 thisAnimator.SetInteger("ContolInt", 2);
             }

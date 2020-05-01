@@ -16,7 +16,9 @@ public class mon_attack : Action
     public SharedBool attack_finished;//判断是否攻击完毕
     public SharedBool have_rotate_atk;
     public SharedBool is_bomber;
-    
+    public SharedBool is_mons3;
+
+
     public float Atk_C_A;//攻击硬值时间（攻击期间无法移动）
     public float Atk_C;//攻击硬值时间（攻击期间无法移动）
     public float Atk_cd;//攻击间隔
@@ -47,8 +49,9 @@ public class mon_attack : Action
 
         have_rotate_atk=(SharedBool)behaviortree.GetVariable("have_rotate_atk");
         is_bomber= (SharedBool)behaviortree.GetVariable("is_bomber");
+        is_mons3= (SharedBool)behaviortree.GetVariable("is_mons3");
 
-        if (!is_bomber.Value)
+        if (!is_bomber.Value&&!is_mons3.Value)
         {
             thisAnimator = gameObject.transform.Find("m002-LM-1").GetComponent<Animator>();
         }
@@ -66,7 +69,7 @@ public class mon_attack : Action
 
         if (mons_actor.isAlive && !mons_skill.coolDownFlag)
         {
-            if (is_bomber.Value)
+            if (is_bomber.Value|| is_mons3.Value)
             {
                 gameObject.GetComponent<NavMeshAgent>().enabled = false;
                 mons_actor.Skills_0[0].UseSkill();
@@ -76,7 +79,7 @@ public class mon_attack : Action
             {
                 mons_actor.Skills_0[0].UseSkill();
 
-                if (!is_bomber.Value)
+                if (!is_bomber.Value && !is_mons3.Value)
                 {
                     thisAnimator.SetInteger("ContolInt", 1);
                 }
@@ -118,7 +121,7 @@ public class mon_attack : Action
         {
             yield return new WaitForSeconds(Atk_C_A);
 
-            if (!is_bomber.Value)
+            if(!is_bomber.Value && !is_mons3.Value)
             {
                 thisAnimator.SetInteger("ContolInt", 0);
             }

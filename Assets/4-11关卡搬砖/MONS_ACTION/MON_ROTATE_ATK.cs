@@ -23,13 +23,15 @@ public class MON_ROTATE_ATK : Action
     public SharedInt mons3_action;
     private Animator thisAnimator;
     public SharedBool is_bomber;
+    public SharedBool is_mons3;
+
     public override void OnStart()
     {
         player = GameObject.Find("Actor");
         behaviortree = gameObject.GetComponent<BehaviorTree>();
         MRA_manager = GameObject.Find("BattleManager").GetComponent<BattleManager>();
         is_bomber = (SharedBool)behaviortree.GetVariable("is_bomber");
-
+        is_mons3 = (SharedBool)behaviortree.GetVariable("is_mons3");
 
         if (gameObject.tag == "BOSS")
         {
@@ -37,9 +39,15 @@ public class MON_ROTATE_ATK : Action
             thisAnimator = gameObject.transform.Find("m002-shenshi").GetComponent<Animator>();
 
         }
-        else if (!is_bomber.Value)
+        else if (!is_bomber.Value && !is_mons3.Value)
         {
             thisAnimator = gameObject.transform.Find("m002-LM-1").GetComponent<Animator>();
+            ProtectPoint = GameObject.Find("ProtectPoint");
+
+            C.attack_finished.Value = true;
+        }
+        else
+        {
             ProtectPoint = GameObject.Find("ProtectPoint");
 
             C.attack_finished.Value = true;
@@ -65,7 +73,11 @@ public class MON_ROTATE_ATK : Action
 
         if (MRA_manager.Protect_Room_Battle)//用于保护据点战的转向判定
         {
-            thisAnimator.SetInteger("ContolInt", 0);
+            if (!is_bomber.Value && !is_mons3.Value)
+            {
+                thisAnimator.SetInteger("ContolInt", 0);
+            }
+                
 
             mon_rotation = transform.rotation;
             transform.LookAt(new Vector3(ProtectPoint.transform.position.x, transform.position.y, ProtectPoint.transform.position.z));
@@ -87,7 +99,7 @@ public class MON_ROTATE_ATK : Action
                 thisAnimator.SetBool("Idle", true);
                 thisAnimator.SetBool("Walk", false);
             }
-            else
+            else if (!is_bomber.Value && !is_mons3.Value)
             {
                 thisAnimator.SetInteger("ContolInt", 0);
 

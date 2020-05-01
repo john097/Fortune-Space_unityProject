@@ -21,7 +21,15 @@ public class Treasure_Manager : MonoBehaviour
 
             for (int i = 0; i < Treasure_Rooms.Length; i++)
             {
+            if (PlayerPrefs.GetInt("Current_State") == 3)
+            {
+                T_nums = Random.Range(1, 4);
+            }
+            else
+            {
                 T_nums = Random.Range(2, 5);
+            }
+                
 
             if (T_nums == 0)
             {
