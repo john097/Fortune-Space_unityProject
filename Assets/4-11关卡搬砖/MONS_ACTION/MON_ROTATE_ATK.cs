@@ -52,7 +52,6 @@ public class MON_ROTATE_ATK : Action
 
             //C.attack_finished.Value = true;
         }
-     
 
     }
 

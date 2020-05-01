@@ -33,12 +33,32 @@ public class mon_attack : Action
     public MON_ROTATE_ATK C;
 
     public GameObject attack_warning;
+    GameObject player;
 
+    public bool patrol=false;
+    public bool AA;
+   
+
+    public float x;
+    public float z;
+    
+    public Quaternion mon_rotation;//转身前角度
+    public Quaternion lookat_rotation;//准备朝向的角度
+    public float per_second_rotate;//转身速度（每秒转多少度）
+    public float lerp_speed = 0.0f;//旋转角度越大，lerp变化速度应该越慢
+    public float lerp_tm = 0.0f;//lerp的动态参数
+
+    public SharedTransform target;
+    
+    public SharedFloat CanSeeDistance;
+    public float dis;
+    public float i;
     public override void OnAwake()
 	{
-      
+        
         s = false;
         attack_finished.Value = true;
+        
 
         mons_actor = GetComponent<Actor>();
         mons_skill = gameObject.transform.GetChild(0).GetComponent<Skill>();
@@ -67,19 +87,76 @@ public class mon_attack : Action
 
     public override void OnStart()
     {
-        Idle_Time = Random.Range(2, 5);
+        AA = true;
+      
+        player = GameObject.Find("Actor");
+        target = GameObject.Find("Actor").transform;
+
+        Idle_Time = Random.Range(3, 7);
         Idle_Time += Atk_C_A;
     }
 
 
     public override TaskStatus OnUpdate()
 	{
+        dis = Vector3.Distance(transform.position, target.Value.position);
 
+        if (!is_bomber.Value && !is_mons3.Value)
+        {
+            if (patrol)
+            {
+                //transform.position = Vector3.MoveTowards(transform.position, new Vector3(x, transform.position.y, z), Time.deltaTime);
+                if (dis <= CanSeeDistance.Value)
+                {
+                    i = -1;
+                   
+                }
+                else
+                {
+                    i = 1;
+                   
+                }
+
+                transform.Translate(Vector3.forward * Time.deltaTime * 0.5f*i);
+
+                if (AA&&i==-1)
+                {
+                    
+                    thisAnimator.SetInteger("ContolInt", 3);
+                   
+                    AA = false;
+                }
+                else if (AA && i == 1)
+                {
+                    thisAnimator.SetInteger("ContolInt", 4);
+
+                    AA = false;
+                }
+                
+
+                mon_rotation = transform.rotation;
+                transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+                lookat_rotation = transform.rotation;
+                float rotate_angle = Quaternion.Angle(mon_rotation, lookat_rotation);
+                // 获得lerp速度
+                lerp_speed = per_second_rotate / rotate_angle;
+                lerp_tm = 0.0f;
+
+                lerp_tm += Time.deltaTime * lerp_speed;
+                transform.rotation = Quaternion.Lerp(mon_rotation, lookat_rotation, lerp_tm);
+
+                
+
+
+            }
+        }
+            
 
         if (mons_actor.isAlive && !mons_skill.coolDownFlag && attack_finished.Value)
         {
             if (is_bomber.Value|| is_mons3.Value)
             {
+                patrol = false;
                 gameObject.GetComponent<NavMeshAgent>().enabled = false;
                 mons_actor.Skills_0[0].UseSkill();
                 attack_warning.SetActive(true);
@@ -87,6 +164,7 @@ public class mon_attack : Action
             }
             else
             {
+                patrol = false;
                 mons_actor.Skills_0[0].UseSkill();
                 attack_warning.SetActive(true);
 
@@ -94,14 +172,14 @@ public class mon_attack : Action
                 {
                     thisAnimator.SetInteger("ContolInt", 1);
                 }
-                
-                
+
+                Idle_Time += Atk_C_A;
                 attack_finished.Value = false;
             }
+            
 
 
-
-
+            StartCoroutine(Remove3(Atk_C_A_2+1f));
             StartCoroutine(Remove2(Atk_C_A_2));
             StartCoroutine(Remove(Idle_Time));
 
@@ -133,7 +211,7 @@ public class mon_attack : Action
         else
         {
             yield return new WaitForSeconds(duration);
- 
+            
             C.lerp_tm = 0f;
             attack_finished = true;
             s = true;
@@ -144,6 +222,7 @@ public class mon_attack : Action
         if (is_bomber.Value)
         {
             yield return new WaitForSeconds(duration);
+
             gameObject.GetComponent<Actor>().GoDie();
             attack_finished = true;
             attack_warning.SetActive(false);
@@ -152,16 +231,26 @@ public class mon_attack : Action
         else
         {
             yield return new WaitForSeconds(duration);
+
+            
             attack_warning.SetActive(false);
             if (!is_bomber.Value && !is_mons3.Value)
             {
+                
                 thisAnimator.SetInteger("ContolInt", 0);
             }
 
         }
+        
     }
 
+    IEnumerator Remove3(float duration)
+    {
+        yield return new WaitForSeconds(duration);
 
+        patrol = true;
+
+    }
 
 
 
