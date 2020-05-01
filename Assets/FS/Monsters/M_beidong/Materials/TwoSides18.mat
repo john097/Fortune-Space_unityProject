@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Eff12_Bird
-  m_Shader: {fileID: 4800000, guid: 3bb419014d3f25d4b83b99bdf644cd62, type: 3}
-  m_ShaderKeywords: USE_ALPHA_CUTOUT
+  m_Name: TwoSides18
+  m_Shader: {fileID: 4800000, guid: e352339566e12b64f89bbdca914c4b99, type: 3}
+  m_ShaderKeywords: _USECUSTOMDATA_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -21,10 +21,6 @@ Material:
     m_TexEnvs:
     - _BumpMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _CutoutTex:
-        m_Texture: {fileID: 2800000, guid: 3287c87ebab422c48b09c725aeca863b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -39,20 +35,24 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _DistTex:
-        m_Texture: {fileID: 2800000, guid: 75805d058d2804c4ebd898c965870bf6, type: 3}
-        m_Scale: {x: 1.5, y: 3}
-        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 73301f90c922ca2408680afcdcdc08c9, type: 3}
-        m_Scale: {x: 0.6, y: 1}
-        m_Offset: {x: 0.15, y: 0}
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 2800000, guid: 60d224affeaecf84ead5a8b24c6c9995, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noise:
+        m_Texture: {fileID: 2800000, guid: 3f1d4fadb37c37e4488860109d7dce4b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -63,11 +63,22 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _tex4coord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _Emission: 2
+    - _Fresnel: 1
+    - _FresnelEmission: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -75,15 +86,20 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _SeparateEmission: 2
+    - _SeparateFresnel: 0
     - _SmoothnessTextureChannel: 0
-    - _SoftFade: 3
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _UseAlphaCutout: 1
+    - _UseCustomData: 1
+    - _UseFresnel: 0
     - _ZWrite: 1
+    - __dirty: 1
     m_Colors:
+    - _BackFacesColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DistStrength: {r: 0.1, g: 0.3, b: 0, a: 20}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _TintColor: {r: 1.8, g: 0.35671377, b: 0.026470505, a: 1}
+    - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FrontFacesColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpeedMainTexUVNoiseZW: {r: 0, g: 0, b: -0.3, a: -0.2}
