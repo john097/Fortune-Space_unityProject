@@ -55,14 +55,14 @@ namespace UnityEngine.Rendering.LWRP
         // This uses unity_4LightIndices to store an array of 4 light indices
         public static int maxPerObjectLights
         {
-            get => 4;
+            get => 16;
         }
 
         // Light data is stored in a constant buffer (uniform array)
         // This value has to match MAX_VISIBLE_LIGHTS in Input.hlsl
         public static int maxVisibleAdditionalLights
         {
-            get => 20;
+            get => 24;
         }
 
         public static LightweightRenderPipelineAsset asset
