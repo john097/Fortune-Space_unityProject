@@ -161,20 +161,127 @@ public class BattleManager : MonoBehaviour
 
         if (PlayerPrefs.GetInt("Current_State") == 3)//生成随机数组，用于定义房间类型
         {
-            for (int j = 0; j < num_3.Length; j++)//第三关随机房间逻辑
+            for (int j = 0; j < num_3.Length; j++)//第3大关随机房间逻辑
             {
+
+
                 if (checknum_a >= 4)
                 {
                     checknum_a = 4;
                 }
-
                 num_3[j] = Random.Range(1, checknum_a);
+
+                switch (num_3[j])
+                {
+                    case 1:
+                        A += 1;
+                        break;
+                    case 2:
+                        B += 1;
+                        break;
+                    case 3:
+                        C += 1;
+                        break;
+
+                }
+
+                if (j <= 5 && num_3[j] == 3)//防止传送门房间过早出现
+                {
+                    C -= 1;
+                    num_3[j] = Random.Range(1, 3);
+                    switch (num_3[j])
+                    {
+                        case 1:
+                            A += 1;
+                            break;
+                        case 2:
+                            B += 1;
+                            break;
+                        case 3:
+                            C += 1;
+                            break;
+
+                    }
+                }
+
+                if (num_3[j] == 3 || num_3[j] == 2)
+                {
+                    if (C > 1 && B > 2)
+                    {
+                        num_3[j] = 1;
+                        switch (num_3[j])
+                        {
+                            case 1:
+                                A += 1;
+                                break;
+                            case 2:
+                                B += 1;
+                                break;
+                            case 3:
+                                C += 1;
+                                break;
+
+                        }
+
+                    }
+                    if (C > 1)
+                    {
+                        C -= 1;
+                        num_3[j] = Random.Range(1, 3);
+                        switch (num_3[j])
+                        {
+                            case 1:
+                                A += 1;
+                                break;
+                            case 2:
+                                B += 1;
+                                break;
+                            case 3:
+                                C += 1;
+                                break;
+
+                        }
+
+                    }
+                    if (B > 2)
+                    {
+                        B -= 1;
+                        num_3[j] = 1;
+                        switch (num_3[j])
+                        {
+                            case 1:
+                                A += 1;
+                                break;
+                            case 2:
+                                B += 1;
+                                break;
+                            case 3:
+                                C += 1;
+                                break;
+
+                        }
+
+                    }
+                }
+
+                if (A >= 5 && B == 0)
+                {
+                    num_3[j] = 2;
+                    B += 1;
+                }
+
+                if (j == 7 & C == 0)
+                {
+                    C += 1;
+                    num_3[j] = 3;
+                    Debug.Log("asdf");
+
+                }
 
                 checknum_a += 1;
 
-               
             }
-  
+
         }
         if (PlayerPrefs.GetInt("Current_State") == 2)
         {

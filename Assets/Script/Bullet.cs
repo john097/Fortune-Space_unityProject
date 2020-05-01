@@ -421,7 +421,14 @@ public class Bullet : MonoBehaviour
 
         if (alignMuzzle)
         {
-            a = Instantiate(e,GameObject.Find("Muzzle").transform.position,Quaternion.identity);
+            a = Instantiate(e, GameObject.Find("Muzzle").transform.position, Quaternion.identity);
+
+            if (!followBullet)
+            {
+                a.AddComponent<EffectScript>();
+            }
+            
+            
             a.transform.forward = gameObject.transform.forward;
         }
         else 
@@ -444,9 +451,9 @@ public class Bullet : MonoBehaviour
 
         if (followBullet)
         {
-            a.transform.parent = gameObject.transform;
+                a.transform.parent = gameObject.transform;
         }
-        else
+        else 
         {
             a.transform.parent = null;
         }
