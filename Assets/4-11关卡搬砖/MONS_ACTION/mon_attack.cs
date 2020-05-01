@@ -20,6 +20,7 @@ public class mon_attack : Action
 
 
     public float Atk_C_A;//攻击硬值时间（攻击期间无法移动）
+    public float Atk_C_A_2;//攻击硬值时间（攻击期间无法移动）
     public float Atk_C;//攻击硬值时间（攻击期间无法移动）
     public float Atk_cd;//攻击间隔
     float timer;//计时器
@@ -27,9 +28,11 @@ public class mon_attack : Action
     public bool s;
     public Animator thisAnimator;
 
-
+    public float Idle_Time;
 
     public MON_ROTATE_ATK C;
+
+    public GameObject attack_warning;
 
     public override void OnAwake()
 	{
@@ -40,9 +43,10 @@ public class mon_attack : Action
         mons_actor = GetComponent<Actor>();
         mons_skill = gameObject.transform.GetChild(0).GetComponent<Skill>();
 
+        Atk_C_A_2=mons_actor.Skills_0[0].castActionTime + mons_actor.Skills_0[0].castTime;//获取攻击硬值时间
         Atk_C = mons_actor.Skills_0[0].castActionTime;
         Atk_C_A = mons_actor.Skills_0[0].castActionTime + mons_actor.Skills_0[0].castTime;//获取攻击硬值时间
-        Atk_cd = mons_actor.Skills_0[0].coolDownTime+Atk_C_A;
+        Atk_cd = mons_actor.Skills_0[0].coolDownTime + Atk_C_A;
 
         mf_manager = GameObject.Find("BattleManager").GetComponent<BattleManager>();
         behaviortree = GetComponent<BehaviorTree>();
@@ -61,39 +65,47 @@ public class mon_attack : Action
 
     }
 
-    
+    public override void OnStart()
+    {
+        Idle_Time = Random.Range(2, 5);
+        Idle_Time += Atk_C_A;
+    }
 
-	public override TaskStatus OnUpdate()
+
+    public override TaskStatus OnUpdate()
 	{
 
 
-        if (mons_actor.isAlive && !mons_skill.coolDownFlag)
+        if (mons_actor.isAlive && !mons_skill.coolDownFlag && attack_finished.Value)
         {
             if (is_bomber.Value|| is_mons3.Value)
             {
                 gameObject.GetComponent<NavMeshAgent>().enabled = false;
                 mons_actor.Skills_0[0].UseSkill();
+                attack_warning.SetActive(true);
                 attack_finished.Value = false;
             }
             else
             {
                 mons_actor.Skills_0[0].UseSkill();
+                attack_warning.SetActive(true);
 
                 if (!is_bomber.Value && !is_mons3.Value)
                 {
                     thisAnimator.SetInteger("ContolInt", 1);
                 }
-                    
+                
+                
                 attack_finished.Value = false;
             }
 
+
+
+
+            StartCoroutine(Remove2(Atk_C_A_2));
+            StartCoroutine(Remove(Idle_Time));
+
             
-
-
-
-            StartCoroutine(Remove());
-
-            return TaskStatus.Running;
         }
         if (s == true)
         {
@@ -101,38 +113,56 @@ public class mon_attack : Action
         }
 
 
-        return TaskStatus.Success;
-	}
+        return TaskStatus.Running;
+    }
 
    
 
-    IEnumerator Remove()
+    IEnumerator Remove(float duration)
     {
         
         
         if (is_bomber.Value)
         {
-            yield return new WaitForSeconds(Atk_C);
+            yield return new WaitForSeconds(duration);
             gameObject.GetComponent<Actor>().GoDie();
             attack_finished = true;
+            attack_warning.SetActive(false);
             s = true;
         }
         else
         {
-            yield return new WaitForSeconds(Atk_C_A);
-
-            if(!is_bomber.Value && !is_mons3.Value)
-            {
-                thisAnimator.SetInteger("ContolInt", 0);
-            }
-            
+            yield return new WaitForSeconds(duration);
+ 
             C.lerp_tm = 0f;
             attack_finished = true;
             s = true;
         }
     }
-        
-        
-        
+    IEnumerator Remove2(float duration)
+    {
+        if (is_bomber.Value)
+        {
+            yield return new WaitForSeconds(duration);
+            gameObject.GetComponent<Actor>().GoDie();
+            attack_finished = true;
+            attack_warning.SetActive(false);
+            s = true;
+        }
+        else
+        {
+            yield return new WaitForSeconds(duration);
+            attack_warning.SetActive(false);
+            if (!is_bomber.Value && !is_mons3.Value)
+            {
+                thisAnimator.SetInteger("ContolInt", 0);
+            }
+
+        }
+    }
+
+
+
+
 
 }

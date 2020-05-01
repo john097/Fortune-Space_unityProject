@@ -20,7 +20,7 @@ public class mon_born_effect : Action
         }
         if (PlayerPrefs.GetInt("Current_State") == 0)
         {
-            mons_actor.maxHeal *= 3;
+            mons_actor.maxHeal *= 1;
             mons_actor.heal = mons_actor.maxHeal;
         }
         else
