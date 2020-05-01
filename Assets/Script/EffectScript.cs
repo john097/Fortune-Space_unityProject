@@ -22,6 +22,9 @@ public class EffectScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = muzzle.transform.position;
+        if (muzzle)
+        {
+            transform.position = muzzle.transform.position;
+        }
     }
 }

@@ -75,6 +75,7 @@ MonoBehaviour:
   cantCancel: 0
   isStepSkill: 0
   stepSpeed: 0
+  skillShake: 0
   bulletPrefabs:
   - {fileID: 5408062664528355083, guid: 0e5823ec4d5cee949aea379b4c2e251c, type: 3}
   bulletOffsets:
@@ -171,6 +172,7 @@ MonoBehaviour:
   cantCancel: 0
   isStepSkill: 0
   stepSpeed: 0
+  skillShake: 0
   bulletPrefabs:
   - {fileID: 5408062664528355083, guid: ca0a5c17d58a1f64cb8bd93ebceb9d5a, type: 3}
   bulletOffsets:
@@ -269,6 +271,7 @@ MonoBehaviour:
   cantCancel: 0
   isStepSkill: 0
   stepSpeed: 0
+  skillShake: 0
   bulletPrefabs:
   - {fileID: 5408062664528355083, guid: 5a53e79e4f7a7164f84164a16b9a888f, type: 3}
   bulletOffsets:
@@ -285,7 +288,8 @@ MonoBehaviour:
   comboSkills:
   - {fileID: 7700267543829780611}
   - {fileID: 7700267544115785158}
-  buffPrefabsInCastActionTime: []
+  buffPrefabsInCastActionTime:
+  - {fileID: 5696292650377325008, guid: 99743599e8a5c45469b92deb587df22b, type: 3}
   buffPrefabs:
   - {fileID: 5696292650377325008, guid: da042b72e6284a34b9185458273fbb28, type: 3}
   skillVariantEvent: 0

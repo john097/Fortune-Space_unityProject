@@ -371,7 +371,7 @@ public class Bullet : MonoBehaviour
                                     {
                                         Vector3 c = Camera.main.WorldToScreenPoint(a.transform.position) - Camera.main.WorldToScreenPoint(transform.position);
 
-                                        actor.FollowCamera.GetComponent<CamShake>().CameraShake(c, CamShake.ShakeIntensity.中);
+                                        actor.FollowCamera.GetComponent<CamShake>().CameraShake(c, CamShake.ShakeIntensity.大);
                                     }
 
                                 }
@@ -425,10 +425,10 @@ public class Bullet : MonoBehaviour
 
             if (!followBullet)
             {
+                Debug.Log("附加自爆脚本");
                 a.AddComponent<EffectScript>();
             }
-            
-            
+
             a.transform.forward = gameObject.transform.forward;
         }
         else 
@@ -503,6 +503,23 @@ public class Bullet : MonoBehaviour
     {
         if (!isSustained)
         {
+            if (hitEffect)
+            {
+                if (thisSpType == Actor.specialType.远)
+                {
+                    CreateEffect(hitEffect, false, false);
+                }
+                else
+                {
+                    Quaternion r = transform.rotation;
+                    transform.Rotate(0, 180, 0);
+                    GameObject a = Instantiate(hitEffect, other.ClosestPointOnBounds(other.gameObject.transform.position + new Vector3(0, 1, 0)), gameObject.transform.rotation);
+                    //transform.position += new Vector3(0,50,0);
+                    transform.rotation = r;
+                }
+
+            }
+
             if (other.gameObject.layer == LayerMask.NameToLayer("Enemy") || other.gameObject.layer == LayerMask.NameToLayer("Actor"))
             {
                 Actor a = other.gameObject.GetComponent<Actor>();
@@ -524,10 +541,7 @@ public class Bullet : MonoBehaviour
                 }
             }
 
-            if (hitEffect)
-            {
-                CreateEffect(hitEffect, false, false);
-            }
+            
 
             if (skillVariantEvent)
             {

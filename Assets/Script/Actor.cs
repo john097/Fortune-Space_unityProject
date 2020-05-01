@@ -376,6 +376,11 @@ public class Actor : MonoBehaviour
 
             moveDirection = cForward * Input.GetAxis("Vertical") + cRight * Input.GetAxis("Horizontal");
 
+            if (moveDirection.magnitude > moveDirection.normalized.magnitude)
+            {
+                moveDirection = moveDirection.normalized;
+            }
+
             //是否憨憨玩家没有按方向键
             if (steping && moveDirection == Vector3.zero)
             {
@@ -934,18 +939,19 @@ public class Actor : MonoBehaviour
             }
             else
             {
-                //if (i>0 && !superArmorBuff)
-                //{
-                //    if (UsingSkill)
-                //    {
-                //        UsingSkill.SkillActionStop(true);
-                //    }
+                if (i > 0 && !superArmorBuff)
+                {
+                    if (UsingSkill)
+                    {
+                        UsingSkill.SkillActionStop(true);
+                    }
 
-                //    if (isPlayer)
-                //    {
-                //        thisAnimator.SetTrigger("Behit");
-                //    }
-                //}
+                    if (isPlayer)
+                    {
+                        thisAnimator.SetTrigger("Behit");
+                        FollowCamera.GetComponent<CamShake>().CameraShake(new Vector3(1,1,0), CamShake.ShakeIntensity.大);
+                    }
+                }
             }
 
             if (heal >= maxHeal)

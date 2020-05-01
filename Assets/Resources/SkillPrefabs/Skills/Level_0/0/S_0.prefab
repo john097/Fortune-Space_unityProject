@@ -47,7 +47,7 @@ MonoBehaviour:
   skillExplain: "\u5F3A\u529B\u8E22\u51FB\uFF0C\u51FB\u9000\u654C\u4EBA\u3002"
   skillDamageExplain: 50
   skillVulnerabilityExplain: 0
-  skillRepelExplain: 350
+  skillRepelExplain: "\u5BF9\u654C\u51FB\u9000\u503C\uFF1A350"
   skillSpecialExplain: "\u547D\u4E2D\u654C\u4EBA\u9020\u62105\u79D2\u6613\u4F24\u6548\u679C"
   skillIcon: {fileID: 21300000, guid: 744712d8bc1939a4691908cb9be81787, type: 3}
   credit: 50
@@ -75,6 +75,7 @@ MonoBehaviour:
   cantCancel: 0
   isStepSkill: 0
   stepSpeed: 0
+  skillShake: 0
   bulletPrefabs:
   - {fileID: 1511339145793252730, guid: 6a5dbd7fd670c7d4b8541cfffa4f16d1, type: 3}
   bulletOffsets:

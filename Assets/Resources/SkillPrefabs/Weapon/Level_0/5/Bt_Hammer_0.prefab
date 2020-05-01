@@ -72,10 +72,13 @@ MonoBehaviour:
   - {fileID: 3953366767545335957, guid: 4f9bdcac0ddc8c146a91ec11f120e74e, type: 3}
   - {fileID: 3953366767545335957, guid: fd600bf6429d30b4a8b6bc981d61186d, type: 3}
   bulletSons: []
-  createEffect: {fileID: 0}
+  createEffect: {fileID: 2143544608996638349, guid: da2711391329a2e419577870e838d693,
+    type: 3}
   bulletEffect: {fileID: 0}
   alignTheMuzzlePosition: 0
-  hitEffect: {fileID: 0}
+  alignTheActorPosition: 1
+  hitEffect: {fileID: 6885633661990770188, guid: 8a0e4d8d9e8f708459de16bffd76b671,
+    type: 3}
   destroyEffect: {fileID: 0}
   actor: {fileID: 0}
   skillParent: {fileID: 0}
@@ -96,7 +99,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5408062664528355083}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
