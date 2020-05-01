@@ -73,10 +73,13 @@ MonoBehaviour:
   - {fileID: 4062038196249826196, guid: 9ebf689d4ac87404fa081c2378bf3f23, type: 3}
   - {fileID: 7509876754938940149, guid: 8620971618cbfe243b06451773dd9e00, type: 3}
   bulletSons: []
-  createEffect: {fileID: 100000, guid: b7f96b2dc32bcfb4d90628423b49481e, type: 3}
-  bulletEffect: {fileID: 0}
-  alignTheMuzzlePosition: 0
-  hitEffect: {fileID: 1726993101712381109, guid: 7eb2b3ca853ef0844af0e1fb9c4c4e9b,
+  createEffect: {fileID: 1676905465789847747, guid: 5348cbbc0869f714faa9a8c47c160038,
+    type: 3}
+  bulletEffect: {fileID: 7451072734671993219, guid: 0db8bac2832f90b42aec28cd64b40b1c,
+    type: 3}
+  alignTheMuzzlePosition: 1
+  alignTheActorPosition: 0
+  hitEffect: {fileID: 4992330126121519066, guid: 9376a6d0d99729c4f94832f7a104d326,
     type: 3}
   destroyEffect: {fileID: 0}
   actor: {fileID: 0}
@@ -98,7 +101,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449930322765350759}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
