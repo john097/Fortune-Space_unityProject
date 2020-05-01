@@ -62,7 +62,7 @@ namespace UnityEngine.Rendering.LWRP
         // This value has to match MAX_VISIBLE_LIGHTS in Input.hlsl
         public static int maxVisibleAdditionalLights
         {
-            get => 16;
+            get => 20;
         }
 
         public static LightweightRenderPipelineAsset asset
