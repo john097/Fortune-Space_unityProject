@@ -38,7 +38,7 @@ public class Power_Bf_Text : MonoBehaviour
                 break;
 
             case "SPD_Text":
-                A_TEXT.text = "x" +(int)(((actor.speed - 6) / 0.2f)+0.1);
+                A_TEXT.text = "x" +(int)(((actor.speed - 8) / 0.2f)+0.1);
                 break;
         }
     }
