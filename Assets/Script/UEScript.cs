@@ -33,8 +33,14 @@ public class UEScript : MonoBehaviour
     Image[] skills;
     Text creditText;
     Text ammoText;
+    Text ammoBack;
     Text weaponNameText;
-    Image weaponIcon;
+    Image weaponIcon_0;
+    Image weaponIcon_1;
+    Image weaponIcon_2;
+    Image BtnTipBG_1;
+    Image BtnTipBG_2;
+    Color BtnTipBG_Color;
 
     private int skillMode;
     private int selectingSkill;
@@ -53,6 +59,8 @@ public class UEScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        BtnTipBG_Color = new Color(0.8207547f, 0.367791f, 0.772462f, 1);
+
         if (fightingUI)
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Actor>();
@@ -68,9 +76,14 @@ public class UEScript : MonoBehaviour
 
             creditText = GameObject.Find("T_Credit").gameObject.GetComponent<Text>();
             ammoText = GameObject.Find("T_Ammo").gameObject.GetComponent<Text>();
+            ammoBack = GameObject.Find("T_AmmoBack").gameObject.GetComponent<Text>();
 
             //weaponNameText = gameObject.transform.GetChild(3).transform.GetChild(0).gameObject.GetComponent<Text>();
-            weaponIcon = GameObject.Find("I_Weapon").gameObject.GetComponent<Image>();
+            weaponIcon_0 = GameObject.Find("I_Weapon").gameObject.GetComponent<Image>();
+            weaponIcon_1 = GameObject.Find("I_Weapon_1").gameObject.GetComponent<Image>();
+            weaponIcon_2 = GameObject.Find("I_Weapon_2").gameObject.GetComponent<Image>();
+            BtnTipBG_1 = GameObject.Find("BtnTipBG_1").gameObject.GetComponent<Image>();
+            BtnTipBG_2 = GameObject.Find("BtnTipBG_2").gameObject.GetComponent<Image>();
         }
         else if(enemyHealBar)
         {
@@ -198,33 +211,6 @@ public class UEScript : MonoBehaviour
                 default:
                     break;
             }
-
-            //if (player.Tools[k].GetComponent<Stage>().thisToolType == Stage.toolType.特殊交互点)
-            //{
-            //    switch (player.Tools[k].tag)
-            //    {
-            //        case "Heal_Treasure":
-            //            specialInteractiveText.text = "按 F 拾取血包";
-            //            break;
-            //        case "Gold_Treasure":
-            //            specialInteractiveText.text = "按 F 拾取金币箱";
-            //            break;
-            //        case "Miracle_Box":
-            //            specialInteractiveText.text = "按 F 打开箱子";
-            //            break;
-            //        case "Blood_Box":
-            //            specialInteractiveText.text = "按 F 消耗最大血量的25%开启武器箱";
-            //            break;
-            //        case "Gold_Box":
-            //            specialInteractiveText.text = "按 F 消耗" + player.Tools[k].GetComponent<Gold_Box>().ticket + "金币开启箱子";
-            //            break;
-            //        case "Power_Box":
-            //            specialInteractiveText.text = "按 F 拾取增幅箱";
-            //            break;
-            //        default:
-            //            break;
-            //    }
-            //}
         }
     }
 
@@ -260,10 +246,12 @@ public class UEScript : MonoBehaviour
             if (player.Skills_0[0].ammoNumLimit == 0)
             {
                 UpdateText("∞", ammoText);
+                UpdateText("",ammoBack);
             }
             else
             {
-                UpdateText(player.Skills_0[0].ammoNum + "/" + player.Skills_0[0].ammoNumLimit, ammoText);
+                UpdateText(player.Skills_0[0].ammoNum.ToString(),ammoText);
+                UpdateText(player.Skills_0[0].ammoNumLimit.ToString(), ammoBack);
             }
         }
         else if(player.skillArrNum == 1)
@@ -271,23 +259,30 @@ public class UEScript : MonoBehaviour
             if (player.Skills_1[0].ammoNumLimit == 0)
             {
                 UpdateText("∞", ammoText);
+                UpdateText("", ammoBack);
             }
             else
             {
-                UpdateText(player.Skills_1[0].ammoNum + "/" + player.Skills_1[0].ammoNumLimit, ammoText);
+                UpdateText(player.Skills_1[0].ammoNum.ToString(), ammoText);
+                UpdateText(player.Skills_1[0].ammoNumLimit.ToString(), ammoBack);
             }
         }
 
         //武器信息
+        weaponIcon_1.sprite = player.Skills_0[0].skillIcon;
+        weaponIcon_2.sprite = player.Skills_1[0].skillIcon;
         if (player.skillArrNum == 0)
         {
-            //UpdateText(player.Skills_0[0].skillName,weaponNameText);
-            weaponIcon.sprite = player.Skills_0[0].skillIcon;
+            weaponIcon_0.sprite = player.Skills_0[0].skillIcon;
+            BtnTipBG_1.color = BtnTipBG_Color;
+            BtnTipBG_2.color = new Color(1,1,1, 0.3921569f);
+
         }
         else if (player.skillArrNum == 1)
         {
-            //UpdateText(player.Skills_1[0].skillName, weaponNameText);
-            weaponIcon.sprite = player.Skills_1[0].skillIcon;
+            weaponIcon_0.sprite = player.Skills_1[0].skillIcon;
+            BtnTipBG_2.color = BtnTipBG_Color;
+            BtnTipBG_1.color = new Color(1, 1, 1, 0.3921569f);
         }
     }
 

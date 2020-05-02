@@ -786,7 +786,7 @@ public class Actor : MonoBehaviour
                     Skills_0[3].UseSkill();
                 }
 
-                if (Input.GetKey(playerControl[4]) || Input.GetKey(KeyCode.Alpha2))
+                if (Input.GetKey(KeyCode.Alpha2))
                 {
                     Skills_0[4].UseSkill();
                 }
@@ -816,7 +816,7 @@ public class Actor : MonoBehaviour
                     Skills_1[3].UseSkill();
                 }
 
-                if (Input.GetKey(playerControl[4]) || Input.GetKey(KeyCode.Alpha2))
+                if (Input.GetKey(playerControl[4]))
                 {
                     Skills_1[4].UseSkill();
                 }
