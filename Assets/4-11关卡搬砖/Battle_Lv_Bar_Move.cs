@@ -22,7 +22,7 @@ public class Battle_Lv_Bar_Move : MonoBehaviour
         {
             BM = GameObject.Find("BattleManager").GetComponent<BattleManager>();
         }
-        move_time = 300f;
+        move_time = 450f;
         StartCoroutine(MoveObject(start, end, move_time));
     }
 

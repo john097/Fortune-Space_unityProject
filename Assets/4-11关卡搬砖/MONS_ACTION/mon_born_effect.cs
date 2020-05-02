@@ -30,22 +30,22 @@ public class mon_born_effect : Action
                 case 0:
                     break;
                 case 1:
-                    mons_actor.maxHeal += 100;
+                    mons_actor.maxHeal += 500;
                     mons_actor.heal = mons_actor.maxHeal;
                     mons_actor.attack += 5;
                     break;
                 case 2:
-                    mons_actor.maxHeal += 200;
+                    mons_actor.maxHeal += 1000;
                     mons_actor.heal = mons_actor.maxHeal;
                     mons_actor.attack += 10;
                     break;
                 case 3:
-                    mons_actor.maxHeal += 300;
+                    mons_actor.maxHeal += 1500;
                     mons_actor.heal = mons_actor.maxHeal;
                     mons_actor.attack += 15;
                     break;
                 case 4:
-                    mons_actor.maxHeal += 400;
+                    mons_actor.maxHeal += 2000;
                     mons_actor.heal = mons_actor.maxHeal;
                     mons_actor.attack += 20;
                     break;

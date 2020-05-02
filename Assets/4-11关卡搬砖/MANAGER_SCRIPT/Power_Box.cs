@@ -65,7 +65,7 @@ public class Power_Box : MonoBehaviour
                 StartCoroutine(Destroy_This(2f));
                 break;
             case 1://增加攻击力
-                actor.attack += 2;
+                actor.attack += 50;
                 Debug.Log("你的攻击力小幅度增加了");
                 GetComponent<BoxCollider>().enabled = false;
                 costimage.SetActive(false);

@@ -546,7 +546,7 @@ public class BattleManager : MonoBehaviour
         {
             Gamming_Time += Time.deltaTime;
 
-            if (Gamming_Time >= 60f)
+            if (Gamming_Time >= 90f)
             {
                 Game_Level += 1;
                 Debug.Log("Game Level Up!");
