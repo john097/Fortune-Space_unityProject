@@ -24,6 +24,10 @@ public class Start_Scene_Change : MonoBehaviour
         else if (scene_name == "SpawnRoom")
         {
             PlayerPrefs.SetInt("Current_State", -2);
+            if (GameObject.Find("Search_point"))
+            {
+                GameObject.Find("Search_point").SetActive(false);
+            }
             actor = GameObject.Find("Actor").GetComponent<Actor>();
             actor_g = GameObject.Find("Actor");
 
