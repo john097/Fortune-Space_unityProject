@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2798150232900266433}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisType: 1
   lifeTime: 0.25
-  speed: 1200
+  speed: 1400
   timeToStop: 0
   damage: 50
   isSustained: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   lockOnTarget: {fileID: 0}
   isFollowActor: 1
   destoryDelay: 0
-  bulletHitShake: 0
+  bulletHitShake: 3
   destoryAfterCollision: 0
   destoryAfterCollisionWithActor: 0
   destoryIfSkillBeCancel: 0
@@ -72,9 +72,12 @@ MonoBehaviour:
   - {fileID: 2095219287823678365, guid: 829facb107297344a9fcbe67c6d2f0e9, type: 3}
   bulletSons: []
   createEffect: {fileID: 0}
-  bulletEffect: {fileID: 0}
+  bulletEffect: {fileID: 2755854309042888739, guid: b396b29842ad6df47b3a96b72f8f3d2b,
+    type: 3}
   alignTheMuzzlePosition: 0
-  hitEffect: {fileID: 0}
+  alignTheActorPosition: 1
+  hitEffect: {fileID: 6885633661990770188, guid: 873595db2c5671942ad9a1131b18a128,
+    type: 3}
   destroyEffect: {fileID: 0}
   actor: {fileID: 0}
   skillParent: {fileID: 0}
@@ -95,7 +98,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2798150232900266433}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -137,4 +140,4 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}

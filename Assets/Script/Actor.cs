@@ -165,6 +165,7 @@ public class Actor : MonoBehaviour
     private Vector3 cForward;
     private Vector3 cRight;
     private Vector3 cUp;
+    private bool isInSpawnRoom;
 
     private Vector3 stepMoveDir;
 
@@ -207,10 +208,12 @@ public class Actor : MonoBehaviour
         if (level == 1)
         {
             transform.localScale = new Vector3(1, 1, 1);
+            isInSpawnRoom = true;
         }
         else
         {
             transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            isInSpawnRoom = false;
         }
     }
 
@@ -222,7 +225,11 @@ public class Actor : MonoBehaviour
 
             if (!isTakingTool && !isTalking && !isOpeningPlayerMenu)
             {
+                if (!isInSpawnRoom)
+                {
                     Skill(skillArrNum);
+                }
+                    
 
                     SpecialInteractive();
 
