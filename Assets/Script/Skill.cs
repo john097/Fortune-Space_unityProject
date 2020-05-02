@@ -694,17 +694,38 @@ public  class Skill : MonoBehaviour
                 }
                 else if (ammoNumLimit == 0)
                 {
-                    UseSkillVariant();
-                }
-                else if (gameObject.transform.parent.gameObject.GetComponent<Skill>().ammoNumLimit != 0)
-                {
-                    Skill pS = gameObject.transform.parent.gameObject.GetComponent<Skill>();
-                    if (pS.ammoNum > 0)
+                    if (gameObject.transform.parent.gameObject.GetComponent<Skill>())
+                    {
+                        if (gameObject.transform.parent.gameObject.GetComponent<Skill>().ammoNumLimit != 0)
+                        {
+                            Skill pS = gameObject.transform.parent.gameObject.GetComponent<Skill>();
+
+                            if (pS.ammoNum > 0)
+                            {
+                                UseSkillVariant();
+                                pS.ammoNum -= 1;
+                            }
+                        }
+                        else
+                        {
+                            UseSkillVariant();
+                        }
+                    }
+                    else
                     {
                         UseSkillVariant();
-                        pS.ammoNum -= 1;
                     }
                 }
+                //else if (gameObject.transform.parent.gameObject.GetComponent<Skill>().ammoNumLimit != 0)
+                //{
+                //    Skill pS = gameObject.transform.parent.gameObject.GetComponent<Skill>();
+                    
+                //    if (pS.ammoNum > 0)
+                //    {
+                //        UseSkillVariant();
+                //        pS.ammoNum -= 1;
+                //    }
+                //}
                 
             }
 

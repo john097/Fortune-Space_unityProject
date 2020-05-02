@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 8020013071422721053}
   m_LocalRotation: {x: 0, y: -0.21643952, z: 0, w: 0.97629607}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 8020013073131460284}
   m_RootOrder: 1
@@ -55,7 +55,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0.98
+    scalar: 0
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -4846,7 +4846,7 @@ Transform:
   m_GameObject: {fileID: 8020013071630689329}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.27, y: 0, z: 2.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 8020013073131460284}
   m_RootOrder: 0
@@ -4874,7 +4874,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0.98
+    scalar: 0
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -9665,7 +9665,7 @@ Transform:
   m_GameObject: {fileID: 8020013072018840916}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 8020013073131460284}
   m_RootOrder: 3
@@ -9693,7 +9693,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0.98
+    scalar: 0
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -14475,7 +14475,7 @@ Transform:
   m_GameObject: {fileID: 8020013072136191308}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 8020013073131460284}
   m_RootOrder: 5
@@ -14503,7 +14503,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0.98
+    scalar: 0
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -19284,8 +19284,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8020013072596333550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 2}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 8020013073131460284}
   m_RootOrder: 2
@@ -19313,7 +19313,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0.98
+    scalar: 0
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -24095,7 +24095,7 @@ Transform:
   m_GameObject: {fileID: 8020013072696809154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 8020013073131460284}
   m_RootOrder: 4
@@ -24123,7 +24123,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0.98
+    scalar: 0
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -28890,7 +28890,7 @@ GameObject:
   - component: {fileID: 8020013073131460285}
   - component: {fileID: 8020013073131460286}
   m_Layer: 0
-  m_Name: Slash2
+  m_Name: Ti22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28904,8 +28904,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8020013073131460287}
   m_LocalRotation: {x: 0, y: 0.043619405, z: 0, w: 0.9990483}
-  m_LocalPosition: {x: 0.28, y: 1.258, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 8020013071630689328}
   - {fileID: 8020013071422721052}
@@ -28926,11 +28926,11 @@ ParticleSystem:
   serializedVersion: 6
   lengthInSec: 1.9
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 1
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -28939,7 +28939,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0.98
+    scalar: 0
     minScalar: 0
     maxCurve:
       serializedVersion: 2

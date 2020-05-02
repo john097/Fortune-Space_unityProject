@@ -58,10 +58,10 @@ MonoBehaviour:
   thisSkillSpeedNum: 0
   thisSkillAnimTime: 0.1
   castActionTime_Tag: 0
-  Main_Tag: 0
+  Main_Tag: 1
   castActionTime: 0.5
   castTime: 0.8
-  cantCancelAfterCastAction: 0
+  cantCancelAfterCastAction: 1
   cantCancelACATime: 0
   cantTurnInCastTime: 1
   cantTurnStartTime: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
   ammoNum: 0
   reloadTime: 0
   reloadKey: 0
-  coolDownTime: 8
+  coolDownTime: 4
   mustCancel: 0
   cantCancel: 0
   isStepSkill: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
   bulletPrefabs:
   - {fileID: 1511339145793252730, guid: 6a5dbd7fd670c7d4b8541cfffa4f16d1, type: 3}
   bulletOffsets:
-  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: -2}
   bulletRotationOffsets:
   - {x: 0, y: 0, z: 0}
   attackWarningPrefabs: []
@@ -93,6 +93,6 @@ MonoBehaviour:
   buffPrefabsInCastActionTime: []
   buffPrefabs: []
   skillVariantEvent: 0
-  coolDownTimer: 0
+  coolDownTimer: 4.000427
   coolDownFlag: 0
   actor: {fileID: 0}

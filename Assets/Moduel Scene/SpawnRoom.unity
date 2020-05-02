@@ -3820,8 +3820,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 1563935861}
   m_AABB:
-    m_Center: {x: 0, y: -0.9800396, z: 0.00000023841858}
-    m_Extent: {x: 0.58218116, y: 1.0280329, z: 0.019966133}
+    m_Center: {x: 0.00000014901161, y: -0.9800397, z: 0}
+    m_Extent: {x: 0.5821812, y: 1.028033, z: 0.019966133}
   m_DirtyAABB: 0
 --- !u!33 &1563935864
 MeshFilter:
@@ -3918,6 +3918,36 @@ PrefabInstance:
       propertyPath: FollowCamera
       value: 
       objectReference: {fileID: 1506459984}
+    - target: {fileID: 4437975455191907812, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b,
+        type: 3}
+      propertyPath: speed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312677954803865980, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b,
+        type: 3}
+      propertyPath: Main_Tag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312677954803865980, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b,
+        type: 3}
+      propertyPath: cantCancelAfterCastAction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312677954803865980, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b,
+        type: 3}
+      propertyPath: coolDownTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312677954803865980, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b,
+        type: 3}
+      propertyPath: bulletOffsets.Array.data[0].z
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312677954803865980, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b,
+        type: 3}
+      propertyPath: coolDownTimer
+      value: 4.000427
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b, type: 3}
 --- !u!1 &1564473991 stripped
@@ -7200,8 +7230,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 2124812119629491055}
   m_AABB:
-    m_Center: {x: -0.000000044703484, y: -0.9800397, z: 0}
-    m_Extent: {x: 0.5821811, y: 1.0280329, z: 0.019966133}
+    m_Center: {x: 0.000000059604645, y: -0.9800398, z: -0.00000047683716}
+    m_Extent: {x: 0.58218116, y: 1.028033, z: 0.019966133}
   m_DirtyAABB: 0
 --- !u!23 &6538202219207219412
 MeshRenderer:

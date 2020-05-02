@@ -48,9 +48,9 @@ public class CamShake : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        if (transform.Find("CM vcam1"))
+        if (GameObject.Find("CM vcam1"))
         {
-            vCam = transform.Find("CM vcam1").gameObject.GetComponent<CinemachineCameraOffset>();
+            vCam = GameObject.Find("CM vcam1").gameObject.GetComponent<CinemachineCameraOffset>();
             currentOffset = vCam.m_Offset;
             changeOffset = currentOffset;
         }
