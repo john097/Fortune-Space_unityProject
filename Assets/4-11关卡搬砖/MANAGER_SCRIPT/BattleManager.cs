@@ -748,7 +748,7 @@ public class BattleManager : MonoBehaviour
 
     public void State_Up() //场景切换
     {
-        GetComponent<PlayerArrowScript>().DestroyArrow();
+        //GetComponent<PlayerArrowScript>().DestroyArrow();
         flowchart.SetBooleanVariable("SceneChange", false);
         SceneManager.LoadScene("Loading_Scene");
     }

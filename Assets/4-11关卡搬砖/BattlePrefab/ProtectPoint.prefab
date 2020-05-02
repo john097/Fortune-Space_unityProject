@@ -128,7 +128,7 @@ MonoBehaviour:
   storeSkills: []
   actor: {fileID: 0}
   actor_credit: {fileID: 0}
-  maxHeal: 10
+  maxHeal: 5000
   heal: 0
   refrashCredit: 0
   thisToolType: 2
@@ -168,11 +168,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5011614754709581224}
     m_Modifications:
-    - target: {fileID: 86739439199444557, guid: 8c394b969f99d9a4aae785da113f748d,
-        type: 3}
-      propertyPath: m_Name
-      value: HpBar
-      objectReference: {fileID: 0}
     - target: {fileID: 86739439199444558, guid: 8c394b969f99d9a4aae785da113f748d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -277,6 +272,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 86739439199444557, guid: 8c394b969f99d9a4aae785da113f748d,
+        type: 3}
+      propertyPath: m_Name
+      value: HpBar
       objectReference: {fileID: 0}
     - target: {fileID: 86739439199444559, guid: 8c394b969f99d9a4aae785da113f748d,
         type: 3}
