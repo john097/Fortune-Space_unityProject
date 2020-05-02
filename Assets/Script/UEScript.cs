@@ -175,41 +175,51 @@ public class UEScript : MonoBehaviour
                 }
             }
 
-            switch (player.Tools[k].GetComponent<Stage>().thisToolType)
+            if (player.Tools[k])
             {
-                case Stage.toolType.道具:
-                    specialInteractiveText.text = "按 F 拾取道具";
-                    break;
-                case Stage.toolType.商店:
-                    specialInteractiveText.text = "按 F 打开商店";
-                    break;
-                case Stage.toolType.特殊交互点:
-                    switch (player.Tools[k].tag)
-                    {
-                        case "Heal_Treasure":
-                            specialInteractiveText.text = "按 F 拾取血包";
-                            break;
-                        case "Gold_Treasure":
-                            specialInteractiveText.text = "按 F 拾取金币箱";
-                            break;
-                        case "Miracle_Box":
-                            specialInteractiveText.text = "按 F 打开箱子";
-                            break;
-                        case "Blood_Box":
-                            specialInteractiveText.text = "按 F 消耗最大血量的25%开启武器箱";
-                            break;
-                        case "Gold_Box":
-                            specialInteractiveText.text = "按 F 消耗" + player.Tools[k].GetComponent<Gold_Box>().ticket + "金币开启箱子";
-                            break;
-                        case "Power_Box":
-                            specialInteractiveText.text = "按 F 拾取增幅箱";
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
-                default:
-                    break;
+                switch (player.Tools[k].GetComponent<Stage>().thisToolType)
+                {
+                    case Stage.toolType.道具:
+                        if (player.Tools[k].transform.childCount != 0)
+                        {
+                            specialInteractiveText.text = "拾取 " + player.Tools[k].GetComponentInChildren<Skill>().skillName;
+                        }
+
+                        break;
+                    case Stage.toolType.商店:
+                        specialInteractiveText.text = "打开商店";
+                        break;
+                    case Stage.toolType.特殊交互点:
+                        switch (player.Tools[k].tag)
+                        {
+                            case "Heal_Treasure":
+                                specialInteractiveText.text = "拾取血包";
+                                break;
+                            case "Gold_Treasure":
+                                specialInteractiveText.text = "拾取金币箱";
+                                break;
+                            case "Miracle_Box":
+                                specialInteractiveText.text = "打开箱子";
+                                break;
+                            case "Blood_Box":
+                                specialInteractiveText.text = "消耗最大血量的25%开启武器箱";
+                                break;
+                            case "Gold_Box":
+                                specialInteractiveText.text = "消耗" + player.Tools[k].GetComponent<Gold_Box>().ticket + "金币开启箱子";
+                                break;
+                            case "Power_Box":
+                                specialInteractiveText.text = "拾取增幅箱";
+                                break;
+                            case "TP_GATE":
+                                specialInteractiveText.text = "前往下一个区域";
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
@@ -290,11 +300,11 @@ public class UEScript : MonoBehaviour
     {
         //血量信息
         FillAmountUpdate(healImage, player.heal, 0, player.maxHeal);
-        if (player.heal <= player.maxHeal*0.2)
+        if (player.heal <= player.maxHeal*0.25)
         {
             healImage.color = Color.red;
         }
-        else if(player.heal > player.maxHeal * 0.2)
+        else if(player.heal > player.maxHeal * 0.25)
         {
             if (player.vulnerabilityBuff)
             {

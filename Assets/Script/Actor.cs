@@ -889,7 +889,7 @@ public class Actor : MonoBehaviour
         }
         else if (a.thisType == Buff.buffType.斩杀20)
         {
-            if (heal < (maxHeal * 0.2))
+            if (heal < (maxHeal * 0.25))
             {
                 TakeDamege(heal);
             }

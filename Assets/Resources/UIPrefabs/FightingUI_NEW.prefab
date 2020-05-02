@@ -2517,8 +2517,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -21.2}
-  m_SizeDelta: {x: 60, y: 60}
+  m_AnchoredPosition: {x: 0.00003314, y: -21.2}
+  m_SizeDelta: {x: 67.6, y: 60}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &9132222682627700775
 CanvasRenderer:
@@ -2561,7 +2561,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1/2
+  m_Text: ModeSwitch
 --- !u!114 &4814249716238451040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3426,11 +3426,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5949023171016822467}
     m_Modifications:
-    - target: {fileID: 8871345598084688961, guid: 6c018681aa96b9d4d87af52e07781d65,
-        type: 3}
-      propertyPath: m_Name
-      value: BF_IMG
-      objectReference: {fileID: 0}
     - target: {fileID: 8871345598084689342, guid: 6c018681aa96b9d4d87af52e07781d65,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3535,6 +3530,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871345598084688961, guid: 6c018681aa96b9d4d87af52e07781d65,
+        type: 3}
+      propertyPath: m_Name
+      value: BF_IMG
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c018681aa96b9d4d87af52e07781d65, type: 3}

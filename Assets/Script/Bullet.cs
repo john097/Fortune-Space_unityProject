@@ -351,7 +351,7 @@ public class Bullet : MonoBehaviour
                     //斩杀判定
                     if (b.GetComponent<Buff>().thisType == Buff.buffType.斩杀20)
                     {
-                        if (a.heal < (a.maxHeal * 0.2))
+                        if (a.heal < (a.maxHeal * 0.25))
                         {
                             if (hitChangeTimeScaleTime > 0)
                             {
