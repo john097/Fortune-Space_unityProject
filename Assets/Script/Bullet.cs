@@ -274,7 +274,9 @@ public class Bullet : MonoBehaviour
             //克制关系
             if (thisSpType == Actor.specialType.远 && a.thisSpType == Actor.specialType.近)
             {
-                d *= 2;
+                d *= 1.65f;
+                int k = (int)d;
+                d = k;
                 dTipString = d + " Counter!";
 
                 if (dTipColor == Color.blue)
@@ -289,7 +291,9 @@ public class Bullet : MonoBehaviour
             }
             else if (thisSpType == Actor.specialType.近 && a.thisSpType == Actor.specialType.远)
             {
-                d *= 2;
+                d *= 1.65f;
+                int k = (int)d;
+                d = k;
                 dTipString = d + " Counter!";
 
                 if (dTipColor == Color.blue)

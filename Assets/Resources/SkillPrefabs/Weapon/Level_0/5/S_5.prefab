@@ -75,6 +75,7 @@ MonoBehaviour:
   cantCancel: 0
   isStepSkill: 0
   stepSpeed: 0
+  skillShake: 0
   bulletPrefabs:
   - {fileID: 5408062664528355083, guid: 64681634424e13247a2b1d9d369bce22, type: 3}
   bulletOffsets:
@@ -171,6 +172,7 @@ MonoBehaviour:
   cantCancel: 0
   isStepSkill: 0
   stepSpeed: 0
+  skillShake: 0
   bulletPrefabs:
   - {fileID: 5408062664528355083, guid: 9008eb983a0baf1419fc15302dabcfe0, type: 3}
   bulletOffsets:
@@ -239,8 +241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u5927\u9524-\u521D\u59CB"
   skillExplain: "\u8FD1\u8DDD\u79BB\u9524\u578B\u6B66\u5668\uFF0C\u5BF9\u8FDC\u7A0B\u654C\u4EBA\u9020\u6210\u53CC\u500D\u4F24\u5BB3\uFF0C\u51FB\u9000\u5E45\u5EA6\u8F83\u8FDC\u7684\u8FD1\u8DDD\u79BB\u6B66\u5668\u3002"
-  skillDamageExplain: 80/190/300
-  skillVulnerabilityExplain: 500
+  skillDamageExplain: 60/170/280
+  skillVulnerabilityExplain: 250
   skillRepelExplain: "\u5BF9\u654C\u51FB\u9000\u503C\uFF1A100/100/250"
   skillSpecialExplain: 
   skillIcon: {fileID: 21300000, guid: b7dc1268760cd3047a288de2e44dd22b, type: 3}
@@ -269,6 +271,7 @@ MonoBehaviour:
   cantCancel: 0
   isStepSkill: 0
   stepSpeed: 0
+  skillShake: 0
   bulletPrefabs:
   - {fileID: 5408062664528355083, guid: 6cf5873a16eac594f9aafed3adb6c557, type: 3}
   bulletOffsets:
