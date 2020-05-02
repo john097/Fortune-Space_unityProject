@@ -15,14 +15,20 @@ public class SceneChange : MonoBehaviour
     private float timer;
     public float wait_time;
 
+    public Transform tp_zoom;
+    public Transform actor;
     // Start is called before the first frame update
     void Start()
     {
         timer = 0;
         black =GameObject.Find("Fade_IN_OUT_Image").GetComponent<Image>();
         black.DOFade(0, 2);
-        
-        
+
+        if (GameObject.Find("Actor"))
+        {
+            actor = GameObject.Find("Actor").transform;
+            actor.position = new Vector3(tp_zoom.position.x, tp_zoom.position.y,tp_zoom.position.z);
+        }
 
     }
 

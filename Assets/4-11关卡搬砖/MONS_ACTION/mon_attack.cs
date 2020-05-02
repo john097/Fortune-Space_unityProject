@@ -106,7 +106,7 @@ public class mon_attack : Action
             if (patrol)
             {
                 //transform.position = Vector3.MoveTowards(transform.position, new Vector3(x, transform.position.y, z), Time.deltaTime);
-                if (dis <= CanSeeDistance.Value)
+                if (dis <CanSeeDistance.Value)
                 {
                     i = -1;
                    
@@ -114,10 +114,12 @@ public class mon_attack : Action
                 else
                 {
                     i = 1;
-                   
                 }
 
-                transform.Translate(Vector3.forward * Time.deltaTime * 0.5f*i);
+               
+                    transform.Translate(Vector3.forward * Time.deltaTime * 0.5f * i);
+              
+                
 
                 if (AA&&i==-1)
                 {
@@ -132,6 +134,8 @@ public class mon_attack : Action
 
                     AA = false;
                 }
+              
+               
                 
 
                 mon_rotation = transform.rotation;
