@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u51B2\u950B\u67AA-\u7EC6\u80DE\u5206\u88C2"
   skillExplain: "\u8FDC\u8DDD\u79BB\u51B2\u950B\u67AA\u7C7B\u6B66\u5668\uFF0C\u653B\u51FB\u8FD1\u6218\u7C7B\u654C\u4EBA\u65F6\u4F24\u5BB3\u7FFB\u500D\u3002"
-  skillDamageExplain: 20
+  skillDamageExplain: 35
   skillVulnerabilityExplain: 150
   skillRepelExplain: 
   skillSpecialExplain: "\u589E\u6B96\uFF1A\u5F39\u5BB9\u91CF\u6269\u5145"
@@ -75,6 +75,7 @@ MonoBehaviour:
   cantCancel: 0
   isStepSkill: 0
   stepSpeed: 0
+  skillShake: 1
   bulletPrefabs:
   - {fileID: 3624860947721134957, guid: 535cb6bf4136cf146bc48ec68c5d604c, type: 3}
   bulletOffsets:

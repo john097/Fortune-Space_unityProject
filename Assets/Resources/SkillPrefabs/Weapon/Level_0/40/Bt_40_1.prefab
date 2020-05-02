@@ -52,12 +52,14 @@ MonoBehaviour:
   timeToStop: 0
   damage: 230
   isSustained: 0
-  vulnerabilityPercent: 4
+  vulnerabilityPercent: 2.5
   thisSpType: 2
   repelRelativeSelf: 0
   repel: 40
   lockOnTarget: {fileID: 0}
   isFollowActor: 0
+  destoryDelay: 0
+  bulletHitShake: 2
   destoryAfterCollision: 0
   destoryAfterCollisionWithActor: 0
   destoryIfSkillBeCancel: 0
@@ -70,8 +72,13 @@ MonoBehaviour:
   - {fileID: 3953366767545335957, guid: 77fbbcda0497b584e91a33414cce5b2e, type: 3}
   - {fileID: 3953366767545335957, guid: 3f97837ab3d3a0b4bb0e78b81604421c, type: 3}
   bulletSons: []
-  createEffect: {fileID: 0}
-  hitEffect: {fileID: 0}
+  createEffect: {fileID: 9164822013380250399, guid: 4564f7a3f4a87e344b560fd51a0dd4a8,
+    type: 3}
+  bulletEffect: {fileID: 0}
+  alignTheMuzzlePosition: 0
+  alignTheActorPosition: 1
+  hitEffect: {fileID: 6885633661990770188, guid: 873595db2c5671942ad9a1131b18a128,
+    type: 3}
   destroyEffect: {fileID: 0}
   actor: {fileID: 0}
   skillParent: {fileID: 0}
@@ -92,7 +99,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5408062664528355083}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

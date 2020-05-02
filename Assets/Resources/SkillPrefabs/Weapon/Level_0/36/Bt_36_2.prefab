@@ -52,12 +52,14 @@ MonoBehaviour:
   timeToStop: 0
   damage: 340
   isSustained: 0
-  vulnerabilityPercent: 6
+  vulnerabilityPercent: 3
   thisSpType: 2
   repelRelativeSelf: 0
   repel: 60
   lockOnTarget: {fileID: 0}
   isFollowActor: 0
+  destoryDelay: 0
+  bulletHitShake: 3
   destoryAfterCollision: 0
   destoryAfterCollisionWithActor: 0
   destoryIfSkillBeCancel: 0
@@ -70,8 +72,13 @@ MonoBehaviour:
   - {fileID: 3953366767545335957, guid: 4ff30e8eb26171946bc8ca378a805cbd, type: 3}
   - {fileID: 3953366767545335957, guid: 816a329cfc346194d8a674e83b77d97b, type: 3}
   bulletSons: []
-  createEffect: {fileID: 0}
-  hitEffect: {fileID: 0}
+  createEffect: {fileID: 378700116411444472, guid: 97bcfe4bd32d5c245877da16073dcf70,
+    type: 3}
+  bulletEffect: {fileID: 0}
+  alignTheMuzzlePosition: 0
+  alignTheActorPosition: 1
+  hitEffect: {fileID: 6885633661990770188, guid: 873595db2c5671942ad9a1131b18a128,
+    type: 3}
   destroyEffect: {fileID: 0}
   actor: {fileID: 0}
   skillParent: {fileID: 0}

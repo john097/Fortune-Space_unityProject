@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: "\u9730\u5F39\u67AA-\u6781\u4E50\u7A7A\u95F4"
   skillExplain: "\u8FDC\u8DDD\u79BB\u9730\u5F39\u67AA\u7C7B\u6B66\u5668\uFF0C\u653B\u51FB\u8FD1\u6218\u7C7B\u654C\u4EBA\u65F6\u4F24\u5BB3\u7FFB\u500D\u3002\u662F\u5177\u6709\u5F3A\u51FB\u9000\u6548\u679C\u7684\u8FDC\u8DDD\u79BB\u6B66\u5668\u3002"
-  skillDamageExplain: 80*4
+  skillDamageExplain: 100*4
   skillVulnerabilityExplain: 350
   skillRepelExplain: "\u5BF9\u654C\u51FB\u9000\u503C\uFF1A35*4"
   skillSpecialExplain: "\u6781\u4E50\uFF1A\u6613\u4F24\u500D\u7387\u63D0\u5347\uFF0C\u5C04\u901F\u63D0\u5347"
@@ -75,16 +75,17 @@ MonoBehaviour:
   cantCancel: 0
   isStepSkill: 0
   stepSpeed: 0
+  skillShake: 2
   bulletPrefabs:
   - {fileID: 5387840854337074684, guid: 731d2089e9004bd4bb37ffd657d35257, type: 3}
   - {fileID: 5387840854337074684, guid: 731d2089e9004bd4bb37ffd657d35257, type: 3}
   - {fileID: 5387840854337074684, guid: 731d2089e9004bd4bb37ffd657d35257, type: 3}
   - {fileID: 5387840854337074684, guid: 731d2089e9004bd4bb37ffd657d35257, type: 3}
   bulletOffsets:
-  - {x: 0, y: 0, z: 1}
-  - {x: 0, y: 0, z: 1}
-  - {x: 0, y: 0, z: 1}
-  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0.5, z: 1.5}
+  - {x: 0, y: 0.5, z: 1.5}
+  - {x: 0, y: 0.5, z: 1.5}
+  - {x: 0, y: 0.5, z: 1.5}
   bulletRotationOffsets:
   - {x: 0, y: 15, z: 0}
   - {x: 0, y: 5, z: 0}

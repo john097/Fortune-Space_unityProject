@@ -428,7 +428,7 @@ public class Actor : MonoBehaviour
 
             moveDirection.y = thisRigidbody.velocity.y;
 
-            if (steping && slowDownBuff)
+            if (steping || slowDownBuff)
             {
                 moveDirection.y = 0;
             }
