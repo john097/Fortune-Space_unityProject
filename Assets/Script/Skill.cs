@@ -531,6 +531,7 @@ public  class Skill : MonoBehaviour
                 {
                     reloadFlag = true;
                     actor.StartAnim(-1,3f/reloadTime,0);
+                    actor.PlayReloadAudio(thisWeaponType);
                 }
             }
         }

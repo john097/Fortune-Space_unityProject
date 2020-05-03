@@ -3588,8 +3588,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 1563935861}
   m_AABB:
-    m_Center: {x: 0, y: -0.9800396, z: 0.00000023841858}
-    m_Extent: {x: 0.58218116, y: 1.0280329, z: 0.019966133}
+    m_Center: {x: 0.00000014901161, y: -0.9800397, z: 0}
+    m_Extent: {x: 0.5821812, y: 1.028033, z: 0.019966133}
   m_DirtyAABB: 0
 --- !u!33 &1563935864
 MeshFilter:
@@ -3665,6 +3665,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437975455191907812, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b,
+        type: 3}
+      propertyPath: reloadAudios.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4437975455191907812, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b,
         type: 3}
