@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 834436042}
   - component: {fileID: 834436041}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: FakeShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834436039}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.032, y: -0.993, z: -0.049}
-  m_LocalScale: {x: 0.35100213, y: 0.35100213, z: 0.35100213}
+  m_LocalPosition: {x: 0.032, y: -1, z: -0.049}
+  m_LocalScale: {x: 0.24958709, y: 0.24958709, z: 0.24958709}
   m_Children: []
   m_Father: {fileID: 7062354942933976952}
   m_RootOrder: 2
@@ -317,6 +317,14 @@ MonoBehaviour:
   - {fileID: 1459136579017049460}
   - {fileID: 3501730829961062332}
   - {fileID: 1478070338}
+  reloadAudios:
+  - {fileID: 4863996513272296874, guid: 48819f90f2061ef4ca916be921000ceb, type: 3}
+  - {fileID: 237218677975285045, guid: 6cdf3cccac72fff42b1ed726e63add44, type: 3}
+  - {fileID: 6799912910225826814, guid: 413b09addde58b7449a8fa1c33fc2cfa, type: 3}
+  - {fileID: 7661632970857216720, guid: d414c91a588e4bc4b9cbc7e9dfd3dfb7, type: 3}
+  menu_ME: {fileID: 0}
+  behit_ME: {fileID: 0}
+  dead_ME: {fileID: 0}
   specialInteractiveKey: 102
   Tools: []
   UsingSkill: {fileID: 0}
