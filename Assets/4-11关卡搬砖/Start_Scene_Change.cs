@@ -8,6 +8,7 @@ public class Start_Scene_Change : MonoBehaviour
     private Actor actor;
     private GameObject actor_g;
     public GameObject Defeat_UI;
+    public GameObject setting_UI;
     private string scene_name;
     private float dead_timer;
     // Start is called before the first frame update
@@ -108,5 +109,6 @@ public class Start_Scene_Change : MonoBehaviour
     public void Setting_Button_Onclick()
     {
         //打开设置界面
+        setting_UI.SetActive(!setting_UI.activeSelf);
     }
 }

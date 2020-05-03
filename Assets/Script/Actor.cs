@@ -94,6 +94,9 @@ public class Actor : MonoBehaviour
     [Tooltip("存放技能预支物的数组_1")]
         public Skill[] Skills_1;
 
+    [Tooltip("换弹音效")]
+        public AudioSource[] reloadAudios;
+
     [Tooltip("菜单音效")]
         public AudioSource menu_ME;
 
@@ -1035,7 +1038,6 @@ public class Actor : MonoBehaviour
         Destroy(gameObject);//***DISON.ver***
     }
 
-
     private void RecoverTimeScale()
     {
         if (Time.timeScale != 1)
@@ -1051,6 +1053,48 @@ public class Actor : MonoBehaviour
                 recoverTimeScaleTimer += Time.deltaTime / Time.timeScale;
             }
 
+        }
+    }
+
+    public void PlayReloadAudio(Actor.weaponType w)
+    {
+        if (reloadAudios.Length != 0)
+        {
+            switch (w)
+            {
+                case weaponType.非武器:
+                    break;
+                case weaponType.手枪:
+                    if (reloadAudios[0])
+                    {
+                        reloadAudios[0].Play();
+                    }
+                    break;
+                case weaponType.冲锋枪:
+                    if (reloadAudios[1])
+                    {
+                        reloadAudios[1].Play();
+                    }
+                    break;
+                case weaponType.霰弹枪:
+                    if (reloadAudios[2])
+                    {
+                        reloadAudios[2].Play();
+                    }
+                    break;
+                case weaponType.狙击枪:
+                    if (reloadAudios[3])
+                    {
+                        reloadAudios[3].Play();
+                    }
+                    break;
+                case weaponType.太刀:
+                    break;
+                case weaponType.锤子:
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
