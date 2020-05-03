@@ -94,6 +94,15 @@ public class Actor : MonoBehaviour
     [Tooltip("存放技能预支物的数组_1")]
         public Skill[] Skills_1;
 
+    [Tooltip("菜单音效")]
+        public AudioSource menu_ME;
+
+    [Tooltip("挨打音效")]
+        public AudioSource behit_ME;
+
+    [Tooltip("死亡音效")]
+        public AudioSource dead_ME;
+
     [Tooltip("特殊交互键")]
         public KeyCode specialInteractiveKey;
 
@@ -205,12 +214,12 @@ public class Actor : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        if (level == 1)
+        if (level == 1 || level == 2)
         {
             transform.localScale = new Vector3(1, 1, 1);
             isInSpawnRoom = true;
         }
-        else
+        else 
         {
             transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
             isInSpawnRoom = false;
@@ -229,7 +238,6 @@ public class Actor : MonoBehaviour
                 {
                     Skill(skillArrNum);
                 }
-                    
 
                     SpecialInteractive();
 
@@ -371,6 +379,11 @@ public class Actor : MonoBehaviour
         {
             playerMenu = Instantiate(Resources.Load("UIPrefabs/PlayerMenu") as GameObject,GameObject.Find("Canvas").transform);
             isOpeningPlayerMenu = true;
+            if (menu_ME)
+            {
+                menu_ME.Play();
+            }
+            
         }
     }
 
@@ -956,6 +969,10 @@ public class Actor : MonoBehaviour
                     if (isPlayer)
                     {
                         thisAnimator.SetTrigger("Behit");
+                        if (behit_ME)
+                        {
+                            behit_ME.Play();
+                        }
                         FollowCamera.GetComponent<CamShake>().CameraShake(new Vector3(1,1,0), CamShake.ShakeIntensity.大);
                     }
                 }
@@ -971,14 +988,21 @@ public class Actor : MonoBehaviour
     public void GoDie()
     {
         SetAlive(false);
+
+        if (dead_ME)
+        {
+            dead_ME.Play();
+        }
+
         if (isPlayer)
         {
             thisAnimator.SetTrigger("Dead");
+            PlayerPrefs.SetInt("Player_Dead", 1);
         }
 
         if (gameObject.layer == LayerMask.NameToLayer("Enemy") && gameObject.tag != "BOSS")
         {
-            Debug.Log(GameObject.FindGameObjectWithTag("Player"));
+            
 
             if (GameObject.FindGameObjectWithTag("Player"))
             {
