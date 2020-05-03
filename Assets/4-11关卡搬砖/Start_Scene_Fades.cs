@@ -89,7 +89,7 @@ public class Start_Scene_Fades : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         Staff_Icon[5].DOFade(0, Fade_Time+3);
-        StartCoroutine(STAFF_FINISH(Fade_Time));
+        StartCoroutine(STAFF_FINISH(Fade_Time + 2));
 
     }
 
