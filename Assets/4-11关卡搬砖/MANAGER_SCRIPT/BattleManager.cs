@@ -165,9 +165,9 @@ public class BattleManager : MonoBehaviour
             {
 
 
-                if (checknum_a >= 4)
+                if (checknum_a >= 5)
                 {
-                    checknum_a = 4;
+                    checknum_a = 5;
                 }
                 num_3[j] = Random.Range(1, checknum_a);
 
