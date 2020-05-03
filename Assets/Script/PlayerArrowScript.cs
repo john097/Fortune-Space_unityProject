@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerArrowScript : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class PlayerArrowScript : MonoBehaviour
     public bool start_search;
     public bool search_cooldown;
     public bool arrow_born;
+    public bool audio_go=true;
+    public bool audio_back = true;
+    public AudioMixer MIXER;
+    public float AUDIO;
     void Start()
     {
         if (!arrowPrefab)
@@ -32,16 +37,30 @@ public class PlayerArrowScript : MonoBehaviour
         start_search = false;
         search_cooldown = true;
         arrow_born = false;
+        MIXER.GetFloat("Main_Cutoff",out AUDIO);
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        
-        
+        if (!audio_go)
+        {
+            AUDIO = Mathf.Lerp(15000, 1000, 3);
+            MIXER.SetFloat("Main_Cutoff", AUDIO);
+        }
+        if (!audio_back)
+        {
+            AUDIO = Mathf.Lerp(1000, 15000, 3);
+            MIXER.SetFloat("Main_Cutoff", AUDIO);
+        }
+
+
         if (search_cooldown&&Input.GetKeyDown(KeyCode.T))
         {
+            audio_go = false;
+            StartCoroutine(AUDIO_BACK(3));
             start_search = true;
             search_cooldown = false;
 
@@ -63,6 +82,18 @@ public class PlayerArrowScript : MonoBehaviour
         //{
         //    DestroyArrow();
         //}
+    }
+    IEnumerator AUDIO_BACK(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        audio_go = true;
+        audio_back = false;
+        StartCoroutine(AUDIO_FINISH(3));
+    }
+    IEnumerator AUDIO_FINISH(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        audio_back = true;
     }
 
     IEnumerator Search_Skill_Remove(float duration)
