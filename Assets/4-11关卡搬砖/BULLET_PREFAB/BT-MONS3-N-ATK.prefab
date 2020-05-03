@@ -105,9 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa112f10973025f4da03daafc634cd3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisType: 1
-  lifeTime: 0.25
-  speed: 500
+  thisType: 0
+  lifeTime: 6
+  speed: 15
   timeToStop: 0
   damage: 15
   isSustained: 0
@@ -116,10 +116,10 @@ MonoBehaviour:
   repelRelativeSelf: 0
   repel: 0
   lockOnTarget: {fileID: 0}
-  isFollowActor: 1
+  isFollowActor: 0
   destoryDelay: 0
   bulletHitShake: 0
-  destoryAfterCollision: 0
+  destoryAfterCollision: 1
   destoryAfterCollisionWithActor: 0
   destoryIfSkillBeCancel: 0
   destoryTarget: 0
@@ -128,12 +128,11 @@ MonoBehaviour:
   hitChangeTimeScaleTime: 0
   skillVariantEvent: 0
   buffPrefabs:
-  - {fileID: 7915639017755153169, guid: 3d5f37e129721b44ea993e2f32aa36cb, type: 3}
   - {fileID: 4582832332617146480, guid: fe11c4192c27c364dbea5287efd6d8c6, type: 3}
+  - {fileID: 7915639017755153169, guid: 3d5f37e129721b44ea993e2f32aa36cb, type: 3}
   bulletSons: []
   createEffect: {fileID: 0}
-  bulletEffect: {fileID: 8298358978925593274, guid: 10e8e0d79d249c940adaeb8ebd983b6a,
-    type: 3}
+  bulletEffect: {fileID: 0}
   alignTheMuzzlePosition: 0
   alignTheActorPosition: 0
   hitEffect: {fileID: 0}
