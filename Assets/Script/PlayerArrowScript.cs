@@ -37,7 +37,7 @@ public class PlayerArrowScript : MonoBehaviour
         start_search = false;
         search_cooldown = true;
         arrow_born = false;
-        MIXER.GetFloat("Main_Cutoff",out AUDIO);
+        //MIXER.GetFloat("Main_Cutoff",out AUDIO);
 
     }
 
@@ -48,12 +48,12 @@ public class PlayerArrowScript : MonoBehaviour
         if (!audio_go)
         {
             AUDIO = Mathf.Lerp(15000, 1000, 3);
-            MIXER.SetFloat("Main_Cutoff", AUDIO);
+            //MIXER.SetFloat("Main_Cutoff", AUDIO);
         }
         if (!audio_back)
         {
             AUDIO = Mathf.Lerp(1000, 15000, 3);
-            MIXER.SetFloat("Main_Cutoff", AUDIO);
+            //MIXER.SetFloat("Main_Cutoff", AUDIO);
         }
 
 
