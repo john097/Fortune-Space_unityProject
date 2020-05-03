@@ -969,7 +969,7 @@ public class Actor : MonoBehaviour
             {
                 if (i > 0 && !superArmorBuff)
                 {
-                    if (UsingSkill)
+                    if (isPlayer && UsingSkill)
                     {
                         UsingSkill.SkillActionStop(true);
                     }

@@ -9,8 +9,6 @@ public class Cam : MonoBehaviour
     //要跟随的物体
     public GameObject m_Player;
 
-    
-
     public float smooth;
     // Use this for initialization
     void Start()
