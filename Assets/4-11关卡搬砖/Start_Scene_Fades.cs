@@ -10,12 +10,16 @@ public class Start_Scene_Fades : MonoBehaviour
     public Text[] Staff_Name;
     public Text[] Staff_Job;
     public float Fade_Time;
+    public float Last_Fade_Time;
     public float keep;
     public float dur;
+    public GameObject Start_Button;
+    public GameObject Set_Button;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(DISEIGNER_IN(1));
+        StartCoroutine(GAMELOGO_IN(1));
        
     }
 
@@ -25,6 +29,20 @@ public class Start_Scene_Fades : MonoBehaviour
         
     }
 
+
+    IEnumerator GAMELOGO_IN(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        Staff_Icon[6].DOFade(1, Fade_Time);
+        StartCoroutine(GAMELOGO_OUT(keep));
+
+    }
+    IEnumerator GAMELOGO_OUT(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        Staff_Icon[6].DOFade(0, Fade_Time);
+        StartCoroutine(DISEIGNER_IN(dur));
+    }
 
     //——————程序&策划
     IEnumerator DISEIGNER_IN(float duration)
@@ -80,22 +98,36 @@ public class Start_Scene_Fades : MonoBehaviour
         Staff_Name[4].DOFade(0, Fade_Time);
         Staff_Job[4].DOFade(0, Fade_Time);
         StartCoroutine(STAFF_OUT(dur));
+        StartCoroutine(START_BUTTON(dur+0.1f));
+        
+    }
+
+    IEnumerator START_BUTTON(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        Staff_Icon[7].DOFade(1, Fade_Time);
+        Staff_Icon[8].DOFade(1, Fade_Time);
+        Start_Button.SetActive(true);
+        Set_Button.SetActive(true);
     }
 
 
-   
 
     IEnumerator STAFF_OUT(float duration)
     {
         yield return new WaitForSeconds(duration);
-        Staff_Icon[5].DOFade(0, Fade_Time+3);
-        StartCoroutine(STAFF_FINISH(Fade_Time));
+
+        Staff_Icon[5].DOFade(0, Last_Fade_Time);
+        StartCoroutine(STAFF_FINISH(Last_Fade_Time));
 
     }
 
     IEnumerator STAFF_FINISH(float duration)
     {
         yield return new WaitForSeconds(duration);
+       
         gameObject.SetActive(false);
     }
+
+   
 }
