@@ -88,9 +88,17 @@ public class mon_attack : Action
     public override void OnStart()
     {
         AA = true;
-      
-        player = GameObject.Find("Actor");
-        target = GameObject.Find("Actor").transform;
+        if (mf_manager.Protect_Room_Battle)
+        {
+            player = GameObject.Find("ProtectPoint");
+            target = GameObject.Find("ProtectPoint").transform;
+        }
+        else
+        {
+            player = GameObject.Find("Actor");
+            target = GameObject.Find("Actor").transform;
+        }
+        
 
         Idle_Time = Random.Range(3, 7);
         Idle_Time += Atk_C_A;

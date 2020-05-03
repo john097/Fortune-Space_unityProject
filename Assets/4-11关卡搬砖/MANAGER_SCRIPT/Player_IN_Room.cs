@@ -25,10 +25,11 @@ public class Player_IN_Room : MonoBehaviour
     public int this_room_type;//房间类型，=1时为怪物房间，=2时为道具/商店房间
 
     public bool PP_Dead;//判断据点会否被破坏
-  
 
+    public float refresh_timer;
+    public float refresh_time;
+    public bool refresh = false;
 
-   
 
 
 
@@ -46,7 +47,7 @@ public class Player_IN_Room : MonoBehaviour
         dialog_manager = GameObject.Find("BattleManager").GetComponent<Dialog_Manager>();
 
         ProtectPoint = gameObject.transform.GetChild(0).gameObject.GetComponent<Stage>();
-
+        refresh_time = 5f;
     }
 
     // Update is called once per frame
@@ -60,22 +61,37 @@ public class Player_IN_Room : MonoBehaviour
             C = true;
         }
 
-        if (this_room_type == 3&& !b)
-        {
-            gameObject.transform.GetChild(2).gameObject.SetActive(true);
-            b = true;
-        }
+        
 
-        if (!B_Manager.Protect_Room_Battle && B_Manager.BattleFinish)
+        if (!B_Manager.Protect_Room_Battle && B_Manager.BattleFinish&& this_room_type == 3)
         {
             gameObject.transform.GetChild(2).gameObject.SetActive(false);
             GetComponent<Player_IN_Room>().enabled = false;
+            
         }
 
-       
+        if (PlayerPrefs.GetInt("Current_State") != 0)
+        {
+            if (this_room_type == 1 && B_Manager.BattleFinish)
+            {
+
+                refresh_timer += Time.deltaTime;
+                if (refresh_timer >= refresh_time)
+                {
+                    inroom_started = false;
+                    GetComponent<Enemy_Manager>().Monster_CurrentWaves = 0;
+                    refresh_timer = 0;
+                }
+            }
+        }
+        
+
     }
 
-
+    public void wallopen()
+    {
+        gameObject.transform.GetChild(2).gameObject.SetActive(true);
+    }
 
 
     public void SET_ROOM_TYPE(int a)
@@ -94,7 +110,7 @@ public class Player_IN_Room : MonoBehaviour
             PlayerInRoom = true;
             inroom_started = true;
             GetComponent<Enemy_Manager>().enabled = true;
-            GetComponent<Player_IN_Room>().enabled = false;
+            //GetComponent<Player_IN_Room>().enabled = false;
             B_Manager.START_SPAWN();
             B_Manager.Normal_BATTLE_START();
 
@@ -134,7 +150,13 @@ public class Player_IN_Room : MonoBehaviour
 
             if(PlayerPrefs.GetInt("Current_State") == 1)
             {
-                b = false;
+                GameObject[] mons;
+                mons = GameObject.FindGameObjectsWithTag("ENEMY");
+                for(int i = 0; i < mons.Length; i++)
+                {
+                    Destroy(mons[i]);
+                }
+                wallopen();
                 dialog_manager.ProtectPoint_Enter_Talk();
                 
             }
@@ -147,6 +169,13 @@ public class Player_IN_Room : MonoBehaviour
 
             if (PlayerPrefs.GetInt("Current_State") == 3)
             {
+                GameObject[] mons;
+                mons = GameObject.FindGameObjectsWithTag("ENEMY");
+                for (int i = 0; i < mons.Length; i++)
+                {
+                    Destroy(mons[i]);
+                }
+                wallopen();
 
                 GetComponent<Enemy_Manager>().enabled = true;
                 GetComponent<Player_IN_Room>().enabled = false;

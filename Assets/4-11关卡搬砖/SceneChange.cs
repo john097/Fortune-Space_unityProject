@@ -112,7 +112,13 @@ public class SceneChange : MonoBehaviour
                 async.allowSceneActivation = true;
 
                 break;
-            }
+            case 4:
+                PlayerPrefs.SetInt("Current_State", -1);
+                async = SceneManager.LoadSceneAsync("Start_Scene");
+                async.allowSceneActivation = true;
+
+                break;
+        }
         
         
 

@@ -2,15 +2,17 @@ using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 using BehaviorDesigner.Runtime.Tasks.Movement;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.AI;
-using Fungus;
+
 
 public class Mons_Patrol : Action
 {
-    private Flowchart flowchart;
+
     private NavMeshAgent navMeshAgent;
     private Actor mons_actor;
+    private BattleManager BM;
     float timer;
     float random_x;
     float random_z;
@@ -32,7 +34,10 @@ public class Mons_Patrol : Action
         {
             patrol_distance = 6f;
         }
-        
+        if (GameObject.Find("BattleManager"))
+        {
+            BM = GameObject.Find("BattleManager").GetComponent<BattleManager>();
+        }
         
     }
 
@@ -41,9 +46,11 @@ public class Mons_Patrol : Action
         timer += Time.deltaTime;
         patrol_timer += Time.deltaTime;
 
-        if (patrol_timer >= 30f)
+        if (patrol_timer >= 20f)
         {
-            mons_actor.GoDie();
+            BM.MON_NUMS -= 1;
+            Object.Destroy(gameObject);
+
         }
 
         if (timer > patrol_cd)//Ëæ»úÑ²Âß
@@ -59,4 +66,5 @@ public class Mons_Patrol : Action
 
         return TaskStatus.Running;
     }
+    
 }

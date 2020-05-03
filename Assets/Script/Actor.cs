@@ -923,7 +923,7 @@ public class Actor : MonoBehaviour
     //受伤函数响应
     public void TakeDamege(float i)
     {
-        if (!isPlayer)
+        if (!isPlayer&&gameObject.tag!="BOSS")
         {
             BeAttacked = true;
             GetComponent<Mons_Speed_Change>().BEHIT();

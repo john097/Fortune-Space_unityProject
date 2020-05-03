@@ -152,7 +152,7 @@ public class BattleManager : MonoBehaviour
 
        checknum_a = 2;
        
-        int[] num_1= new int[12];
+        int[] num_1= new int[15];
         int[] num_2 = new int[5];
         int[] num_3 = new int[8];
 
@@ -365,7 +365,7 @@ public class BattleManager : MonoBehaviour
                 {
                     checknum_a = 4;
                 }
-                num_1[j] = Random.Range(1, checknum_a);
+                num_1[j] = Random.Range(1, checknum_a-1);
 
                 switch (num_1[j])
                 {
@@ -381,7 +381,7 @@ public class BattleManager : MonoBehaviour
 
                 }
 
-                if (j <= 8 && num_1[j] == 3)//防止传送门房间过早出现
+                if (j <= 11 && num_1[j] == 3)//防止传送门房间过早出现
                 {
                     C -= 1;
                     num_1[j] = Random.Range(1, 3);
@@ -563,7 +563,7 @@ public class BattleManager : MonoBehaviour
 
                 float B= GameObject.FindGameObjectWithTag("ENEMY").GetComponent<Actor>().maxHeal;
 
-                if (A <= (B * 0.2f)&& !tutorial_talking)
+                if (A <= (B * 0.25f)&& !tutorial_talking)
                 {
                     
 
@@ -762,6 +762,10 @@ public class BattleManager : MonoBehaviour
 
             Debug.Log(MON_NUMS);
         }
+        if (MON_NUMS < 0)
+        {
+            MON_NUMS = 0;
+        }
     }
 
     public void Tutorial_Room_Start()
@@ -790,7 +794,7 @@ public class BattleManager : MonoBehaviour
                 break;
             case 3:
                 MAX_MON_NUMS = Random.Range(4, 6);
-                Monster_Waves = 1;
+                Monster_Waves = 3;
                 break;
         }
         

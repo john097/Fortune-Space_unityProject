@@ -184,11 +184,11 @@ public class Enemy_Manager : MonoBehaviour
 
                         Vector3 pos = new Vector3(player_transform.position.x + x, player_transform.position.y, player_transform.position.z + z);
                         Instantiate(tp_gate, pos, Quaternion.identity);
-
+                        GetComponent<Enemy_Manager>().enabled = false;
 
                     }
 
-                    GetComponent<Enemy_Manager>().enabled = false;
+                    //GetComponent<Enemy_Manager>().enabled = false;
                 }
             }
             if (Monster_CurrentWaves == B_Manager.Monster_Waves)
@@ -208,7 +208,7 @@ public class Enemy_Manager : MonoBehaviour
     public void StoreBorn()//生成商店
     {
         Bound bound = getBound2(gameObject.transform);
-        Vector3 pos = new Vector3(bound.center.x, bound.y+2, bound.center.z);
+        Vector3 pos = new Vector3(bound.center.x, bound.y, bound.center.z);
         GameObject Store;
 
         Store = Resources.Load(Prefabs + "StorePrefab") as GameObject;
@@ -227,7 +227,7 @@ public class Enemy_Manager : MonoBehaviour
         Instantiate(Tool, pos, Quaternion.identity);
     }
 
-
+    
 
     IEnumerator NormalRoomCreateEnemies(float duration)//普通房间刷新怪物
     {
