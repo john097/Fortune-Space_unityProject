@@ -8,13 +8,14 @@ public class Start_Scene_Fades : MonoBehaviour
 {
     public Image[] Staff_Icon;
     public Text[] Staff_Name;
+    public Text[] Staff_Job;
     public float Fade_Time;
     public float keep;
     public float dur;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(JIEGE_IN(1));
+        StartCoroutine(DISEIGNER_IN(1));
        
     }
 
@@ -25,96 +26,70 @@ public class Start_Scene_Fades : MonoBehaviour
     }
 
 
-    //——————杰哥
-    IEnumerator JIEGE_IN(float duration)
+    //——————程序&策划
+    IEnumerator DISEIGNER_IN(float duration)
     {
         yield return new WaitForSeconds(duration);
         Staff_Icon[0].DOFade(1, Fade_Time);
         Staff_Name[0].DOFade(1, Fade_Time);
-        StartCoroutine(JIEGE_OUT(keep));
+        Staff_Job[0].DOFade(1, Fade_Time);
+        Staff_Icon[1].DOFade(1, Fade_Time);
+        Staff_Name[1].DOFade(1, Fade_Time);
+        Staff_Job[1].DOFade(1, Fade_Time);
+        StartCoroutine(DISEIGNER_OUT(keep));
     }
-    IEnumerator JIEGE_OUT(float duration)
+    IEnumerator DISEIGNER_OUT(float duration)
     {
         yield return new WaitForSeconds(duration);
         Staff_Icon[0].DOFade(0, Fade_Time);
         Staff_Name[0].DOFade(0, Fade_Time);
-        StartCoroutine(HAISHAN_IN(dur));
-    }
-
-
-    //——————海山
-    IEnumerator HAISHAN_IN(float duration)
-    {
-        yield return new WaitForSeconds(duration);
-        Staff_Icon[1].DOFade(1, Fade_Time);
-        Staff_Name[1].DOFade(1, Fade_Time);
-        StartCoroutine(HAISHAN_OUT(keep));
-    }
-    IEnumerator HAISHAN_OUT(float duration)
-    {
-        yield return new WaitForSeconds(duration);
+        Staff_Job[0].DOFade(0, Fade_Time);
         Staff_Icon[1].DOFade(0, Fade_Time);
         Staff_Name[1].DOFade(0, Fade_Time);
-        StartCoroutine(ZHENYU_IN(dur));
+        Staff_Job[1].DOFade(0, Fade_Time);
+        StartCoroutine(ARTIST_IN(dur));
     }
 
 
-    //——————镇宇
-    IEnumerator ZHENYU_IN(float duration)
+    //——————美术
+    IEnumerator ARTIST_IN(float duration)
     {
         yield return new WaitForSeconds(duration);
         Staff_Icon[2].DOFade(1, Fade_Time);
         Staff_Name[2].DOFade(1, Fade_Time);
-        StartCoroutine(ZHENYU_OUT(keep));
+        Staff_Job[2].DOFade(1, Fade_Time);
+        Staff_Icon[3].DOFade(1, Fade_Time);
+        Staff_Name[3].DOFade(1, Fade_Time);
+        Staff_Job[3].DOFade(1, Fade_Time);
+        Staff_Icon[4].DOFade(1, Fade_Time);
+        Staff_Name[4].DOFade(1, Fade_Time);
+        Staff_Job[4].DOFade(1, Fade_Time);
+        StartCoroutine(ARTIST_OUT(keep));
+
     }
-    IEnumerator ZHENYU_OUT(float duration)
+    IEnumerator ARTIST_OUT(float duration)
     {
         yield return new WaitForSeconds(duration);
         Staff_Icon[2].DOFade(0, Fade_Time);
         Staff_Name[2].DOFade(0, Fade_Time);
-        StartCoroutine(YIHAN_IN(dur));
-    }
-
-
-    //——————乙晗
-    IEnumerator YIHAN_IN(float duration)
-    {
-        yield return new WaitForSeconds(duration);
-        Staff_Icon[3].DOFade(1, Fade_Time);
-        Staff_Name[3].DOFade(1, Fade_Time);
-        StartCoroutine(YIHAN_OUT(keep));
-    }
-    IEnumerator YIHAN_OUT(float duration)
-    {
-        yield return new WaitForSeconds(duration);
+        Staff_Job[2].DOFade(0, Fade_Time);
         Staff_Icon[3].DOFade(0, Fade_Time);
         Staff_Name[3].DOFade(0, Fade_Time);
-        StartCoroutine(DISHEN_IN(dur));
-    }
-
-
-    //——————迪深
-    IEnumerator DISHEN_IN(float duration)
-    {
-        yield return new WaitForSeconds(duration);
-        Staff_Icon[4].DOFade(1, Fade_Time);
-        Staff_Name[4].DOFade(1, Fade_Time);
-        StartCoroutine(DISHEN_OUT(keep));
-    }
-    IEnumerator DISHEN_OUT(float duration)
-    {
-        yield return new WaitForSeconds(duration);
+        Staff_Job[3].DOFade(0, Fade_Time);
         Staff_Icon[4].DOFade(0, Fade_Time);
         Staff_Name[4].DOFade(0, Fade_Time);
-        StartCoroutine(STAFF_OUT(dur));
+        Staff_Job[4].DOFade(0, Fade_Time);
+        StartCoroutine(STAFF_FINISH(dur));
     }
 
+
+   
 
     IEnumerator STAFF_OUT(float duration)
     {
         yield return new WaitForSeconds(duration);
         Staff_Icon[5].DOFade(0, Fade_Time);
-        StartCoroutine(STAFF_FINISH(Fade_Time));
+        StartCoroutine(STAFF_FINISH(Fade_Time+1));
 
     }
 
