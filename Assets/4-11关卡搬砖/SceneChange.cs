@@ -96,9 +96,21 @@ public class SceneChange : MonoBehaviour
 
                 break;
                 case 1:
-                PlayerPrefs.SetInt("Current_State", 3);
-                async = SceneManager.LoadSceneAsync("Level3Mod");
-                async.allowSceneActivation = true;
+                if (PlayerPrefs.GetInt("Player_Dead") == 1)
+                {
+                    PlayerPrefs.DeleteKey("Player_Dead");
+                    PlayerPrefs.SetInt("Current_State", -2);
+                    async = SceneManager.LoadSceneAsync("SpawnRoom");
+                    async.allowSceneActivation = true;
+                    
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("Current_State", 3);
+                    async = SceneManager.LoadSceneAsync("Level3Mod");
+                    async.allowSceneActivation = true;
+                }
+                
 
                 break;
 
@@ -108,10 +120,22 @@ public class SceneChange : MonoBehaviour
                 async.allowSceneActivation = true;
 
                 break;
+
                 case 3:
+                if (PlayerPrefs.GetInt("Player_Dead") == 1)
+                {
+                    PlayerPrefs.DeleteKey("Player_Dead");
+                    PlayerPrefs.SetInt("Current_State", -2);
+                    async = SceneManager.LoadSceneAsync("SpawnRoom");
+                    async.allowSceneActivation = true;
+                }
+                else
+                {
                     PlayerPrefs.SetInt("Current_State", 4);
                     async = SceneManager.LoadSceneAsync("BossRoom");
-                async.allowSceneActivation = true;
+                    async.allowSceneActivation = true;
+                }
+                    
 
                 break;
                 case 4:

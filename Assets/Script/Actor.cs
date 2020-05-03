@@ -997,6 +997,7 @@ public class Actor : MonoBehaviour
         if (isPlayer)
         {
             thisAnimator.SetTrigger("Dead");
+            PlayerPrefs.SetInt("Player_Dead", 1);
         }
 
         if (gameObject.layer == LayerMask.NameToLayer("Enemy") && gameObject.tag != "BOSS")
