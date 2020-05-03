@@ -8,7 +8,7 @@ public class Search_Tutorial_Talk : MonoBehaviour
     GameObject player_collider;
     private Dialog_Manager d_manager;
     private bool A = true;
-    private bool B = true;
+    private bool B = false;
     private Flowchart flowchart;
     public Transform target;
     public GameObject Airwall;
@@ -33,11 +33,16 @@ public class Search_Tutorial_Talk : MonoBehaviour
     void Update()
     {
 
-        
-        if (flowchart.GetIntegerVariable("Tutorial_Process") == 5)
+        if (flowchart.GetIntegerVariable("Tutorial_Process") == 5 && Input.GetKey(KeyCode.T))
+        {
+            B = true;
+        }
+
+        if (flowchart.GetIntegerVariable("Tutorial_Process") == 5&&B)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * 50);
             Airwall.SetActive(false);
+            
            
         }
     }
