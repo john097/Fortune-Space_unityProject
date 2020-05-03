@@ -8431,6 +8431,7 @@ GameObject:
   - component: {fileID: 1544087152}
   - component: {fileID: 1544087151}
   - component: {fileID: 1544087150}
+  - component: {fileID: 1544087158}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8781,6 +8782,103 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 45, y: 45.000004, z: 0}
+--- !u!82 &1544087158
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544087149}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -9205861141673334591, guid: f14ff2f13ad1bbf40942099e4fb60d05,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 5dcaaa0efe6e1bb448ecf3151ec43369, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1648141342
 GameObject:
   m_ObjectHideFlags: 0
@@ -9830,6 +9928,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -15
       objectReference: {fileID: 0}
+    - target: {fileID: 6504745308943760385, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -8.100098
+      objectReference: {fileID: 0}
     - target: {fileID: 1293630642147629948, guid: 7ada0cca816dfde4a8344abc30515f40,
         type: 3}
       propertyPath: nodeRect.width
@@ -9838,6 +9941,36 @@ PrefabInstance:
     - target: {fileID: 1293630642147629948, guid: 7ada0cca816dfde4a8344abc30515f40,
         type: 3}
       propertyPath: blockName
+      value: Goto_BossRoom_Talk
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293630642147629939, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: storyText
+      value: "\u627E\u5230\u7EC5\u58EB\u6240\u5728\u5730\u4E86\uFF0C\u662F\u5426\u524D\u8FDB\uFF1F"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293630642147629938, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: text
+      value: "\u51B2\uFF01"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293630642147629938, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: targetBlock
+      value: 
+      objectReference: {fileID: 1006479442}
+    - target: {fileID: 1293630642147629949, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: text
+      value: "\u518D\u7B49\u7B49"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293630642147629949, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: targetBlock
+      value: 
+      objectReference: {fileID: 1006479444}
+    - target: {fileID: 1293630642147629942, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: message
       value: Goto_BossRoom_Talk
       objectReference: {fileID: 0}
     - target: {fileID: 4880359627962302099, guid: 7ada0cca816dfde4a8344abc30515f40,
@@ -9869,46 +10002,6 @@ PrefabInstance:
         type: 3}
       propertyPath: nodeRect.y
       value: 63.259304
-      objectReference: {fileID: 0}
-    - target: {fileID: 1293630642147629960, guid: 7ada0cca816dfde4a8344abc30515f40,
-        type: 3}
-      propertyPath: nodeRect.x
-      value: 729.0616
-      objectReference: {fileID: 0}
-    - target: {fileID: 1293630642147629960, guid: 7ada0cca816dfde4a8344abc30515f40,
-        type: 3}
-      propertyPath: nodeRect.y
-      value: 111.25334
-      objectReference: {fileID: 0}
-    - target: {fileID: 1293630642147629939, guid: 7ada0cca816dfde4a8344abc30515f40,
-        type: 3}
-      propertyPath: storyText
-      value: "\u627E\u5230\u7EC5\u58EB\u6240\u5728\u5730\u4E86\uFF0C\u662F\u5426\u524D\u8FDB\uFF1F"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1293630642147629938, guid: 7ada0cca816dfde4a8344abc30515f40,
-        type: 3}
-      propertyPath: text
-      value: "\u51B2\uFF01"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1293630642147629938, guid: 7ada0cca816dfde4a8344abc30515f40,
-        type: 3}
-      propertyPath: targetBlock
-      value: 
-      objectReference: {fileID: 1006479442}
-    - target: {fileID: 1293630642147629949, guid: 7ada0cca816dfde4a8344abc30515f40,
-        type: 3}
-      propertyPath: text
-      value: "\u518D\u7B49\u7B49"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1293630642147629949, guid: 7ada0cca816dfde4a8344abc30515f40,
-        type: 3}
-      propertyPath: targetBlock
-      value: 
-      objectReference: {fileID: 1006479444}
-    - target: {fileID: 1293630642147629942, guid: 7ada0cca816dfde4a8344abc30515f40,
-        type: 3}
-      propertyPath: message
-      value: Goto_BossRoom_Talk
       objectReference: {fileID: 0}
     - target: {fileID: 2851277134433425418, guid: 7ada0cca816dfde4a8344abc30515f40,
         type: 3}
@@ -10019,6 +10112,21 @@ PrefabInstance:
         type: 3}
       propertyPath: itemId
       value: 236
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358179336579452854, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 33.000122
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293630642147629960, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: nodeRect.x
+      value: 729.0616
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293630642147629960, guid: 7ada0cca816dfde4a8344abc30515f40,
+        type: 3}
+      propertyPath: nodeRect.y
+      value: 111.25334
       objectReference: {fileID: 0}
     - target: {fileID: 755425943707601620, guid: 7ada0cca816dfde4a8344abc30515f40,
         type: 3}

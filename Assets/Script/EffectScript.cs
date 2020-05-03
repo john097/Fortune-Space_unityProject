@@ -6,12 +6,17 @@ public class EffectScript : MonoBehaviour
 {
     public float lifeTime;
     private GameObject muzzle;
+    public bool notAlignMuzzle;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        muzzle = GameObject.Find("Muzzle");
+        if (!notAlignMuzzle)
+        {
+            muzzle = GameObject.Find("Muzzle");
+        }
+        
         if (lifeTime != 0)
         {
             Destroy(gameObject, lifeTime);
