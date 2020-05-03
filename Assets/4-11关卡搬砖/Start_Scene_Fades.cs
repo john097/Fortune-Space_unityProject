@@ -14,7 +14,7 @@ public class Start_Scene_Fades : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(JIEGE_IN(dur));
+        StartCoroutine(JIEGE_IN(1));
        
     }
 
