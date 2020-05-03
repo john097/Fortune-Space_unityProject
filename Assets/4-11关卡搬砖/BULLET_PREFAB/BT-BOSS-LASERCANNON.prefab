@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4371649618984590583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -54.11, y: 1.66, z: -8.23}
-  m_LocalScale: {x: 1, y: 1, z: 73.734}
+  m_LocalScale: {x: 4.055749, y: 3.8819191, z: 73.734}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   lifeTime: 5
   speed: 0
   timeToStop: 0
-  damage: 30
+  damage: 25
   isSustained: 1
   vulnerabilityPercent: 0
   thisSpType: 0
@@ -145,6 +145,7 @@ MonoBehaviour:
   skillVariantEvent: 0
   buffPrefabs:
   - {fileID: 1513616300338076767, guid: 6b1c38ca35f70f24ebd78eca0427f364, type: 3}
+  - {fileID: 1513616300338076767, guid: a2f93a7ba3cf17148a257b3531e30667, type: 3}
   bulletSons: []
   createEffect: {fileID: 0}
   bulletEffect: {fileID: 0}
@@ -154,5 +155,5 @@ MonoBehaviour:
   destroyEffect: {fileID: 0}
   actor: {fileID: 0}
   skillParent: {fileID: 0}
-  BUFF_CD: 2
+  BUFF_CD: 1
   buff_timer: 0

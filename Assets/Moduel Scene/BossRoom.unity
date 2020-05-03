@@ -1496,7 +1496,12 @@ PrefabInstance:
     - target: {fileID: 8732763476932684159, guid: 1aa6df95e370bf54e8bd902cbaafbe4c,
         type: 3}
       propertyPath: maxHeal
-      value: 10000
+      value: 15000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8732763476932684158, guid: 1aa6df95e370bf54e8bd902cbaafbe4c,
+        type: 3}
+      propertyPath: m_Speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8732763476932684147, guid: 1aa6df95e370bf54e8bd902cbaafbe4c,
         type: 3}
@@ -1521,12 +1526,22 @@ PrefabInstance:
     - target: {fileID: 8732763476922757255, guid: 1aa6df95e370bf54e8bd902cbaafbe4c,
         type: 3}
       propertyPath: bulletOffsets.Array.data[0].z
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8732763477751510140, guid: 1aa6df95e370bf54e8bd902cbaafbe4c,
         type: 3}
       propertyPath: bulletOffsets.Array.data[0].z
       value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 8732763477751510140, guid: 1aa6df95e370bf54e8bd902cbaafbe4c,
+        type: 3}
+      propertyPath: coolDownTime
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8732763477302713999, guid: 1aa6df95e370bf54e8bd902cbaafbe4c,
+        type: 3}
+      propertyPath: coolDownTime
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa6df95e370bf54e8bd902cbaafbe4c, type: 3}
@@ -9335,7 +9350,7 @@ PrefabInstance:
     - target: {fileID: 7117566430146738237, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7062354942933976952, guid: 8ee00fe30ff11cf4ca58a903cdc2e30b,
         type: 3}

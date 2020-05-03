@@ -57,8 +57,8 @@ public class BOSS_SIMPLEMOVE : Action
 
     public override void OnStart()
 	{
-        
 
+        
         
         
 
@@ -78,7 +78,10 @@ public class BOSS_SIMPLEMOVE : Action
         follow_timer += Time.deltaTime;
 
 
-
+        if (!mons_actor.isAlive)
+        {
+            return TaskStatus.Failure;
+        }
 
         if (mons_actor.isAlive && follow_timer <= 5 && !usingskill.Value)//追击TIME未达到MAX时以LV1的速度追击玩家
         {
@@ -158,7 +161,7 @@ public class BOSS_SIMPLEMOVE : Action
 
     public void LV2_SPEED()
     {
-        navMeshAgent.velocity = navMeshAgent.desiredVelocity.normalized * 10;
+        navMeshAgent.velocity = navMeshAgent.desiredVelocity.normalized * 12;
         navMeshAgent.SetDestination(PLAYER);
         lv2.Value = true;
         Debug.Log("NOW IS LV2_SPEED!");
@@ -169,7 +172,7 @@ public class BOSS_SIMPLEMOVE : Action
     {
         if (!mons_actor.Skills_0[3].coolDownFlag)
         {
-            navMeshAgent.velocity = navMeshAgent.desiredVelocity.normalized * 14;
+            navMeshAgent.velocity = navMeshAgent.desiredVelocity.normalized * 16;
             navMeshAgent.SetDestination(PLAYER);
             dash.Value = true;
             //添加冲锋粒子特效
@@ -225,7 +228,7 @@ public class BOSS_SIMPLEMOVE : Action
         
         Action_Num.Value = -1;
         follow_timer = 0;
-        navMeshAgent.velocity = navMeshAgent.desiredVelocity.normalized * 4f;
+        navMeshAgent.velocity = navMeshAgent.desiredVelocity.normalized * 5f;
     }
 
     IEnumerator SpeedUpRemove2()
@@ -238,7 +241,7 @@ public class BOSS_SIMPLEMOVE : Action
 
         Action_Num.Value = -1;
         follow_timer = 0;
-        navMeshAgent.velocity = navMeshAgent.desiredVelocity.normalized * 4f;
+        navMeshAgent.velocity = navMeshAgent.desiredVelocity.normalized * 5f;
     }
 
 
@@ -246,7 +249,7 @@ public class BOSS_SIMPLEMOVE : Action
     {
         Action_Num.Value = -1;
         follow_timer = 0;
-        navMeshAgent.velocity = navMeshAgent.desiredVelocity.normalized * 4f;
+        navMeshAgent.velocity = navMeshAgent.desiredVelocity.normalized * 5f;
         //follow_timer = 0;
     }
 

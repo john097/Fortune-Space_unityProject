@@ -68,7 +68,11 @@ public class BOSS_ATTACK_ACTION : Action
 
 	public override TaskStatus OnUpdate()
 	{
-       
+        if (!mons_actor.isAlive)
+        {
+            return TaskStatus.Failure;
+        }
+
         Action_Timer.Value += Time.deltaTime;
 
         if (s)
