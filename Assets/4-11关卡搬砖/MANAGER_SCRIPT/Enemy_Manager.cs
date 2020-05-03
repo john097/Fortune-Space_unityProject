@@ -177,8 +177,8 @@ public class Enemy_Manager : MonoBehaviour
                 {
                     if (ME.this_room_type == 3)
                     {
-                        int x = Random.Range(0, 10);
-                        int z = Random.Range(0, 10);
+                        int x = Random.Range(0, 3);
+                        int z = Random.Range(0, 3);
                         GameObject tp_gate;
                         tp_gate = Resources.Load(Prefabs + "TP_GATE") as GameObject;
 

@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4371649618984590583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -54.11, y: 1.66, z: -8.23}
-  m_LocalScale: {x: 1, y: 1, z: 20}
+  m_LocalScale: {x: 1, y: 1, z: 73.734}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -133,10 +133,13 @@ MonoBehaviour:
   repel: 0
   lockOnTarget: {fileID: 0}
   isFollowActor: 1
+  destoryDelay: 0
+  bulletHitShake: 0
   destoryAfterCollision: 0
   destoryAfterCollisionWithActor: 0
   destoryIfSkillBeCancel: 0
   destoryTarget: 0
+  killTargetMakeTimeSlow: 0
   hitChangeTimeScale: 0
   hitChangeTimeScaleTime: 0
   skillVariantEvent: 0
@@ -144,6 +147,9 @@ MonoBehaviour:
   - {fileID: 1513616300338076767, guid: 6b1c38ca35f70f24ebd78eca0427f364, type: 3}
   bulletSons: []
   createEffect: {fileID: 0}
+  bulletEffect: {fileID: 0}
+  alignTheMuzzlePosition: 0
+  alignTheActorPosition: 0
   hitEffect: {fileID: 0}
   destroyEffect: {fileID: 0}
   actor: {fileID: 0}
