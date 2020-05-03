@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2449074609730750646}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -132,8 +132,10 @@ MonoBehaviour:
   - {fileID: 4582832332617146480, guid: fe11c4192c27c364dbea5287efd6d8c6, type: 3}
   bulletSons: []
   createEffect: {fileID: 0}
-  bulletEffect: {fileID: 0}
+  bulletEffect: {fileID: 8298358978925593274, guid: 10e8e0d79d249c940adaeb8ebd983b6a,
+    type: 3}
   alignTheMuzzlePosition: 0
+  alignTheActorPosition: 0
   hitEffect: {fileID: 0}
   destroyEffect: {fileID: 0}
   actor: {fileID: 0}

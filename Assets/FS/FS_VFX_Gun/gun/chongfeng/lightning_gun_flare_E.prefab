@@ -300,7 +300,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -353,7 +353,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -406,7 +406,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -459,7 +459,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -4649,8 +4649,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d8c572a945f959f40b03cdb1fb3d6633, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 5cd8eb7bb49ec854689bcf7ed6e3139a, type: 2}
+  - {fileID: 2100000, guid: 5cd8eb7bb49ec854689bcf7ed6e3139a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4975,7 +4975,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -5028,7 +5028,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -5081,7 +5081,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -5134,7 +5134,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -9342,8 +9342,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ee4618c6bab2fb2458b3276c59bf424a, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 87ede1ff98aaced4c8ce65ab7eab17ee, type: 2}
+  - {fileID: 2100000, guid: 87ede1ff98aaced4c8ce65ab7eab17ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9668,7 +9668,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -9721,7 +9721,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -14053,8 +14053,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 70b92b79ecfde464e9c4a6cfc2a97803, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: a6dad1a806e10b342951918f3caf6d0c, type: 2}
+  - {fileID: 2100000, guid: a6dad1a806e10b342951918f3caf6d0c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14108,10 +14108,9 @@ GameObject:
   - component: {fileID: 8298358978926026394}
   - component: {fileID: 8298358978910821334}
   - component: {fileID: 8298358978910790262}
-  - component: {fileID: 3161797644801722227}
-  - component: {fileID: 4620441386163571823}
+  - component: {fileID: 4166140080989827642}
   m_Layer: 0
-  m_Name: lightning_gun_flare 2
+  m_Name: lightning_gun_flare_E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14144,11 +14143,11 @@ ParticleSystem:
   serializedVersion: 6
   lengthInSec: 0.1
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 1
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -18751,8 +18750,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ac5606eae17a3394691bbbc8ee49e409, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 786d62f42437bb04b8bea5d06b7520f5, type: 2}
+  - {fileID: 2100000, guid: 786d62f42437bb04b8bea5d06b7520f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18795,7 +18794,7 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!82 &3161797644801722227
+--- !u!82 &4166140080989827642
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18806,11 +18805,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8051999048264205788, guid: eed3d38909d7d2245b88f31e516ccd97,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 79e2023caf57963408fae681848bb1d9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ca05caf5faeff864b946499f3d278021, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.168
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -18892,18 +18891,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4620441386163571823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8298358978925593274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3884b55ecc1da82489bbd9273f68eb9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeTime: 0.7
-  notAlignMuzzle: 0
-  notPlayer: 0

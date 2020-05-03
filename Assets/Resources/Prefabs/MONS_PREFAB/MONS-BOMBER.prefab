@@ -485,6 +485,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 126114607953071884}
     m_Modifications:
+    - target: {fileID: 86739439199444557, guid: 8c394b969f99d9a4aae785da113f748d,
+        type: 3}
+      propertyPath: m_Name
+      value: HpBar
+      objectReference: {fileID: 0}
     - target: {fileID: 86739439199444558, guid: 8c394b969f99d9a4aae785da113f748d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -604,11 +609,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.003
-      objectReference: {fileID: 0}
-    - target: {fileID: 86739439199444557, guid: 8c394b969f99d9a4aae785da113f748d,
-        type: 3}
-      propertyPath: m_Name
-      value: HpBar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c394b969f99d9a4aae785da113f748d, type: 3}
@@ -770,12 +770,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 126114607953071884}
     m_Modifications:
-    - target: {fileID: 4683804717500369585, guid: 4a5bf4eba3563074f9fa9a954114653b,
+    - target: {fileID: -927199367670048503, guid: 4a5bf4eba3563074f9fa9a954114653b,
+        type: 3}
+      propertyPath: m_Name
+      value: m001_bomber
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 4a5bf4eba3563074f9fa9a954114653b,
         type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5133913965574556032, guid: 4a5bf4eba3563074f9fa9a954114653b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6046807560587765371, guid: 4a5bf4eba3563074f9fa9a954114653b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683804717500369585, guid: 4a5bf4eba3563074f9fa9a954114653b,
         type: 3}
       propertyPath: m_Layer
       value: 10
@@ -850,21 +865,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.015
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 4a5bf4eba3563074f9fa9a954114653b,
-        type: 3}
-      propertyPath: m_Name
-      value: m001_bomber
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 4a5bf4eba3563074f9fa9a954114653b,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 4a5bf4eba3563074f9fa9a954114653b,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 7920930bac90e5b44ae57ccb03130e47, type: 2}
     - target: {fileID: -2610755638356363046, guid: 4a5bf4eba3563074f9fa9a954114653b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -880,11 +880,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3837fc74db0c22b4b9f48af906aef2e6, type: 2}
-    - target: {fileID: -6046807560587765371, guid: 4a5bf4eba3563074f9fa9a954114653b,
+    - target: {fileID: -6057140222963153312, guid: 4a5bf4eba3563074f9fa9a954114653b,
         type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7920930bac90e5b44ae57ccb03130e47, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a5bf4eba3563074f9fa9a954114653b, type: 3}
 --- !u!4 &3988451597013091355 stripped

@@ -425,6 +425,7 @@ public class Bullet : MonoBehaviour
 
         if (alignMuzzle)
         {
+
             a = Instantiate(e, GameObject.Find("Muzzle").transform.position, Quaternion.identity);
 
             if (!followBullet)
