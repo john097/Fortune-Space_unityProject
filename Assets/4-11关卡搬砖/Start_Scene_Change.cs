@@ -9,11 +9,12 @@ public class Start_Scene_Change : MonoBehaviour
     private GameObject actor_g;
     public GameObject Defeat_UI;
     private string scene_name;
+    private float dead_timer;
     // Start is called before the first frame update
     void Start()
     {
         PlayerPrefs.DeleteAll();
-
+        
         scene_name = SceneManager.GetActiveScene().name;
 
         if (scene_name == "Start_Scene")
@@ -78,11 +79,11 @@ public class Start_Scene_Change : MonoBehaviour
                 if (!actor.isAlive)
                 {
                     Defeat_UI.SetActive(true);
-
-                    if (Input.anyKeyDown)
+                    dead_timer += Time.deltaTime;
+                    if (Input.anyKeyDown&&dead_timer>=3f)
                     {
                         Destroy(actor_g);
-                        SceneManager.LoadScene("Start_Scene");
+                        SceneManager.LoadScene("Loading_Scene");
                     }
                 }
             }

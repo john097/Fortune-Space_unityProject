@@ -827,7 +827,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &449891176
 Transform:
   m_ObjectHideFlags: 0
@@ -1072,7 +1072,7 @@ PrefabInstance:
     - target: {fileID: 220675394707388492, guid: 2ce1fc0cad6dc4b4f9ffd040242c5108,
         type: 3}
       propertyPath: m_Text
-      value: "\t\u2014Gentleman's Home\u2014"
+      value: "\t\u2014Gentleman's Zoom\u2014"
       objectReference: {fileID: 0}
     - target: {fileID: 220675394707388492, guid: 2ce1fc0cad6dc4b4f9ffd040242c5108,
         type: 3}
@@ -1092,7 +1092,7 @@ PrefabInstance:
     - target: {fileID: 8377549292271120292, guid: 2ce1fc0cad6dc4b4f9ffd040242c5108,
         type: 3}
       propertyPath: m_Text
-      value: "\u201C\u7EC5\u58EB\u201D\u8001\u5BB6"
+      value: "\u201C\u7EC5\u58EB\u201D\u610F\u8BC6\u6D77"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ce1fc0cad6dc4b4f9ffd040242c5108, type: 3}
@@ -1512,6 +1512,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8732763476922757255, guid: 1aa6df95e370bf54e8bd902cbaafbe4c,
+        type: 3}
+      propertyPath: bulletOffsets.Array.data[0].z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8732763477751510140, guid: 1aa6df95e370bf54e8bd902cbaafbe4c,
+        type: 3}
+      propertyPath: bulletOffsets.Array.data[0].z
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa6df95e370bf54e8bd902cbaafbe4c, type: 3}
@@ -9528,7 +9538,7 @@ PrefabInstance:
     - target: {fileID: 1293630642147629917, guid: 7ada0cca816dfde4a8344abc30515f40,
         type: 3}
       propertyPath: selectedBlocks.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1293630642147629917, guid: 7ada0cca816dfde4a8344abc30515f40,
         type: 3}
@@ -10419,6 +10429,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949023171016822467, guid: 8bdfb6d89d1059e48b8cd5760fdf049f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.3999023
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bdfb6d89d1059e48b8cd5760fdf049f, type: 3}

@@ -48,8 +48,16 @@ public class Mons_Patrol : Action
 
         if (patrol_timer >= 20f)
         {
-            BM.MON_NUMS -= 1;
-            Object.Destroy(gameObject);
+            if (BM.MON_NUMS >= 1)
+            {
+                BM.MON_NUMS -= 1;
+                Object.Destroy(gameObject);
+            }
+            else
+            {
+                Object.Destroy(gameObject);
+            }
+            
 
         }
 

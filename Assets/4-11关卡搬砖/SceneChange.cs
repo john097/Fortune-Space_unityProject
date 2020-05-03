@@ -17,6 +17,7 @@ public class SceneChange : MonoBehaviour
 
     public Transform tp_zoom;
     public Transform actor;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class SceneChange : MonoBehaviour
 
         if (GameObject.Find("Actor"))
         {
+            player = GameObject.Find("Actor");
             actor = GameObject.Find("Actor").transform;
             actor.position = new Vector3(tp_zoom.position.x, tp_zoom.position.y,tp_zoom.position.z);
         }
@@ -112,10 +114,11 @@ public class SceneChange : MonoBehaviour
                 async.allowSceneActivation = true;
 
                 break;
-            case 4:
-                PlayerPrefs.SetInt("Current_State", -1);
-                async = SceneManager.LoadSceneAsync("Start_Scene");
-                async.allowSceneActivation = true;
+                case 4:
+                    Destroy(player);
+                    PlayerPrefs.SetInt("Current_State", -1);
+                    async = SceneManager.LoadSceneAsync("SpawnRoom");
+                    async.allowSceneActivation = true;
 
                 break;
         }
