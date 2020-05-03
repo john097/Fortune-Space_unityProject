@@ -11727,6 +11727,7 @@ GameObject:
   - component: {fileID: 398420875}
   - component: {fileID: 398420874}
   - component: {fileID: 398420873}
+  - component: {fileID: 398420876}
   m_Layer: 28
   m_Name: ReallyBigFloor
   m_TagString: Untagged
@@ -11787,12 +11788,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398420872}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -23.424, y: -4.4, z: -14.2}
-  m_LocalScale: {x: 897.8973, y: 897.8973, z: 897.8973}
+  m_LocalPosition: {x: -23.424, y: -5, z: -14.2}
+  m_LocalScale: {x: 7650.443, y: 7650.443, z: 7650.443}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!65 &398420876
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398420872}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000002, z: 6.123235e-17}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &402440935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1165933259231450452, guid: ce92df9b1e823784abf2b20e896ee1b3,
