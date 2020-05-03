@@ -13,6 +13,7 @@ public class FadeIn_FadeOut : MonoBehaviour
 
     private Flowchart flowchart;
     private bool flow_found = false;
+
     // Start is called before the first frame update
     void Start()
     {

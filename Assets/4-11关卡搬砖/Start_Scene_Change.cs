@@ -11,7 +11,7 @@ public class Start_Scene_Change : MonoBehaviour
     private string scene_name;
     private float dead_timer;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         PlayerPrefs.DeleteAll();
         
