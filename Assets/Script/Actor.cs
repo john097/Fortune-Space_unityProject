@@ -186,7 +186,7 @@ public class Actor : MonoBehaviour
 
     [HideInInspector]
     public bool BeAttacked;//**DISON.ver**用于怪物巡逻判断（若被攻击，则终止巡逻）
-    [HideInInspector]
+    //[HideInInspector]
     public bool isTalking;//**DISON.ver**对话时不让玩家移动
 
     void Start()
@@ -233,6 +233,11 @@ public class Actor : MonoBehaviour
     {
         if (isAlive && isPlayer)//**DISON.ver**
         {
+            //if (isTalking)
+            //{
+            //    speed = 0;
+            //}
+
             CameraDirUpdata();
 
             if (!isTakingTool && !isTalking && !isOpeningPlayerMenu)
