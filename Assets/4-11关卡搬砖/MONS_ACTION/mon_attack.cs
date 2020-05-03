@@ -109,7 +109,7 @@ public class mon_attack : Action
 	{
         dis = Vector3.Distance(transform.position, target.Value.position);
 
-        if (!is_bomber.Value && !is_mons3.Value)
+        if (!is_bomber.Value )
         {
             if (patrol)
             {
@@ -126,22 +126,25 @@ public class mon_attack : Action
 
                
                     transform.Translate(Vector3.forward * Time.deltaTime * 0.5f * i);
-              
-                
 
-                if (AA&&i==-1)
-                {
-                    
-                    thisAnimator.SetInteger("ContolInt", 3);
-                   
-                    AA = false;
-                }
-                else if (AA && i == 1)
-                {
-                    thisAnimator.SetInteger("ContolInt", 4);
 
-                    AA = false;
+                if (!is_mons3.Value)
+                {
+                    if (AA && i == -1)
+                    {
+
+                        thisAnimator.SetInteger("ContolInt", 3);
+
+                        AA = false;
+                    }
+                    else if (AA && i == 1)
+                    {
+                        thisAnimator.SetInteger("ContolInt", 4);
+
+                        AA = false;
+                    }
                 }
+               
               
                
                 

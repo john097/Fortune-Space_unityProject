@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6634710896548428685}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -49.61, y: 1.51, z: -7.62}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   lifeTime: 0.3
   speed: 500
   timeToStop: 0
-  damage: 15
+  damage: 25
   isSustained: 0
   vulnerabilityPercent: 0
   thisSpType: 0
@@ -104,16 +104,22 @@ MonoBehaviour:
   repel: 0
   lockOnTarget: {fileID: 0}
   isFollowActor: 1
+  destoryDelay: 0
+  bulletHitShake: 0
   destoryAfterCollision: 1
   destoryAfterCollisionWithActor: 0
   destoryIfSkillBeCancel: 0
   destoryTarget: 0
+  killTargetMakeTimeSlow: 0
   hitChangeTimeScale: 0
   hitChangeTimeScaleTime: 0
   skillVariantEvent: 0
   buffPrefabs: []
   bulletSons: []
   createEffect: {fileID: 0}
+  bulletEffect: {fileID: 0}
+  alignTheMuzzlePosition: 0
+  alignTheActorPosition: 0
   hitEffect: {fileID: 0}
   destroyEffect: {fileID: 0}
   actor: {fileID: 0}
@@ -131,7 +137,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.65
+  m_Radius: 0.52
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5269819461284791527
 Rigidbody:
