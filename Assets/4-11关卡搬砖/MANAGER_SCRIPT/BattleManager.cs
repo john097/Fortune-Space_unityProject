@@ -146,7 +146,7 @@ public class BattleManager : MonoBehaviour
         }
 
 
-        Crack_Progress = 0f;
+        Crack_Progress = 60f;
         Dead_Fight_Timer = 0f;
         Dead_Fight_MaxTime = 60f;
 
@@ -661,15 +661,16 @@ public class BattleManager : MonoBehaviour
 
         if (Protect_Room_Battle && !isTalking)//保护据点房计时
         {
-            if (Crack_Progress >= 30f||PP_Dead)
+            if (Crack_Progress <= 0f||PP_Dead)
             {
+                Crack_Progress = 0f;
                 IS_LAST_WAVE();
                 FINISH_SPAWN();
                 Protect_Room_Battle_Finish();
             }
             else
             {
-                Crack_Progress += Time.deltaTime;
+                Crack_Progress -= Time.deltaTime;
             }
         }
 
