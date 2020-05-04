@@ -58,6 +58,7 @@ public class Player_IN_Room : MonoBehaviour
         {
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
             
+
             C = true;
         }
 
@@ -163,7 +164,14 @@ public class Player_IN_Room : MonoBehaviour
 
             if (PlayerPrefs.GetInt("Current_State") == 2)
             {
-                
+                GameObject[] mons;
+                mons = GameObject.FindGameObjectsWithTag("ENEMY");
+                for (int i = 0; i < mons.Length; i++)
+                {
+                    Destroy(mons[i]);
+                }
+                wallopen();
+                dialog_manager.ProtectPoint_Enter_Talk();
                 b = false;
             }
 
