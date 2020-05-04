@@ -237,7 +237,10 @@ public class Actor : MonoBehaviour
             //{
             //    speed = 0;
             //}
-
+            if (speed < 0)
+            {
+                speed = 0;
+            }
             CameraDirUpdata();
 
             if (!isTakingTool && !isTalking && !isOpeningPlayerMenu)
