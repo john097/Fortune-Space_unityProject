@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5338581807967777123}
-  m_LocalRotation: {x: 0, y: 0.98941743, z: 0, w: 0.1450972}
+  m_LocalRotation: {x: 0, y: 0.095122404, z: 0, w: -0.99546564}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -661,7 +661,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 17
+    type: 4
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -4834,7 +4834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 5332893436425388083}
-  Force: 3
+  Force: -3
   StopDistance: 0.3
 --- !u!114 &5441962936817020173
 MonoBehaviour:
@@ -4906,8 +4906,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5338613553800794161}
-  m_LocalRotation: {x: 0, y: -0.872993, z: 0, w: -0.48773283}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: -0.44318038, z: 0, w: 0.8964325}
+  m_LocalPosition: {x: 0, y: 0, z: -0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5340482880950469685}
@@ -5541,7 +5541,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 17
+    type: 4
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -9714,7 +9714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 5332893436425388083}
-  Force: 3
+  Force: -3
   StopDistance: 0.3
 --- !u!114 &5442525756525287099
 MonoBehaviour:
