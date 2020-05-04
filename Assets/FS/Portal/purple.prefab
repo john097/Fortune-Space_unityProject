@@ -72,7 +72,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 2
-  m_Color: {r: 0.7987828, g: 0.5294118, b: 1, a: 1}
+  m_Color: {r: 0.6158018, g: 0.17354932, b: 0.9433962, a: 1}
   m_Intensity: 0
   m_Range: 25
   m_SpotAngle: 30
@@ -139,31 +139,40 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: -0.00024414062
-      inSlope: -0.13864163
-      outSlope: -0.13864163
-      tangentMode: 0
+      value: 1
+      inSlope: -0.7128322
+      outSlope: -0.7128322
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.24917755
+      value: 0.8223782
+      inSlope: 0.072556466
+      outSlope: 0.072556466
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.39999998
-      value: 1.0000007
-      inSlope: 0.13087551
-      outSlope: 0.13087551
+      time: 0.73602545
+      value: 1.240067
+      inSlope: -0.023271425
+      outSlope: -0.023271425
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 1
     - serializedVersion: 3
       time: 1
-      value: -0.00083170086
-      inSlope: -0.34550688
-      outSlope: -0.34550688
-      tangentMode: 0
+      value: 1
+      inSlope: -0.9094324
+      outSlope: -0.9094324
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
@@ -196,9 +205,9 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  GraphTimeMultiplier: 0.8
-  GraphIntensityMultiplier: 1
-  IsLoop: 0
+  GraphTimeMultiplier: 0.6
+  GraphIntensityMultiplier: 100
+  IsLoop: 1
   canUpdate: 0
 --- !u!1 &2168257376801705973
 GameObject:
@@ -227,7 +236,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2168257376801705973}
-  m_LocalRotation: {x: 0, y: -0.995912, z: 0, w: 0.09032963}
+  m_LocalRotation: {x: 0, y: -0.085779905, z: 0, w: 0.99631417}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.7681, y: 2.7681, z: 2.7681}
   m_Children: []
@@ -802,7 +811,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 100
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -5043,7 +5052,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9033626209761544302}
-  m_LocalRotation: {x: 0, y: 0.64216274, z: 0, w: -0.7665684}
+  m_LocalRotation: {x: 0, y: -0.64202905, z: 0, w: -0.76668036}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.7681, y: 2.7681, z: 2.7681}
   m_Children: []
@@ -5618,7 +5627,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 100
     size3D: 0
     rotation3D: 0
     gravityModifier:
