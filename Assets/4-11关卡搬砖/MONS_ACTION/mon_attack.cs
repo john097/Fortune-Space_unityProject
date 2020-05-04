@@ -169,7 +169,17 @@ public class mon_attack : Action
 
         if (mons_actor.isAlive && !mons_skill.coolDownFlag && attack_finished.Value)
         {
-            if (is_bomber.Value|| is_mons3.Value)
+            if (is_bomber.Value)
+            {
+                patrol = false;
+                gameObject.GetComponent<NavMeshAgent>().enabled = false;
+                mons_actor.Skills_0[0].UseSkill();
+                attack_warning.SetActive(true);
+                gameObject.GetComponent<Actor>().GoDie();
+                attack_finished.Value = false;
+
+            }
+            else if (is_mons3.Value)
             {
                 patrol = false;
                 gameObject.GetComponent<NavMeshAgent>().enabled = false;
@@ -219,9 +229,9 @@ public class mon_attack : Action
         {
             yield return new WaitForSeconds(duration);
             gameObject.GetComponent<Actor>().GoDie();
-            attack_finished = true;
+            //attack_finished = true;
             attack_warning.SetActive(false);
-            s = true;
+            //s = true;
         }
         else
         {
@@ -239,9 +249,9 @@ public class mon_attack : Action
             yield return new WaitForSeconds(duration);
 
             gameObject.GetComponent<Actor>().GoDie();
-            attack_finished = true;
+            //attack_finished = true;
             attack_warning.SetActive(false);
-            s = true;
+            //s = true;
         }
         else
         {
