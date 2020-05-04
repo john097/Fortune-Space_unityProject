@@ -101,7 +101,7 @@ public class BOSS_SIMPLEMOVE : Action
            
 
             
-            Action_Num.Value = Random.Range(0,3);//取随机数
+            Action_Num.Value = Random.Range(0, 3);//取随机数
             Num_Borning.Value = true;
         }
 
