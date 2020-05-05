@@ -22,7 +22,7 @@ public class ProtectPointText : MonoBehaviour
     {
         if (BM.Crack_Progress>0)
         {
-            Text.text = BM.Crack_Progress + "保护据点↓";
+            Text.text = Mathf.CeilToInt(BM.Crack_Progress)  + "保护据点↓";
         }
         else
         {
