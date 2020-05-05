@@ -72,6 +72,11 @@ public class SceneChange : MonoBehaviour
         
             switch (PlayerPrefs.GetInt("Current_State"))
             {
+                case -3:
+                PlayerPrefs.SetInt("Current_State", -1);
+                async = SceneManager.LoadSceneAsync("Start_Scene");
+                async.allowSceneActivation = true;
+                break;
                 case -2:
                 
                 PlayerPrefs.SetInt("Current_State", 0);
