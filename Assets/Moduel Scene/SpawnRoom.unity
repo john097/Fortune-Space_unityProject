@@ -2671,7 +2671,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679912870}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!1 &696843080
 GameObject:
   m_ObjectHideFlags: 0
@@ -4314,7 +4314,7 @@ PrefabInstance:
     - target: {fileID: 6504745308943760385, guid: 7ada0cca816dfde4a8344abc30515f40,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -8.099609
+      value: -8.09967
       objectReference: {fileID: 0}
     - target: {fileID: 3190685898872090127, guid: 7ada0cca816dfde4a8344abc30515f40,
         type: 3}
@@ -4913,7 +4913,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506459984}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &1506459989
 Camera:
   m_ObjectHideFlags: 0
@@ -6149,6 +6149,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5200199341896944901, guid: 34843544dcb1bc34591d4044e4e8900c,
+        type: 3}
+      propertyPath: m_Name
+      value: TP_GATE
+      objectReference: {fileID: 0}
+    - target: {fileID: 5200199341896944901, guid: 34843544dcb1bc34591d4044e4e8900c,
+        type: 3}
+      propertyPath: m_TagString
+      value: TP_GATE
+      objectReference: {fileID: 0}
     - target: {fileID: 5200199341896944921, guid: 34843544dcb1bc34591d4044e4e8900c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6203,16 +6213,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5200199341896944901, guid: 34843544dcb1bc34591d4044e4e8900c,
-        type: 3}
-      propertyPath: m_Name
-      value: TP_GATE
-      objectReference: {fileID: 0}
-    - target: {fileID: 5200199341896944901, guid: 34843544dcb1bc34591d4044e4e8900c,
-        type: 3}
-      propertyPath: m_TagString
-      value: TP_GATE
       objectReference: {fileID: 0}
     - target: {fileID: 5200199341896944923, guid: 34843544dcb1bc34591d4044e4e8900c,
         type: 3}
