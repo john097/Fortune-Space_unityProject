@@ -22,6 +22,7 @@ public class PlayerArrowScript : MonoBehaviour
     public bool audio_back = true;
     public AudioMixer MIXER;
     public float AUDIO;
+    public AudioSource TANCE;
     void Start()
     {
         if (!arrowPrefab)
@@ -37,7 +38,7 @@ public class PlayerArrowScript : MonoBehaviour
         start_search = false;
         search_cooldown = true;
         arrow_born = false;
-        //MIXER.GetFloat("Main_Cutoff",out AUDIO);
+        MIXER.GetFloat("Main_Cutoff", out AUDIO);
 
     }
 
@@ -48,19 +49,22 @@ public class PlayerArrowScript : MonoBehaviour
         if (!audio_go)
         {
             AUDIO = Mathf.Lerp(15000, 1000, 3);
-            //MIXER.SetFloat("Main_Cutoff", AUDIO);
+            MIXER.SetFloat("Main_Cutoff", AUDIO);
+            
         }
         if (!audio_back)
         {
             AUDIO = Mathf.Lerp(1000, 15000, 3);
-            //MIXER.SetFloat("Main_Cutoff", AUDIO);
+            MIXER.SetFloat("Main_Cutoff", AUDIO);
         }
 
 
         if (search_cooldown&&Input.GetKeyDown(KeyCode.T))
         {
             audio_go = false;
+            TANCE.Play();
             StartCoroutine(AUDIO_BACK(3));
+            StartCoroutine(AUDIO_REMOVE(8f));
             start_search = true;
             search_cooldown = false;
 
@@ -72,7 +76,7 @@ public class PlayerArrowScript : MonoBehaviour
             if (search_done&&!arrow_born)
             {
                 StartArrow();
-                StartCoroutine(Search_Skill_Remove(5f));
+                StartCoroutine(Search_Skill_Remove(8f));
                 arrow_born = true;
             }
         }
@@ -94,6 +98,12 @@ public class PlayerArrowScript : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         audio_back = true;
+    }
+
+    IEnumerator AUDIO_REMOVE(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        search_cooldown = true;
     }
 
     IEnumerator Search_Skill_Remove(float duration)

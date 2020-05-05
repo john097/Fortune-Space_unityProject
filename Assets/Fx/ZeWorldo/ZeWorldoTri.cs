@@ -8,6 +8,7 @@ public class ZeWorldoTri : MonoBehaviour
     public GameObject zwpe;
     private Animation zwbAnim;
     private Animation zwpeAnim;
+    public PlayerArrowScript pas;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,7 @@ public class ZeWorldoTri : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (pas.search_cooldown&&Input.GetKeyDown(KeyCode.T))
         {
             zwbAnim.CrossFade("ZeWorldoBallToLarge", 1f);
             zwpeAnim.CrossFade("ZeWorldoPostEffectToLarge", 1f);
