@@ -19,7 +19,17 @@ public class Start_Scene_Fades : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(GAMELOGO_IN(1));
+        if (PlayerPrefs.GetInt("First_In")==0)
+        {
+            
+            StartCoroutine(GAMELOGO_IN(1));
+        }
+        else
+        {
+            StartCoroutine(STAFF_OUT(dur));
+            StartCoroutine(START_BUTTON(dur + 0.1f));   
+        }
+        
        
     }
 

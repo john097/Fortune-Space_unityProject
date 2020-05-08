@@ -82,6 +82,8 @@ public class BattleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("First_In", 1);
+
         if (GameObject.Find("Fade_IN_OUT_Image"))//淡入淡出
         {
             black = GameObject.Find("Fade_IN_OUT_Image").GetComponent<Image>();

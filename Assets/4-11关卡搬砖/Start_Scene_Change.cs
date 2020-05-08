@@ -14,7 +14,7 @@ public class Start_Scene_Change : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey("Current_State");
         
         scene_name = SceneManager.GetActiveScene().name;
 

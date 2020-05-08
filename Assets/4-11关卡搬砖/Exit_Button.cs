@@ -45,17 +45,19 @@ public class Exit_Button : MonoBehaviour
     public void Main_Menu()
     {
         PlayerPrefs.SetInt("Current_State", -3);
-        
+        PlayerPrefs.SetInt("First_In", 1);
         SceneManager.LoadScene("Loading_Scene");
     }
 
     public void GameExit()
     {
 #if UNITY_EDITOR
+        PlayerPrefs.SetInt("First_In", 0);
         UnityEditor.EditorApplication.isPlaying = false;
 #else
+        PlayerPrefs.SetInt("First_In", 0);
          Application.Quit();
 #endif
     }
-    
+
 }
