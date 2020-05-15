@@ -253,7 +253,7 @@ public class Bullet : MonoBehaviour
         {
             float d= damage;
 
-            if (gameObject.layer!= LayerMask.NameToLayer("Particles"))
+            if (gameObject.layer!= LayerMask.NameToLayer("Particles") && gameObject.layer != LayerMask.NameToLayer("OnlyWithActor"))
             {
                d+=actor.attack;
             }
