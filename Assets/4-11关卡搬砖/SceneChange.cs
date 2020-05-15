@@ -92,7 +92,7 @@ public class SceneChange : MonoBehaviour
                 case -1:
                     PlayerPrefs.SetInt("Current_State", -2);
                     async = SceneManager.LoadSceneAsync("SpawnRoom");
-                async.allowSceneActivation = true;
+                    async.allowSceneActivation = true;
 
                 break;
 
