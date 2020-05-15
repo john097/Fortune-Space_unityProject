@@ -239,7 +239,7 @@ public class Actor : MonoBehaviour
             //}
             if (speed < 0)
             {
-                speed = 0;
+                speed = 8;
             }
             CameraDirUpdata();
 
