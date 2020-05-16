@@ -12,10 +12,11 @@ public class Start_Scene_Change : MonoBehaviour
     private string scene_name;
     private float dead_timer;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         PlayerPrefs.DeleteKey("Spawn_To_Level_1");
-        
+        PlayerPrefs.DeleteKey("Player_Dead");
+
         scene_name = SceneManager.GetActiveScene().name;
 
         if (scene_name == "Start_Scene")
